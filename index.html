@@ -1116,47 +1116,128 @@ body {
     </div>
 </div>
 
-  <div class="wa-chat-wrapper" id="waChatPopup">
-    <div class="wa-chat-bubble">
-        <button class="close-chat" onclick="document.getElementById('waChatPopup').style.display='none'">×</button>
-        
-        <div class="agent-info">
-            <div class="agent-avatar">
+  <div id="wa-alert-popup" class="wa-alert-bar">
+    <div class="wa-alert-content">
+        <div class="wa-alert-left">
+            <div class="avatar-stack">
                 <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjfVDkgW1JUyw5iwouB6zPni-6yXI8TR5xv3Rpqi_G6xNieH9eUPzu4hmzOzuH9rPfXs2-jgsCuJsmo8OWIe0kNYpHHxwLJEGKD67tO6mUtH0qhuMPOFNm1X3E3cIu-L5oLcloH-AF6uF_giIgRvHD_VBIyHjghZyNOYXKh_Zk7ihyLveYVe6mk2p3ytr7r=w200" alt="Aviral Pathak">
-                <span class="online-status"></span>
+                <span class="pulse-dot"></span>
             </div>
-            <div class="agent-text">
-                <p class="status-alert">Agent <strong>Aviral</strong> is online</p>
-                <p class="cta-text">Get your job done now!</p>
-            </div>
+            <p><strong>Aviral Pathak</strong> is online. <span class="hide-mobile">Get your job done via WhatsApp.</span></p>
         </div>
-        
-        <a href="https://wa.me/917020729200?text=Hi%20Aviral,%20I'm%20visiting%20Unlitify%20and%20want%20to%20get%20started%20on%20a%20project!" 
-           class="wa-btn" 
-           target="_blank">
-            <i class="fab fa-whatsapp"></i> Chat with Aviral
-        </a>
+        <div class="wa-alert-right">
+            <a href="https://wa.me/917020729200?text=Hi%20Aviral,%20I'm%20on%20the%20Unlitify%20site%20and%20want%20to%20discuss%20a%20project!" target="_blank" class="wa-connect-btn">
+                <i class="fab fa-whatsapp"></i> Chat Now
+            </a>
+            <button class="wa-close" onclick="closeWaAlert()">×</button>
+        </div>
     </div>
 </div>
-  <style> .close-chat {
+  <style> 
+    .wa-alert-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: rgba(15, 23, 42, 0.95); /* Dark Navy */
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 100px;
+    z-index: 10000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: alertSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wa-alert-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.wa-alert-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-stack {
+    position: relative;
+    width: 35px;
+    height: 35px;
+}
+
+.avatar-stack img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+}
+
+.pulse-dot {
     position: absolute;
-    top: 10px;
-    right: 12px;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: #25D366;
+    border-radius: 50%;
+    border: 2px solid #0f172a;
+    animation: pulseStatus 2s infinite;
+}
+
+.wa-alert-left p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.wa-connect-btn {
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.wa-connect-btn:hover {
+    background: #1eb954;
+    transform: scale(1.05);
+}
+
+.wa-close {
     background: none;
     border: none;
-    font-size: 20px;
-    color: #94a3b8;
+    color: rgba(255,255,255,0.5);
+    font-size: 22px;
     cursor: pointer;
-    line-height: 1;
-    padding: 5px;
+    margin-left: 5px;
 }
 
-.close-chat:hover {
-    color: #0f172a;
+@keyframes alertSlideUp {
+    from { bottom: -100px; opacity: 0; }
+    to { bottom: 20px; opacity: 1; }
 }
 
-/* Ensure Font Awesome is loaded for the icon */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');</style>
+@media (max-width: 480px) {
+    .hide-mobile { display: none; }
+    .wa-alert-bar { width: 95%; padding: 10px 15px; }
+}
+  </style>
 
 </body>
 </html>
