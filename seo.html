@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header class="header-wrapper">
+    <div class="header-main">
+        <div class="logo">
+            <a href="https://unlitify.vercel.app/">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjfVDkgW1JUyw5iwouB6zPni-6yXI8TR5xv3Rpqi_G6xNieH9eUPzu4hmzOzuH9rPfXs2-jgsCuJsmo8OWIe0kNYpHHxwLJEGKD67tO6mUtH0qhuMPOFNm1X3E3cIu-L5oLcloH-AF6uF_giIgRvHD_VBIyHjghZyNOYXKh_Zk7ihyLveYVe6mk2p3ytr7r=w200" alt="Unlitify" class="logo-img">
+            </a>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#services" class="nav-item">Services</a>
+            <a href="About-us.html" class="nav-item">About Us</a>
+            <a href="our-approch.html" class="nav-item">Our Approach</a>
+            <a href="#approach" class="nav-item">Case study / blogs</a>
+             <a href="jobs.html" class="nav-item">join us </a>
+            
+        </nav>
+
+        <div class="header-actions">
+            <a href="https://calendly.com/aviralpathak6/book-a-call-with-unlitify" class="cta-pill">
+                <span>Book a Call</span>
+                <div class="icon-circle">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</header>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap');
+
+    :root {
+        --accent-blue: #2b5aed;
+        --glass-bg: rgba(255, 255, 255, 0.85);
+        --text-main: #0f172a;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .header-wrapper {
+        position: fixed;
+        top: 20px;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        padding: 0 20px;
+    }
+
+    .header-main {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 12px 24px;
+        border-radius: 100px; /* Pill shape */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .logo-img {
+        height: 32px;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+        transform: scale(1.05);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 32px;
+    }
+
+    .nav-item {
+        text-decoration: none;
+        color: var(--text-main);
+        font-weight: 500;
+        font-size: 0.95rem;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-item::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-blue);
+        transition: width 0.3s ease;
+    }
+
+    .nav-item:hover {
+        color: var(--accent-blue);
+    }
+
+    .nav-item:hover::after {
+        width: 100%;
+    }
+
+    .cta-pill {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--text-main);
+        color: white;
+        padding: 8px 8px 8px 20px;
+        border-radius: 100px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .icon-circle {
+        width: 32px;
+        height: 32px;
+        background: var(--accent-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+
+    .cta-pill:hover {
+        background: var(--accent-blue);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(43, 90, 237, 0.4);
+    }
+
+    .cta-pill:hover .icon-circle {
+        background: white;
+        color: var(--accent-blue);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none; /* Usually, you'd implement a hamburger menu here */
+        }
+        .header-main {
+            padding: 8px 16px;
+        }
+    }
+</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+        :root {
+            --primary-blue: #2b5aed;
+            --seo-green: #25D366;
+            --dark-navy: #0f172a;
+            --slate: #64748b;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            background: #ffffff;
+            color: var(--dark-navy);
+        }
+
+        /* --- Hero Section --- */
+        .seo-hero {
+            padding: 100px 5% 60px;
+            text-align: center;
+            background: radial-gradient(circle at top, #f0f4ff, #ffffff);
+        }
+
+        .seo-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .seo-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        /* --- SEO Pillars Grid --- */
+        .pillar-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .pillar-card {
+            padding: 40px;
+            border-radius: 24px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-blue);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .pillar-card:hover::before {
+            opacity: 1;
+        }
+
+        .pillar-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .pillar-card p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* --- Footer CTA --- */
+        .seo-cta {
+            background: var(--dark-navy);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .seo-cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .seo-cta span { color: var(--seo-green); }
+
+        .btn-seo {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .btn-seo:hover {
+            background: #1e45c7;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <section class="seo-hero">
+        <h1>Rank Higher. <span style="color: var(--primary-blue);">Grow Faster.</span></h1>
+        <p>SEO isn't just about traffic; it's about being the clearest answer to your customer's questions. We build search authority that lasts.</p>
+    </section>
+
+    <div class="pillar-container">
+        <div class="pillar-card">
+            <span class="pillar-icon">🎯</span>
+            <h3>Keyword Research</h3>
+            <p>We find the high-intent phrases your customers are actually typing. We don't just chase volume; we chase conversion-ready searchers.</p>
+        </div>
+
+        <div class="pillar-card">
+            <span class="pillar-icon">📄</span>
+            <h3>On-Page SEO</h3>
+            <p>Optimizing your content, metadata, and images to ensure search engines understand your value and users enjoy the experience.</p>
+        </div>
+
+        <div class="pillar-card">
+            <span class="pillar-icon">⚙️</span>
+            <h3>Technical SEO</h3>
+            <p>Behind-the-scenes optimization. We fix site speed, mobile-friendliness, and crawl errors so nothing stops your growth.</p>
+        </div>
+
+        <div class="pillar-card">
+            <span class="pillar-icon">📊</span>
+            <h3>Competitor Analysis</h3>
+            <p>We reverse-engineer what's working for your rivals and build a strategy to outperform them in the rankings.</p>
+        </div>
+
+        <div class="pillar-card">
+            <span class="pillar-icon">🔗</span>
+            <h3>Off-Page SEO</h3>
+            <p>Building high-quality backlinks and digital PR to establish your website as a trusted authority in your industry.</p>
+        </div>
+
+        <div class="pillar-card">
+            <span class="pillar-icon">🗺️</span>
+            <h3>SEO Strategy</h3>
+            <p>A long-term roadmap tailored to your business goals. We align search intent with your brand's unique mission.</p>
+        </div>
+    </div>
+
+    <section class="seo-cta">
+        <h2>Ready to dominate the <span>Search Results?</span></h2>
+        <p>Let’s build a clear path to your target audience.</p>
+        <a href="#contact" class="btn-seo">Get Your Free SEO Audit</a>
+    </section>
+
+</body>
+</html>
