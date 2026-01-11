@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+        :root {
+            --primary: #2b5aed;
+            --accent-green: #25D366;
+            --dark-navy: #0f172a;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+            color: var(--dark-navy);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- Hero Section --- */
+        .join-hero {
+            padding: 100px 5% 60px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .join-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .highlight-blue { color: var(--primary); }
+
+        /* --- Philosophy Cards --- */
+        .philosophy-grid {
+            max-width: 1100px;
+            margin: -40px auto 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .p-card {
+            background: var(--dark-navy);
+            color: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .p-card h3 { color: var(--accent-green); margin-top: 0; }
+
+        /* --- Roles Section --- */
+        .roles-section {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .role-box {
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .role-box:hover {
+            border-color: var(--primary);
+            background: #f8fafc;
+            transform: translateX(10px);
+        }
+
+        .role-info h3 { margin: 0 0 10px 0; color: var(--dark-navy); }
+        .role-tag {
+            background: #eff4ff;
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* --- Apply Section --- */
+        .apply-container {
+            background: var(--primary);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .apply-steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin: 0 auto 15px;
+        }
+
+        .email-link {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .role-box { flex-direction: column; align-items: flex-start; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="join-hero">
+        <a href="index.html" style="text-decoration: none; color: var(--primary); font-weight: 600;">← Back to Home</a>
+        <h1>Don't Apply for a Job.<br><span class="highlight-blue">Build the Future of Growth.</span></h1>
+        <p style="max-width: 600px; margin: 20px auto; color: #64748b;">Unlitify isn't a corporate ladder. It's a seat at the table for builders, freelancers, and hungry creators.</p>
+    </section>
+
+    
+
+    <section class="philosophy-grid">
+        <div class="p-card">
+            <h3>No Barriers.</h3>
+            <p>We don't care about your CV, your age, or your degrees. If you have the skill or the will to learn, you're in. We hire the human, not the paper.</p>
+        </div>
+        <div class="p-card">
+            <h3>Skin in the Game.</h3>
+            <p>We are a lean, hungry startup. Whether you start as a freelancer or a partner, we value ownership over "just finishing tasks."</p>
+        </div>
+    </section>
+
+    <div class="roles-section">
+        <h2>Open Roles & Founding Gigs</h2>
+        
+        <div class="role-box">
+            <div class="role-info">
+                <span class="role-tag">CLIENT ACQUISITION</span>
+                <h3>Growth Hunter</h3>
+                <p>DM wizards and cold-outreach experts. If you have great communication skills and are willing to learn the art of closing, this is for you.</p>
+            </div>
+            <div class="icon-arrow">→</div>
+        </div>
+
+        <div class="role-box">
+            <div class="role-info">
+                <span class="role-tag">CREATIVE</span>
+                <h3>Content Architect</h3>
+                <p>Social posts, pitch decks, and visuals that stand out. Perfect for freelancers who want to build high-level brand assets.</p>
+            </div>
+            <div class="icon-arrow">→</div>
+        </div>
+
+        <div class="role-box">
+            <div class="role-info">
+                <span class="role-tag">STRATEGY</span>
+                <h3>Copy & Operations Intern</h3>
+                <p>Help us speak like humans. You're the "I'll figure it out" person working directly with the founders.</p>
+            </div>
+            <div class="icon-arrow">→</div>
+        </div>
+
+        <div class="role-box" style="background: #f0f7ff; border-style: dashed; border-color: var(--primary);">
+            <div class="role-info">
+                <span class="role-tag" style="background: var(--primary); color: white;">THE WILDCARD</span>
+                <h3>Not sure where you fit?</h3>
+                <p>Have a skill we didn't mention? Whether you are a video editor, a researcher, or just a high-energy builder—mail us anyway. We hire the human first; we'll find a role that fits your strength.</p>
+            </div>
+            <div class="icon-arrow" style="color: var(--primary); font-weight: bold;">📧</div>
+        </div>
+    </div>
+
+    <section class="apply-container">
+        <h2>Ready to Build Unlitify?</h2>
+        <p>We don't want resumes. We want to know how you think.</p>
+        
+        <div class="apply-steps">
+            <div><div class="step-circle">1</div><p>Who you are<br>(1 Para)</p></div>
+            <div><div class="step-circle">2</div><p>Role you want<br>to explore</p></div>
+            <div><div class="step-circle">3</div><p>Proof of work<br>(Links/Loom)</p></div>
+            <div><div class="step-circle">4</div><p>How you'd help<br>Unlitify grow</p></div>
+        </div>
+
+        <p style="margin-bottom: 10px; opacity: 0.8;">Send your message to:</p>
+        <a href="mailto:hello@unlitify.com" class="email-link">aviralpathakwork@gmail.com</a>
+        <p style="margin-top: 20px; font-size: 0.9rem;">Subject: "I Want to Build With Unlitify"</p>
+    </section>
+
+</body>
+</html>
