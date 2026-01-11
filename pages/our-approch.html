@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+        :root {
+            --primary: #2b5aed;
+            --accent-green: #25D366;
+            --dark: #0f172a;
+            --light-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            color: var(--dark);
+            background: #fff;
+        }
+
+        /* --- Header Section --- */
+        .approach-header {
+            padding: 100px 5% 60px;
+            text-align: center;
+            background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 100%);
+        }
+
+        .approach-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .approach-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #64748b;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* --- Timeline/Steps Layout --- */
+        .approach-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .approach-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+            transform: translateX(-50%);
+        }
+
+        .step-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 100px;
+            width: 100%;
+        }
+
+        .step-content {
+            width: 42%;
+            padding: 30px;
+            background: var(--light-bg);
+            border-radius: 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .step-row:hover .step-content {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            border: 5px solid white;
+            z-index: 2;
+        }
+
+        .step-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .step-content h3 {
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        .step-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #475569;
+        }
+
+        /* --- Philosophy Banner --- */
+        .philosophy-banner {
+            background: var(--dark);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .philosophy-banner h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .philosophy-banner span {
+            color: var(--accent-green);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .approach-container::before { left: 20px; }
+            .step-row { flex-direction: column !important; align-items: flex-start; margin-left: 40px; margin-bottom: 60px; }
+            .step-content { width: 90%; }
+            .step-number { left: -20px; transform: translateY(-50%); }
+        }
+    </style>
+
+    <header class="header-wrapper">
+    <div class="header-main">
+        <div class="logo">
+            <a href="#">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjfVDkgW1JUyw5iwouB6zPni-6yXI8TR5xv3Rpqi_G6xNieH9eUPzu4hmzOzuH9rPfXs2-jgsCuJsmo8OWIe0kNYpHHxwLJEGKD67tO6mUtH0qhuMPOFNm1X3E3cIu-L5oLcloH-AF6uF_giIgRvHD_VBIyHjghZyNOYXKh_Zk7ihyLveYVe6mk2p3ytr7r=w200" alt="Unlitify" class="logo-img">
+            </a>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#services" class="nav-item">Services</a>
+            <a href="#about" class="nav-item">About Us</a>
+            <a href="#approach" class="nav-item">Our Approach</a>
+            <a href="#approach" class="nav-item">Case study / blogs</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="#contact" class="cta-pill">
+                <span>Book a Call</span>
+                <div class="icon-circle">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</header>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap');
+
+    :root {
+        --accent-blue: #2b5aed;
+        --glass-bg: rgba(255, 255, 255, 0.85);
+        --text-main: #0f172a;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .header-wrapper {
+        position: fixed;
+        top: 20px;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        padding: 0 20px;
+    }
+
+    .header-main {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 12px 24px;
+        border-radius: 100px; /* Pill shape */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .logo-img {
+        height: 32px;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+        transform: scale(1.05);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 32px;
+    }
+
+    .nav-item {
+        text-decoration: none;
+        color: var(--text-main);
+        font-weight: 500;
+        font-size: 0.95rem;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-item::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-blue);
+        transition: width 0.3s ease;
+    }
+
+    .nav-item:hover {
+        color: var(--accent-blue);
+    }
+
+    .nav-item:hover::after {
+        width: 100%;
+    }
+
+    .cta-pill {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--text-main);
+        color: white;
+        padding: 8px 8px 8px 20px;
+        border-radius: 100px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .icon-circle {
+        width: 32px;
+        height: 32px;
+        background: var(--accent-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+
+    .cta-pill:hover {
+        background: var(--accent-blue);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(43, 90, 237, 0.4);
+    }
+
+    .cta-pill:hover .icon-circle {
+        background: white;
+        color: var(--accent-blue);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none; /* Usually, you'd implement a hamburger menu here */
+        }
+        .header-main {
+            padding: 8px 16px;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+    <section class="approach-header">
+        <h1>Our Strategic Approach</h1>
+        <p>We don't believe in guesswork. Our methodology is built on data, storytelling, and direct connection to ensure your brand doesn't just grow—it dominates.</p>
+    </section>
+
+    <div class="approach-container">
+        <div class="step-row">
+            <div class="step-content">
+                <h3>01. Discovery & Audit</h3>
+                <p>We dive deep into your brand’s DNA. By auditing your current digital footprint and analyzing your competitors, we find the "gaps" where your brand can stand out.</p>
+            </div>
+            <div class="step-number">1</div>
+            <div style="width: 42%;"></div> </div>
+
+        <div class="step-row">
+            <div class="step-content">
+                <h3>02. Clarity Blueprint</h3>
+                <p>Brands don't grow by being louder; they grow by being clearer. We refine your messaging, aligning your vision with a powerful growth strategy that resonates with your target audience.</p>
+            </div>
+            <div class="step-number">2</div>
+            <div style="width: 42%;"></div>
+        </div>
+
+        <div class="step-row">
+            <div class="step-content">
+                <h3>03. Multi-Channel Execution</h3>
+                <p>From WhatsApp marketing and SEO to high-conversion Google Ads, we deploy your message across the platforms where your audience is most active and engaged.</p>
+            </div>
+            <div class="step-number">3</div>
+            <div style="width: 42%;"></div>
+        </div>
+
+        <div class="step-row">
+            <div class="step-content">
+                <h3>04. Data-Driven Scaling</h3>
+                <p>We don't set it and forget it. We analyze the data in real-time, optimizing your campaigns to drive higher credibility, more leads, and consistent sales growth.</p>
+            </div>
+            <div class="step-number">4</div>
+            <div style="width: 42%;"></div>
+        </div>
+    </div>
+
+    <section class="philosophy-banner">
+        <h2>Real growth comes from <span>real connection.</span></h2>
+        <p>Unlitify works as your growth partner, not just another agency.</p>
+    </section>
+
+</body>
+</html>
