@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Development | Build Your Online Store | Unlitify</title>
+    <meta name="description" content="Unlitify builds high-performance e-commerce stores. Seamless checkout, inventory management, and conversion-optimized design for your online business.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Archivo:wght@900&display=swap');
+
+        :root {
+            --primary: #2b5aed;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --slate: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        /* --- Navigation --- */
+        .top-nav { padding: 30px 5%; }
+        .back-home {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .back-home:hover { color: var(--primary); }
+
+        /* --- Hero Section --- */
+        .shop-hero {
+            padding: 60px 5% 100px;
+            text-align: center;
+            background: radial-gradient(circle at bottom right, #f1f5f9 0%, #ffffff 100%);
+        }
+
+        .shop-hero h1 {
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 4.2rem);
+            font-weight: 900;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .highlight-blue { color: var(--primary); }
+
+        .shop-hero p {
+            max-width: 750px;
+            margin: 0 auto 40px;
+            font-size: 1.25rem;
+            color: var(--gray);
+        }
+
+        /* --- Features Grid --- */
+        .shop-grid {
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .shop-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--slate);
+            transition: all 0.3s ease;
+        }
+
+        .shop-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(43, 90, 237, 0.06);
+        }
+
+        .shop-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 15px; }
+
+        /* --- CTA --- */
+        .btn-shop {
+            display: inline-block;
+            background: var(--dark);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-shop:hover { 
+            background: var(--primary); 
+            transform: scale(1.05); 
+        }
+
+        @media (max-width: 768px) {
+            .shop-hero h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="index.html" class="back-home">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Home
+        </a>
+    </nav>
+
+    <section class="shop-hero">
+        <h1>Seamless Selling. <br><span class="highlight-blue">Infinite Scaling.</span></h1>
+        <p>Build powerful online stores with seamless checkout processes and full inventory management. We create e-commerce experiences that convert browsers into lifelong customers.</p>
+        <a href="https://wa.me/917020729200?text=I%20want%20to%20discuss%20an%20ecommerce%20project" class="btn-shop">Start My Store</a>
+    </section>
+
+    <div class="shop-grid">
+        <div class="shop-card">
+            <h3>Frictionless Checkout</h3>
+            <p>We eliminate cart abandonment with optimized, one-page checkout experiences designed for speed and trust.</p>
+        </div>
+        <div class="shop-card">
+            <h3>Smart Inventory</h3>
+            <p>Manage your stock with ease. We integrate full inventory management systems that sync across all your sales channels.</p>
+        </div>
+        <div class="shop-card">
+            <h3>Global Scalability</h3>
+            <p>Whether you're selling 10 products or 10,000, we build stores that handle traffic spikes and grow alongside your brand.</p>
+        </div>
+    </div>
+
+</body>
+</html>
