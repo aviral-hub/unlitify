@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text SMS Marketing & Transactional Alerts | Unlitify</title>
+    <meta name="description" content="Reach your customers instantly with Unlitify's Text SMS services. High-delivery transactional and promotional messaging to boost brand engagement.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Archivo:wght@900&display=swap');
+
+        :root {
+            --primary: #2b5aed;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --sms-blue: #3b82f6;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        /* --- Navigation --- */
+        .top-nav { padding: 30px 5%; }
+        .back-home {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .back-home:hover { color: var(--primary); }
+
+        /* --- Hero Section --- */
+        .sms-hero {
+            padding: 60px 5% 100px;
+            text-align: center;
+            background: radial-gradient(circle at top left, #eff6ff 0%, #ffffff 100%);
+        }
+
+        .sms-hero h1 {
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 4.2rem);
+            font-weight: 900;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .highlight-sms { color: var(--sms-blue); }
+
+        .sms-hero p {
+            max-width: 750px;
+            margin: 0 auto 40px;
+            font-size: 1.25rem;
+            color: var(--gray);
+        }
+
+        /* --- Service Cards --- */
+        .sms-grid {
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .sms-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .sms-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sms-blue);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.08);
+        }
+
+        .sms-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 15px; }
+
+        /* --- CTA --- */
+        .btn-sms {
+            display: inline-block;
+            background: var(--dark);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-sms:hover { 
+            background: var(--sms-blue); 
+            transform: scale(1.05); 
+        }
+
+        @media (max-width: 768px) {
+            .sms-hero h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="index.html" class="back-home">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Home
+        </a>
+    </nav>
+
+    <section class="sms-hero">
+        <h1>98% Open Rate. <br><span class="highlight-sms">Instant Delivery.</span></h1>
+        <p>Connect with customers through transactional and promotional messages to boost engagement. Land directly in their pockets at the exact moment it matters most.</p>
+        <a href="https://wa.me/917020729200?text=I%20want%20to%20learn%20more%20about%20SMS%20services" class="btn-sms">Start Sending Today</a>
+    </section>
+
+    <div class="sms-grid">
+        <div class="sms-card">
+            <h3>Transactional Alerts</h3>
+            <p>Send OTPs, order updates, and delivery notifications with high-priority routing for 100% reliability.</p>
+        </div>
+        <div class="sms-card">
+            <h3>Promotional Blasts</h3>
+            <p>Launch flash sales and limited-time offers. SMS marketing drives higher immediate action than any other channel.</p>
+        </div>
+        <div class="sms-card">
+            <h3>API Integration</h3>
+            <p>Seamlessly connect our SMS gateway to your existing CRM or website for fully automated messaging workflows.</p>
+        </div>
+    </div>
+
+</body>
+</html>
