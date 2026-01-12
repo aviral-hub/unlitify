@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Unlitify Freelance Force | Build Your Career</title>
+    <meta name="description" content="Join Unlitify as a freelancer. Get real projects, real clients, and real growth. Whether you are a student, fresher, or pro, Unlitify is your new home.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Archivo:wght@900&display=swap');
+
+        :root {
+            --primary: #2b5aed;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --accent-purple: #6366f1;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        /* --- Navigation --- */
+        .top-nav { padding: 30px 5%; }
+        .back-home {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .back-home:hover { color: var(--primary); }
+
+        /* --- Hero Section --- */
+        .freelance-hero {
+            padding: 40px 5% 80px;
+            text-align: center;
+            background: radial-gradient(circle at top right, #eef2ff 0%, #ffffff 100%);
+        }
+
+        .freelance-hero h1 {
+            font-family: 'Archivo', sans-serif;
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            color: var(--dark);
+        }
+
+        .highlight-gradient {
+            background: linear-gradient(90deg, var(--primary), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .freelance-hero p {
+            max-width: 650px;
+            margin: 0 auto 35px;
+            font-size: 1.25rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        /* --- Value Grid --- */
+        .value-section {
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .value-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            transition: 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.1);
+        }
+
+        .check-icon { color: #22c55e; margin-right: 10px; font-weight: bold; }
+
+        /* --- Skills Marquee --- */
+        .skills-band {
+            background: var(--dark);
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 80px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .skills-scroll {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* --- CTA Section --- */
+        .cta-box {
+            background: var(--primary);
+            color: white;
+            padding: 80px 5%;
+            text-align: center;
+            border-radius: 40px;
+            max-width: 1000px;
+            margin: 0 auto 100px;
+        }
+
+        .btn-join {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 20px 50px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .btn-join:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+        @media (max-width: 768px) {
+            .freelance-hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="index.html" class="back-home">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Home
+        </a>
+    </nav>
+
+    <section class="freelance-hero">
+        <h1>🚀 Are You a <br><span class="highlight-gradient">Freelancer?</span></h1>
+        <p>Even thinking of starting? Unlitify is your new home. Not just another platform. Not just random gigs.</p>
+        <p style="color: var(--dark); font-size: 1.4rem;">Real clients. Real projects. Real growth.</p>
+    </section>
+
+    <div class="skills-band">
+        <div class="skills-scroll">
+            DESIGN • DEVELOPMENT • MARKETING • CONTENT • VIDEO • SEO • TECH • SUPPORT •&nbsp;
+            DESIGN • DEVELOPMENT • MARKETING • CONTENT • VIDEO • SEO • TECH • SUPPORT •
+        </div>
+    </div>
+
+    <div class="value-section">
+        <div class="value-card">
+            <p><span class="check-icon">✔</span> No fake clients</p>
+        </div>
+        <div class="value-card">
+            <p><span class="check-icon">✔</span> No spam gigs</p>
+        </div>
+        <div class="value-card">
+            <p><span class="check-icon">✔</span> Get hired based on skill</p>
+        </div>
+        <div class="value-card">
+            <p><span class="check-icon">✔</span> Work from anywhere</p>
+        </div>
+        <div class="value-card">
+            <p><span class="check-icon">✔</span> Grow your career</p>
+        </div>
+    </div>
+
+    <section style="text-align: center; padding: 0 5% 80px;">
+        <h2 style="font-family: 'Archivo'; font-size: 2.5rem;">👨‍💻 New to Freelancing?</h2>
+        <p style="color: var(--gray); max-width: 600px; margin: 0 auto 40px;">No problem. Unlitify helps beginners, freshers, and students get their first real projects. No experience? No fear. Just skills.</p>
+        
+        <div class="cta-box">
+            <h2>💼 You Have Skills. We Bring Work.</h2>
+            <p>Ready to start your journey with Unlitify?</p>
+            <a href="https://tally.so/r/obReg5" class="btn-join" target="_blank">Fill This Form to Join</a>
+        </div>
+    </section>
+
+</body>
+</html>
