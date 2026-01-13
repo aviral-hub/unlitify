@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Infrastructure | Unlitify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+        :root { --cyan: #00D1FF; --dark-bg: #050505; --card-bg: rgba(255, 255, 255, 0.03); --border-color: rgba(255, 255, 255, 0.08); }
+        body { background-color: var(--dark-bg); color: white; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        
+        .u-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 32px; padding: 2.5rem; backdrop-filter: blur(12px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .u-card:hover { border-color: var(--cyan); transform: translateY(-10px); background: rgba(255, 255, 255, 0.05); box-shadow: 0 20px 40px rgba(0, 209, 255, 0.1); }
+        
+        .sub-service-list { list-style: none; margin-top: 1.5rem; }
+        .sub-service-list li { font-size: 0.8rem; color: #94a3b8; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03); display: flex; align-items: center; gap: 8px; }
+        .sub-service-list li::before { content: "→"; color: var(--cyan); font-weight: bold; }
+        
+        .label-caps { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4em; color: var(--cyan); }
+        .glass-header { background: rgba(5,5,5,0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border-color); }
+        
+        .stage-badge { padding: 4px 12px; border-radius: 100px; font-size: 10px; font-weight: 800; text-transform: uppercase; border: 1px solid currentColor; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="glass-header py-6 px-10 flex justify-between items-center">
+        <div class="text-2xl font-black italic tracking-tighter">UNLITIFY<span class="text-[#00D1FF]">.</span></div>
+        <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest">
+            <a href="#services" class="hover:text-cyan-400 transition">Solutions</a>
+            <a href="#roadmap" class="hover:text-cyan-400 transition">Delivery Roadmap</a>
+            <a href="#" class="text-cyan-400 border-b border-cyan-400">Get Infrastructure Audit</a>
+        </div>
+    </nav>
+
+    <header class="py-24 px-6 text-center max-w-4xl mx-auto">
+        <p class="label-caps mb-6 animate-pulse">Full-Stack Digital Infrastructure</p>
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter italic mb-8">
+            Complete Service <span class="text-cyan-400">Breakdown.</span>
+        </h1>
+        <p class="text-gray-500 text-lg leading-relaxed">
+            Every layer of the Unlitify engine. From technical SEO audits to advanced WhatsApp automation, we build the infrastructure that scales brands globally.
+        </p>
+    </header>
+
+    <section id="services" class="px-6 pb-32 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="u-card">
+            <div class="flex justify-between items-start mb-6">
+                <i class="fa-solid fa-magnifying-glass-chart text-3xl text-cyan-400"></i>
+                <span class="text-[10px] text-gray-600 font-bold uppercase">01</span>
+            </div>
+            <h3 class="text-2xl font-black italic">Search Engine Optimization</h3>
+            <ul class="sub-service-list">
+                <li>Keyword Research & Mapping</li>
+                <li>Technical SEO Audit</li>
+                <li>On-Page SEO Strategy</li>
+                <li>Local SEO (GMB) Management</li>
+                <li>Schema Markup Implementation</li>
+                <li>Monthly Rank Reporting</li>
+            </ul>
+        </div>
+
+        <div class="u-card">
+            <div class="flex justify-between items-start mb-6">
+                <i class="fa-solid fa-file-shield text-3xl text-cyan-400"></i>
+                <span class="text-[10px] text-gray-600 font-bold uppercase">02</span>
+            </div>
+            <h3 class="text-2xl font-black italic">Advanced SEO Audit</h3>
+            <ul class="sub-service-list">
+                <li>100+ Point Technical Check</li>
+                <li>Competitor Gap Analysis</li>
+                <li>Backlink Profile Audit</li>
+                <li>Core Web Vitals Report</li>
+                <li>Indexation & Crawl Report</li>
+                <li>30-Day Action Roadmap</li>
+            </ul>
+        </div>
+
+        <div class="u-card">
+            <div class="flex justify-between items-start mb-6">
+                <i class="fa-brands fa-google text-3xl text-cyan-400"></i>
+                <span class="text-[10px] text-gray-600 font-bold uppercase">03</span>
+            </div>
+            <h3 class="text-2xl font-black italic">Google Ads (PPC)</h3>
+            <ul class="sub-service-list">
+                <li>Intent-Based Research</li>
+                <li>P-Max & Search Setup</li>
+                <li>Smart Bidding Management</li>
+                <li>A/B Copy Testing</li>
+                <li>GA4 & GTM Conversion Tracking</li>
+                <li>Negative Keyword Hardening</li>
+            </ul>
+        </div>
+
+        <div class="u-card">
+            <div class="flex justify-between items-start mb-6">
+                <i class="fa-solid fa-chart-line text-3xl text-cyan-400"></i>
+                <span class="text-[10px] text-gray-600 font-bold uppercase">04</span>
+            </div>
+            <h3 class="text-2xl font-black italic">Multi-Platform PPC</h3>
+            <ul class="sub-service-list">
+                <li>Meta & Instagram Scaling</li>
+                <li>YouTube & TikTok Ads</li>
+                <li>LinkedIn B2B Targetting</li>
+                <li>Retargeting Infrastructure</li>
+                <li>Lookalike Audience Modeling</li>
+                <li>Cross-Platform Attribution</li>
+            </ul>
+        </div>
+
+        <div class="u-card">
+            <div class="flex justify-between items-start mb-6">
+                <i class="fa-brands fa-whatsapp text-3xl text-cyan-400"></i>
+                <span class="text-[10px] text-gray-600 font-bold uppercase">05</span>
+            </div>
+            <h3 class="text-2xl font-black italic">WhatsApp Automation</h3>
+            <ul class="sub-service-list">
+                <li>Business API Setup</li>
+                <li>Abandoned Cart Recovery</li>
+                <li>AI Chatbot Implementation</li>
+                <li>Shopify/Woo Integration</li>
+                <li>Broadcast Flow Logic</li>
+                <li>Real-time Dashboard</li>
+            </ul>
+        </div>
+
+        <div class="u-card">
+            <div class="flex justify-between items-start mb-6">
+                <i class="fa-solid fa-code text-3xl text-cyan-400"></i>
+                <span class="text-[10px] text-gray-600 font-bold uppercase">10</span>
+            </div>
+            <h3 class="text-2xl font-black italic">Web Design & Dev</h3>
+            <ul class="sub-service-list">
+                <li>UI/UX User Journey Mapping</li>
+                <li>Tailwind / Glass-morphism Dev</li>
+                <li>Supabase & API Integration</li>
+                <li>E-commerce Hardening</li>
+                <li>Sub-2s Speed Optimization</li>
+                <li>Technical Maintenance</li>
+            </ul>
+        </div>
+        </section>
+
+    <section id="roadmap" class="bg-white/5 py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <p class="label-caps mb-4">Delivery Protocol</p>
+                <h2 class="text-5xl font-black italic">The 3-Stage <span class="text-cyan-400">Lifecycle.</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="relative">
+                    <div class="stage-badge text-yellow-500 mb-6 border-yellow-500/30">Phase 01: Discovery</div>
+                    <h4 class="text-xl font-bold mb-4">Lead Generation & Strategy</h4>
+                    <p class="text-gray-500 text-sm mb-6">Conducted by our Sales Acquirers to identify infrastructure leaks.</p>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Free Infrastructure Audit</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Competitor Analysis</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Smart Custom Proposal</li>
+                    </ul>
+                </div>
+
+                <div class="relative">
+                    <div class="stage-badge text-cyan-400 mb-6 border-cyan-400/30">Phase 02: Execution</div>
+                    <h4 class="text-xl font-bold mb-4">Management & Quality</h4>
+                    <p class="text-gray-500 text-sm mb-6">Our Managers ensure the technical logic aligns with brand goals.</p>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Project Kickoff & Assets</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Weekly Progress Reporting</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> QA & Live Approval</li>
+                    </ul>
+                </div>
+
+                <div class="relative">
+                    <div class="stage-badge text-purple-500 mb-6 border-purple-500/30">Phase 03: Delivery</div>
+                    <h4 class="text-xl font-bold mb-4">Implementation & Handover</h4>
+                    <p class="text-gray-500 text-sm mb-6">Our technical freelancers deploy the actual infrastructure.</p>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Technical Deployment</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Testing & Scaling</li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i> Training & Handover</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center">
+        <div class="text-2xl font-black italic mb-6">UNLITIFY<span class="text-cyan-400">.</span></div>
+        <p class="text-gray-600 text-[10px] uppercase tracking-widest mb-10">Deploying Global Growth Infrastructure since 2024</p>
+        <button class="bg-white text-black font-black py-4 px-10 rounded-2xl uppercase tracking-widest text-xs hover:bg-cyan-400 transition-all">
+            Get Started
+        </button>
+    </footer>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Decoder | Unlitify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --cyan: #00D1FF; --bg: #050505; }
+        body { background: var(--bg); font-family: 'Plus Jakarta Sans', sans-serif; color: white; scroll-behavior: smooth; }
+        .u-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 1.5rem; height: fit-content; }
+        .explanation { max-height: 0; overflow: hidden; transition: all 0.4s ease; font-size: 12px; color: #94a3b8; line-height: 1.5; padding-left: 18px; }
+        .service-item { cursor: pointer; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .service-item.active .explanation { max-height: 120px; margin-top: 8px; margin-bottom: 8px; }
+        .service-item.active .title-text { color: var(--cyan); font-weight: 700; }
+        .arrow { font-size: 8px; transition: transform 0.3s; display: inline-block; margin-right: 8px; color: #444; }
+        .service-item.active .arrow { transform: rotate(90deg); color: var(--cyan); }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="mb-16 text-center">
+            <p class="text-[10px] font-bold text-cyan-400 uppercase tracking-[0.4em] mb-4">Infrastructure Library</p>
+            <h1 class="text-5xl font-black italic mb-4">COMPLETE <span class="text-cyan-400">DECODER.</span></h1>
+            <p class="text-gray-500 text-sm italic">Click any technical sub-service to reveal its business value.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="u-card">
+                <h3 class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-4">01. Search Engine Optimization</h3>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Keyword Research</span><div class="explanation">We find the exact words your customers type when they are ready to buy, ensuring you show up right when they have their wallet out.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Technical SEO Audit</span><div class="explanation">A health check for your website to make sure Google's search robots don't get stuck or lost when trying to rank you.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Schema Markup</span><div class="explanation">Special code that makes your search result look "premium" with star ratings, making people click you over competitors.</div></div>
+            </div>
+
+            <div class="u-card">
+                <h3 class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-4">02. SEO Infrastructure Audit</h3>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Competitor Gap Analysis</span><div class="explanation">We spy on what your competitors are doing right and find the "shortcuts" to beat them in search results.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Core Web Vitals Report</span><div class="explanation">We measure how fast your site feels to a real human. If it’s slow, you’re losing money; we show you exactly where.</div></div>
+            </div>
+
+            <div class="u-card">
+                <h3 class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-4">03. Google Ads (PPC)</h3>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Performance Max Setup</span><div class="explanation">An AI-powered system that finds your customers across YouTube, Search, and Gmail simultaneously with one budget.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Negative Keywords</span><div class="explanation">We block your ads from showing for "free" or "cheap" searches, so you only pay for high-value clicks.</div></div>
+            </div>
+
+            <div class="u-card">
+                <h3 class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-4">04. Pay-Per-Click (Social)</h3>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Retargeting Campaigns</span><div class="explanation">The "Follow-Me" ads. We show your brand to people who visited your site but didn't buy, bringing them back to finish.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Lookalike Audiences</span><div class="explanation">We give the AI a list of your best customers and tell it to find 100,000 more people exactly like them.</div></div>
+            </div>
+
+            <div class="u-card">
+                <h3 class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-4">05. WhatsApp Automation</h3>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Abandoned Cart Recovery</span><div class="explanation">Automated messages sent to people who left items in their cart. It’s like having a digital salesperson nudging them to pay.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Business API Setup</span><div class="explanation">The official green-tick setup that lets you send thousands of messages without getting banned by Meta.</div></div>
+            </div>
+
+            <div class="u-card">
+                <h3 class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-4">06. WhatsApp Marketing</h3>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Broadcast Campaigns</span><div class="explanation">Direct pocket-marketing. 98% of people will open your message, compared to only 10% in email.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Click-to-WhatsApp Ads</span><div class="explanation">An ad that opens a chat instead of a website. It makes starting a conversation as easy as a single tap.</div></div>
+            </div>
+
+            <div class="u-card">
+                <h3 class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-4">07. Social Media Marketing</h3>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Content Calendar</span><div class="explanation">A 30-day map of exactly what we post and when, so your brand stays active and alive while you focus on business.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Community Management</span><div class="explanation">We handle the comments, DMs, and trolls so your brand always looks helpful and professional.</div></div>
+            </div>
+
+            <div class="u-card">
+                <h3 class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-4">08. Email Marketing</h3>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Segmentation</span><div class="explanation">We divide your list so big spenders get VIP offers and new subscribers get "Welcome" discounts. No spamming.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">LTV Sequences</span><div class="explanation">Automated emails that keep old customers coming back to buy more, increasing the value of every single lead.</div></div>
+            </div>
+
+            <div class="u-card">
+                <h3 class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-4">09. Content Creation</h3>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">UGC Video Scripts</span><div class="explanation">We write "ad-scripts" for real people to film, making your ads look like authentic reviews rather than annoying commercials.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Direct Response Copy</span><div class="explanation">Words written specifically to make people click "Buy Now" instead of just "Like."</div></div>
+            </div>
+
+            <div class="u-card">
+                <h3 class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-4">10. Web Infrastructure</h3>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Responsive Design</span><div class="explanation">Your site will look like a $100k tech platform on a Mac, and still work perfectly on a low-end Android.</div></div>
+                <div class="service-item" onclick="toggle(this)"><span class="arrow">▶</span><span class="title-text text-sm">Speed Hardening</span><div class="explanation">We strip away heavy code so your site loads in under 2 seconds. Every second of delay kills 7% of your sales.</div></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggle(el) {
+            const isActive = el.classList.contains('active');
+            const parent = el.parentElement;
+            parent.querySelectorAll('.service-item').forEach(item => item.classList.remove('active'));
+            if (!isActive) el.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
+    
+
+</body>
+</html>
