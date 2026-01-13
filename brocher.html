@@ -288,33 +288,32 @@
 
 <script>
     document.getElementById('download-btn').onclick = function () {
-        const element = document.body; // Exports the entire page
+        const element = document.getElementById('brochure-export-container');
         const button = this;
 
-        // 1. Hide the button so it doesn't show in the PDF
         button.style.display = 'none';
 
-        // 2. PDF Configuration
         const options = {
             margin: 0,
-            filename: 'Unlitify_Capabilities_2026.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
+            filename: 'Unlitify_Brochure_2026.pdf',
+            image: { type: 'jpeg', quality: 1 },
             html2canvas: { 
-                scale: 2, // Higher scale = better resolution
-                useCORS: true, 
-                letterRendering: true 
+                scale: 2, 
+                useCORS: true,
+                logging: false,
+                letterRendering: true
             },
             jsPDF: { 
                 unit: 'in', 
                 format: 'a4', 
-                orientation: 'portrait' 
+                orientation: 'portrait',
+                compress: true
             },
-            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            // This setting specifically fixes the blank page issue
+            pagebreak: { mode: 'css', before: '.brochure-page' }
         };
 
-        // 3. Generate the PDF
         html2pdf().set(options).from(element).save().then(() => {
-            // 4. Show the button again after download starts
             button.style.display = 'flex';
         });
     };
