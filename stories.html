@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Classified Protocols | Unlitify Intelligence</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        :root {
+            --unlitify-bg: #050505;
+            --unlitify-cyan: #00D1FF;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--unlitify-bg);
+            color: #ffffff;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, var(--unlitify-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .protocol-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .protocol-card::before {
+            content: "CONFIDENTIAL";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            transform: rotate(45deg);
+            background: #ff3e3e;
+            color: white;
+            font-size: 10px;
+            font-weight: 900;
+            padding: 5px 40px;
+            z-index: 10;
+        }
+        .redacted {
+            background: #ffffff;
+            color: #ffffff;
+            display: inline-block;
+            padding: 0 4px;
+        }
+        .glow-dot {
+            height: 8px;
+            width: 8px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px #00ff00;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-[90] bg-black/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="text-xl font-black text-white tracking-widest uppercase">Unlitify<span class="text-[#00D1FF]">.Intel</span></a>
+            <div class="flex items-center gap-4">
+                <span class="hidden md:block text-[10px] text-gray-500 font-mono">ENCRYPTION: ACTIVE</span>
+                <a href="index.html" class="text-white/70 hover:text-[#00D1FF] transition-colors text-sm font-bold">Close Portal</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-40 pb-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter">
+                Proof of <span class="text-gradient">Infrastructure.</span>
+            </h1>
+            <p class="text-gray-500 text-lg max-w-2xl font-medium leading-relaxed">
+                Due to the aggressive nature of our strategies and the dominance they create, client identities are <span class="redacted">HIDDEN BY AGENT</span>. Results, however, are undeniable. 
+            </p>
+        </div>
+    </section>
+
+    <section class="pb-32 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <div class="protocol-card p-8 md:p-12 rounded-[40px] group hover:border-[#00D1FF]/50 transition-all">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="glow-dot"></div>
+                    <span class="text-xs font-mono text-gray-400">PROTOCOL: BHARAT-01 // REGION: IN</span>
+                </div>
+                <h2 class="text-3xl font-black mb-4">High-Volume Real Estate Dominance</h2>
+                <p class="text-gray-500 mb-8 text-sm leading-relaxed">
+                    A Tier-1 Real Estate Developer struggling with high lead costs and low-quality inquiries. We deployed the <strong>WhatsApp-First Funnel</strong>.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5">
+                        <p class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest mb-1">Efficiency</p>
+                        <p class="text-2xl font-black">₹450 <i class="fa-solid fa-arrow-right text-xs opacity-30"></i> ₹65</p>
+                        <p class="text-gray-500 text-[10px] mt-1">Cost Per Qualified Lead</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5">
+                        <p class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest mb-1">Dominance</p>
+                        <p class="text-2xl font-black">4,200+</p>
+                        <p class="text-gray-500 text-[10px] mt-1">Automated Conversations</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/917020729200" class="block text-center border border-white/20 py-4 rounded-xl font-black text-xs uppercase tracking-widest group-hover:bg-[#00D1FF] group-hover:text-black group-hover:border-[#00D1FF] transition-all">Apply to Replicate Protocol</a>
+            </div>
+
+            <div class="protocol-card p-8 md:p-12 rounded-[40px] group hover:border-[#00D1FF]/50 transition-all">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="glow-dot"></div>
+                    <span class="text-xs font-mono text-gray-400">PROTOCOL: STATESIDE-04 // REGION: US</span>
+                </div>
+                <h2 class="text-3xl font-black mb-4">Direct-to-Consumer ROI Scaling</h2>
+                <p class="text-gray-500 mb-8 text-sm leading-relaxed">
+                    Premium Lifestyle brand hitting a wall at $20k/mo. Deployed <strong>Algorithmic Ad Engine</strong> to force-scale beyond local markets.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5">
+                        <p class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest mb-1">Efficiency</p>
+                        <p class="text-2xl font-black">1.2x <i class="fa-solid fa-arrow-right text-xs opacity-30"></i> 6.8x</p>
+                        <p class="text-gray-500 text-[10px] mt-1">Return on Ad Spend (ROAS)</p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5">
+                        <p class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest mb-1">Dominance</p>
+                        <p class="text-2xl font-black">840k+</p>
+                        <p class="text-gray-500 text-[10px] mt-1">Total Unique Impressions</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/917020729200" class="block text-center border border-white/20 py-4 rounded-xl font-black text-xs uppercase tracking-widest group-hover:bg-[#00D1FF] group-hover:text-black group-hover:border-[#00D1FF] transition-all">Apply to Replicate Protocol</a>
+            </div>
+
+            <div class="protocol-card p-8 md:p-12 rounded-[40px] group hover:border-[#00D1FF]/50 transition-all lg:col-span-2">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="glow-dot"></div>
+                    <span class="text-xs font-mono text-gray-400">PROTOCOL: BERLIN-02 // REGION: DE</span>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl font-black mb-4">Technical Search Authority</h2>
+                        <p class="text-gray-500 mb-8 text-sm leading-relaxed">
+                            B2B SaaS startup needed to outrank legacy competitors in the DACH region. Deployed <strong>Semantic Infrastructure SEO</strong> to capture high-intent intent traffic.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-white/5 pb-2">
+                                <span class="text-gray-400 text-xs font-bold uppercase">Organic Traffic Growth</span>
+                                <span class="text-green-400 font-black">+420%</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/5 pb-2">
+                                <span class="text-gray-400 text-xs font-bold uppercase">Keywords in Top 3</span>
+                                <span class="text-white font-black">184</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <div class="bg-cyan-500/5 p-8 rounded-3xl border border-cyan-500/20 text-center">
+                            <p class="text-4xl font-black mb-2 text-white">Top 0.1%</p>
+                            <p class="text-gray-400 text-xs font-bold uppercase tracking-widest">Visibility in Niche</p>
+                            <div class="mt-8">
+                                <a href="https://wa.me/917020729200" class="inline-block bg-[#00D1FF] text-black font-black px-12 py-4 rounded-xl text-xs uppercase tracking-widest hover:scale-105 transition-all">Replicate Logic</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 px-6 border-t border-white/5">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-black mb-8 italic tracking-tighter">Your brand is the next <span class="text-gradient">Protocol.</span></h2>
+            <p class="text-gray-500 mb-10">We don't work with everyone. We only deploy our infrastructure for brands ready to handle 10x lead volume.</p>
+            <a href="https://wa.me/917020729200" class="inline-block bg-white text-black font-black px-12 py-5 rounded-2xl hover:bg-[#00D1FF] transition-all uppercase tracking-widest text-sm">
+                Start Analysis Session
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
