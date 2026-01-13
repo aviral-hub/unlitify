@@ -229,6 +229,134 @@
     </div>
 </section>
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <style>
+        :root { --cyan: #00D1FF; --bg: #050505; }
+        body { background: var(--bg); font-family: 'Plus Jakarta Sans', sans-serif; color: white; }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .testimonial-card:hover {
+            border-color: var(--cyan);
+            transform: translateY(-10px);
+            background: rgba(0, 209, 255, 0.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .quote-icon {
+            color: rgba(0, 209, 255, 0.2);
+        }
+
+        .growth-tag {
+            background: rgba(0, 255, 157, 0.1);
+            color: #00ff9d;
+            border: 1px solid rgba(0, 255, 157, 0.2);
+        }
+    </style>
+</head>
+<body class="py-20 px-6">
+
+    <section class="max-w-7xl mx-auto">
+        <div class="mb-16">
+            <span class="text-[#00D1FF] font-bold text-xs tracking-[0.3em] uppercase">Verified Partners</span>
+            <h2 class="text-4xl md:text-6xl font-black mt-4 tracking-tighter italic">What our clients <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 text-6xl">actually say.</span></h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="testimonial-card p-8 rounded-[40px] flex flex-col justify-between">
+                <div>
+                    <i class="fa-solid fa-quote-left text-4xl quote-icon mb-6"></i>
+                    <p class="text-gray-300 leading-relaxed italic mb-8">
+                        "Unlitify completely transformed our online presence. Their tailored consulting approach helped us build brand awareness and rank on the first page of Google. Our website traffic <span class="text-white font-bold">increased by 200%</span> in just three months!"
+                    </p>
+                </div>
+                <div class="flex items-center gap-4 border-t border-white/5 pt-6">
+                    <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-[#00D1FF]">VK</div>
+                    <div>
+                        <h4 class="font-black text-sm">Vijay Kabra</h4>
+                        <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">MD, EPTS Transformers</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card p-8 rounded-[40px] border-l-2 border-l-[#00D1FF]">
+                <span class="growth-tag px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest inline-block mb-6">150% Appt. Increase</span>
+                <p class="text-gray-300 leading-relaxed italic mb-8">
+                    "Unlitify provided us with strategic Google Ads, WhatsApp Marketing, and SMM campaigns designed specifically for our hospital. The results were incredible—150% increase in appointments and significantly better patient engagement!"
+                </p>
+                <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                    <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center"><i class="fa-solid fa-hospital text-[#00D1FF]"></i></div>
+                    <div>
+                        <h4 class="font-black text-sm">Christ Hospital</h4>
+                        <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">Chandrapur, Maharashtra</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card p-8 rounded-[40px] flex flex-col justify-between">
+                <div>
+                    <i class="fa-solid fa-store text-2xl text-white/20 mb-6"></i>
+                    <p class="text-gray-300 leading-relaxed italic mb-8">
+                        "Unlitify's social media marketing strategy helped us create a strong online presence and build powerful store awareness. Their tailored approach made all the difference."
+                    </p>
+                </div>
+                <div class="flex items-center gap-4 border-t border-white/5 pt-6">
+                    <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-[#00D1FF]">DK</div>
+                    <div>
+                        <h4 class="font-black text-sm">Dnyanesh Kancharlawar</h4>
+                        <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">Partner, Samadhan Marketing</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card p-8 rounded-[40px] lg:col-span-2">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-[#00D1FF] font-black text-xs uppercase tracking-widest mb-4">Automation Protocol</p>
+                        <p class="text-white text-xl font-bold leading-snug">
+                            "WhatsApp Marketing and Chatbot solutions that helped us connect better with our clients. Communication has never been easier!"
+                        </p>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-10 h-10 bg-cyan-500/10 rounded-full flex items-center justify-center"><i class="fa-solid fa-robot text-[#00D1FF]"></i></div>
+                            <h4 class="font-black text-sm">Nimish Bajaj</h4>
+                        </div>
+                        <p class="text-gray-500 text-xs">Director, Nimbus Finserv Pvt Ltd</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card p-8 rounded-[40px] border-b-2 border-b-[#00D1FF]">
+                <p class="text-gray-300 leading-relaxed italic mb-8">
+                    "We approached Unlitify for a targeted campaign in Nizamabad. Their strategic use of Google Ads and SMM was incredibly effective and drove real results for our new Multispecialty Hospital."
+                </p>
+                <div class="flex items-center gap-4 pt-6 border-t border-white/5">
+                    <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center font-bold text-[#00D1FF]">TMH</div>
+                    <div>
+                        <h4 class="font-black text-sm">Taksh Multispecialty Hospital</h4>
+                        <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">Nizamabad</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
 <style>
 @keyframes marquee {
     0% { transform: translateX(0); }
