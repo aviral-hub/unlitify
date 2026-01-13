@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify Case Study Slider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    
+    <style>
+        :root {
+            --cyan: #00D1FF;
+            --bg: #050505;
+        }
+        body { background: var(--bg); font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* The 4:5 Container */
+        .case-study-container {
+            width: 100%;
+            max-width: 450px; /* Desktop scaling */
+            aspect-ratio: 4 / 5;
+            margin: 40px auto;
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .swiper { width: 100%; height: 100%; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+        }
+
+        .metric-badge {
+            background: linear-gradient(135deg, rgba(0, 209, 255, 0.2), rgba(0, 209, 255, 0.05));
+            border: 1px solid var(--cyan);
+        }
+
+        .swiper-pagination-bullet { background: #555; opacity: 1; }
+        .swiper-pagination-bullet-active { background: var(--cyan); }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="case-study-container shadow-2xl group">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            
+            <div class="swiper-slide p-8 flex flex-col justify-between bg-black relative">
+                <div class="absolute top-[-50px] left-[-50px] w-64 h-64 bg-cyan-500/10 blur-[80px]"></div>
+                <div>
+                    <span class="text-[#00D1FF] font-bold text-xs tracking-widest uppercase">Protocol: Success</span>
+                    <h2 class="text-4xl font-black text-white mt-4 leading-tight">Client Story:<br> <span class="text-[#00D1FF]">2x Sales</span> in 90 Days</h2>
+                    <p class="text-gray-400 mt-4 text-sm leading-relaxed">How a premium brand rebuilt their digital infrastructure to automate growth.</p>
+                </div>
+                
+                <div class="glass-card p-6">
+                    <p class="text-[10px] text-gray-500 uppercase font-black tracking-widest mb-4">Core Objective</p>
+                    <p class="text-white font-medium italic">"Scale revenue without increasing daily management time."</p>
+                </div>
+
+                <div class="flex items-center gap-2 text-gray-500 text-[10px] font-bold uppercase">
+                    <span>Use arrows or swipe</span>
+                </div>
+            </div>
+
+            <div class="swiper-slide p-8 flex flex-col bg-zinc-950">
+                <h3 class="text-xl font-bold text-white mb-8">The Transformation</h3>
+                <div class="space-y-6 flex-grow">
+                    <div class="relative p-6 rounded-2xl border border-white/5 bg-white/5">
+                        <span class="absolute top-[-10px] left-4 bg-red-500 text-white text-[9px] px-2 py-0.5 rounded font-bold">BEFORE</span>
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <p class="text-gray-500 text-xs">Monthly Revenue</p>
+                                <p class="text-2xl font-bold text-gray-300">₹12,40,000</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-gray-500 text-xs">Cost Per Sale</p>
+                                <p class="text-lg font-bold text-gray-400">₹420</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative p-6 rounded-2xl border border-cyan-500/30 bg-cyan-500/5">
+                        <span class="absolute top-[-10px] left-4 bg-cyan-500 text-black text-[9px] px-2 py-0.5 rounded font-bold">AFTER UNLITIFY</span>
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <p class="text-cyan-400 text-xs">Monthly Revenue</p>
+                                <p class="text-3xl font-black text-white tracking-tighter">₹28,90,000</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-cyan-400 text-xs">Cost Per Sale</p>
+                                <p class="text-xl font-black text-white">₹195</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide p-8 flex flex-col justify-center text-center bg-black">
+                <h2 class="text-3xl font-black text-white mb-4">Ready to be the next <span class="text-[#00D1FF]">success story?</span></h2>
+                <a href="https://wa.me/917020729200" class="bg-[#00D1FF] text-black font-extrabold py-5 rounded-2xl uppercase tracking-widest text-xs">
+                    Claim Your Audit
+                </a>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next !text-[#00D1FF] !w-10 !h-10 !bg-black/50 backdrop-blur-md rounded-full after:!text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="swiper-button-prev !text-[#00D1FF] !w-10 !h-10 !bg-black/50 backdrop-blur-md rounded-full after:!text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        
+        <div class="swiper-pagination !bottom-4"></div>
+    </div>
+</div>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        grabCursor: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            dynamicBullets: true,
+        },
+    });
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            grabCursor: true,
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullets: true,
+            },
+        });
+    </script>
+</body>
+</html>
