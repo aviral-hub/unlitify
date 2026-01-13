@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About Us | Unlitify - The Growth Infrastructure</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        :root {
+            --unlitify-bg: #050505;
+            --unlitify-cyan: #00D1FF;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--unlitify-bg);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, var(--unlitify-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .stats-border {
+            border-left: 2px solid var(--unlitify-cyan);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-[90] bg-black/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black text-white tracking-tighter">UNLITI<span class="text-[#00D1FF]">FY.</span></a>
+            <nav class="hidden lg:flex space-x-8">
+                <a href="index.html" class="text-white/70 hover:text-[#00D1FF] transition-colors">Home</a>
+                <a href="#mission" class="text-white/70 hover:text-[#00D1FF] transition-colors">Mission</a>
+                <a href="#team" class="text-white/70 hover:text-[#00D1FF] transition-colors">Approach</a>
+            </nav>
+            <a href="audit.html" class="hidden sm:block border border-[#00D1FF] text-[#00D1FF] px-6 py-2 rounded-full font-bold text-sm hover:bg-[#00D1FF] hover:text-black transition-all">Free Strategy Call</a>
+        </div>
+    </header>
+
+    <section class="pt-40 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-[#00D1FF] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Behind the Glow</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-tight">
+                We Build <span class="text-gradient">Digital Empires</span> <br> Not Just Campaigns.
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl leading-relaxed">
+                Most agencies focus on clicks. We focus on <strong>infrastructure</strong>. Unlitify was born out of a single realization: Great brands fail not because of their product, but because their digital presence isn't built to scale.
+            </p>
+        </div>
+    </section>
+
+    <section id="mission" class="py-20 px-6 bg-zinc-900/20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-black mb-6">Our Obsession with <br><span class="text-[#00D1FF]">Results Over Hype.</span></h2>
+                <p class="text-gray-400 mb-8 leading-relaxed">
+                    At Unlitify, we don't believe in "pretty" marketing that doesn't sell. We combine deep data analytics with psychological triggers to ensure every dollar you spend is an investment, not an expense.
+                </p>
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="stats-border pl-4">
+                        <div class="text-3xl font-black text-white">94%</div>
+                        <div class="text-gray-500 text-xs uppercase font-bold tracking-widest">Client Retention</div>
+                    </div>
+                    <div class="stats-border pl-4">
+                        <div class="text-3xl font-black text-white">3.5x</div>
+                        <div class="text-gray-500 text-xs uppercase font-bold tracking-widest">Average ROI</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="aspect-video bg-zinc-800 rounded-3xl overflow-hidden border border-white/10 flex items-center justify-center">
+                    <i class="fa-solid fa-chart-area text-white/10 text-9xl absolute"></i>
+                    <div class="relative z-10 p-8 text-center">
+                        <p class="italic text-gray-300">"Our mission is to turn the 'underdogs' of today into the category leaders of tomorrow."</p>
+                        <p class="mt-4 font-bold text-[#00D1FF]">— Aviral Pathak, Founder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black mb-4">The Unlitify Philosophy</h2>
+            <p class="text-gray-500">The three pillars that support every brand we scale.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-10 rounded-[40px] hover:border-[#00D1FF]/50 transition-all">
+                <div class="w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-microscope text-[#00D1FF] text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Hyper-Analysis</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">We don't guess. We audit your competitors, your keywords, and your customer's behavior before writing a single line of code.</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[40px] hover:border-[#00D1FF]/50 transition-all">
+                <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-brain text-purple-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Cognitive Creative</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Design should be invisible. We focus on conversion-centered design that guides the user toward the "Buy" button naturally.</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[40px] hover:border-[#00D1FF]/50 transition-all">
+                <div class="w-14 h-14 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-infinity text-green-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Infinite Scaling</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Growth shouldn't stop after a month. We build automated systems that continue to generate leads while you sleep.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6">
+        <div class="max-w-5xl mx-auto relative">
+            <div class="absolute inset-0 bg-cyan-500/10 blur-[100px] -z-10"></div>
+            <div class="glass-card rounded-[50px] p-10 md:p-20 text-center border-[#00D1FF]/20">
+                <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-tight">
+                    Stop Gambling With <br> Your <span class="text-[#00D1FF]">Ad Spend.</span>
+                </h2>
+                <p class="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
+                    We aren't just a service provider; we are your growth partners. If we don't think we can help you scale, we won't take your money. That's the Unlitify guarantee.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <a href="https://wa.me/917020729200" class="w-full sm:w-auto bg-white text-black font-black px-10 py-5 rounded-2xl hover:bg-[#00D1FF] transition-all uppercase tracking-widest text-sm shadow-xl">
+                        Talk to a Specialist
+                    </a>
+                    <div class="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 border border-white/10">
+                        <div class="flex -space-x-3">
+                            <img src="https://i.pravatar.cc/100?u=1" class="w-8 h-8 rounded-full border-2 border-black">
+                            <img src="https://i.pravatar.cc/100?u=2" class="w-8 h-8 rounded-full border-2 border-black">
+                            <img src="https://i.pravatar.cc/100?u=3" class="w-8 h-8 rounded-full border-2 border-black">
+                        </div>
+                        <span class="text-xs font-bold text-gray-300">Join 50+ scaled brands</span>
+                    </div>
+                </div>
+                
+                <p class="mt-12 text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">
+                    <i class="fa-solid fa-shield-halved text-[#00D1FF] mr-2"></i> No Hidden Fees • No Long-Term Lock-ins • Pure Growth
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center">
+        <p class="text-gray-600 text-sm">© 2026 UNLITIFY. All Rights Reserved. Built for Leaders.</p>
+    </footer>
+
+</body>
+</html>
