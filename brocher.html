@@ -9,58 +9,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <style>
-        :root { --cyan: #00D1FF; --bg: #ffffff; --dark: #050505; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--dark); margin: 0; }
-        
-        /* A4 Aspect Ratio Simulation for Desktop */
-        .brochure-page {
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            padding: 80px;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.05);
-            border: 1px solid #f0f0f0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .vertical-text {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            transform: rotate(180deg);
-        }
-
-        .accent-line {
-            width: 60px;
-            height: 4px;
-            background: var(--dark);
-            margin-bottom: 24px;
-        }
-
-        @media (max-width: 768px) {
-            .brochure-page { padding: 40px 24px; margin: 10px; }
-            .vertical-text { display: none; }
-        }
-
-        @media print {
-            body { background: white; }
-            .brochure-page { margin: 0; box-shadow: none; page-break-after: always; }
-        }
-
-        @media print {
+    /* Force specific A4 dimensions for the PDF generator */
     .brochure-page {
-        page-break-after: always !important;
-        margin: 0 !important;
-        border: none !important;
-        box-shadow: none !important;
+        width: 8.27in; /* A4 Width */
+        height: 11.69in; /* A4 Height */
+        margin: 0 auto !important;
+        padding: 60px !important;
+        background: white;
+        position: relative;
+        overflow: hidden;
+        box-sizing: border-box;
+        page-break-after: always; /* Crucial for multi-page export */
+        display: flex;
+        flex-direction: column;
     }
-}
 
-/* Force each brochure section to be its own page in the PDF */
-.brochure-page {
-    page-break-after: always;
-}
-    </style>
+    /* Remove gaps between pages during export */
+    #brochure-wrapper {
+        background: #f0f0f0;
+        padding: 40px 0;
+    }
+
+    @media print {
+        body, html { margin: 0; padding: 0; }
+        .brochure-page {
+            margin: 0 !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+    }
+</style>
 </head>
 <body class="antialiased">
 
