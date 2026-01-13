@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify Story Series</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --cyan: #00D1FF; --dark: #050505; --green: #25D366; }
+        body { background: #1a1a1a; font-family: 'Plus Jakarta Sans', sans-serif; color: white; }
+        
+        /* 9:16 Aspect Ratio */
+        .story-slide {
+            width: 360px; height: 640px;
+            background: var(--dark);
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex; flex-direction: column;
+            padding: 40px 25px;
+        }
+
+        .glow {
+            position: absolute; width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(0,209,255,0.08) 0%, rgba(0,0,0,0) 70%);
+            top: -50px; right: -50px; pointer-events: none;
+        }
+
+        .footer-cta {
+            margin-top: auto;
+            background: white; color: black;
+            text-align: center; padding: 15px;
+            border-radius: 12px; font-weight: 800;
+            font-size: 11px; text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .service-tag {
+            background: rgba(0,209,255,0.1);
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            font-size: 8px; font-weight: 800;
+            padding: 4px 10px; border-radius: 20px;
+            width: fit-content; text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body class="flex flex-wrap justify-center gap-10 p-10">
+
+    <div class="story-slide">
+        <div class="glow"></div>
+        <div class="service-tag">01. SEO ENGINE</div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">DOMINATE<br>PAGE 1.</h2>
+        <ul class="space-y-4 text-xs text-gray-400">
+            <li class="flex gap-2"><span>✅</span> <strong>Intent-Matching:</strong> Rank for "Buy" keywords.</li>
+            <li class="flex gap-2"><span>✅</span> <strong>Authority:</strong> High-DR backlink strategy.</li>
+            <li class="flex gap-2"><span>✅</span> <strong>Compound Growth:</strong> Traffic that never stops.</li>
+        </ul>
+        <div class="footer-cta">Get Found on Google</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow" style="background: radial-gradient(circle, rgba(255,0,0,0.08) 0%, rgba(0,0,0,0) 70%);"></div>
+        <div class="service-tag" style="color:#ff4d4d; border-color:#ff4d4d;">02. SEO AUDIT</div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">FIND THE<br>LEAKS.</h2>
+        <p class="text-[11px] text-gray-500 mb-6 leading-relaxed">Most sites have "hidden errors" that tell Google to ignore them. We find them in 15 minutes.</p>
+        <ul class="space-y-4 text-xs text-gray-400">
+            <li class="flex gap-2"><span>🔍</span> Technical Error Crawl</li>
+            <li class="flex gap-2"><span>🔍</span> Mobile Usability Test</li>
+            <li class="flex gap-2"><span>🔍</span> Competitor Gap Analysis</li>
+        </ul>
+        <div class="footer-cta">Audit My Site Free</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow"></div>
+        <div class="service-tag">03. GOOGLE ADS</div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">SNIPER<br>BUDGETING.</h2>
+        <p class="text-[11px] text-gray-500 mb-6">Stop paying for "window shoppers." Only show ads to people with credit cards in their hands.</p>
+        <div class="bg-white/5 p-4 rounded-xl border border-white/10 mb-6">
+            <p class="text-xl font-black text-cyan-400">4.8x</p>
+            <p class="text-[8px] uppercase font-bold text-gray-500">Average ROAS</p>
+        </div>
+        <div class="footer-cta">Scale My Sales</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow"></div>
+        <div class="service-tag">04. OMNI-PPC</div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">EVERYWHERE<br>AT ONCE.</h2>
+        <p class="text-[11px] text-gray-500 mb-6">We synchronize LinkedIn (B2B), Meta (Retargeting), and YouTube to follow your leads until they buy.</p>
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="bg-white/10 px-3 py-1 rounded text-[8px] font-bold">LINKEDIN</span>
+            <span class="bg-white/10 px-3 py-1 rounded text-[8px] font-bold">META</span>
+            <span class="bg-white/10 px-3 py-1 rounded text-[8px] font-bold">YOUTUBE</span>
+        </div>
+        <div class="footer-cta">Deploy Omni-Ads</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow" style="background: radial-gradient(circle, rgba(37,211,102,0.1) 0%, rgba(0,0,0,0) 70%);"></div>
+        <div class="service-tag" style="color:#25d366; border-color:#25d366;">05. WA AUTOMATION</div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">REPLY<br>INSTANTLY.</h2>
+        <p class="text-[11px] text-gray-500 mb-6">Your customers check WhatsApp 50x/day. We build 24/7 chatbots that qualify leads & book meetings.</p>
+        <div class="bg-[#25d366]/10 p-4 rounded-xl border border-[#25d366]/20 mb-6">
+            <p class="text-xs italic font-bold">"Bot handled 300 leads while I slept."</p>
+        </div>
+        <div class="footer-cta" style="background:#25d366;">Build My Bot</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow" style="background: radial-gradient(circle, rgba(37,211,102,0.1) 0%, rgba(0,0,0,0) 70%);"></div>
+        <div class="service-tag" style="color:#25d366; border-color:#25d366;">06. WA MARKETING</div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">98% OPEN<br>RATES.</h2>
+        <p class="text-[11px] text-gray-500 mb-6">Send personalized offers to 10k+ people. No spam. No bans. 100% Meta Compliant.</p>
+        <div class="footer-cta" style="background:#25d366;">Launch Campaign</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow"></div>
+        <div class="service-tag">07. SMM</div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">STOP<br>SCROLLING.</h2>
+        <p class="text-[11px] text-gray-500 mb-6">We don't just post pictures. We build engagement funnels that move people from "Like" to "Buy."</p>
+        <div class="footer-cta">Fix My Socials</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow" style="background: radial-gradient(circle, rgba(0,71,255,0.1) 0%, rgba(0,0,0,0) 70%);"></div>
+        <div class="service-tag" style="color:#4d88ff; border-color:#4d88ff;">08. EMAIL REVENUE</div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">RECOVER<br>SALES.</h2>
+        <p class="text-[11px] text-gray-500 mb-6">Abandoned carts? Cold leads? We turn your database into a 24/7 revenue machine.</p>
+        <div class="footer-cta">Recover My Revenue</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow"></div>
+        <div class="service-tag">09. CONTENT</div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">AUTHORITY<br>FIRST.</h2>
+        <p class="text-[11px] text-gray-500 mb-6">High-retention hooks and value-based content that makes you the only choice in your niche.</p>
+        <div class="footer-cta">Get Content Roadmap</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow"></div>
+        <div class="service-tag">10. WEB DEV</div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">SUB-2S<br>SPEED.</h2>
+        <p class="text-[11px] text-gray-500 mb-6">We build conversion-first sites. Fast, mobile-flawless, and built for revenue—not design contests.</p>
+        <div class="footer-cta">Build My Site</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow"></div>
+        <div class="service-tag">11. E-COMMERCE <span class="bg-cyan-400 text-black px-1 rounded ml-1">NEW</span></div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">SELL WHILE<br>YOU SLEEP.</h2>
+        <p class="text-[11px] text-gray-500 mb-6">Full Shopify/Razorpay setups. High-velocity stores designed to scale to 7-figures.</p>
+        <div class="footer-cta">Launch Store</div>
+    </div>
+
+    <div class="story-slide">
+        <div class="glow"></div>
+        <div class="service-tag">12. SMS SERVICE <span class="bg-cyan-400 text-black px-1 rounded ml-1">NEW</span></div>
+        <h2 class="text-3xl font-black italic leading-tight mb-6">DIRECT TO<br>POCKET.</h2>
+        <p class="text-[11px] text-gray-500 mb-6">Mass Text SMS broadcasting for instant alerts, flash sales, and OTP verification.</p>
+        <div class="footer-cta">Start Broadcasting</div>
+    </div>
+
+
+
+
+
+
+    
+
+</body>
+</html>
+
+
+
