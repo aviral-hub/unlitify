@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Unlitify | Turning Ambitious Brands into Trusted Leaders</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtN1xDk6tNJAwvTdRul0S5OL4585EcXgBbUaRQ4cGKZDpzOcXr2Nux_DBE_sAmbgHj-CZhaKk1EbD4M6SOrD4xVarLEXfM2tq7P8lWTgaXKEPBms3guLno4j-vz45uN6mDvNdCVQB3aC7nbwjdRpTUWMXtWVGnElOhwGx4tfn1VMLJcmDGWhQ8maKWq4Hd/s1600/f324570f-d495-46b2-9722-1152544b80c7%20(1).png">
+    <title>The Unlitify Ecosystem | Your Growth Journey</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -14,161 +13,155 @@
         :root {
             --unlitify-bg: #050505;
             --unlitify-cyan: #00D1FF;
-            --unlitify-purple: #7000FF;
-            --glass: rgba(255, 255, 255, 0.03);
         }
-
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--unlitify-bg);
             color: #ffffff;
-            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
-
-        /* Custom Glassmorphism */
-        .glass-nav {
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .glass-card:hover {
-            border-color: var(--unlitify-cyan);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 209, 255, 0.1);
-        }
-
         .text-gradient {
             background: linear-gradient(135deg, #ffffff 30%, var(--unlitify-cyan) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .neon-glow {
-            box-shadow: 0 0 20px rgba(0, 209, 255, 0.3);
+        .glow-line {
+            width: 2px;
+            background: linear-gradient(to bottom, var(--unlitify-cyan), transparent);
         }
-
-        /* ityped cursor styling */
-        .ityped-cursor {
-            font-size: 2.2rem;
-            opacity: 1;
-            -webkit-animation: blink 0.3s infinite;
-            -moz-animation: blink 0.3s infinite;
-            animation: blink 0.3s infinite;
-            color: var(--unlitify-cyan);
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
         }
-
-        @keyframes blink {
-            100% { opacity: 0; }
+        .feature-card:hover {
+            border-color: var(--unlitify-cyan);
+            background: rgba(0, 209, 255, 0.02);
         }
     </style>
 </head>
 <body class="antialiased">
 
-  <script> function toggleMenu() {
-    const menu = document.getElementById('mobile-menu');
-    if (menu.classList.contains('translate-x-full')) {
-        menu.classList.remove('translate-x-full');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-    } else {
-        menu.classList.add('translate-x-full');
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
-    }
-}</script>
-
-  
-<section class="bg-[#050505] py-24 px-6 relative overflow-hidden">
-    <div class="absolute top-1/4 left-0 w-96 h-96 bg-[#00D1FF]/5 bg-glow-blur"></div>
-    <div class="absolute bottom-1/4 right-0 w-96 h-96 bg-indigo-600/5 bg-glow-blur"></div>
-
-    <div class="max-w-7xl mx-auto relative z-10">
-        
-        <div class="mb-16">
-            <span class="text-[#00D1FF] text-xs font-black uppercase tracking-[0.3em] mb-4 block">End-to-End Solutions</span>
-            <h2 class="text-5xl md:text-7xl font-black text-white italic tracking-tighter leading-none">
-                FULL STACK <br><span class="text-gray-500">DOMINANCE.</span>
-            </h2>
+    <header class="fixed top-0 left-0 right-0 z-[90] bg-black/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-black text-white tracking-tighter">UNLITI<span class="text-[#00D1FF]">FY.</span></a>
+            <a href="audit.html" class="bg-white text-black px-5 py-2 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-[#00D1FF] transition-all">Claim Your Roadmap</a>
         </div>
+    </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+    <section class="pt-40 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-tight">
+                Stop Hiring Agencies. <br> Start Building <span class="text-gradient">Infrastructure.</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+                You don't need a "SEO guy" or a "Facebook Ads guy." You need a unified engine where every piece of data talks to the next.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 relative">
+        <div class="max-w-5xl mx-auto">
             
-            <div class="md:col-span-8 service-glass-card p-10 rounded-[40px] group relative overflow-hidden">
-                <div class="w-14 h-14 rounded-2xl bg-[#00D1FF]/10 flex items-center justify-center text-[#00D1FF] text-2xl mb-12">
-                    <i class="fa-solid fa-arrow-up-right-dots"></i>
+            <div class="flex flex-col md:flex-row gap-12 mb-32 items-center">
+                <div class="flex-1">
+                    <span class="text-[#00D1FF] font-bold text-sm tracking-widest uppercase">Phase 01: The Foundation</span>
+                    <h2 class="text-3xl md:text-4xl font-black mt-4 mb-6 text-white">We fix the leaks before we turn on the tap.</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Sending traffic to a broken website is like pouring water into a sieve. We start by hardening your digital assets—optimizing for speed, trust, and psychological conversion triggers.
+                    </p>
+                    <ul class="space-y-3 text-sm font-semibold text-gray-300">
+                        <li><i class="fa-solid fa-check text-[#00D1FF] mr-2"></i> Technical Conversion Optimization</li>
+                        <li><i class="fa-solid fa-check text-[#00D1FF] mr-2"></i> Brand Authority Setup</li>
+                    </ul>
                 </div>
-                <h3 class="text-3xl font-black text-white mb-4 italic uppercase">Search Engine Optimization</h3>
-                <p class="text-gray-400 max-w-md mb-8 text-sm">Improve visibility and drive compounding organic traffic. We don't just rank keywords; we own niches.</p>
-                <a href="seo.html" class="inline-flex items-center gap-2 text-[#00D1FF] font-black uppercase text-[10px] tracking-widest">Learn More <i class="fa-solid fa-chevron-right text-[8px]"></i></a>
-            </div>
-
-            <div class="md:col-span-4 service-glass-card p-10 rounded-[40px] group border-white/5">
-                <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-white text-2xl mb-12 group-hover:bg-[#00D1FF] group-hover:text-black transition-all">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <h3 class="text-2xl font-black text-white mb-4 italic uppercase">Web Design & Dev</h3>
-                <p class="text-gray-500 text-xs mb-8">Stunning, responsive interfaces engineered for high-speed conversion and elite user experience.</p>
-                <a href="web-dev.html" class="text-white/50 text-[10px] font-black uppercase tracking-widest hover:text-white transition-colors">Discover →</a>
-            </div>
-
-            <div class="md:col-span-4 service-glass-card p-10 rounded-[40px] group border-[#25D366]/20">
-                <div class="w-14 h-14 rounded-2xl bg-[#25D366]/10 flex items-center justify-center text-[#25D366] text-2xl mb-12">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </div>
-                <h3 class="text-2xl font-black text-white mb-4 italic uppercase">WhatsApp Marketing</h3>
-                <p class="text-gray-500 text-xs mb-8">Direct-to-consumer automation with 98% open rates. Connect, engage, and close on the world's most used app.</p>
-                <a href="whatsapp.html" class="text-[#25D366] text-[10px] font-black uppercase tracking-widest">Build My Flow →</a>
-            </div>
-
-            <div class="md:col-span-4 grid grid-rows-2 gap-6">
-                <div class="service-glass-card p-8 rounded-[30px] group hover:border-blue-500/50 transition-all">
-                    <h4 class="text-white font-black italic uppercase text-lg mb-2">Google Ads</h4>
-                    <p class="text-gray-500 text-[11px] mb-4">Target exact intent at the perfect moment.</p>
-                    <a href="google-ads.html" class="text-blue-400 text-[9px] font-black uppercase tracking-widest">Launch →</a>
-                </div>
-                <div class="service-glass-card p-8 rounded-[30px] group hover:border-indigo-500/50 transition-all">
-                    <h4 class="text-white font-black italic uppercase text-lg mb-2">PPC Scaling</h4>
-                    <p class="text-gray-500 text-[11px] mb-4">Meta & LinkedIn dominance for targeted ROI.</p>
-                    <a href="ppc.html" class="text-indigo-400 text-[9px] font-black uppercase tracking-widest">Scale →</a>
+                <div class="flex-1 bg-zinc-900/50 p-8 rounded-[40px] border border-white/5">
+                    <i class="fa-solid fa-anchor text-5xl text-white/10 mb-6"></i>
+                    <p class="text-white italic">"Before Unlitify, we were spending $5k/mo on ads with zero tracking. They fixed our site first, and our cost-per-lead dropped by 60% instantly."</p>
                 </div>
             </div>
 
-            <div class="md:col-span-4 service-glass-card p-10 rounded-[40px] group">
-                <div class="w-14 h-14 rounded-2xl bg-yellow-500/10 flex items-center justify-center text-yellow-500 text-2xl mb-12">
-                    <i class="fa-solid fa-cart-shopping"></i>
+            <div class="flex flex-col md:flex-row-reverse gap-12 mb-32 items-center">
+                <div class="flex-1">
+                    <span class="text-[#00D1FF] font-bold text-sm tracking-widest uppercase">Phase 02: Omnichannel Flow</span>
+                    <h2 class="text-3xl md:text-4xl font-black mt-4 mb-6 text-white">Be everywhere your customer breathes.</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        We don't "choose" a platform. We create a surround-sound effect. Whether they are on Google, Instagram, or their Email inbox, your brand follows them with value, not just noise.
+                    </p>
+                    <ul class="space-y-3 text-sm font-semibold text-gray-300">
+                        <li><i class="fa-solid fa-check text-[#00D1FF] mr-2"></i> Integrated Paid & Organic Traffic</li>
+                        <li><i class="fa-solid fa-check text-[#00D1FF] mr-2"></i> Retargeting Ecosystems</li>
+                    </ul>
                 </div>
-                <h3 class="text-2xl font-black text-white mb-4 italic uppercase">E-com Dev</h3>
-                <p class="text-gray-500 text-xs mb-8">Powerful online stores with seamless checkout and full inventory automation.</p>
-                <a href="ecom.html" class="text-white/50 text-[10px] font-black uppercase tracking-widest hover:text-white transition-colors">Shop Logic →</a>
+                <div class="flex-1 bg-zinc-900/50 p-8 rounded-[40px] border border-white/5">
+                    <i class="fa-solid fa-eye text-5xl text-white/10 mb-6"></i>
+                    <p class="text-white italic">"It felt like we were suddenly a household name. Customers kept saying 'I see you guys everywhere!'"</p>
+                </div>
             </div>
 
-            <div class="md:col-span-4 service-glass-card p-8 rounded-[35px] group border-white/5">
-                <h4 class="text-white font-black italic uppercase text-lg mb-4">Content Creation</h4>
-                <p class="text-gray-500 text-xs mb-6">High-value assets that attract, retain, and establish authority.</p>
-                <a href="content.html" class="text-white/30 text-[9px] font-black uppercase tracking-widest group-hover:text-[#00D1FF] transition-colors">Explore Assets</a>
-            </div>
-            <div class="md:col-span-4 service-glass-card p-8 rounded-[35px] group border-white/5">
-                <h4 class="text-white font-black italic uppercase text-lg mb-4">Email Marketing</h4>
-                <p class="text-gray-500 text-xs mb-6">Personalized retention campaigns that nurture leads into loyal fans.</p>
-                <a href="email.html" class="text-white/30 text-[9px] font-black uppercase tracking-widest group-hover:text-[#00D1FF] transition-colors">View Flows</a>
-            </div>
-            <div class="md:col-span-4 service-glass-card p-8 rounded-[35px] group border-white/5">
-                <h4 class="text-white font-black italic uppercase text-lg mb-4">Social Media</h4>
-                <p class="text-gray-500 text-xs mb-6">Build a brand presence that actually engages and converts followers.</p>
-                <a href="social.html" class="text-white/30 text-[9px] font-black uppercase tracking-widest group-hover:text-[#00D1FF] transition-colors">Dominate Feed</a>
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="flex-1">
+                    <span class="text-[#00D1FF] font-bold text-sm tracking-widest uppercase">Phase 03: Automation & Scale</span>
+                    <h2 class="text-3xl md:text-4xl font-black mt-4 mb-6 text-white">Removing "You" from the equation.</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        The final step is building the "Machine." WhatsApp automation, Email nurture sequences, and AI-driven chatbots that close sales while your team focuses on high-level operations.
+                    </p>
+                    <ul class="space-y-3 text-sm font-semibold text-gray-300">
+                        <li><i class="fa-solid fa-check text-[#00D1FF] mr-2"></i> 24/7 AI Sales Infrastructure</li>
+                        <li><i class="fa-solid fa-check text-[#00D1FF] mr-2"></i> Retention & LTV Optimization</li>
+                    </ul>
+                </div>
+                <div class="flex-1 bg-zinc-900/50 p-8 rounded-[40px] border border-white/5">
+                    <i class="fa-solid fa-gears text-5xl text-white/10 mb-6"></i>
+                    <p class="text-white italic">"The automation they built handles 80% of our inquiries. Our sales team only talks to 'ready-to-buy' leads now."</p>
+                </div>
             </div>
 
         </div>
-    </div>
-</section>
+    </section>
 
+    <section class="py-24 px-6 bg-white text-black">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-8">One Partner. Total Accountability.</h2>
+            <p class="text-zinc-600 text-lg mb-12">
+                The reason most businesses fail to scale is <strong>fragmentation</strong>. One agency does your ads, another does your SEO, a third does your website. When things go wrong, they point fingers at each other. 
+                <br><br>
+                <span class="text-black font-bold">At Unlitify, the buck stops here. We own the entire journey.</span>
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+                <div class="p-6 border-l-2 border-black">
+                    <p class="font-black text-2xl uppercase">Single</p>
+                    <p class="text-sm">Point of Contact</p>
+                </div>
+                <div class="p-6 border-l-2 border-black">
+                    <p class="font-black text-2xl uppercase">Unified</p>
+                    <p class="text-sm">Data Dashboard</p>
+                </div>
+                <div class="p-6 border-l-2 border-black">
+                    <p class="font-black text-2xl uppercase">Total</p>
+                    <p class="text-sm">Revenue Focus</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="py-32 px-6 bg-black relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-[#00D1FF]/5 opacity-30"></div>
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl md:text-6xl font-black text-white mb-10 tracking-tighter italic">Ready to hand over the <span class="text-[#00D1FF]">keys?</span></h2>
+            <p class="text-gray-400 text-lg mb-12">
+                We only take on 2 new partners per month to ensure this level of integration. Check if you qualify for an Unlitify Growth Roadmap.
+            </p>
+            <a href="#" class="inline-block bg-[#00D1FF] text-black font-black px-12 py-6 rounded-2xl hover:scale-105 transition-all uppercase tracking-widest shadow-[0_0_30px_rgba(0,209,255,0.4)]">
+                Request Your Growth Roadmap
+            </a>
+            <p class="mt-8 text-gray-600 text-xs font-bold uppercase tracking-widest">No Sales Pitch. Just A Custom Strategy Built For Your Brand.</p>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center bg-black">
+        <p class="text-gray-600 text-sm">© 2026 UNLITIFY. Infrastructure for the 1%.</p>
+    </footer>
 
 </body>
 </html>
