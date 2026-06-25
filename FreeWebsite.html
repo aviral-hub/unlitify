@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify | Free Business Website Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00D1FF;
+            --dark: #050505;
+            --wa-green: #25D366;
+        }
+
+        body {
+            background: #000;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .gradient-accent {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 209, 255, 0.06) 0%, rgba(0, 0, 0, 0) 70%);
+            pointer-events: none;
+        }
+
+        @media (min-width: 768px) {
+            .gradient-accent {
+                width: 600px;
+                height: 600px;
+            }
+        }
+
+        .cyber-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 209, 255, 0.2), transparent);
+        }
+
+        .cta-unlitify {
+            background: white;
+            color: black;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cta-unlitify:hover {
+            background: var(--cyan);
+            box-shadow: 0 0 25px rgba(0, 209, 255, 0.4);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🌐 Header & Main Hero Section -->
+    <header class="relative py-12 md:py-24 px-4 sm:px-8 md:px-16 text-center max-w-7xl mx-auto">
+        <div class="gradient-accent top-[-100px] right-[-100px] md:top-[-200px] md:right-[-200px]"></div>
+
+        <nav class="flex justify-between items-center mb-12 md:mb-20">
+            <div class="text-xl md:text-2xl font-black italic tracking-tighter">
+                UNLITIFY<span class="text-[#00D1FF]">.</span></div>
+            <a href="https://wa.me/917020729200?text=Audit%20My%20Brand"
+                class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-cyan-400 border border-white/10 px-3 py-1.5 rounded-md bg-white/5 transition-colors">FREE
+                AUDIT</a>
+        </nav>
+
+        <p class="text-[9px] md:text-xs font-bold text-gray-500 uppercase tracking-[0.4em] mb-4">Infrastructure Division
+            2026</p>
+
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-black italic leading-[1.1] mb-6 max-w-4xl mx-auto uppercase">
+            WE BUILD YOUR <span class="text-cyan-400 block sm:inline">WEBSITE</span> <br class="hidden sm:inline">FOR
+            <span class="text-white italic">FREE.</span>
+        </h1>
+
+        <p class="text-xs md:text-sm text-gray-400 max-w-xl mx-auto leading-relaxed mb-8 md:mb-12 px-2">
+            Most agencies charge ₹25,000+ for a generic template. We don't. We deploy high-performance, conversion-first
+            operational engines at zero cost. We win when you generate revenue.
+        </p>
+
+        <div class="px-2">
+            <a href="#claim"
+                class="cta-unlitify text-xs md:text-sm px-8 py-4 md:px-12 md:py-5 rounded-xl inline-block w-full sm:w-auto">Claim
+                My Website Engine</a>
+        </div>
+        <p class="text-[9px] text-gray-600 mt-4 italic tracking-wide uppercase px-4">No Hidden Fees. Fixed Pricing on
+            Upgrades. Results Guaranteed.</p>
+    </header>
+
+    <div class="cyber-line my-8 md:my-16"></div>
+
+    <!-- 💸 Why Free? (The Business Logic) -->
+    <section class="py-12 md:py-20 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+            <div class="text-left order-1 md:order-1">
+                <p class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.3em] mb-3">The Blueprint</p>
+                <h2 class="text-2xl md:text-4xl font-black italic leading-tight mb-4 text-white uppercase">WHY WE BREAK
+                    THE MODEL.</h2>
+                <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                    A beautiful layout is dead weight if it fails to convert traffic into capital. Standard developers
+                    build layout arrangements. We build **Revenue Architectures.**
+                </p>
+                <p class="text-xs text-gray-500 leading-relaxed italic">
+                    By eliminating infrastructure setup boundaries, we align incentives. We build your deployment system
+                    for free because we retain trust when you are ready to scale to multi-figure revenue brackets.
+                </p>
+            </div>
+            <div
+                class="bg-white/[0.02] p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/5 space-y-3 order-2 md:order-2">
+                <p class="text-[10px] md:text-xs font-bold uppercase text-gray-400 mb-2 italic tracking-wider">Standard
+                    Agency Paradigm</p>
+                <div
+                    class="flex items-center gap-3 bg-red-500/5 p-3 rounded-xl border border-red-500/10 text-xs md:text-sm text-gray-300">
+                    <span class="text-red-500 font-black">✕</span> ₹25k Capital Barrier</div>
+                <div
+                    class="flex items-center gap-3 bg-red-500/5 p-3 rounded-xl border border-red-500/10 text-xs md:text-sm text-gray-300">
+                    <span class="text-red-500 font-black">✕</span> Heavy, Bloated Codebase (Slow)</div>
+                <div
+                    class="flex items-center gap-3 bg-red-500/5 p-3 rounded-xl border border-red-500/10 text-xs md:text-sm text-gray-300">
+                    <span class="text-red-500 font-black">✕</span> Standard Templates</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⚡ The Unlitify Protocol (Features) -->
+    <section class="py-12 md:py-24 px-4 sm:px-8 md:px-16 bg-white/[0.01] border-y border-white/5">
+        <div class="max-w-7xl mx-auto text-center mb-10 md:mb-16">
+            <h2 class="text-2xl md:text-4xl font-black italic leading-tight text-white uppercase mb-2">The Protocol.
+            </h2>
+            <p class="text-[9px] md:text-xs font-bold text-gray-500 uppercase tracking-widest">Conversion Metrics First.
+                Aesthetics Second.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+            <div class="text-left md:text-center p-6 border border-white/5 bg-black rounded-2xl">
+                <div
+                    class="h-8 w-8 md:h-10 md:w-10 bg-cyan-400/10 rounded-lg mb-4 flex items-center justify-center md:mx-auto text-cyan-400 font-black text-xs">
+                    01</div>
+                <h4 class="text-xs font-black uppercase tracking-wider text-white mb-2">High-Velocity UI/UX</h4>
+                <p class="text-xs text-gray-500 leading-relaxed italic">Engineered to respond instantly on modern
+                    screens. Average 1.8s load configurations bypass target abandonment curves.</p>
+            </div>
+            <div class="text-left md:text-center p-6 border border-white/5 bg-black rounded-2xl">
+                <div
+                    class="h-8 w-8 md:h-10 md:w-10 bg-cyan-400/10 rounded-lg mb-4 flex items-center justify-center md:mx-auto text-cyan-400 font-black text-xs">
+                    02</div>
+                <h4 class="text-xs font-black uppercase tracking-wider text-white mb-2">Integration Infrastructure</h4>
+                <p class="text-xs text-gray-500 leading-relaxed italic">Native terminal support out-of-the-box for
+                    active configurations across Shopify, Razorpay pipelines, and instant WhatsApp automation channels.
+                </p>
+            </div>
+            <div class="text-left md:text-center p-6 border border-white/5 bg-black rounded-2xl">
+                <div
+                    class="h-8 w-8 md:h-10 md:w-10 bg-cyan-400/10 rounded-lg mb-4 flex items-center justify-center md:mx-auto text-cyan-400 font-black text-xs">
+                    03</div>
+                <h4 class="text-xs font-black uppercase tracking-wider text-white mb-2">Dynamic Funnels</h4>
+                <p class="text-xs text-gray-500 leading-relaxed italic">Every node, trigger sequence, and interaction
+                    field is calculated to minimize conversion drag and secure structural opt-ins.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📊 The Math (ROI Lift) -->
+    <section class="py-12 md:py-24 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+            <div class="space-y-4 order-2 md:order-1">
+                <div
+                    class="bg-cyan-400/[0.03] p-4 rounded-xl border border-cyan-400/10 flex justify-between items-center">
+                    <p class="text-[9px] md:text-xs text-cyan-400 font-bold uppercase tracking-wider">Conversion
+                        Efficiency</p>
+                    <p class="text-base md:text-lg font-black text-white italic">2.1% → 8.4%</p>
+                </div>
+                <p class="text-[11px] text-gray-500 px-1 italic leading-relaxed">Our data-driven layout patterns
+                    historically scale conversion velocity, shifting sales metrics upward without altering your base
+                    traffic spending budget.</p>
+            </div>
+            <div class="text-left order-1 md:order-2">
+                <p class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-2">Performance Calculus</p>
+                <h2 class="text-2xl md:text-4xl font-black italic leading-tight text-white uppercase">4.2x System
+                    Velocity.</h2>
+                <p class="text-xs text-gray-400 mt-3 leading-relaxed">It is simple network logic. Bloated sites
+                    introduce delay, and system delay burns capital. Our frameworks eliminate tracking drops, maximizing
+                    total transaction depth across both portable displays and systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔒 Claim It & CTA Section -->
+    <section id="claim"
+        class="py-16 md:py-28 px-4 sm:px-8 md:px-16 bg-white/[0.01] border-t border-white/5 relative overflow-hidden">
+        <div class="gradient-accent bottom-[-100px] left-[-100px] md:bottom-[-200px] md:left-[-200px]"></div>
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+            <p class="text-[9px] md:text-xs font-bold text-gray-500 uppercase tracking-[0.4em] mb-4">Secure Allocation
+                Strategy</p>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black italic leading-none mb-6 uppercase text-white">LOCK
+                YOUR SYSTEM.</h2>
+
+            <p class="text-xs text-gray-400 max-w-lg mx-auto leading-relaxed mb-8 md:mb-12 px-2">
+                Our infrastructure handles full development processing: wireframe generation, speed configuration,
+                processing engine installation, and direct webhook sync. Zero subscription retainers. Guaranteed
+                stability.
+            </p>
+
+            <div class="px-4">
+                <a href="https://wa.me/917020729200?text=I%20want%20my%20Free%20Website"
+                    class="cta-unlitify text-xs md:text-sm font-black py-4.5 px-10 rounded-xl inline-block w-full sm:w-auto tracking-widest">
+                    DEPLOY MY FREE ENGINE
+                </a>
+            </div>
+            <p class="mt-4 text-[9px] text-gray-600 italic tracking-widest uppercase px-4">Synchronized for global
+                networks: Shopify / Razorpay / WhatsApp APIs</p>
+        </div>
+    </section>
+
+    <!-- 📜 Footer -->
+    <footer class="py-10 px-4 border-t border-white/5 bg-black text-center text-xs">
+        <p class="text-[9px] font-bold text-gray-600 uppercase tracking-[0.4em] italic mb-2">Unlitify Core Deployment
+            Terminal</p>
+        <p class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Unlitify Group // Infrastructure
+            Division 2026</p>
+        <p class="text-[9px] text-gray-600 mt-1 italic tracking-wider">Nagpur → Global. We Build for Growth.</p>
+    </footer>
+
+</body>
+
+</html>
