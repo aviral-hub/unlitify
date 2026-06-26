@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify | B2B Proposal Issuance Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Rendering Engine Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --cyan: #00D1FF; --dark: #050505; }
+        body { background: #0c0c0c; font-family: 'Plus Jakarta Sans', sans-serif; color: white; min-height: 100vh; padding: 40px 20px; }
+        
+        /* The Structured Document Template Window (A4 Ratio Variant for clean output splits) */
+        .proposal-document {
+            width: 800px; min-height: 1050px;
+            background: var(--dark);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 60px;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+
+        .ambient-glow {
+            position: absolute; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0, 209, 255, 0.04) 0%, rgba(0,0,0,0) 70%);
+            top: -200px; right: -200px; pointer-events: none; z-index: 2;
+        }
+
+        .tech-grid {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
+            background-size: 30px 30px; z-index: 1;
+        }
+
+        /* Control Form Panel UI */
+        .workspace-layout {
+            display: flex; gap: 40px; max-w: 1350px; margin: 0 auto; align-items: start;
+        }
+
+        .control-panel {
+            flex: 1; background: #121212; border: 1px solid rgba(255,255,255,0.05);
+            padding: 30px; border-radius: 16px; display: flex; flex-direction: column; gap: 20px;
+        }
+
+        .input-node {
+            background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white; padding: 10px 14px; text-size: 13px; border-radius: 8px; font-weight: 600;
+        }
+        .input-node:focus { outline: none; border-color: var(--cyan); }
+    </style>
+</head>
+<body>
+
+    <div class="workspace-layout">
+        
+        <!-- 🛠️ BDE CONTROL WORKSTATION TERMINAL (LEFT) -->
+        <div class="control-panel">
+            <div>
+                <h2 class="text-lg font-black text-white uppercase italic tracking-tight">Proposal Architect</h2>
+                <p class="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Unlitify Infrastructure Distribution // 2026</p>
+            </div>
+            
+            <hr class="border-white/5">
+
+            <!-- Core Information Inputs -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Target Brand / Company</label>
+                    <input type="text" id="inClientCompany" value="Acme Corporation" class="input-node">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Decision Maker Name</label>
+                    <input type="text" id="inClientName" value="John Doe" class="input-node">
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+                <label class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Core Strategic Imperative (Hook Headline)</label>
+                <input type="text" id="inHeadline" value="HYPER-LOCAL MAP PACK DOMINANCE & ZERO-FRICTION INFRASTRUCTURE" class="input-node">
+            </div>
+
+            <!-- Services Configuration Node Area -->
+            <div class="flex flex-col gap-2">
+                <label class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Service Scope Selection</label>
+                
+                <div class="space-y-2" id="servicesContainer">
+                    <div class="flex gap-2 items-center service-row">
+                        <input type="text" placeholder="Service Name (e.g., Free High-Velocity Web Engine)" value="Free High-Velocity Web Engine Framework Deployment" class="input-node flex-1 text-xs name-field">
+                        <input type="text" placeholder="Price (e.g., ₹0)" value="₹0 / SETUP" class="input-node w-28 text-xs price-field">
+                    </div>
+                    <div class="flex gap-2 items-center service-row">
+                        <input type="text" placeholder="Service Name" value="Google My Business (GMB) Hyper-Local Map Pack SEO" class="input-node flex-1 text-xs name-field">
+                        <input type="text" placeholder="Price" value="₹12,500 / MO" class="input-node w-28 text-xs price-field">
+                    </div>
+                    <div class="flex gap-2 items-center service-row">
+                        <input type="text" placeholder="Service Name" value="WhatsApp Workflow Lead Automation Hook Setup" class="input-node flex-1 text-xs name-field">
+                        <input type="text" placeholder="Price" value="₹7,500 / ONE-TIME" class="input-node w-28 text-xs price-field">
+                    </div>
+                </div>
+                <button onclick="addServiceRow()" class="text-left text-[10px] text-cyan-400 uppercase font-bold tracking-widest mt-1 hover:underline">+ Add Custom Scope Row</button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Issuing Closer (BDE Name)</label>
+                    <input type="text" id="inBdeName" value="Alex Mercer" class="input-node">
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Closer Title</label>
+                    <input type="text" id="inBdeTitle" value="Senior Growth Engineer" class="input-node">
+                </div>
+            </div>
+
+            <hr class="border-white/5">
+
+            <!-- Export Nodes -->
+            <div class="flex gap-3">
+                <button onclick="renderOutput('png')" class="flex-1 bg-white text-black font-black text-xs uppercase tracking-wider py-3.5 rounded-lg hover:bg-cyan-400 transition-colors">Export Image (PNG)</button>
+                <button onclick="renderOutput('pdf')" class="flex-1 bg-zinc-800 text-white font-black text-xs uppercase tracking-wider py-3.5 rounded-lg border border-white/10 hover:bg-zinc-700 transition-colors">Generate PDF Document</button>
+            </div>
+        </div>
+
+        <!-- 🎴 DYNAMIC SYSTEM PROPOSAL DOCUMENT CANVAS (RIGHT) -->
+        <div id="proposalCanvas" class="proposal-document">
+            <div class="tech-grid"></div>
+            <div class="ambient-glow"></div>
+
+            <!-- Top Row Metadata Header -->
+            <div class="flex justify-between items-start relative z-10 border-b border-white/5 pb-6">
+                <div>
+                    <div class="text-2xl font-black italic tracking-tighter">UNLITIFY<span class="text-[#00D1FF]">.</span></div>
+                    <p class="text-[8px] font-bold text-gray-500 uppercase tracking-widest mt-1">Growth Architecture Lab</p>
+                </div>
+                <div class="text-right text-[8px] font-bold text-gray-500 tracking-[0.2em] space-y-0.5 uppercase">
+                    <p>Document Ref: UN_PRP_2026</p>
+                    <p id="docDate">Date: June 26, 2026</p>
+                </div>
+            </div>
+
+            <!-- Main Body Core Stack -->
+            <div class="relative z-10 my-auto py-8 space-y-8">
+                
+                <!-- Client Handshake Box -->
+                <div class="space-y-1">
+                    <p class="text-[9px] font-bold text-cyan-400 uppercase tracking-[0.25em]">Strategic Allocation Initiated For:</p>
+                    <h2 id="outClientName" class="text-lg font-bold text-white tracking-wide">John Doe</h2>
+                    <p id="outClientCompany" class="text-xs text-gray-400 font-bold uppercase tracking-wider">Acme Corporation</p>
+                </div>
+
+                <!-- Strategic Hook Statement Title -->
+                <div class="space-y-3">
+                    <div class="h-px w-12 bg-cyan-400"></div>
+                    <h1 id="outHeadline" class="text-3xl font-black italic tracking-tight uppercase leading-[1.1] text-white">
+                        HYPER-LOCAL MAP PACK DOMINANCE & ZERO-FRICTION INFRASTRUCTURE
+                    </h1>
+                </div>
+
+                <!-- Letter Body Narrative text -->
+                <p class="text-xs text-gray-400 leading-relaxed italic">
+                    Most traditional digital configurations exhaust capital loops on high upfront setup fees before discovering product-market validation. Unlitify de-risks deployment processing. We build your asset foundation for zero initial acquisition costs, aligning our long-term structural incentives directly with your net business volume output expansion.
+                </p>
+
+                <!-- Dynamic Output Items Service Box Grid -->
+                <div class="space-y-3">
+                    <p class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.3em] mb-1">Proposed Operational Architecture & Cost Tiers</p>
+                    <div id="outServicesGrid" class="space-y-2">
+                        <!-- Dynamic rows generate here instantly -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Closing Sign-off Matrix Row -->
+            <div class="relative z-10 flex justify-between items-end border-t border-white/5 pt-6">
+                <div>
+                    <p class="text-[8px] text-gray-600 uppercase font-bold tracking-wider mb-1">Issuing Pipeline Authority</p>
+                    <p id="outBdeName" class="text-sm font-black text-white italic uppercase tracking-wide">Alex Mercer</p>
+                    <p id="outBdeTitle" class="text-[9px] font-bold text-cyan-400 uppercase tracking-widest mt-0.5">Senior Growth Engineer</p>
+                </div>
+                
+                <div class="text-right">
+                    <p class="text-[7px] text-gray-600 uppercase font-bold tracking-wider mb-2">Verified Terminal Authorization Code</p>
+                    <div class="inline-block border border-dashed border-gray-800 bg-white/5 p-2 rounded-lg text-center">
+                        <span class="text-[14px] block">💼</span>
+                        <span class="text-[5px] font-bold uppercase tracking-wider text-gray-400">UNLITIFY VALID SEAL</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🧠 AUTOMATED REALTIME SYNCHRONIZATION SCRIPT -->
+    <script>
+        // Setup default date configuration matching contextual time
+        document.getElementById('docDate').innerText = `Date: June 26, 2026`;
+
+        // Direct Core UI Binding Node Hookups
+        const inputs = [
+            { src: 'inClientCompany', dest: 'outClientCompany', process: val => val.toUpperCase() },
+            { src: 'inClientName', dest: 'outClientName', process: val => val },
+            { src: 'inHeadline', dest: 'outHeadline', process: val => val.toUpperCase() },
+            { src: 'inBdeName', dest: 'outBdeName', process: val },
+            { src: 'inBdeTitle', dest: 'outBdeTitle', process: val => val.toUpperCase() }
+        ];
+
+        function syncInputFields() {
+            inputs.forEach(node => {
+                const inputEl = document.getElementById(node.src);
+                const outputEl = document.getElementById(node.dest);
+                if(inputEl && outputEl) {
+                    outputEl.innerText = node.process ? node.process(inputEl.value) : inputEl.value;
+                }
+            });
+            syncServicesGrid();
+        }
+
+        // Dynamically clone service items into the visual proposal canvas preview area
+        function syncServicesGrid() {
+            const outGrid = document.getElementById('outServicesGrid');
+            outGrid.innerHTML = '';
+            
+            const rows = document.querySelectorAll('.service-row');
+            rows.forEach(row => {
+                const name = row.querySelector('.name-field').value;
+                const price = row.querySelector('.price-field').value;
+                
+                if(name.trim() !== "") {
+                    const block = document.createElement('div');
+                    block.className = 'flex justify-between items-center bg-white/[0.02] border border-white/5 p-3 rounded-lg text-xs';
+                    block.innerHTML = `
+                        <span class="font-bold text-gray-300">${name}</span>
+                        <span class="font-black text-cyan-400 uppercase tracking-wider whitespace-nowrap ml-4">${price}</span>
+                    `;
+                    outGrid.appendChild(block);
+                }
+            });
+        }
+
+        function addServiceRow() {
+            const container = document.getElementById('servicesContainer');
+            const newRow = document.createElement('div');
+            newRow.className = 'flex gap-2 items-center service-row';
+            newRow.innerHTML = `
+                <input type="text" placeholder="Service Name" class="input-node flex-1 text-xs name-field">
+                <input type="text" placeholder="Price" class="input-node w-28 text-xs price-field">
+            `;
+            container.appendChild(newRow);
+            attachDynamicListeners();
+        }
+
+        function attachDynamicListeners() {
+            document.querySelectorAll('.control-panel input').forEach(element => {
+                element.removeEventListener('input', syncInputFields);
+                element.addEventListener('input', syncInputFields);
+            });
+        }
+
+        // Processing Document Asset Extraction Functions
+        function renderOutput(formatType) {
+            const documentCanvas = document.getElementById('proposalCanvas');
+            
+            html2canvas(documentCanvas, {
+                scale: 2, // High resolution density output scaling override
+                backgroundColor: '#050505',
+                useCORS: true
+            }).then(canvas => {
+                const companySlug = document.getElementById('inClientCompany').value.replace(/\s+/g, '-').toLowerCase();
+                
+                if (formatType === 'png') {
+                    // Export snapshot package as uncompressed graphic asset
+                    const link = document.createElement('a');
+                    link.download = `unlitify-proposal-${companySlug}.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                } 
+                else if (formatType === 'pdf') {
+                    // Inject processed high-density layout mapping directly inside crisp multi-device A4 document vector configuration
+                    const imgData = canvas.toDataURL('image/png');
+                    const { jsPDF } = window.jspdf;
+                    const docPDF = new jsPDF('p', 'mm', 'a4');
+                    
+                    const pageWidth = docPDF.internal.pageSize.getWidth();
+                    const pageHeight = docPDF.internal.pageSize.getHeight();
+                    
+                    docPDF.addImage(imgData, 'PNG', 0, 0, pageWidth, pageHeight);
+                    docPDF.save(`unlitify-proposal-${companySlug}.pdf`);
+                }
+            });
+        }
+
+        // Initialize execution layout maps on launch load
+        attachDynamicListeners();
+        syncInputFields();
+    </script>
+
+</body>
+</html>
