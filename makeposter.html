@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify Personal Team ID Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00D1FF;
+            --dark: #050505;
+        }
+
+        body {
+            background: #111;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* 1:1 Canvas Window */
+        .unlitify-canvas {
+            width: 540px;
+            height: 540px;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 209, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+            bottom: -150px;
+            right: -150px;
+            pointer-events: none;
+        }
+
+        .tech-lines {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Customize Bar Controls */
+        .control-panel {
+            width: 540px;
+            background: #161616;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: none;
+            padding: 15px 25px;
+            border-radius: 0 0 16px 16px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🎴 DYNAMIC GRAPHIC CANVAS -->
+    <div id="captureContainer" class="unlitify-canvas">
+        <div class="tech-lines"></div>
+        <div class="ambient-glow"></div>
+
+        <!-- Header Metadata -->
+        <div class="flex justify-between items-center relative z-10">
+            <div class="text-base font-black italic tracking-tighter">UNLITIFY<span class="text-[#00D1FF]">.</span>
+            </div>
+            <div
+                class="text-[8px] font-bold tracking-[0.25em] text-cyan-400/70 bg-cyan-400/5 border border-cyan-400/20 px-2 py-0.5 rounded uppercase">
+                Core Operational Unit</div>
+        </div>
+
+        <!-- Center Statement Stack -->
+        <div class="my-auto relative z-10 space-y-4">
+            <p class="text-[9px] font-bold text-gray-500 uppercase tracking-[0.3em]">Internal Identity Registry // 2026
+            </p>
+            <h1 class="text-3xl font-black italic leading-none text-white uppercase tracking-tight">
+                WE DO NOT BUILD.<br>WE <span class="text-cyan-400">SCALE BRANDS.</span>
+            </h1>
+            <p class="text-[11px] text-gray-400 leading-relaxed max-w-[360px]">
+                Deploying conversion infrastructure, hyper-local search systems, and high-velocity automation layouts
+                across global networks.
+            </p>
+        </div>
+
+        <!-- Dynamic Identity Matrix (The User Area) -->
+        <div class="flex justify-between items-end border-t border-white/5 pt-4 relative z-10">
+            <div>
+                <p class="text-[7px] text-gray-600 uppercase font-bold tracking-wider mb-0.5">Verified Operative</p>
+                <!-- This text updates dynamically based on user input -->
+                <p id="displayName" class="text-base font-black text-white italic uppercase tracking-wide">YOUR NAME
+                    HERE</p>
+            </div>
+            <div class="text-right">
+                <p class="text-[7px] text-gray-600 uppercase font-bold tracking-wider mb-0.5">Authorization Profile</p>
+                <!-- This designation updates dynamically -->
+                <p id="displayRole" class="text-[10px] font-black text-cyan-400 uppercase tracking-widest">GROWTH
+                    ENGINEER</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🛠️ LIVE INTERACTIVE CONTROLS -->
+    <div class="control-panel">
+        <input type="text" id="inputName" placeholder="Type Employee Name" class="bg-black/50 text-white text-xs px-3 py-2.5 rounded-lg border border-white/10 focus:outline-none focus:border-cyan-400 flex-1 font-bold">
+
+        <select id="selectRole" class="bg-black/50 text-white text-xs px-3 py-2.5 rounded-lg border border-white/10 focus:outline-none focus:border-cyan-400 font-bold text-gray-400">
+            <option value="GROWTH ENGINEER">Growth Engineer</option>
+            <option value="BUSINESS DEVELOPMENT">Business Dev (BDE)</option>
+            <option value="SYSTEM DESIGNER">System Designer</option>
+            <option value="INFRASTRUCTURE DEV">Infrastructure Dev</option>
+            <option value="FOUNDING MEMBER">Founding Member</option>
+        </select>
+
+        <button onclick="downloadGraphic()" class="bg-white text-black font-black text-[10px] tracking-wider uppercase px-4 py-2.5 rounded-lg hover:bg-cyan-400 transition-colors">
+            Save Image
+        </button>
+    </div>
+
+    <!-- 🧠 DYNAMIC INPUT SYNCHRONIZATION ENGINE -->
+    <script>
+        const inputName = document.getElementById('inputName');
+        const displayName = document.getElementById('displayName');
+        const selectRole = document.getElementById('selectRole');
+        const displayRole = document.getElementById('displayRole');
+
+        // Dynamic Text Hook
+        inputName.addEventListener('input', (e) => {
+            displayName.innerText = e.target.value.trim() !== "" ? e.target.value : "YOUR NAME HERE";
+        });
+
+        // Dynamic Selector Dropdown Hook
+        selectRole.addEventListener('change', (e) => {
+            displayRole.innerText = e.target.value;
+        });
+
+        // Render Canvas as PNG file instantly
+        function downloadGraphic() {
+            const container = document.getElementById('captureContainer');
+            
+            html2canvas(container, {
+                scale: 2, // High resolution download multiplier
+                backgroundColor: '#050505'
+            }).then(canvas => {
+                const link = document.createElement('a');
+                const employeeSlug = displayName.innerText.replace(/\s+/g, '-').toLowerCase();
+                link.download = `unlitify-id-${employeeSlug}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+    </script>
+
+</body>
+
+</html>
