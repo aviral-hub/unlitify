@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify Team LinkedIn Banner Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00D1FF;
+            --dark: #050505;
+        }
+
+        body {
+            background: #111;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Exact LinkedIn Banner Dimensions for rendering */
+        .linkedin-banner-canvas {
+            width: 1188px;
+            /* Scaled down proportionally for screen display, renders clean at high-res scale */
+            height: 297px;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+        }
+
+        .tech-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 25px 25px;
+            z-index: 1;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 209, 255, 0.06) 0%, rgba(0, 0, 0, 0) 60%);
+            bottom: -250px;
+            right: -100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Profile picture clearance safety padding zone */
+        .profile-clearance {
+            padding-left: 180px;
+        }
+
+        /* Control Panel Styles */
+        .control-panel {
+            width: 1188px;
+            background: #161616;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: none;
+            padding: 15px 30px;
+            border-radius: 0 0 16px 16px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 🎴 DYNAMIC LINKEDIN CANVAS -->
+    <div id="captureContainer" class="linkedin-banner-canvas">
+        <div class="tech-grid"></div>
+        <div class="ambient-glow"></div>
+
+        <!-- LEFT TEXT STACK (Shifted right via clearance to make space for the user's avatar) -->
+        <div class="relative z-10 flex flex-col justify-center profile-clearance h-full space-y-3 max-w-2xl">
+            <div class="flex items-center gap-3">
+                <div class="text-xl font-black italic tracking-tighter">UNLITIFY<span class="text-[#00D1FF]">.</span>
+                </div>
+                <div class="h-3 w-px bg-white/20"></div>
+                <div class="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase">SYS_ACTIVE_2026</div>
+            </div>
+
+            <h1 class="text-3xl font-black italic leading-tight text-white uppercase tracking-tight">
+                WE DO NOT BUILD. WE <span class="text-cyan-400">SCALE BRANDS.</span>
+            </h1>
+
+            <p class="text-[11px] font-bold text-gray-500 uppercase tracking-widest">
+                Free Web Engines • Map Pack Authority • Conversion Systems
+            </p>
+        </div>
+
+        <!-- RIGHT IDENTITY TERMINAL -->
+        <div
+            class="relative z-10 flex flex-col items-end text-right justify-center h-full border-l border-white/5 pl-10 space-y-2 py-6">
+            <div>
+                <p class="text-[7px] text-gray-600 uppercase font-bold tracking-[0.15em] mb-0.5">Verified Operative</p>
+                <!-- Live updated name node -->
+                <p id="displayName"
+                    class="text-xl font-black text-white italic uppercase tracking-wide whitespace-nowrap">YOUR NAME
+                    HERE</p>
+            </div>
+
+            <div class="pt-1">
+                <p class="text-[7px] text-gray-600 uppercase font-bold tracking-[0.15em] mb-0.5">Corporate Role</p>
+                <!-- Live updated designation node -->
+                <p id="displayRole"
+                    class="text-[10px] font-black text-cyan-400 bg-cyan-400/5 border border-cyan-400/20 px-2.5 py-1 rounded uppercase tracking-widest inline-block">
+                    GROWTH ENGINEER</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🛠️ INTERACTIVE MANAGEMENT DASHBOARD -->
+    <div class="control-panel">
+        <input type="text" id="inputName" placeholder="Type Employee Name" class="bg-black/50 text-white text-xs px-3 py-2.5 rounded-lg border border-white/10 focus:outline-none focus:border-cyan-400 flex-1 font-bold">
+
+        <select id="selectRole" class="bg-black/50 text-white text-xs px-3 py-2.5 rounded-lg border border-white/10 focus:outline-none focus:border-cyan-400 font-bold text-gray-400">
+            <option value="GROWTH ENGINEER">Growth Engineer</option>
+            <option value="BUSINESS DEVELOPMENT">Business Dev (BDE)</option>
+            <option value="SYSTEM DESIGNER">System Designer</option>
+            <option value="INFRASTRUCTURE DEV">Infrastructure Dev</option>
+            <option value="FOUNDING MEMBER">Founding Member</option>
+        </select>
+
+        <button onclick="downloadBanner()" class="bg-white text-black font-black text-[10px] tracking-wider uppercase px-5 py-2.5 rounded-lg hover:bg-cyan-400 transition-colors whitespace-nowrap">
+            Generate LinkedIn Asset
+        </button>
+    </div>
+
+    <!-- 🧠 SYSTEM LOGIC STRAP -->
+    <script>
+        const inputName = document.getElementById('inputName');
+        const displayName = document.getElementById('displayName');
+        const selectRole = document.getElementById('selectRole');
+        const displayRole = document.getElementById('displayRole');
+
+        // Text listener injection
+        inputName.addEventListener('input', (e) => {
+            displayName.innerText = e.target.value.trim() !== "" ? e.target.value : "YOUR NAME HERE";
+        });
+
+        // Dropdown selection hook
+        selectRole.addEventListener('change', (e) => {
+            displayRole.innerText = e.target.value;
+        });
+
+        // Banner capture export routine
+        function downloadBanner() {
+            const container = document.getElementById('captureContainer');
+            
+            // html2canvas exports exact pixel configurations cleanly
+            html2canvas(container, {
+                scale: 1.333, // Scales standard visual block up to absolute 1584x396 pixel size
+                backgroundColor: '#050505'
+            }).then(canvas => {
+                const link = document.createElement('a');
+                const slugName = displayName.innerText.replace(/\s+/g, '-').toLowerCase();
+                link.download = `unlitify-linkedin-${slugName}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+    </script>
+
+</body>
+
+</html>
