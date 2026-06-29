@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify // BDE Outreach Hub</title>
+    <style>
+        :root {
+            --bg-dark: #06070a;
+            --card-bg: #0b0d13;
+            --blue: #0052ff;
+            --cyan: #00d2ff;
+            --text-main: #ffffff;
+            --text-dim: #7e8294;
+            --border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar Inputs */
+        .sidebar {
+            width: 350px;
+            background: var(--card-bg);
+            border-right: var(--border);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--cyan);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            font-weight: 700;
+        }
+
+        input {
+            background: rgba(0, 0, 0, 0.3);
+            border: var(--border);
+            padding: 12px;
+            color: white;
+            border-radius: 6px;
+        }
+
+        /* Template Selection */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.05);
+            border: var(--border);
+            color: var(--text-dim);
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        button.active {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+
+        /* Preview Box */
+        .preview-box {
+            background: var(--card-bg);
+            border: var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            min-height: 400px;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            color: #d1d1d1;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--blue);
+            color: white;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>LEAD DATA</h2>
+        <div class="input-group">
+            <label>First Name</label>
+            <input type="text" id="firstName" placeholder="e.g. Sarah" oninput="render()">
+        </div>
+        <div class="input-group">
+            <label>Cafe Name</label>
+            <input type="text" id="cafeName" placeholder="e.g. Brew & Bean" oninput="render()">
+        </div>
+        <div class="input-group">
+            <label>City</label>
+            <input type="text" id="city" placeholder="e.g. Mumbai" oninput="render()">
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="nav-tabs" id="tabs"></div>
+        <div class="preview-box" id="preview"></div>
+    </div>
+
+    <script>
+        const templates = [
+        {
+            name: "Template 1: Audit",
+            subject: "Quick idea for {{Cafe Name}}",
+            body: `Hi {{First Name}},\n\nI came across {{Cafe Name}} while looking at cafés in {{City}} and really liked your brand.\n\nI noticed a few opportunities that could help bring in more customers through Instagram and Google. I recorded a few notes after reviewing your online presence.\n\nAt Unlitify, we help cafés:\n\n* Increase footfall through local social media campaigns\n* Improve Google Maps visibility and reviews\n* Create reels that attract nearby customers\n* Run targeted Instagram & Meta ads for offers and events\n\nI'd be happy to share a free 5-minute digital growth audit for your café—no sales pitch.\n\nWould you be open to a quick 15-minute call this week?\n\nBest,\nAviral Pathak\nFounder, Unlitify\n📞 +91 XXXXX XXXXX`
+        },
+        {
+            name: "Template 2: ROI",
+            subject: "Can we help {{Cafe Name}} get 100+ more local customers?",
+            body: `Hi {{First Name}},\n\nMost cafés spend heavily on interiors and food, but very little on getting consistent local visibility.\n\nWe help cafés attract more nearby customers through:\n✔ Instagram Reels\n✔ Local Meta Ads\n✔ Google Business Profile optimization\n✔ Influencer collaborations\n✔ Professional content creation\n✔ Monthly social media management\n\nIf you're looking to increase weekday footfall or boost online orders, I'd love to share a few ideas specific to {{Cafe Name}}.\n\nWould Tuesday or Wednesday work for a short call?\n\nRegards,\nAviral Pathak\nFounder — Unlitify`
+        },
+        {
+            name: "Template 3: Free Offer",
+            subject: "Free Instagram Growth Audit for {{Cafe Name}}",
+            body: `Hi {{First Name}},\n\nI'm reaching out because I believe {{Cafe Name}} has great potential to grow even faster online.\n\nI'd like to offer you a free digital marketing audit that includes:\n✓ Instagram review\n✓ Google profile analysis\n✓ Competitor comparison\n✓ Content suggestions\n✓ Local SEO tips\n✓ Growth opportunities\n\nNo obligations.\n\nIf you find value in it, we can discuss how Unlitify can help execute the strategy.\n\nInterested?\n\nBest,\nAviral\nFounder, Unlitify`
+        },
+        {
+            name: "Follow-up 1",
+            subject: "Re: {{Cafe Name}}",
+            body: `Hi {{First Name}},\n\nJust checking if you had a chance to see my previous email.\n\nI'd still be happy to prepare a complimentary digital audit for {{Cafe Name}}.\n\nEven if you don't work with us, you'll walk away with practical ideas to improve your online presence.\n\nWould next week work for a quick chat?\n\nRegards,\nAviral`
+        },
+        {
+            name: "Follow-up 2",
+            subject: "Last email 🙂",
+            body: `Hi {{First Name}},\n\nI know you're probably busy running the café.\n\nThis is my last email.\n\nIf growing Instagram, increasing walk-ins, or improving Google visibility becomes a priority, I'd be happy to help.\n\nWishing you continued success with {{Cafe Name}}.\n\nBest,\nAviral\nFounder, Unlitify`
+        }
+    ];
+
+    let activeIndex = 0;
+
+    function render() {
+        const fn = document.getElementById('firstName').value || "{{First Name}}";
+        const cn = document.getElementById('cafeName').value || "{{Cafe Name}}";
+        const ct = document.getElementById('city').value || "{{City}}";
+        
+        const template = templates[activeIndex];
+        const preview = document.getElementById('preview');
+        
+        let finalBody = template.body
+            .replaceAll("{{First Name}}", fn)
+            .replaceAll("{{Cafe Name}}", cn)
+            .replaceAll("{{City}}", ct);
+
+        let finalSubject = template.subject
+            .replaceAll("{{Cafe Name}}", cn);
+
+        preview.innerHTML = `<strong>Subject: ${finalSubject}</strong>\n\n${finalBody} <button class="copy-btn" onclick="copyToClipboard()">Copy All</button>`;
+    }
+
+    function initTabs() {
+        const container = document.getElementById('tabs');
+        templates.forEach((t, i) => {
+            const btn = document.createElement('button');
+            btn.innerText = t.name;
+            if(i === 0) btn.className = 'active';
+            btn.onclick = () => {
+                activeIndex = i;
+                document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                render();
+            };
+            container.appendChild(btn);
+        });
+    }
+
+    function copyToClipboard() {
+        const text = document.getElementById('preview').innerText.replace("Copy All", "");
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerText = "Copied!";
+        setTimeout(() => btn.innerText = "Copy All", 2000);
+    }
+
+    initTabs();
+    render();
+    </script>
+</body>
+
+</html>
