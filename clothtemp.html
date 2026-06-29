@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify // BDE Retail & Clothing Outreach Hub</title>
+    <style>
+        :root {
+            --bg-dark: #06070a;
+            --card-bg: #0b0d13;
+            --blue: #0052ff;
+            --cyan: #00d2ff;
+            --text-main: #ffffff;
+            --text-dim: #7e8294;
+            --border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar Inputs */
+        .sidebar {
+            width: 360px;
+            background: var(--card-bg);
+            border-right: var(--border);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        h2 { font-size: 1.1rem; margin-bottom: 15px; color: var(--cyan); letter-spacing: 0.5px; }
+        .input-group { display: flex; flex-direction: column; gap: 8px; }
+        label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-dim); font-weight: 700; letter-spacing: 0.5px; }
+        input { 
+            background: rgba(0,0,0,0.3); 
+            border: var(--border); 
+            padding: 12px; 
+            color: white; 
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        input:focus { border-color: var(--blue); outline: none; }
+
+        /* Template Selection Tabs */
+        .nav-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        button {
+            background: rgba(255,255,255,0.05);
+            border: var(--border);
+            color: var(--text-dim);
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        button.active { background: var(--blue); color: white; border-color: var(--blue); }
+
+        /* Preview Display Frame */
+        .preview-box {
+            background: var(--card-bg);
+            border: var(--border);
+            border-radius: 8px;
+            padding: 35px;
+            position: relative;
+            min-height: 450px;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            color: #d1d1d1;
+            font-size: 0.95rem;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--blue);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+        .copy-btn:hover { background: #0044dd; }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>RETAIL LEAD DATA</h2>
+    <div class="input-group">
+        <label>Founder/Owner First Name</label>
+        <input type="text" id="firstName" placeholder="e.g. Rohan" oninput="render()">
+    </div>
+    <div class="input-group">
+        <label>Brand / Store Name</label>
+        <input type="text" id="brandName" placeholder="e.g. Urban Threads" oninput="render()">
+    </div>
+    <div class="input-group">
+        <label>City / Flagship Location</label>
+        <input type="text" id="city" placeholder="e.g. Mumbai" oninput="render()">
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="nav-tabs" id="tabs"></div>
+    <div class="preview-box" id="preview"></div>
+</div>
+
+<script>
+    const templates = [
+        {
+            name: "Template 1: Personalized Audit",
+            subject: "Quick digital optimization idea for {{Brand Name}}",
+            body: `Hi {{First Name}},\n\nI came across {{Brand Name}} while looking at premium clothing labels based out of {{City}} and really liked your design aesthetic.\n\nI noticed a few technical gaps in your online store checkout flow and location marketing that might be causing you to lose shoppers who visit your site or social channels. I recorded a few actionable growth notes after reviewing your digital storefront.\n\nAt Unlitify, we help retail and apparel brands:\n\n* Plug online traffic leaks and lower abandoned cart rates through hyper-fast, optimized layout engineering\n* Drive highly-targeted local footfall to your physical flagship stores using geographic social funnels\n* Create viral retail reels and lookbooks designed specifically to convert viewers into paying buyers\n* Scale seasonal collection drops and clearance sales with optimized Meta & Instagram ad tracks\n\nI'd be happy to share a free 5-minute digital conversion audit for {{Brand Name}}—no sales pitch.\n\nWould you be open to a quick 15-minute call this week to look over the findings?\n\nBest,\nAviral Pathak\nFounder, Unlitify\n📞 +91 XXXXX XXXXX`
+        },
+        {
+            name: "Template 2: ROI Focus",
+            subject: "Can we help {{Brand Name}} scale online orders and physical footfall?",
+            body: `Hi {{First Name}},\n\nMost fashion and retail brands invest heavily in premium inventory, photoshoots, and store interiors, but experience heavy user drop-offs on their actual website and checkout screens.\n\nWe build high-conversion digital architectures designed specifically to turn digital attention into repeat sales through:\n\n✔ High-converting checkout landing tracks (built to kill cart abandonment)\n✔ Local Meta Ad engines engineered to bring nearby buyers into your physical retail location\n✔ High-yield Instagram lookbook optimization & viral video content hooks\n✔ Automated immediate retention triggers (WhatsApp & Email carts recovery loops)\n\nIf you're aiming to maximize seasonal sales velocity or scale the ROI on your digital marketing spend for your current collection, I'd love to share a few ideas tailored for {{Brand Name}}.\n\nWould Tuesday or Wednesday work for a short introductory call?\n\nRegards,\nAviral Pathak\nFounder — Unlitify`
+        },
+        {
+            name: "Template 3: Free Offer",
+            subject: "Free Digital Growth Audit for {{Brand Name}}",
+            body: `Hi {{First Name}},\n\nI'm reaching out because I believe {{Brand Name}} has massive potential to unlock a higher volume of sales from your existing digital traffic and social media presence.\n\nI would like to offer your team a completely free digital storefront optimization audit that includes:\n\n✓ Checkout flow & cart friction review\n✓ Mobile purchase UX and site speed analysis\n✓ Hyper-local discoverability assessment (Google Maps/Store locator check)\n✓ Content & trend suggestions to improve social media conversion\n✓ Local competitor ad tracking analysis\n\nNo obligations attached.\n\nIf you find direct value in it, we can discuss how Unlitify can help integrate the strategy seamlessly to boost your orders.\n\nAre you open to checking out the audit notes?\n\nBest,\nAviral\nFounder, Unlitify`
+        },
+        {
+            name: "Follow-up 1 (3 Days)",
+            subject: "Re: {{Brand Name}} retail infrastructure",
+            body: `Hi {{First Name}},\n\nJust checking back to see if you had a moment to look over my previous email regarding the storefront optimization.\n\nI'm still happy to prepare a complimentary digital conversion audit for {{Brand Name}} to help map out your online checkout leaks.\n\nEven if you choose not to collaborate with us, your management team will walk away with practical, direct ideas to improve your daily order volumes and walk-ins.\n\nWould next week work for a brief call?\n\nRegards,\nAviral`
+        },
+        {
+            name: "Follow-up 2 (7 Days)",
+            subject: "Last update from Unlitify 🙂",
+            body: `Hi {{First Name}},\n\nI completely understand that running inventory management, shipping, and store operations keeps you incredibly busy.\n\nThis will be my final outreach.\n\nIf scaling your online store conversions, crushing cart abandonment, or accelerating collection drop velocity becomes a core target for {{Brand Name}} down the line, we are ready to assist.\n\nWishing you continued retail and business growth.\n\nBest,\nAviral\nFounder, Unlitify`
+        }
+    ];
+
+    let activeIndex = 0;
+
+    function render() {
+        const fn = document.getElementById('firstName').value || "{{First Name}}";
+        const bName = document.getElementById('brandName').value || "{{Brand Name}}";
+        const ct = document.getElementById('city').value || "{{City}}";
+        
+        const template = templates[activeIndex];
+        const preview = document.getElementById('preview');
+        
+        let finalBody = template.body
+            .replaceAll("{{First Name}}", fn)
+            .replaceAll("{{Brand Name}}", bName)
+            .replaceAll("{{City}}", ct);
+
+        let finalSubject = template.subject
+            .replaceAll("{{Brand Name}}", bName);
+
+        preview.innerHTML = `<strong>Subject: ${finalSubject}</strong>\n\n${finalBody} <button class="copy-btn" onclick="copyToClipboard()">Copy All</button>`;
+    }
+
+    function initTabs() {
+        const container = document.getElementById('tabs');
+        templates.forEach((t, i) => {
+            const btn = document.createElement('button');
+            btn.innerText = t.name;
+            if(i === 0) btn.className = 'active';
+            btn.onclick = () => {
+                activeIndex = i;
+                document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                render();
+            };
+            container.appendChild(btn);
+        });
+    }
+
+    function copyToClipboard() {
+        const text = document.getElementById('preview').innerText.replace("Copy All", "");
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerText = "Copied!";
+        setTimeout(() => btn.innerText = "Copy All", 2000);
+    }
+
+    initTabs();
+    render();
+</script>
+</body>
+</html>
