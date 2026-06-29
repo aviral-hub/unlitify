@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify // BDE Education Outreach Hub</title>
+    <style>
+        :root {
+            --bg-dark: #06070a;
+            --card-bg: #0b0d13;
+            --blue: #0052ff;
+            --cyan: #00d2ff;
+            --text-main: #ffffff;
+            --text-dim: #7e8294;
+            --border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar Inputs */
+        .sidebar {
+            width: 360px;
+            background: var(--card-bg);
+            border-right: var(--border);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--cyan);
+            letter-spacing: 0.5px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        input {
+            background: rgba(0, 0, 0, 0.3);
+            border: var(--border);
+            padding: 12px;
+            color: white;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        input:focus {
+            border-color: var(--blue);
+            outline: none;
+        }
+
+        /* Template Selection Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.05);
+            border: var(--border);
+            color: var(--text-dim);
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        button.active {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+
+        /* Preview Display Frame */
+        .preview-box {
+            background: var(--card-bg);
+            border: var(--border);
+            border-radius: 8px;
+            padding: 35px;
+            position: relative;
+            min-height: 450px;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            color: #d1d1d1;
+            font-size: 0.95rem;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--blue);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-btn:hover {
+            background: #0044dd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>INSTITUTIONAL LEAD DATA</h2>
+        <div class="input-group">
+            <label>Prospect's First Name</label>
+            <input type="text" id="firstName" placeholder="e.g. Dr. Arpan" oninput="render()">
+        </div>
+        <div class="input-group">
+            <label>Institution Name</label>
+            <input type="text" id="institutionName" placeholder="e.g. Apex University" oninput="render()">
+        </div>
+        <div class="input-group">
+            <label>City / Campus Location</label>
+            <input type="text" id="city" placeholder="e.g. Bangalore" oninput="render()">
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="nav-tabs" id="tabs"></div>
+        <div class="preview-box" id="preview"></div>
+    </div>
+
+    <script>
+        const templates = [
+        {
+            name: "Template 1: Personalized Audit",
+            subject: "Quick admissions infrastructure observation for {{Institution Name}}",
+            body: `Hi {{First Name}},\n\nI came across {{Institution Name}} while reviewing top higher education options in {{City}} and was highly impressed by your academic scope.\n\nHowever, I noticed a few technical optimization gaps that might be causing you to lose potential student applications through your website and digital channels. I recorded a few actionable structural notes after auditing your online enrollment journey.\n\nAt Unlitify, we help educational institutions:\n\n* Plug website traffic leaks by creating distraction-free student landing tracks\n* Boost lead conversion by streamlining complex inquiry forms\n* Automate instant responses to sync raw leads to your admissions desk within 60 seconds\n* Increase high-intent campus tour and open-house bookings smoothly\n\nI'd be glad to share a free 5-minute digital admissions funnel audit for {{Institution Name}}—no sales pitch involved.\n\nWould you be open to a brief 15-minute call this week to look over the data?\n\nBest,\nAviral Pathak\nFounder, Unlitify\n📞 +91 XXXXX XXXXX`
+        },
+        {
+            name: "Template 2: ROI Focus",
+            subject: "Can we help {{Institution Name}} scale verified student enrollments?",
+            body: `Hi {{First Name}},\n\nMost educational institutions invest heavily in infrastructure, campus facilities, and wide-reaching branding, but experience heavy student drop-offs on their main digital portal.\n\nWe build high-conversion student acquisition layers designed to systematically scale admissions through:\n\n✔ Focused traffic routing matching target student demographics\n✔ Conversion-optimized application pipelines (replacing messy legacy web loops)\n✔ Frictionless campus tour booking engines built for high conversions\n✔ Real-time automated outreach updates via direct WhatsApp & CRM webhooks\n\nIf you are aiming to stabilize application pipelines or maximize conversion rates on your marketing spend for the upcoming intake, I'd love to share a few customized architectural ideas for {{Institution Name}}.\n\nWould Tuesday or Wednesday work for a short introductory call?\n\nRegards,\nAviral Pathak\nFounder — Unlitify`
+        },
+        {
+            name: "Template 3: Free Offer",
+            subject: "Free Admissions Conversion Audit for {{Institution Name}}",
+            body: `Hi {{First Name}},\n\nI'm reaching out because I believe {{Institution Name}} has immense potential to convert its existing digital traffic into a higher volume of qualified applicants.\n\nI would like to offer your admissions board a completely free digital enrollment audit that includes:\n\n✓ Complete website conversion friction review\n✓ Inquiry-to-lead workflow assessment\n✓ Campus tour scheduling process analysis\n✓ Digital touchpoint speed and mobile responsiveness test\n✓ Actionable technical optimization suggestions\n\nThere are no obligations attached.\n\nIf your team finds immediate value in the insights, we can discuss how Unlitify can help integrate the changes seamlessly.\n\nAre you open to reviewing the audit summary?\n\nBest,\nAviral\nFounder, Unlitify`
+        },
+        {
+            name: "Follow-up 1 (3 Days)",
+            subject: "Re: {{Institution Name}} admissions framework",
+            body: `Hi {{First Name}},\n\nJust checking back to see if you had a moment to review my previous email regarding the application pipeline optimization.\n\nI'm still happy to assemble a complimentary, data-backed conversion audit for {{Institution Name}} to help map out your digital leak points.\n\nEven if you choose not to collaborate with us, your admissions team will retain practical insights to elevate your enrollment velocity this year.\n\nWould next week work for a quick chat?\n\nRegards,\nAviral`
+        },
+        {
+            name: "Follow-up 2 (7 Days)",
+            subject: "Last update from Unlitify 🙂",
+            body: `Hi {{First Name}},\n\nI completely understand that your admissions department is fully occupied managing active student intakes.\n\nThis will be my final outreach.\n\nIf optimizing your website experience, boosting tour booking rates, or maximizing Counselor response times becomes a core digital target for {{Institution Name}} in the future, we are ready to assist.\n\nWishing you and your institution continued academic success.\n\nBest,\nAviral\nFounder, Unlitify`
+        }
+    ];
+
+    let activeIndex = 0;
+
+    function render() {
+        // Fallbacks to placeholders if fields are empty
+        const fn = document.getElementById('firstName').value || "{{First Name}}";
+        const inName = document.getElementById('institutionName').value || "{{Institution Name}}";
+        const ct = document.getElementById('city').value || "{{City}}";
+        
+        const template = templates[activeIndex];
+        const preview = document.getElementById('preview');
+        
+        let finalBody = template.body
+            .replaceAll("{{First Name}}", fn)
+            .replaceAll("{{Institution Name}}", inName)
+            .replaceAll("{{City}}", ct);
+
+        let finalSubject = template.subject
+            .replaceAll("{{Institution Name}}", inName);
+
+        preview.innerHTML = `<strong>Subject: ${finalSubject}</strong>\n\n${finalBody} <button class="copy-btn" onclick="copyToClipboard()">Copy All</button>`;
+    }
+
+    function initTabs() {
+        const container = document.getElementById('tabs');
+        templates.forEach((t, i) => {
+            const btn = document.createElement('button');
+            btn.innerText = t.name;
+            if(i === 0) btn.className = 'active';
+            btn.onclick = () => {
+                activeIndex = i;
+                document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                render();
+            };
+            container.appendChild(btn);
+        });
+    }
+
+    function copyToClipboard() {
+        // Strip the button text from string before parsing onto system clipboard
+        const text = document.getElementById('preview').innerText.replace("Copy All", "");
+        navigator.clipboard.writeText(text);
+        const btn = document.querySelector('.copy-btn');
+        btn.innerText = "Copied!";
+        setTimeout(() => btn.innerText = "Copy All", 2000);
+    }
+
+    // Run core engine setups
+    initTabs();
+    render();
+    </script>
+</body>
+
+</html>
