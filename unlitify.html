@@ -187,7 +187,7 @@
     <!-- Hero Section -->
     <section
         class="min-h-screen pt-44 pb-20 px-6 flex flex-col items-center justify-center text-center relative overflow-hidden transition-colors duration-500"
-        :class="{ 'bg-gradient-to-b from-brand-owhite-100 via-brand-owhite-200 to-brand-owhite-300 text-brand-dark': !darkMode, 'bg-gradient-to-b from-black via-brand-dark to-brand-dark text-white': darkMode }">
+        :class="{ 'bg-gradient-to-b from-neutral-50 via-neutral-100 to-neutral-200 text-brand-dark': !darkMode, 'bg-gradient-to-b from-black via-brand-dark to-brand-dark text-white': darkMode }">
 
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] rounded-full blur-[120px] -z-10 transition-colors duration-500"
             :class="darkMode ? 'bg-brand-orange/5' : 'bg-orange-200/20'"></div>
@@ -226,20 +226,20 @@
         </div>
     </section>
 
-    <!-- What We Do Section -->
-    <section id="what-we-do"
-        class="py-32 px-6 border-t border-neutral-200/30 dark:border-neutral-900 transition-colors duration-500">
+    <!-- What We Do Section (Adaptive Section BG with Inverting Matrix Cards) -->
+    <section id="what-we-do" class="py-32 px-6 border-t transition-colors duration-500"
+        :class="darkMode ? 'bg-brand-dark border-neutral-900 text-white' : 'bg-brand-owhite-200 border-neutral-200 text-brand-dark'">
         <div class="max-w-6xl mx-auto">
 
             <!-- Section Header Split -->
-            <div
-                class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24 pb-12 border-b border-neutral-300/40 dark:border-neutral-800/40">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24 pb-12 border-b"
+                :class="darkMode ? 'border-neutral-800' : 'border-neutral-300'">
                 <div class="lg:col-span-4">
                     <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-brand-orange">What We Do</h2>
                 </div>
                 <div class="lg:col-span-8">
                     <p class="text-2xl sm:text-4xl font-light tracking-tight leading-tight"
-                        :class="!darkMode ? 'text-neutral-900': 'text-white'">
+                        :class="darkMode ? 'text-white' : 'text-brand-dark'">
                         High-performance growth systems engineered to extract maximum market share and establish digital
                         dominance.
                     </p>
@@ -252,20 +252,20 @@
                 <!-- Card 1: Local SEO -->
                 <div class="perspective-container h-[500px]">
                     <div class="flip-card-inner">
-                        <!-- Front Face -->
+                        <!-- Front Face (Inverted Mechanism: Solid Black in light mode, Solid White in dark mode) -->
                         <div
-                            class="flip-card-front group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                            class="flip-card-front group p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300 bg-black text-white border-neutral-800 hover:border-brand-orange dark:bg-white dark:text-black dark:border-neutral-200 dark:hover:border-brand-orange">
                             <div>
                                 <div class="flex items-center justify-between mb-8">
                                     <span class="text-xs font-mono opacity-40">01 / SEARCH ACCELERATION</span>
-                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand-orange/30 text-brand-orange">ALGO_DOMINANCE</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand-orange/30 text-brand-orange bg-brand-orange/5">ALGO_DOMINANCE</span>
                                 </div>
                                 <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Local SEO</h3>
                                 <p class="text-sm opacity-70 leading-relaxed mb-6">We rank your business at the top of
                                     location-based search engines precisely when high-intent customers are ready to
                                     convert.</p>
                                 <ul
-                                    class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                                    class="space-y-2.5 text-xs font-medium border-t pt-4 border-neutral-800 dark:border-neutral-200">
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Get Found by More
                                         Customers</li>
@@ -277,46 +277,46 @@
                                         Look Professional</li>
                                 </ul>
                             </div>
-                            <span class="text-[10px] text-neutral-400 font-mono tracking-wider text-center mt-4 uppercase block">Hover to view architecture framework</span>
+                            <span class="text-[10px] font-mono tracking-wider text-center mt-4 uppercase block opacity-40">Hover to view architecture framework</span>
                         </div>
-                        <!-- Back Face (Illustration) -->
+                        <!-- Back Face -->
                         <div
-                            class="flip-card-back border border-brand-orange bg-neutral-50/90 dark:bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between">
+                            class="flip-card-back border border-brand-orange bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
                             <div
-                                class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
+                                class="w-full bg-[rgba(18,18,18,0.5)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
                                 <div
-                                    class="flex items-center gap-2 border-b border-[var(--foreground)]/5 pb-2 text-[10px] font-bold text-[var(--muted-text)]">
+                                    class="flex items-center gap-2 border-b border-white/5 pb-2 text-[10px] font-bold text-neutral-400">
                                     <span class="text-[var(--primary)] tracking-tight font-black">Google</span>
                                     <div
-                                        class="bg-[var(--card)] px-2 py-0.5 rounded-md border border-[var(--foreground)]/5 flex-1 text-left text-[9px] text-[var(--muted-text)] flex justify-between">
+                                        class="bg-[#0A0A0A] px-2 py-0.5 rounded-md border border-white/5 flex-1 text-left text-[9px] text-neutral-400 flex justify-between">
                                         local service near me
                                         <i class="fa-solid fa-magnifying-glass text-[var(--primary)] scale-75"></i>
                                     </div>
                                 </div>
                                 <div class="flex flex-col gap-2 relative h-36 justify-end">
                                     <div
-                                        class="bg-[var(--card)] p-2 rounded-xl border border-[var(--foreground)]/5 flex items-center gap-2 opacity-40">
+                                        class="bg-[#0A0A0A] p-2 rounded-xl border border-white/5 flex items-center gap-2 opacity-40">
                                         <div
                                             class="w-5 h-5 rounded bg-blue-500/10 text-[9px] text-blue-500 font-bold flex items-center justify-center">
                                             B2</div>
-                                        <div class="w-24 h-2 bg-[var(--muted-text)]/20 rounded"></div>
+                                        <div class="w-24 h-2 bg-white/20 rounded"></div>
                                     </div>
                                     <div
-                                        class="bg-[var(--card)] p-2 rounded-xl border border-[var(--foreground)]/5 flex items-center gap-2 opacity-40">
+                                        class="bg-[#0A0A0A] p-2 rounded-xl border border-white/5 flex items-center gap-2 opacity-40">
                                         <div
                                             class="w-5 h-5 rounded bg-emerald-500/10 text-[9px] text-emerald-500 font-bold flex items-center justify-center">
                                             LS</div>
-                                        <div class="w-20 h-2 bg-[var(--muted-text)]/20 rounded"></div>
+                                        <div class="w-20 h-2 bg-white/20 rounded"></div>
                                     </div>
                                     <div
-                                        class="absolute inset-x-0 bottom-0 bg-[var(--card)] p-2.5 rounded-xl border-2 border-[var(--primary)] flex items-center gap-2 shadow-lg">
+                                        class="absolute inset-x-0 bottom-0 bg-[#0A0A0A] p-2.5 rounded-xl border-2 border-[var(--primary)] flex items-center gap-2 shadow-lg">
                                         <div
                                             class="w-6 h-6 rounded bg-[var(--primary)] text-white font-black text-[10px] flex items-center justify-center">
                                             #1</div>
                                         <div class="flex-1">
                                             <div class="text-[8px] text-[var(--primary)] font-bold">yourbusiness.com
                                             </div>
-                                            <div class="w-28 h-2 bg-[var(--foreground)] opacity-40 rounded mt-1"></div>
+                                            <div class="w-28 h-2 bg-white opacity-40 rounded mt-1"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -334,18 +334,18 @@
                     <div class="flip-card-inner">
                         <!-- Front Face -->
                         <div
-                            class="flip-card-front group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                            class="flip-card-front group p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300 bg-black text-white border-neutral-800 hover:border-brand-orange dark:bg-white dark:text-black dark:border-neutral-200 dark:hover:border-brand-orange">
                             <div>
                                 <div class="flex items-center justify-between mb-8">
                                     <span class="text-xs font-mono opacity-40">02 / ARCHITECTURE</span>
-                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-400/30 text-neutral-400">CONV_ENGINE</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-700 text-neutral-400 dark:border-neutral-300 dark:text-neutral-500">CONV_ENGINE</span>
                                 </div>
                                 <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Website Dev</h3>
                                 <p class="text-sm opacity-70 leading-relaxed mb-6">We engineer ultra-fast, premium
                                     digital assets that form your brand's core infrastructure and systematically turn
                                     traffic into revenue.</p>
                                 <ul
-                                    class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                                    class="space-y-2.5 text-xs font-medium border-t pt-4 border-neutral-800 dark:border-neutral-200">
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Great First
                                         Impression</li>
@@ -354,29 +354,27 @@
                                         User Journeys</li>
                                 </ul>
                             </div>
-                            <span class="text-[10px] text-neutral-400 font-mono tracking-wider text-center mt-4 uppercase block">Hover to view architecture framework</span>
+                            <span class="text-[10px] font-mono tracking-wider text-center mt-4 uppercase block opacity-40">Hover to view architecture framework</span>
                         </div>
-                        <!-- Back Face (Illustration) -->
+                        <!-- Back Face -->
                         <div
-                            class="flip-card-back border border-brand-orange bg-neutral-50/90 dark:bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between">
+                            class="flip-card-back border border-brand-orange bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
                             <div
-                                class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
+                                class="w-full bg-[rgba(18,18,18,0.5)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
                                 <div
-                                    class="flex items-center justify-between border-b border-[var(--foreground)]/5 pb-2 text-[9px] font-mono text-[var(--muted-text)]">
+                                    class="flex items-center justify-between border-b border-white/5 pb-2 text-[9px] font-mono text-neutral-400">
                                     <div class="flex gap-1">
                                         <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span><span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                                     </div>
                                     <span>https://yourbrand.com</span>
                                 </div>
                                 <div
-                                    class="h-32 flex flex-col justify-center items-center gap-2 bg-[var(--card)] rounded-xl border border-[var(--foreground)]/5 p-4">
+                                    class="h-32 flex flex-col justify-center items-center gap-2 bg-[#0A0A0A] rounded-xl border border-white/5 p-4">
                                     <div class="text-[10px] font-bold text-emerald-500 flex items-center gap-1">
                                         <i class="fa-solid fa-shield-halved"></i> SSL ACTIVE
                                     </div>
-                                    <div class="text-2xl font-black tracking-tight text-[var(--foreground)]">$942.00
-                                    </div>
-                                    <div
-                                        class="text-[8px] tracking-widest text-[var(--muted-text)] uppercase font-bold">
+                                    <div class="text-2xl font-black tracking-tight text-white">$942.00</div>
+                                    <div class="text-[8px] tracking-widest text-neutral-400 uppercase font-bold">
                                         Conversion Value Logged</div>
                                 </div>
                             </div>
@@ -393,18 +391,18 @@
                     <div class="flip-card-inner">
                         <!-- Front Face -->
                         <div
-                            class="flip-card-front group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                            class="flip-card-front group p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300 bg-black text-white border-neutral-800 hover:border-brand-orange dark:bg-white dark:text-black dark:border-neutral-200 dark:hover:border-brand-orange">
                             <div>
                                 <div class="flex items-center justify-between mb-8">
                                     <span class="text-xs font-mono opacity-40">03 / RETENTION PIPELINE</span>
-                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-400/30 text-neutral-400">DIRECT_FLOW</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-700 text-neutral-400 dark:border-neutral-300 dark:text-neutral-500">DIRECT_FLOW</span>
                                 </div>
                                 <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Campaigns</h3>
                                 <p class="text-sm opacity-70 leading-relaxed mb-6">Automated Email, SMS, and WhatsApp
                                     architectures that stream personalized retention sequences directly to your users'
                                     devices.</p>
                                 <ul
-                                    class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                                    class="space-y-2.5 text-xs font-medium border-t pt-4 border-neutral-800 dark:border-neutral-200">
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Reach Mobile
                                         Wallets</li>
@@ -413,26 +411,24 @@
                                         Buyers Efficiently</li>
                                 </ul>
                             </div>
-                            <span class="text-[10px] text-neutral-400 font-mono tracking-wider text-center mt-4 uppercase block">Hover to view architecture framework</span>
+                            <span class="text-[10px] font-mono tracking-wider text-center mt-4 uppercase block opacity-40">Hover to view architecture framework</span>
                         </div>
-                        <!-- Back Face (Illustration) -->
+                        <!-- Back Face -->
                         <div
-                            class="flip-card-back border border-brand-orange bg-neutral-50/90 dark:bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between">
+                            class="flip-card-back border border-brand-orange bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
                             <div
-                                class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
-                                <div
-                                    class="bg-[var(--card)] p-3 rounded-xl border border-[var(--foreground)]/5 flex flex-col gap-1.5">
+                                class="w-full bg-[rgba(18,18,18,0.5)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
+                                <div class="bg-[#0A0A0A] p-3 rounded-xl border border-white/5 flex flex-col gap-1.5">
                                     <div
-                                        class="flex items-center justify-between text-[9px] font-mono text-[var(--muted-text)]">
+                                        class="flex items-center justify-between text-[9px] font-mono text-neutral-400">
                                         <span>Inbound Pipeline</span>
                                         <span class="text-[var(--primary)] font-bold">VIP ACCESS</span>
                                     </div>
-                                    <div class="text-[10px] text-[var(--foreground)] font-bold italic">"Claim 20% off
-                                        inside..."</div>
+                                    <div class="text-[10px] text-white font-bold italic">"Claim 20% off inside..."</div>
                                     <div
-                                        class="border-t border-[var(--foreground)]/5 pt-1.5 flex items-center justify-between text-[9px]">
+                                        class="border-t border-white/5 pt-1.5 flex items-center justify-between text-[9px]">
                                         <span class="text-emerald-500 font-bold">Invoice Settled</span>
-                                        <span class="text-[var(--muted-text)]">Repeat Purchase ✓</span>
+                                        <span class="text-neutral-400">Repeat Purchase ✓</span>
                                     </div>
                                 </div>
                             </div>
@@ -449,18 +445,18 @@
                     <div class="flip-card-inner">
                         <!-- Front Face -->
                         <div
-                            class="flip-card-front group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                            class="flip-card-front group p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300 bg-black text-white border-neutral-800 hover:border-brand-orange dark:bg-white dark:text-black dark:border-neutral-200 dark:hover:border-brand-orange">
                             <div>
                                 <div class="flex items-center justify-between mb-8">
                                     <span class="text-xs font-mono opacity-40">04 / AMPLIFICATION</span>
-                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-400/30 text-neutral-400">DISCOVERY_LOOP</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-700 text-neutral-400 dark:border-neutral-300 dark:text-neutral-500">DISCOVERY_LOOP</span>
                                 </div>
                                 <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Social Media</h3>
                                 <p class="text-sm opacity-70 leading-relaxed mb-6">We manage your multi-platform content
                                     pipeline to capture native discovery channels and drive consistent organic
                                     acquisition infrastructure.</p>
                                 <ul
-                                    class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                                    class="space-y-2.5 text-xs font-medium border-t pt-4 border-neutral-800 dark:border-neutral-200">
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Attract Discovery
                                         Channels</li>
@@ -469,22 +465,21 @@
                                         Relationships</li>
                                 </ul>
                             </div>
-                            <span class="text-[10px] text-neutral-400 font-mono tracking-wider text-center mt-4 uppercase block">Hover to view architecture framework</span>
+                            <span class="text-[10px] font-mono tracking-wider text-center mt-4 uppercase block opacity-40">Hover to view architecture framework</span>
                         </div>
-                        <!-- Back Face (Illustration) -->
+                        <!-- Back Face -->
                         <div
-                            class="flip-card-back border border-brand-orange bg-neutral-50/90 dark:bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between">
+                            class="flip-card-back border border-brand-orange bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
                             <div
-                                class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
-                                <div
-                                    class="bg-[var(--card)] p-3 rounded-xl border border-[var(--foreground)]/5 flex flex-col gap-1.5">
-                                    <div class="text-[8px] uppercase tracking-wider text-[var(--muted-text)] font-mono">
+                                class="w-full bg-[rgba(18,18,18,0.5)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
+                                <div class="bg-[#0A0A0A] p-3 rounded-xl border border-white/5 flex flex-col gap-1.5">
+                                    <div class="text-[8px] uppercase tracking-wider text-neutral-400 font-mono">
                                         Engagement Analytics</div>
                                     <div class="flex items-baseline gap-2">
                                         <span class="text-2xl font-black text-emerald-500">+314%</span>
-                                        <span class="text-[9px] text-[var(--muted-text)] font-mono">Growth Loop</span>
+                                        <span class="text-[9px] text-neutral-400 font-mono">Growth Loop</span>
                                     </div>
-                                    <div class="w-full bg-[var(--muted-bg)] h-1.5 rounded-full overflow-hidden">
+                                    <div class="w-full bg-[rgba(18,18,18,0.5)] h-1.5 rounded-full overflow-hidden">
                                         <div class="bg-gradient-to-r from-[var(--primary)] to-amber-500 h-full w-[85%]">
                                         </div>
                                     </div>
@@ -506,18 +501,18 @@
                     <div class="flip-card-inner">
                         <!-- Front Face -->
                         <div
-                            class="flip-card-front group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                            class="flip-card-front group p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300 bg-black text-white border-neutral-800 hover:border-brand-orange dark:bg-white dark:text-black dark:border-neutral-200 dark:hover:border-brand-orange">
                             <div>
                                 <div class="flex items-center justify-between mb-8">
                                     <span class="text-xs font-mono opacity-40">05 / IDENTITY SYSTEM</span>
-                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-400/30 text-neutral-400">PREMIUM_ASSET</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-700 text-neutral-400 dark:border-neutral-300 dark:text-neutral-500">PREMIUM_ASSET</span>
                                 </div>
                                 <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Branding</h3>
                                 <p class="text-sm opacity-70 leading-relaxed mb-6">We design memorable, clean visual
                                     architectures that command significant market premiums and establish ultimate market
                                     authority.</p>
                                 <ul
-                                    class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                                    class="space-y-2.5 text-xs font-medium border-t pt-4 border-neutral-800 dark:border-neutral-200">
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Stand Out from
                                         Competition</li>
@@ -526,13 +521,13 @@
                                         High-Value Deals</li>
                                 </ul>
                             </div>
-                            <span class="text-[10px] text-neutral-400 font-mono tracking-wider text-center mt-4 uppercase block">Hover to view architecture framework</span>
+                            <span class="text-[10px] font-mono tracking-wider text-center mt-4 uppercase block opacity-40">Hover to view architecture framework</span>
                         </div>
-                        <!-- Back Face (Illustration) -->
+                        <!-- Back Face -->
                         <div
-                            class="flip-card-back border border-brand-orange bg-neutral-50/90 dark:bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between">
+                            class="flip-card-back border border-brand-orange bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
                             <div
-                                class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
+                                class="w-full bg-[rgba(18,18,18,0.5)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
                                 <div
                                     class="h-32 flex flex-col justify-center items-center gap-2 border-2 border-dashed border-[var(--primary)]/30 rounded-xl relative overflow-hidden">
                                     <div
@@ -540,9 +535,8 @@
                                         U</div>
                                     <div class="text-[9px] font-mono text-[var(--primary)] font-bold">R: 255 G: 64 B: 0
                                     </div>
-                                    <div
-                                        class="text-[7px] uppercase tracking-widest text-[var(--muted-text)] font-mono">
-                                        Scale: Vector 1:1</div>
+                                    <div class="text-[7px] uppercase tracking-widest text-neutral-400 font-mono">Scale:
+                                        Vector 1:1</div>
                                 </div>
                             </div>
                             <a href="#"
@@ -554,8 +548,8 @@
                 </div>
 
                 <!-- Structural Grid Filler element -->
-                <div
-                    class="border border-dashed border-neutral-300 dark:border-neutral-800 p-8 rounded-3xl flex flex-col justify-center items-center text-center h-[500px]">
+                <div class="border border-dashed p-8 rounded-3xl flex flex-col justify-center items-center text-center h-[500px]"
+                    :class="darkMode ? 'border-neutral-800 text-white' : 'border-neutral-400 text-brand-dark'">
                     <div class="w-3 h-3 rounded-full bg-brand-orange animate-ping mb-4"></div>
                     <p class="text-sm font-bold uppercase tracking-widest mb-1">GROWTH_NODE_ACTIVE</p>
                     <p class="text-xs opacity-60 max-w-[180px]">Parameters operating within design constraints.</p>
