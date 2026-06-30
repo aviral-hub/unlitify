@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlitify — Optimized Solutions & IT Systems</title>
+    <title>Unlitify — Conversion Infrastructure & High-Scale Growth</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,7 +16,7 @@
                     },
                     colors: {
                         brand: {
-                            orange: '#FF4000', // R: 255 G: 64 B: 0
+                            orange: '#FF4000',
                             dark: '#0A0A0A',
                             accent: '#121212',
                             owhite: {
@@ -36,52 +36,119 @@
         rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <!-- Pure JS typing animation hook simulating ityped -->
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+        /* Dynamic Theme Semantic Variables mapped to existing classes */
+        :root {
+            --primary: #FF4000;
+            --muted-bg: rgba(244, 239, 234, 0.4);
+            --card: #ffffff;
+            --foreground: #0A0A0A;
+            --muted-text: rgba(10, 10, 10, 0.6);
+        }
+
+        .dark {
+            --muted-bg: rgba(18, 18, 18, 0.5);
+            --card: #0A0A0A;
+            --foreground: #FAF8F5;
+            --muted-text: rgba(250, 248, 245, 0.6);
+        }
+
+        .cursor-blink::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* 3D Card Flip Mechanism */
+        .perspective-container {
+            perspective: 1200px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+
+        .perspective-container:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+
+    <!-- Optimized Typing Animation Engine -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const words = ["Optimized Solutions.", "IT Infrastructure.", "System Integrity."];
-            let i = 0, timer;
+            const words = ["Digital Dominance.", "Conversion Engines.", "Unstoppable Growth."];
+            let currentWordIndex = 0;
+            let currentCharIndex = 0;
+            let isDeleting = false;
+            const target = document.querySelector('.ityped');
             
-            function typingEffect() {
-                let word = words[i].split("");
-                var loopTyping = function() {
-                    if (word.length > 0) {
-                        document.querySelector('.ityped').innerHTML += word.shift();
-                    } else {
-                        setTimeout(deletingEffect, 2000);
-                        return false;
-                    }
-                    timer = setTimeout(loopTyping, 100);
-                };
-                loopTyping();
+            function type() {
+                const currentWord = words[currentWordIndex];
+                
+                if (isDeleting) {
+                    target.innerHTML = currentWord.substring(0, currentCharIndex - 1);
+                    currentCharIndex--;
+                } else {
+                    target.innerHTML = currentWord.substring(0, currentCharIndex + 1);
+                    currentCharIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 40 : 80;
+
+                if (!isDeleting && currentCharIndex === currentWord.length) {
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && currentCharIndex === 0) {
+                    isDeleting = false;
+                    currentWordIndex = (currentWordIndex + 1) % words.length;
+                    typeSpeed = 400;
+                }
+
+                setTimeout(type, typeSpeed);
             }
             
-            function deletingEffect() {
-                let word = words[i].split("");
-                var loopDeleting = function() {
-                    if (word.length > 0) {
-                        word.pop();
-                        document.querySelector('.ityped').innerHTML = word.join("");
-                    } else {
-                        if (words.length > (i + 1)) i++;
-                        else i = 0;
-                        setTimeout(typingEffect, 500);
-                        return false;
-                    }
-                    timer = setTimeout(loopDeleting, 60);
-                };
-                loopDeleting();
-            }
-            typingEffect();
+            if (target) type();
         });
     </script>
 </head>
 
-<body x-data="{ darkMode: true }"
+<body x-data="{ darkMode: true }" x-cloak
     :class="{ 'dark bg-brand-dark text-neutral-200': darkMode, 'bg-brand-owhite-100 text-neutral-900': !darkMode }"
     class="antialiased transition-colors duration-500">
 
-    <!-- Minimalist Floating Header -->
+    <!-- Floating Header -->
     <header
         class="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 rounded-full border border-neutral-200/40 dark:border-neutral-800/40 backdrop-blur-xl transition-all duration-300"
         :class="{ 'bg-brand-dark/60': darkMode, 'bg-brand-owhite-200/60': !darkMode }">
@@ -94,10 +161,11 @@
             <nav class="hidden sm:flex items-center gap-6 text-xs uppercase tracking-widest font-bold opacity-70">
                 <a href="#what-we-do" class="hover:text-brand-orange hover:opacity-100 transition-all">Core
                     Capabilities</a>
+                <a href="#geo-coordinates" class="hover:text-brand-orange hover:opacity-100 transition-all">Global
+                    Node</a>
             </nav>
 
             <div class="flex items-center gap-3">
-                <!-- Smooth Dark/Light Trigger -->
                 <button @click="darkMode = !darkMode" class="p-1.5 rounded-full hover:bg-neutral-500/10 transition-colors" aria-label="Toggle System Theme">
                     <template x-if="darkMode">
                         <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707m2.828 9.9a5 5 0 117.072 0 5 5 0 01-7.072 0z"/></svg>
@@ -108,46 +176,45 @@
                 </button>
                 <a href="#what-we-do"
                     class="bg-brand-orange text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full hover:bg-orange-600 transition-all">
-                    Initialize System
+                    Start Growing
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Swapped Custom Hero Section -->
+    <!-- Hero Section -->
     <section
         class="min-h-screen pt-44 pb-20 px-6 flex flex-col items-center justify-center text-center relative overflow-hidden transition-colors duration-500"
         :class="{ 'bg-gradient-to-b from-brand-owhite-100 via-brand-owhite-200 to-brand-owhite-300 text-brand-dark': !darkMode, 'bg-gradient-to-b from-black via-brand-dark to-brand-dark text-white': darkMode }">
 
-        <!-- Adaptive Ambient Glow -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] rounded-full blur-[120px] -z-10 transition-colors duration-500"
             :class="darkMode ? 'bg-brand-orange/5' : 'bg-orange-200/20'"></div>
 
-        <!-- Inline alignment grid lines for the premium Aviral feel -->
         <div
             class="absolute inset-0 bg-[linear-gradient(to_right,#80808006_1px,transparent_1px),linear-gradient(to_bottom,#80808006_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none">
         </div>
 
         <span class="border px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.25em] mb-8 relative z-10 transition-colors"
               :class="darkMode ? 'border-brand-orange/30 text-brand-orange bg-brand-orange/5' : 'border-neutral-400/40 text-neutral-800 bg-white/40'">
-            IT Infrastructure for High-Scale Enterprise
+            Conversion Infrastructure for High-Scale Growth
         </span>
 
-        <h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.95] uppercase relative z-10">
+        <h1
+            class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.95] uppercase relative z-10 min-h-[2.25em] md:min-h-[1.9em]">
             Your Brand Deserves <br>
-            <span class="bg-gradient-to-r from-brand-orange to-amber-600 bg-clip-text text-transparent ityped"></span>
+            <span class="bg-gradient-to-r from-brand-orange to-amber-600 bg-clip-text text-transparent ityped cursor-blink"></span>
         </h1>
 
         <p class="text-base md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-normal relative z-10"
             :class="darkMode ? 'text-neutral-400' : 'text-neutral-600'">
-            Data-driven IT solutions and optimized processing frameworks. We eliminate architectural fragmentation to
-            build unstoppable operations through proven high-availability strategy and structural reliability.
+            Data-driven digital marketing optimized for conversion. We eliminate growth fragmentation to build an
+            unstoppable online presence through proven psychological systems and deep value infrastructure strategies.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 relative z-10 w-full sm:w-auto px-4">
             <a href="#what-we-do"
                 class="bg-brand-orange text-white font-bold px-10 py-4.5 rounded-full hover:bg-orange-600 shadow-xl shadow-brand-orange/10 hover:translate-y-[-1px] transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-3">
-                <i class="fa-solid fa-bolt"></i> Optimize Infrastructure
+                <i class="fa-solid fa-bolt"></i> Start Growing
             </a>
             <a href="#what-we-do"
                 class="border px-10 py-4.5 rounded-full transition-all font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm"
@@ -155,7 +222,6 @@
                 Explore Services <i class="fa-solid fa-arrow-down text-xs"></i>
             </a>
         </div>
-
     </section>
 
     <!-- What We Do Section -->
@@ -163,7 +229,7 @@
         class="py-32 px-6 border-t border-neutral-200/30 dark:border-neutral-900 transition-colors duration-500">
         <div class="max-w-6xl mx-auto">
 
-            <!-- Brutalist Section Header Split -->
+            <!-- Section Header Split -->
             <div
                 class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24 pb-12 border-b border-neutral-300/40 dark:border-neutral-800/40">
                 <div class="lg:col-span-4">
@@ -172,101 +238,355 @@
                 <div class="lg:col-span-8">
                     <p class="text-2xl sm:text-4xl font-light tracking-tight leading-tight"
                         :class="!darkMode ? 'text-neutral-900': 'text-white'">
-                        High-performance engineered systems tuned to eliminate technical waste and secure maximum
-                        processing output.
+                        High-performance growth systems engineered to extract maximum market share and establish digital
+                        dominance.
                     </p>
                 </div>
             </div>
 
-            <!-- Aviral Inspired Component Matrix Grid -->
+            <!-- Matrix Grid Layer -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <!-- Card 1: Optimized Solutions -->
-                <div
-                    class="group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
-                    <div>
-                        <div class="flex items-center justify-between mb-8">
-                            <span class="text-xs font-mono opacity-40">01 / PERFORMANCE</span>
-                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand-orange/30 text-brand-orange">CORE REFAC</span>
+                <!-- Card 1: Local SEO -->
+                <div class="perspective-container h-[500px]">
+                    <div class="flip-card-inner">
+                        <!-- Front Face -->
+                        <div
+                            class="flip-card-front group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                            <div>
+                                <div class="flex items-center justify-between mb-8">
+                                    <span class="text-xs font-mono opacity-40">01 / SEARCH ACCELERATION</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand-orange/30 text-brand-orange">ALGO_DOMINANCE</span>
+                                </div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Local SEO</h3>
+                                <p class="text-sm opacity-70 leading-relaxed mb-6">We rank your business at the top of
+                                    location-based search engines precisely when high-intent customers are ready to
+                                    convert.</p>
+                                <ul
+                                    class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Get Found by More
+                                        Customers</li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Free Marketing
+                                        That Works 24/7</li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Build Trust and
+                                        Look Professional</li>
+                                </ul>
+                            </div>
+                            <span class="text-[10px] text-neutral-400 font-mono tracking-wider text-center mt-4 uppercase block">Hover to view architecture framework</span>
                         </div>
-                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Optimized Sol.</h3>
-                        <p class="text-sm opacity-70 leading-relaxed mb-6">We clean pipeline blocks to drop response
-                            latency, prune bloatware, and unlock real processing velocity.</p>
-
-                        <ul
-                            class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4 mb-6">
-                            <li class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Clear Production
-                                Roadblocks</li>
-                            <li class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Extreme Resource Savings
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Highly Resilient
-                                Deployments</li>
-                        </ul>
-                    </div>
-
-                    <div
-                        class="bg-white dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200/60 dark:border-neutral-800/60 text-left font-mono text-[10px] mb-6">
-                        <div class="flex items-center gap-1 text-neutral-400 mb-1"><span>System Latency</span>
-                            <span class="text-emerald-500">★★★★★</span></div>
-                        <div class="text-brand-orange font-bold underline mb-1">core_cluster_optimization</div>
-                        <div class="text-green-600 dark:text-green-400">unlitify.com/sys
-                            <span class="text-neutral-400 text-[8px] border border-neutral-300 dark:border-neutral-700 px-1 rounded ml-1">STABLE_V4</span>
+                        <!-- Back Face (Illustration) -->
+                        <div
+                            class="flip-card-back border border-brand-orange bg-neutral-50/90 dark:bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between">
+                            <div
+                                class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
+                                <div
+                                    class="flex items-center gap-2 border-b border-[var(--foreground)]/5 pb-2 text-[10px] font-bold text-[var(--muted-text)]">
+                                    <span class="text-[var(--primary)] tracking-tight font-black">Google</span>
+                                    <div
+                                        class="bg-[var(--card)] px-2 py-0.5 rounded-md border border-[var(--foreground)]/5 flex-1 text-left text-[9px] text-[var(--muted-text)] flex justify-between">
+                                        local service near me
+                                        <i class="fa-solid fa-magnifying-glass text-[var(--primary)] scale-75"></i>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-2 relative h-36 justify-end">
+                                    <div
+                                        class="bg-[var(--card)] p-2 rounded-xl border border-[var(--foreground)]/5 flex items-center gap-2 opacity-40">
+                                        <div
+                                            class="w-5 h-5 rounded bg-blue-500/10 text-[9px] text-blue-500 font-bold flex items-center justify-center">
+                                            B2</div>
+                                        <div class="w-24 h-2 bg-[var(--muted-text)]/20 rounded"></div>
+                                    </div>
+                                    <div
+                                        class="bg-[var(--card)] p-2 rounded-xl border border-[var(--foreground)]/5 flex items-center gap-2 opacity-40">
+                                        <div
+                                            class="w-5 h-5 rounded bg-emerald-500/10 text-[9px] text-emerald-500 font-bold flex items-center justify-center">
+                                            LS</div>
+                                        <div class="w-20 h-2 bg-[var(--muted-text)]/20 rounded"></div>
+                                    </div>
+                                    <div
+                                        class="absolute inset-x-0 bottom-0 bg-[var(--card)] p-2.5 rounded-xl border-2 border-[var(--primary)] flex items-center gap-2 shadow-lg">
+                                        <div
+                                            class="w-6 h-6 rounded bg-[var(--primary)] text-white font-black text-[10px] flex items-center justify-center">
+                                            #1</div>
+                                        <div class="flex-1">
+                                            <div class="text-[8px] text-[var(--primary)] font-bold">yourbusiness.com
+                                            </div>
+                                            <div class="w-28 h-2 bg-[var(--foreground)] opacity-40 rounded mt-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#"
+                                class="inline-flex w-full justify-center items-center bg-brand-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-colors">
+                                Get Free SEO Audit
+                            </a>
                         </div>
                     </div>
-
-                    <a href="#"
-                        class="inline-flex w-full justify-center items-center bg-brand-dark dark:bg-white text-white dark:text-brand-dark font-bold text-xs uppercase tracking-wider py-3 rounded-xl hover:bg-brand-orange dark:hover:bg-brand-orange dark:hover:text-white transition-colors">
-                        Request System Profiling
-                    </a>
                 </div>
 
-                <!-- Card 2: IT Solutions -->
-                <div
-                    class="group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
-                    <div>
-                        <div class="flex items-center justify-between mb-8">
-                            <span class="text-xs font-mono opacity-40">02 / INFRASTRUCTURE</span>
-                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-400/30 text-neutral-400">SYS_PROD</span>
+                <!-- Card 2: Website Dev -->
+                <div class="perspective-container h-[500px]">
+                    <div class="flip-card-inner">
+                        <!-- Front Face -->
+                        <div
+                            class="flip-card-front group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                            <div>
+                                <div class="flex items-center justify-between mb-8">
+                                    <span class="text-xs font-mono opacity-40">02 / ARCHITECTURE</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-400/30 text-neutral-400">CONV_ENGINE</span>
+                                </div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Website Dev</h3>
+                                <p class="text-sm opacity-70 leading-relaxed mb-6">We engineer ultra-fast, premium
+                                    digital assets that form your brand's core infrastructure and systematically turn
+                                    traffic into revenue.</p>
+                                <ul
+                                    class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Great First
+                                        Impression</li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> High-converting
+                                        User Journeys</li>
+                                </ul>
+                            </div>
+                            <span class="text-[10px] text-neutral-400 font-mono tracking-wider text-center mt-4 uppercase block">Hover to view architecture framework</span>
                         </div>
-                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">IT Solutions</h3>
-                        <p class="text-sm opacity-70 leading-relaxed mb-6">Scalable networks, fully automated data
-                            models, and rock-solid compute resources built for modern scale.</p>
-
-                        <ul
-                            class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4 mb-6">
-                            <li class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Hardened Target Security
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Maximize Uptime Delivery
-                            </li>
-                        </ul>
+                        <!-- Back Face (Illustration) -->
+                        <div
+                            class="flip-card-back border border-brand-orange bg-neutral-50/90 dark:bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between">
+                            <div
+                                class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
+                                <div
+                                    class="flex items-center justify-between border-b border-[var(--foreground)]/5 pb-2 text-[9px] font-mono text-[var(--muted-text)]">
+                                    <div class="flex gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span><span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                    </div>
+                                    <span>https://yourbrand.com</span>
+                                </div>
+                                <div
+                                    class="h-32 flex flex-col justify-center items-center gap-2 bg-[var(--card)] rounded-xl border border-[var(--foreground)]/5 p-4">
+                                    <div class="text-[10px] font-bold text-emerald-500 flex items-center gap-1">
+                                        <i class="fa-solid fa-shield-halved"></i> SSL ACTIVE
+                                    </div>
+                                    <div class="text-2xl font-black tracking-tight text-[var(--foreground)]">$942.00
+                                    </div>
+                                    <div
+                                        class="text-[8px] tracking-widest text-[var(--muted-text)] uppercase font-bold">
+                                        Conversion Value Logged</div>
+                                </div>
+                            </div>
+                            <a href="#"
+                                class="inline-flex w-full justify-center items-center bg-brand-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-colors">
+                                Request Core Build
+                            </a>
+                        </div>
                     </div>
-
-                    <div
-                        class="bg-white dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200/60 dark:border-neutral-800/60 text-center font-mono text-[10px] mb-6 flex items-center justify-between">
-                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-green-500"></span>
-                            <span class="text-neutral-400 text-[8px] uppercase font-bold">SECURE_SSL</span></div>
-                        <div class="text-emerald-500 font-bold tracking-tight">99.99% Node Availability</div>
-                    </div>
-
-                    <a href="#"
-                        class="inline-flex w-full justify-center items-center bg-brand-dark dark:bg-white text-white dark:text-brand-dark font-bold text-xs uppercase tracking-wider py-3 rounded-xl hover:bg-brand-orange dark:hover:bg-brand-orange dark:hover:text-white transition-colors">
-                        Deploy Infrastructure
-                    </a>
                 </div>
 
-                <!-- Structural Grid Filler Action Element -->
+                <!-- Card 3: Campaigns -->
+                <div class="perspective-container h-[500px]">
+                    <div class="flip-card-inner">
+                        <!-- Front Face -->
+                        <div
+                            class="flip-card-front group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                            <div>
+                                <div class="flex items-center justify-between mb-8">
+                                    <span class="text-xs font-mono opacity-40">03 / RETENTION PIPELINE</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-400/30 text-neutral-400">DIRECT_FLOW</span>
+                                </div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Campaigns</h3>
+                                <p class="text-sm opacity-70 leading-relaxed mb-6">Automated Email, SMS, and WhatsApp
+                                    architectures that stream personalized retention sequences directly to your users'
+                                    devices.</p>
+                                <ul
+                                    class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Reach Mobile
+                                        Wallets</li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Retain Past
+                                        Buyers Efficiently</li>
+                                </ul>
+                            </div>
+                            <span class="text-[10px] text-neutral-400 font-mono tracking-wider text-center mt-4 uppercase block">Hover to view architecture framework</span>
+                        </div>
+                        <!-- Back Face (Illustration) -->
+                        <div
+                            class="flip-card-back border border-brand-orange bg-neutral-50/90 dark:bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between">
+                            <div
+                                class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
+                                <div
+                                    class="bg-[var(--card)] p-3 rounded-xl border border-[var(--foreground)]/5 flex flex-col gap-2">
+                                    <div
+                                        class="flex items-center justify-between text-[9px] font-mono text-[var(--muted-text)]">
+                                        <span>Inbound Pipeline</span>
+                                        <span class="text-[var(--primary)] font-bold">VIP ACCESS</span>
+                                    </div>
+                                    <div class="text-[10px] text-[var(--foreground)] font-bold italic">"Claim 20% off
+                                        inside..."</div>
+                                    <div
+                                        class="border-t border-[var(--foreground)]/5 pt-1.5 flex items-center justify-between text-[9px]">
+                                        <span class="text-emerald-500 font-bold">Invoice Settled</span>
+                                        <span class="text-[var(--muted-text)]">Repeat Purchase ✓</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#"
+                                class="inline-flex w-full justify-center items-center bg-brand-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-colors">
+                                Initialize Retention Loop
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Social Media -->
+                <div class="perspective-container h-[500px]">
+                    <div class="flip-card-inner">
+                        <!-- Front Face -->
+                        <div
+                            class="flip-card-front group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                            <div>
+                                <div class="flex items-center justify-between mb-8">
+                                    <span class="text-xs font-mono opacity-40">04 / AMPLIFICATION</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-400/30 text-neutral-400">DISCOVERY_LOOP</span>
+                                </div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Social Media</h3>
+                                <p class="text-sm opacity-70 leading-relaxed mb-6">We manage your multi-platform content
+                                    pipeline to capture native discovery channels and drive consistent organic
+                                    acquisition infrastructure.</p>
+                                <ul
+                                    class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Attract Discovery
+                                        Channels</li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Real Customer
+                                        Relationships</li>
+                                </ul>
+                            </div>
+                            <span class="text-[10px] text-neutral-400 font-mono tracking-wider text-center mt-4 uppercase block">Hover to view architecture framework</span>
+                        </div>
+                        <!-- Back Face (Illustration) -->
+                        <div
+                            class="flip-card-back border border-brand-orange bg-neutral-50/90 dark:bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between">
+                            <div
+                                class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
+                                <div
+                                    class="bg-[var(--card)] p-3 rounded-xl border border-[var(--foreground)]/5 flex flex-col gap-1.5">
+                                    <div class="text-[8px] uppercase tracking-wider text-[var(--muted-text)] font-mono">
+                                        Engagement Analytics</div>
+                                    <div class="flex items-baseline gap-2">
+                                        <span class="text-2xl font-black text-emerald-500">+314%</span>
+                                        <span class="text-[9px] text-[var(--muted-text)] font-mono">Growth Loop</span>
+                                    </div>
+                                    <div class="w-full bg-[var(--muted-bg)] h-1.5 rounded-full overflow-hidden">
+                                        <div class="bg-gradient-to-r from-[var(--primary)] to-amber-500 h-full w-[85%]">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="text-[8px] bg-[var(--primary)]/10 text-[var(--primary)] font-bold px-1.5 py-0.5 rounded self-start uppercase">
+                                        Viral Pipeline Node</div>
+                                </div>
+                            </div>
+                            <a href="#"
+                                class="inline-flex w-full justify-center items-center bg-brand-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-colors">
+                                Scale Content Pipeline
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Branding -->
+                <div class="perspective-container h-[500px]">
+                    <div class="flip-card-inner">
+                        <!-- Front Face -->
+                        <div
+                            class="flip-card-front group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                            <div>
+                                <div class="flex items-center justify-between mb-8">
+                                    <span class="text-xs font-mono opacity-40">05 / IDENTITY SYSTEM</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-400/30 text-neutral-400">PREMIUM_ASSET</span>
+                                </div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Branding</h3>
+                                <p class="text-sm opacity-70 leading-relaxed mb-6">We design memorable, clean visual
+                                    architectures that command significant market premiums and establish ultimate market
+                                    authority.</p>
+                                <ul
+                                    class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Stand Out from
+                                        Competition</li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Attract
+                                        High-Value Deals</li>
+                                </ul>
+                            </div>
+                            <span class="text-[10px] text-neutral-400 font-mono tracking-wider text-center mt-4 uppercase block">Hover to view architecture framework</span>
+                        </div>
+                        <!-- Back Face (Illustration) -->
+                        <div
+                            class="flip-card-back border border-brand-orange bg-neutral-50/90 dark:bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between">
+                            <div
+                                class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
+                                <div
+                                    class="h-32 flex flex-col justify-center items-center gap-2 border-2 border-dashed border-[var(--primary)]/30 rounded-xl relative overflow-hidden">
+                                    <div
+                                        class="w-10 h-10 border-4 border-[var(--primary)] rounded-full flex items-center justify-center font-black text-xs text-[var(--primary)]">
+                                        U</div>
+                                    <div class="text-[9px] font-mono text-[var(--primary)] font-bold">R: 255 G: 64 B: 0
+                                    </div>
+                                    <div
+                                        class="text-[7px] uppercase tracking-widest text-[var(--muted-text)] font-mono">
+                                        Scale: Vector 1:1</div>
+                                </div>
+                            </div>
+                            <a href="#"
+                                class="inline-flex w-full justify-center items-center bg-brand-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-colors">
+                                Deploy Brand Strategy
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Structural Grid Filler element -->
                 <div
-                    class="border border-dashed border-neutral-300 dark:border-neutral-800 p-8 rounded-3xl flex flex-col justify-center items-center text-center">
+                    class="border border-dashed border-neutral-300 dark:border-neutral-800 p-8 rounded-3xl flex flex-col justify-center items-center text-center h-[500px]">
                     <div class="w-3 h-3 rounded-full bg-brand-orange animate-ping mb-4"></div>
-                    <p class="text-sm font-bold uppercase tracking-widest mb-1">UNLITIFY_NODE_ACTIVE</p>
+                    <p class="text-sm font-bold uppercase tracking-widest mb-1">GROWTH_NODE_ACTIVE</p>
                     <p class="text-xs opacity-60 max-w-[180px]">Parameters operating within design constraints.</p>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Geographic Core Coordinates Section -->
+    <section id="geo-coordinates"
+        class="py-32 px-6 border-t border-neutral-200/30 dark:border-neutral-900 transition-colors duration-500">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-4">
+                    <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-brand-orange mb-2">Geographic Core</h2>
+                    <p class="text-xl font-black uppercase tracking-tight"
+                        :class="darkMode ? 'text-white' : 'text-brand-dark'">Central Hub.<br>Global Delivery.</p>
+                </div>
+                <div class="lg:col-span-8">
+                    <p class="text-lg opacity-80 leading-relaxed mb-8">
+                        Engineered directly out of Nagpur, the definitive geographic heart of India. Our growth systems
+                        draw inspiration from the structural precision of architectural landmarks like the Deekshabhoomi
+                        Dome and the legislative scale of Vidhan Bhavan to deploy robust, high-performance conversion
+                        ecosystems to international markets.
+                    </p>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="text-[10px] font-mono px-3 py-1.5 rounded-full border" :class="darkMode ? 'border-neutral-800 bg-neutral-900/50 text-neutral-400' : 'border-neutral-300 bg-white text-neutral-600'">Deekshabhoomi Dome</span>
+                        <span class="text-[10px] font-mono px-3 py-1.5 rounded-full border" :class="darkMode ? 'border-neutral-800 bg-neutral-900/50 text-neutral-400' : 'border-neutral-300 bg-white text-neutral-600'">Zero Mile Pillar</span>
+                        <span class="text-[10px] font-mono px-3 py-1.5 rounded-full border" :class="darkMode ? 'border-neutral-800 bg-neutral-900/50 text-neutral-400' : 'border-neutral-300 bg-white text-neutral-600'">Tekdi Ganesh Mandir</span>
+                        <span class="text-[10px] font-mono px-3 py-1.5 rounded-full border" :class="darkMode ? 'border-neutral-800 bg-neutral-900/50 text-neutral-400' : 'border-neutral-300 bg-white text-neutral-600'">Vidhan Bhavan</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
