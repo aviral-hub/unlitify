@@ -586,6 +586,663 @@
             </div>
         </div>
     </section>
+    <!-- Infinite Marquee Section Layer -->
+    <section class="py-12 bg-[#050505] border-y border-white/5 overflow-hidden">
+        <p class="text-center text-gray-500 text-xs font-bold tracking-[0.3em] uppercase mb-8">
+            Powering Growth For
+        </p>
+    
+        <!-- CSS Animation Injection for Infinite Scrolling -->
+        <style>
+            @keyframes marquee {
+                0% {
+                    transform: translateX(0%);
+                }
+    
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+    
+            .animate-marquee-infinite {
+                display: flex;
+                width: max-content;
+                animation: marquee 25s linear infinite;
+            }
+        </style>
+    
+        <!-- Marquee Track Wrapper -->
+        <div class="w-full overflow-hidden select-none">
+            <div class="animate-marquee-infinite gap-16 px-8">
+    
+                <!-- Original Node Array -->
+                <div class="flex items-center gap-16 shrink-0">
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">Real Estate</span>
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">E-Commerce</span>
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">SaaS Startups</span>
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">Personal Brands</span>
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">Healthcare</span>
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">Education Tech</span>
+                </div>
+    
+                <!-- Duplicate Mirror Clone (Ensures seamless loop patching) -->
+                <div class="flex items-center gap-16 shrink-0" aria-hidden="true">
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">Real Estate</span>
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">E-Commerce</span>
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">SaaS Startups</span>
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">Personal Brands</span>
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">Healthcare</span>
+                    <span class="text-2xl font-black text-zinc-700 uppercase tracking-wider transition-colors hover:text-brand-orange">Education Tech</span>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    <!-- ========================================== -->
+    <!-- 01. EXPERT SERVICES (Greyish White Section)-->
+    <!-- ========================================== -->
+    <section id="services" class="w-full bg-[#F5F5F7] text-[#050505] py-24 px-6 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-center md:text-left">
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-[#050505] mb-4">
+                    Our Expert <span class="text-[#FF6B00]">Services</span>
+                </h2>
+                <div class="w-20 h-1 bg-[#FF6B00] mx-auto md:mx-0"></div>
+            </div>
+    
+            <!-- Consolidated 3-Column Service Matrix Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+                <!-- Card 1: SEO Audit -->
+                <div
+                    class="group relative bg-black/5 border border-black/10 rounded-[40px] overflow-hidden transition-all duration-500 hover:border-[#FF6B00]/50">
+                    <div class="aspect-square relative bg-[#e5e5ea] overflow-hidden border-b border-black/5">
+                        <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#050505] font-black italic text-sm">UNLITI<span class="text-[#FF6B00]">FY</span></span>
+                                <i class="fa-solid fa-arrow-trend-up text-[#FF6B00] text-3xl opacity-20 group-hover:opacity-100 group-hover:-translate-y-2 transition-all"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-4xl font-black text-[#050505] italic leading-none uppercase tracking-tighter">
+                                    SEO <br><span class="text-[#FF6B00]">AUDIT</span></h4>
+                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Crafting Code
+                                    That Converts</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-12 h-12 bg-[#FF6B00]/10 rounded-2xl flex items-center justify-center border border-[#FF6B00]/20">
+                                    <i class="fa-solid fa-magnifying-glass text-[#FF6B00]"></i>
+                                </div>
+                                <div class="h-[1px] flex-1 bg-black/10"></div>
+                                <span class="text-[#050505] font-bold text-xs tracking-tighter">7020729200</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FF6B00]/10 blur-3xl rounded-full"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-[#050505] mb-3">Search Engine Optimization</h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">Improve your website's visibility in search
+                            results and drive compounding organic traffic.</p>
+                        <a href="seo.html"
+                            class="text-[#FF6B00] font-black text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Learn
+                            more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Card 2: Google Ads Engine -->
+                <div
+                    class="group relative bg-black/5 border border-black/10 rounded-[40px] overflow-hidden transition-all duration-500 hover:border-[#FF6B00]/50">
+                    <div class="aspect-square relative bg-[#e5e5ea] overflow-hidden border-b border-black/5">
+                        <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#050505] font-black italic text-sm">UNLITI<span class="text-[#FF6B00]">FY</span></span>
+                                <i class="fa-brands fa-google text-[#FF6B00] text-3xl opacity-20 group-hover:opacity-100 group-hover:rotate-12 transition-all"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-4xl font-black text-[#050505] italic leading-none uppercase tracking-tighter">
+                                    PPC <br><span class="text-[#FF6B00]">ENGINE</span></h4>
+                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Targeted
+                                    Precision Scaling</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-12 h-12 bg-[#FF6B00]/10 rounded-2xl flex items-center justify-center border border-[#FF6B00]/20">
+                                    <i class="fa-solid fa-bolt text-[#FF6B00]"></i>
+                                </div>
+                                <div class="h-[1px] flex-1 bg-black/10"></div>
+                                <span class="text-[#050505] font-bold text-xs tracking-tighter">7020729200</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FF6B00]/10 blur-3xl rounded-full"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-[#050505] mb-3">Google Ads (PPC)</h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">Target potential customers at the exact moment
+                            they're searching for your products.</p>
+                        <a href="Google Ads.html"
+                            class="text-[#FF6B00] font-black text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Learn
+                            more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Card 3: Chat Flows -->
+                <div
+                    class="group relative bg-black/5 border border-black/10 rounded-[40px] overflow-hidden transition-all duration-500 hover:border-[#FF6B00]/50">
+                    <div class="aspect-square relative bg-[#e5e5ea] overflow-hidden border-b border-black/5">
+                        <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#050505] font-black italic text-sm">UNLITI<span class="text-[#FF6B00]">FY</span></span>
+                                <i class="fa-brands fa-whatsapp text-[#FF6B00] text-3xl opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-4xl font-black text-[#050505] italic leading-none uppercase tracking-tighter">
+                                    CHAT <br><span class="text-[#FF6B00]">FLOWS</span></h4>
+                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">98% Open Rate
+                                    Automation</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-12 h-12 bg-[#FF6B00]/10 rounded-2xl flex items-center justify-center border border-[#FF6B00]/20">
+                                    <i class="fa-solid fa-robot text-[#FF6B00]"></i>
+                                </div>
+                                <div class="h-[1px] flex-1 bg-black/10"></div>
+                                <span class="text-[#050505] font-bold text-xs tracking-tighter">7020729200</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FF6B00]/10 blur-3xl rounded-full"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-[#050505] mb-3">WhatsApp Automation</h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">Connect with your clients directly through
+                            WhatsApp and target with automation.</p>
+                        <a href="whatsapp.html"
+                            class="text-[#FF6B00] font-black text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Learn
+                            more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Card 4: WhatsApp Marketing -->
+                <div
+                    class="group relative bg-black/5 border border-black/10 rounded-[32px] overflow-hidden transition-all duration-500 hover:border-[#FF6B00]/50">
+                    <div class="aspect-square relative bg-[#e5e5ea] overflow-hidden border-b border-black/5">
+                        <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#050505] font-black italic text-sm">UNLITI<span class="text-[#FF6B00]">FY</span></span>
+                                <i class="fa-brands fa-whatsapp text-[#FF6B00] text-3xl opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-4xl font-black text-[#050505] italic leading-none uppercase tracking-tighter">
+                                    CHAT <br><span class="text-[#FF6B00]">FLOWS</span></h4>
+                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">98% Open Rate
+                                    Automation</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-12 h-12 bg-[#FF6B00]/10 rounded-2xl flex items-center justify-center border border-[#FF6B00]/20">
+                                    <i class="fa-solid fa-robot text-[#FF6B00]"></i>
+                                </div>
+                                <div class="h-[1px] flex-1 bg-black/10"></div>
+                                <span class="text-[#050505] font-bold text-xs tracking-tighter">7020729200</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FF6B00]/10 blur-3xl rounded-full"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-[#050505] mb-3">WhatsApp Marketing</h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">Connect with your Clients Directly through
+                            WhatsApp &amp; Target potential customers with automation.</p>
+                        <a href="WhatsApp Marketing.html"
+                            class="text-[#FF6B00] font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Learn
+                            more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Card 5: Paid Traffic -->
+                <div
+                    class="group relative bg-black/5 border border-black/10 rounded-[32px] overflow-hidden transition-all duration-500 hover:border-[#FF6B00]/50">
+                    <div class="aspect-square relative bg-[#e5e5ea] overflow-hidden border-b border-black/5">
+                        <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#050505] font-black italic text-sm">UNLITI<span class="text-[#FF6B00]">FY</span></span>
+                                <i class="fa-solid fa-bolt text-[#FF6B00] text-3xl opacity-20 group-hover:opacity-100 group-hover:rotate-12 transition-all"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-4xl font-black text-[#050505] italic leading-none uppercase tracking-tighter">
+                                    PAID <br><span class="text-[#FF6B00]">TRAFFIC</span></h4>
+                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Targeted
+                                    Precision ROI</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-12 h-12 bg-[#FF6B00]/10 rounded-2xl flex items-center justify-center border border-[#FF6B00]/20">
+                                    <i class="fa-solid fa-chart-line text-[#FF6B00]"></i>
+                                </div>
+                                <div class="h-[1px] flex-1 bg-black/10"></div>
+                                <span class="text-[#050505] font-bold text-xs tracking-tighter">7020729200</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FF6B00]/10 blur-3xl rounded-full"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-[#050505] mb-3">Pay-per-click (PPC)</h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">Drive targeted traffic to your website and
+                            only pay when someone clicks on your ad.</p>
+                        <a href="Pay-per-click (PPC).html"
+                            class="text-[#FF6B00] font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Learn
+                            more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Card 6: Brand Social -->
+                <div
+                    class="group relative bg-black/5 border border-black/10 rounded-[32px] overflow-hidden transition-all duration-500 hover:border-[#FF6B00]/50">
+                    <div class="aspect-square relative bg-[#e5e5ea] overflow-hidden border-b border-black/5">
+                        <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#050505] font-black italic text-sm">UNLITI<span class="text-[#FF6B00]">FY</span></span>
+                                <i class="fa-solid fa-share-nodes text-[#FF6B00] text-3xl opacity-20 group-hover:opacity-100 transition-all"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-4xl font-black text-[#050505] italic leading-none uppercase tracking-tighter">
+                                    BRAND <br><span class="text-[#FF6B00]">SOCIAL</span></h4>
+                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Engage &amp;
+                                    Own The Feed</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-12 h-12 bg-[#FF6B00]/10 rounded-2xl flex items-center justify-center border border-[#FF6B00]/20">
+                                    <i class="fa-solid fa-users text-[#FF6B00]"></i>
+                                </div>
+                                <div class="h-[1px] flex-1 bg-black/10"></div>
+                                <span class="text-[#050505] font-bold text-xs tracking-tighter">7020729200</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FF6B00]/10 blur-3xl rounded-full"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-[#050505] mb-3">Social Media Marketing</h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">Build your Brand Presence and Engage with Your
+                            Audience Across Various Social Platforms.</p>
+                        <a href="Social Media Marketing.html"
+                            class="text-[#FF6B00] font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Learn
+                            more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Card 7: Nurture Lists -->
+                <div
+                    class="group relative bg-black/5 border border-black/10 rounded-[32px] overflow-hidden transition-all duration-500 hover:border-[#FF6B00]/50">
+                    <div class="aspect-square relative bg-[#e5e5ea] overflow-hidden border-b border-black/5">
+                        <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#050505] font-black italic text-sm">UNLITI<span class="text-[#FF6B00]">FY</span></span>
+                                <i class="fa-solid fa-envelope-open-text text-[#FF6B00] text-3xl opacity-20 group-hover:opacity-100 transition-all"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-4xl font-black text-[#050505] italic leading-none uppercase tracking-tighter">
+                                    NURTURE <br><span class="text-[#FF6B00]">LISTS</span></h4>
+                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Personalized
+                                    Sales Retention</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-12 h-12 bg-[#FF6B00]/10 rounded-2xl flex items-center justify-center border border-[#FF6B00]/20">
+                                    <i class="fa-solid fa-paper-plane text-[#FF6B00]"></i>
+                                </div>
+                                <div class="h-[1px] flex-1 bg-black/10"></div>
+                                <span class="text-[#050505] font-bold text-xs tracking-tighter">7020729200</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FF6B00]/10 blur-3xl rounded-full"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-[#050505] mb-3">Email Marketing</h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">Connect with your customers through
+                            personalized campaigns that nurture leads.</p>
+                        <a href="Email Marketing.html"
+                            class="text-[#FF6B00] font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Learn
+                            more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Card 8: Authority Assets -->
+                <div
+                    class="group relative bg-black/5 border border-black/10 rounded-[32px] overflow-hidden transition-all duration-500 hover:border-[#FF6B00]/50">
+                    <div class="aspect-square relative bg-[#e5e5ea] overflow-hidden border-b border-black/5">
+                        <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#050505] font-black italic text-sm">UNLITI<span class="text-[#FF6B00]">FY</span></span>
+                                <i class="fa-solid fa-pen-nib text-[#FF6B00] text-3xl opacity-20 group-hover:opacity-100 transition-all"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-4xl font-black text-[#050505] italic leading-none uppercase tracking-tighter">
+                                    AUTHORITY <br><span class="text-[#FF6B00]">ASSETS</span></h4>
+                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Engage, Retain
+                                    &amp; Convert</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-12 h-12 bg-[#FF6B00]/10 rounded-2xl flex items-center justify-center border border-[#FF6B00]/20">
+                                    <i class="fa-solid fa-clapperboard text-[#FF6B00]"></i>
+                                </div>
+                                <div class="h-[1px] flex-1 bg-black/10"></div>
+                                <span class="text-[#050505] font-bold text-xs tracking-tighter">7020729200</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FF6B00]/10 blur-3xl rounded-full"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-[#050505] mb-3">Content Creation</h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">Create engaging, valuable content that
+                            attracts customers while establishing authority.</p>
+                        <a href="Content Creation.html"
+                            class="text-[#FF6B00] font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Learn
+                            more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Card 9: Elite Platforms -->
+                <div
+                    class="group relative bg-black/5 border border-black/10 rounded-[32px] overflow-hidden transition-all duration-500 hover:border-[#FF6B00]/50">
+                    <div class="aspect-square relative bg-[#e5e5ea] overflow-hidden border-b border-black/5">
+                        <div class="absolute inset-0 p-8 flex flex-col justify-between">
+                            <div class="flex justify-between items-start">
+                                <span class="text-[#050505] font-black italic text-sm">UNLITI<span class="text-[#FF6B00]">FY</span></span>
+                                <i class="fa-solid fa-code text-[#FF6B00] text-3xl opacity-20 group-hover:opacity-100 transition-all"></i>
+                            </div>
+                            <div>
+                                <h4
+                                    class="text-4xl font-black text-[#050505] italic leading-none uppercase tracking-tighter">
+                                    ELITE <br><span class="text-[#FF6B00]">PLATFORMS</span></h4>
+                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest mt-2">Responsive
+                                    Conversion Engines</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-12 h-12 bg-[#FF6B00]/10 rounded-2xl flex items-center justify-center border border-[#FF6B00]/20">
+                                    <i class="fa-solid fa-laptop-code text-[#FF6B00]"></i>
+                                </div>
+                                <div class="h-[1px] flex-1 bg-black/10"></div>
+                                <span class="text-[#050505] font-bold text-xs tracking-tighter">7020729200</span>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#FF6B00]/10 blur-3xl rounded-full"></div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-[#050505] mb-3">Website Design &amp; Dev</h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">Create stunning, responsive websites that look
+                            great and help you achieve your goals.</p>
+                        <a href="Website Design &amp; Dev.html"
+                            class="text-[#FF6B00] font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-4 transition-all">Learn
+                            more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================== -->
+    <!-- 02. CALL TO ACTION (Pure Black Section)    -->
+    <!-- ========================================== -->
+    <section class="w-full bg-[#050505] text-white py-20 px-6 overflow-hidden">
+        <div
+            class="max-w-7xl mx-auto bg-gradient-to-r from-zinc-900 to-black border border-white/10 rounded-[40px] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
+                    Ready to grow your <br><span class="text-[#FF6B00]">business?</span>
+                </h2>
+                <p class="text-gray-400 text-lg mb-10 max-w-xl">
+                    Let us help you create a customized digital marketing strategy that will take your business to the next
+                    level.
+                </p>
+                <a href="#"
+                    class="inline-block bg-[#FF6B00] hover:bg-white text-black font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(255,107,0,0.3)] uppercase tracking-widest text-sm">
+                    Get Started Today
+                </a>
+            </div>
+    
+            <div class="flex-1 w-full max-w-md">
+                <div
+                    class="relative aspect-square bg-[#0a0a0a] rounded-[32px] border border-white/10 overflow-hidden group">
+                    <div class="absolute inset-0 p-10 flex flex-col justify-center text-center">
+                        <div
+                            class="w-20 h-20 bg-[#FF6B00]/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-rocket text-[#FF6B00] text-3xl"></i>
+                        </div>
+                        <h4 class="text-4xl font-black text-white italic uppercase mb-2 leading-none">Launch <br>With Us
+                        </h4>
+                        <p class="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em]">Precision • Scale •
+                            Results</p>
+                        <div class="mt-8 flex justify-center gap-2">
+                            <div class="w-1 h-8 bg-[#FF6B00] rounded-full animate-bounce"></div>
+                            <div class="w-1 h-8 bg-[#FF8A00] rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                            <div class="w-1 h-8 bg-amber-600 rounded-full animate-bounce [animation-delay:0.4s]"></div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#FF6B00]/5 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================== -->
+    <!-- 03. BRAND IDENTITY (Greyish White Section) -->
+    <!-- ========================================== -->
+    <section class="w-full bg-[#F5F5F7] text-[#050505] py-24 px-6 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    
+            <div class="relative order-2 lg:order-1">
+                <div
+                    class="relative z-10 bg-white/60 backdrop-blur-xl border border-black/10 p-4 rounded-[32px] overflow-hidden shadow-xl">
+                    <div class="rounded-2xl overflow-hidden flex justify-center">
+                        <iframe class="instagram-media instagram-media-rendered" id="instagram-embed-0"
+                            src="https://www.instagram.com/reel/DNDVb52SMuc/embed/?cr=1&amp;v=14&amp;wp=724&amp;rd=https%3A%2F%2Funlitify.vercel.app&amp;rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A3390.2999999523163%2C%22ls%22%3A1736.0999999046326%2C%22le%22%3A2389.9000000953674%7D"
+                            allowtransparency="true" allowfullscreen="true" frameborder="0" height="614" scrolling="no"
+                            style="background: white; width: 100%; border-radius: 3px; border: 1px solid rgb(219, 219, 219); box-shadow: none; display: block; margin: 0px 0px 12px; min-width: 326px; padding: 0px;"></iframe>
+                    </div>
+                </div>
+    
+                <div
+                    class="absolute -bottom-6 -right-6 z-20 bg-[#FF6B00] text-black p-6 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform">
+                    <span class="block text-3xl font-black leading-none">100+</span>
+                    <span class="text-xs font-bold uppercase tracking-tighter">Brands Scaled</span>
+                </div>
+            </div>
+    
+            <div class="order-1 lg:order-2">
+                <span class="text-[#FF6B00] font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Our Story</span>
+                <h2 class="text-4xl md:text-5xl font-black text-[#050505] mb-8 leading-tight">
+                    Unlitify: Turning Ambitious Brands into
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 to-zinc-500">Market Leaders.</span>
+                </h2>
+    
+                <div class="space-y-6 text-zinc-600 leading-relaxed text-lg">
+                    <p>
+                        Unlitify is a growth and digital strategy company built by
+                        <span class="text-[#050505] font-semibold">OpenBox Organization</span> with one clear mission — to
+                        turn ambitious brands into trusted market leaders.
+                    </p>
+                    <p>
+                        Founded by <span class="text-[#FF6B00] font-semibold">Aviral Pathak</span>, a young author,
+                        podcaster, and entrepreneur, Unlitify was born from years of hands-on experience in content creation
+                        and digital storytelling.
+                    </p>
+    
+                    <div class="border-l-4 border-[#FF6B00] bg-black/5 p-6 rounded-r-2xl my-8">
+                        <p class="text-[#050505] italic font-medium text-xl">
+                            "Brands don't grow by being louder — they grow by being clearer."
+                        </p>
+                    </div>
+    
+                    <p>
+                        We don’t believe in shallow marketing. We combine data-driven digital marketing, strategic content,
+                        and brand positioning to help businesses build strong online identities that people trust.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================== -->
+    <!-- 04. COMMON DOUBTS (Pure Black Section)     -->
+    <!-- ========================================== -->
+    <section class="w-full bg-[#050505] text-white py-24 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4 italic tracking-tighter">Common
+                    <span class="text-[#FF6B00]">Doubts.</span></h2>
+                <p class="text-gray-500 uppercase tracking-[0.2em] text-xs">Everything you need to know before we scale.</p>
+            </div>
+    
+            <div class="space-y-4">
+    
+                <!-- Accordion item 1 -->
+                <div
+                    class="group border border-white/5 bg-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#FF6B00]/30">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-white group-hover:text-[#FF6B00] transition-colors">Do you work with startups?</span>
+                        <span class="text-[#FF6B00] text-2xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="pb-6 text-gray-400 leading-relaxed">
+                            Absolutely. We specialize in scaling startups from the ground up. Whether you are at the idea
+                            stage or already have a product, we align your digital identity to ensure you enter the market
+                            as a leader, not a follower.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- Accordion item 2 -->
+                <div
+                    class="group border border-white/5 bg-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#FF6B00]/30">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-white group-hover:text-[#FF6B00] transition-colors">How soon will I see results?</span>
+                        <span class="text-[#FF6B00] text-2xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="pb-6 text-gray-400 leading-relaxed">
+                            It depends on the service.
+                            <span class="text-white font-semibold">Ads (PPC &amp; Google Ads)</span> typically see traffic
+                            and leads within the first 48 hours.
+                            <span class="text-white font-semibold">SEO and Organic Content</span> are long-term plays that
+                            usually show significant impact within 3 to 6 months.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- Accordion item 3 -->
+                <div
+                    class="group border border-white/5 bg-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#FF6B00]/30">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="text-lg font-bold text-white group-hover:text-[#FF6B00] transition-colors">Do you offer custom packages?</span>
+                        <span class="text-[#FF6B00] text-2xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <p class="pb-6 text-gray-400 leading-relaxed">
+                            We don't believe in one-size-fits-all. After our discovery call, we build a custom roadmap that
+                            only includes the services your specific brand needs to hit its goals.
+                        </p>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========================================== -->
+    <!-- 05. HIGH CONVERSION FOOTER (Greyish White) -->
+    <!-- ========================================== -->
+    <footer
+        class="w-full bg-[#F5F5F7] text-[#050505] pt-24 pb-12 px-6 border-t border-black/5 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-center md:text-left">
+                <h2 class="text-4xl md:text-6xl font-black text-[#050505] mb-4 italic tracking-tighter">Ready to Start?</h2>
+                <p class="text-zinc-500 text-lg uppercase tracking-widest">Don't hide. Make it easy.</p>
+            </div>
+    
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="bg-white/80 border border-black/10 p-8 md:p-12 rounded-[32px] backdrop-blur-md shadow-lg">
+                    <h3 class="text-2xl font-bold text-[#050505] mb-8">Get In Touch</h3>
+    
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Full Name</label>
+                            <input type="text" class="w-full bg-black/5 border border-black/10 rounded-xl px-4 py-3 text-[#050505] focus:outline-none focus:border-[#FF6B00] transition-colors" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Email Address</label>
+                            <input type="email" class="w-full bg-black/5 border border-black/10 rounded-xl px-4 py-3 text-[#050505] focus:outline-none focus:border-[#FF6B00] transition-colors" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Message</label>
+                            <textarea rows="4" class="w-full bg-black/5 border border-black/10 rounded-xl px-4 py-3 text-[#050505] focus:outline-none focus:border-[#FF6B00] transition-colors" placeholder="Tell us about your brand architecture..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-[#FF6B00] hover:bg-[#050505] hover:text-white text-black font-bold py-4 rounded-xl transition-colors uppercase tracking-widest text-xs">
+                            Send Discovery Request
+                        </button>
+                    </form>
+                </div>
+    
+                <!-- Branding Metadata Column -->
+                <div class="flex flex-col justify-between">
+                    <div class="text-center lg:text-left">
+                        <span class="text-3xl font-black italic tracking-tighter text-[#050505]">UNLITI<span class="text-[#FF6B00]">FY</span></span>
+                        <p class="text-zinc-500 text-sm mt-4 max-w-sm mx-auto lg:mx-0">
+                            A growth and digital strategy company engineered to turn ambitious brands into trusted market
+                            leaders.
+                        </p>
+                    </div>
+                    <div
+                        class="border-t border-black/5 pt-8 mt-12 text-center lg:text-left flex flex-col sm:flex-row justify-between text-xs text-zinc-400 gap-4">
+                        <span>&copy; 2026 Unlitify. All rights reserved. Built by OpenBox Organization.</span>
+                        <div class="flex justify-center gap-4">
+                            <a href="#" class="hover:text-[#050505] transition-colors">Privacy</a>
+                            <a href="#" class="hover:text-[#050505] transition-colors">Terms</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ========================================== -->
+    <!-- 06. ASYNC RUNTIME & CHAT PLUGINSCRIPTURES  -->
+    <!-- ========================================== -->
+    <script>
+        function toggleFaq(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('span:last-child');
+        
+        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+            content.style.maxHeight = '0px';
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            icon.style.transform = 'rotate(45deg)';
+        }
+    }
+    </script>
+    
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6a3e5c8b680a601d49f66f74/1js1pj4b5';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
 
 </body>
 
