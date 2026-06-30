@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        window.huggingface={variables:{"SPACE_CREATOR_USER_ID":"682347dbc87061262c9772fc"}};
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNLITIFY Growth Partner // Aviral2 Identity Hub</title>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Unified Design System Tokens -->
+    <style>
+        :root {
+            --primary: #ffaa00;
+            --secondary: #7a00ff;
+            --background: #ffffff;
+            --foreground: #111115;
+            --card: #ffffff;
+            --border: #e4e4e7;
+            --muted-foreground: #71717a;
+            --grid-line: rgba(122, 0, 255, 0.03);
+        }
+
+        .dark {
+            --background: #09090b;
+            --foreground: #f4f4f5;
+            --card: #18181b;
+            --border: #27272a;
+            --muted-foreground: #a1a1aa;
+            --grid-line: rgba(255, 170, 0, 0.02);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .hf-grid-backdrop {
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+        }
+
+        .hf-border {
+            border: 1px solid var(--border);
+        }
+
+        .hf-border-b {
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Redesigned Prism Architecture Triggers */
+        .prism-facet {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), fill-opacity 0.3s ease, stroke-width 0.3s ease;
+        }
+
+        .prism-core {
+            transform-origin: 50px 50px;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+        }
+
+        .prism-ray {
+            stroke-dasharray: 8;
+            animation: beamMove 3s linear infinite paused;
+        }
+
+        /* Hover Activation Mappings */
+        .variant-card:hover .prism-facet {
+            stroke-width: 4px;
+        }
+
+        .variant-card:hover .prism-core {
+            transform: scale(1.08) rotate(7deg);
+        }
+
+        .variant-card:hover .prism-ray {
+            animation-play-state: running;
+        }
+
+        @keyframes beamMove {
+            to {
+                stroke-dashoffset: -16;
+            }
+        }
+
+        .copy-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--foreground);
+            color: var(--background);
+            padding: 14px 28px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 100;
+            border: 1px solid var(--primary);
+        }
+
+        .copy-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="antialiased p-4 md:p-8 relative min-h-screen">
+    <div class="absolute inset-0 hf-grid-backdrop pointer-events-none z-0"></div>
+    <div class="max-w-7xl mx-auto flex flex-col gap-8 relative z-10">
+
+        <!-- SYSTEM NAVIGATION HEADER -->
+        <header
+            class="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end hf-border-b pb-6 gap-6">
+            <div>
+                <span class="text-[10px] font-black tracking-[0.4em] uppercase text-[var(--secondary)]">[ AVIRAL2 CORE MATRIX // COMP_REF_2026 ]</span>
+                <h1 class="text-4xl font-black tracking-tighter uppercase mt-1 leading-none">UNLITIFY IDENTITY HUB</h1>
+                <p class="text-xs text-[var(--muted-foreground)] mt-2 max-w-xl">
+                    Premium structural asset repository deployment engine. Move your cursor over any variant node
+                    container to trigger physical layout configuration adjustments.
+                </p>
+            </div>
+            <button onclick="document.documentElement.classList.toggle('dark')" class="text-[10px] font-bold tracking-widest uppercase text-[var(--muted-foreground)] hover:text-[var(--foreground)] hf-border px-5 py-3 bg-[var(--card)] transition-colors">
+                🌓 CHANGE ENVIRONMENT THEME
+            </button>
+        </header>
+
+        <!-- VARIANT DISPLAY SYSTEM GRID -->
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- VARIANT 01: STANDARD HORIZONTAL LOCKUP -->
+            <div
+                class="variant-card bg-[var(--card)] hf-border p-6 flex flex-col justify-between transition-all hover:border-[var(--primary)] group">
+                <div>
+                    <div class="flex justify-between items-center mb-6 hf-border-b pb-3">
+                        <span class="text-[10px] font-mono tracking-widest text-[var(--muted-foreground)] uppercase">VARIANT_01 // INLINE METRIC SPEED</span>
+                        <span class="text-[9px] font-black text-[var(--primary)] bg-[var(--primary)]/10 px-2 py-0.5 uppercase">Landscape lockup</span>
+                    </div>
+
+                    <div id="wrapper-inline"
+                        class="w-full bg-[var(--background)] hf-border py-10 px-6 flex items-center justify-center min-h-[180px]">
+                        <svg id="variant-inline-logo" class="h-14 w-auto text-[var(--primary)]" viewBox="0 0 520 100"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- New Asymmetric Quantum Prism Architectural Mark -->
+                            <g class="prism-core" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon class="prism-facet" points="25,50 50,20 75,35" fill="var(--secondary)"
+                                    fill-opacity="0.15" stroke="var(--secondary)" />
+                                <polygon class="prism-facet" points="25,50 75,35 65,75" fill="var(--foreground)"
+                                    stroke="currentColor" />
+                                <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none"
+                                    stroke="var(--secondary)" />
+                                <polygon class="prism-facet" points="65,75 75,35 85,45" fill="var(--foreground)"
+                                    stroke="currentColor" />
+                                <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor"
+                                    stroke-opacity="0.6" />
+                            </g>
+                            <!-- High-Weight Typographic Component (Capitalized) -->
+                            <text x="115" y="63" fill="var(--foreground)" font-family="'Plus Jakarta Sans', sans-serif"
+                                font-size="34" font-weight="900" letter-spacing="-0.01em">UNLITIFY</text>
+                            <text x="285" y="63" fill="var(--muted-foreground)"
+                                font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="400"
+                                letter-spacing="-0.02em">Growth Partner</text>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-[var(--muted-foreground)] mt-4 leading-relaxed">
+                        Optimized horizontal arrangement architecture best deployed inside application headers, primary
+                        website navigation paths, and master corporate documentation grids.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mt-6">
+                    <button onclick="copySvgCode('variant-inline-logo', 'Inline Identity')" class="py-2.5 bg-[var(--foreground)] text-[var(--background)] text-[9px] font-bold tracking-wider uppercase hover:bg-[var(--primary)] hover:text-white transition-all font-mono">COPY RAW VECTOR</button>
+                    <button onclick="downloadSvgCode('variant-inline-logo', 'unlitify_growth_partner_inline')" class="py-2.5 border border-[var(--primary)] text-[var(--primary)] text-[9px] font-bold tracking-wider uppercase hover:bg-[var(--primary)] hover:text-white transition-all font-mono">DOWNLOAD SVG</button>
+                </div>
+            </div>
+
+            <!-- VARIANT 02: SYMMETRIC STACK -->
+            <div
+                class="variant-card bg-[var(--card)] hf-border p-6 flex flex-col justify-between transition-all hover:border-[var(--primary)] group">
+                <div>
+                    <div class="flex justify-between items-center mb-6 hf-border-b pb-3">
+                        <span class="text-[10px] font-mono tracking-widest text-[var(--muted-foreground)] uppercase">VARIANT_02 // SYMMETRIC STACK</span>
+                        <span class="text-[9px] font-black text-[var(--primary)] bg-[var(--primary)]/10 px-2 py-0.5 uppercase">Vertical Block</span>
+                    </div>
+
+                    <div id="wrapper-stacked"
+                        class="w-full bg-[var(--background)] hf-border py-8 px-6 flex items-center justify-center min-h-[180px]">
+                        <svg id="variant-stacked-logo" class="h-32 w-auto text-[var(--primary)]" viewBox="0 0 280 180"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Centralized Icon Module -->
+                            <g transform="translate(90, 5)" class="prism-core" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polygon class="prism-facet" points="25,50 50,20 75,35" fill="var(--secondary)"
+                                    fill-opacity="0.15" stroke="var(--secondary)" />
+                                <polygon class="prism-facet" points="25,50 75,35 65,75" fill="var(--foreground)"
+                                    stroke="currentColor" />
+                                <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none"
+                                    stroke="var(--secondary)" />
+                                <polygon class="prism-facet" points="65,75 75,35 85,45" fill="var(--foreground)"
+                                    stroke="currentColor" />
+                                <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor"
+                                    stroke-opacity="0.6" />
+                            </g>
+                            <!-- Bottom Stack Label Typography (Capitalized) -->
+                            <text x="140" y="132" text-anchor="middle" fill="var(--foreground)"
+                                font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="900"
+                                letter-spacing="0.02em">UNLITIFY</text>
+                            <text x="140" y="156" text-anchor="middle" fill="var(--muted-foreground)"
+                                font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700"
+                                letter-spacing="0.28em">GROWTH PARTNER</text>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-[var(--muted-foreground)] mt-4 leading-relaxed">
+                        Engineered with a centered equilibrium matrix. Ideal for physical product mockups, profile
+                        avatars, presentation sheets, and outdoor signage applications.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mt-6">
+                    <button onclick="copySvgCode('variant-stacked-logo', 'Stacked Identity')" class="py-2.5 bg-[var(--foreground)] text-[var(--background)] text-[9px] font-bold tracking-wider uppercase hover:bg-[var(--primary)] hover:text-white transition-all font-mono">COPY RAW VECTOR</button>
+                    <button onclick="downloadSvgCode('variant-stacked-logo', 'unlitify_growth_partner_stacked')" class="py-2.5 border border-[var(--primary)] text-[var(--primary)] text-[9px] font-bold tracking-wider uppercase hover:bg-[var(--primary)] hover:text-white transition-all font-mono">DOWNLOAD SVG</button>
+                </div>
+            </div>
+
+            <!-- VARIANT 03: INDUSTRIAL LOCKUP -->
+            <div
+                class="variant-card bg-[var(--card)] hf-border p-6 flex flex-col justify-between transition-all hover:border-[var(--primary)] group">
+                <div>
+                    <div class="flex justify-between items-center mb-6 hf-border-b pb-3">
+                        <span class="text-[10px] font-mono tracking-widest text-[var(--muted-foreground)] uppercase">VARIANT_03 // INDUSTRIAL BLOCK</span>
+                        <span class="text-[9px] font-black text-[var(--primary)] bg-[var(--primary)]/10 px-2 py-0.5 uppercase">Asymmetrical</span>
+                    </div>
+
+                    <div id="wrapper-subtext"
+                        class="w-full bg-[var(--background)] hf-border py-10 px-6 flex items-center justify-center min-h-[180px]">
+                        <svg id="variant-subtext-logo" class="h-20 w-auto text-[var(--primary)]" viewBox="0 0 460 120"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g class="prism-core" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <g transform="translate(10, 10)">
+                                    <polygon class="prism-facet" points="25,50 50,20 75,35" fill="var(--secondary)"
+                                        fill-opacity="0.15" stroke="var(--secondary)" />
+                                    <polygon class="prism-facet" points="25,50 75,35 65,75" fill="var(--foreground)"
+                                        stroke="currentColor" />
+                                    <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none"
+                                        stroke="var(--secondary)" />
+                                    <polygon class="prism-facet" points="65,75 75,35 85,45" fill="var(--foreground)"
+                                        stroke="currentColor" />
+                                    <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor"
+                                        stroke-opacity="0.6" />
+                                </g>
+                            </g>
+                            <!-- Fully Capitalized Typography Lockup -->
+                            <text x="125" y="66" fill="var(--foreground)" font-family="'Plus Jakarta Sans', sans-serif"
+                                font-size="38" font-weight="900" letter-spacing="0.01em">UNLITIFY</text>
+                            <text x="127" y="95" fill="var(--primary)" font-family="'Plus Jakarta Sans', sans-serif"
+                                font-size="13" font-weight="800" letter-spacing="0.32em">GROWTH PARTNER</text>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-[var(--muted-foreground)] mt-4 leading-relaxed">
+                        Features a high-visibility tracking line for sub-labels. This version creates a stark mechanical
+                        accent structure inside modern dashboards.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mt-6">
+                    <button onclick="copySvgCode('variant-subtext-logo', 'Industrial Lockup')" class="py-2.5 bg-[var(--foreground)] text-[var(--background)] text-[9px] font-bold tracking-wider uppercase hover:bg-[var(--primary)] hover:text-white transition-all font-mono">COPY RAW VECTOR</button>
+                    <button onclick="downloadSvgCode('variant-subtext-logo', 'unlitify_growth_partner_industrial')" class="py-2.5 border border-[var(--primary)] text-[var(--primary)] text-[9px] font-bold tracking-wider uppercase hover:bg-[var(--primary)] hover:text-white transition-all font-mono">DOWNLOAD SVG</button>
+                </div>
+            </div>
+
+            <!-- VARIANT 04: PURE EMBLEM -->
+            <div
+                class="variant-card bg-[var(--card)] hf-border p-6 flex flex-col justify-between transition-all hover:border-[var(--primary)] group">
+                <div>
+                    <div class="flex justify-between items-center mb-6 hf-border-b pb-3">
+                        <span class="text-[10px] font-mono tracking-widest text-[var(--muted-foreground)] uppercase">VARIANT_04 // FAVICON ARCHITECTURE</span>
+                        <span class="text-[9px] font-black text-[var(--primary)] bg-[var(--primary)]/10 px-2 py-0.5 uppercase">Pure Emblem</span>
+                    </div>
+
+                    <div id="wrapper-glyph"
+                        class="w-full bg-[var(--background)] hf-border py-10 px-6 flex items-center justify-center min-h-[180px]">
+                        <svg id="variant-glyph-logo" class="h-20 w-auto text-[var(--primary)]" viewBox="0 0 100 100"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g class="prism-core" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon class="prism-facet" points="25,50 50,20 75,35" fill="var(--secondary)"
+                                    fill-opacity="0.12" stroke="var(--secondary)" />
+                                <polygon class="prism-facet" points="25,50 75,35 65,75" fill="var(--foreground)"
+                                    stroke="currentColor" />
+                                <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none"
+                                    stroke="var(--secondary)" />
+                                <polygon class="prism-facet" points="65,75 75,35 85,45" fill="var(--foreground)"
+                                    stroke="currentColor" />
+                                <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor"
+                                    stroke-opacity="0.5" />
+                            </g>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-[var(--muted-foreground)] mt-4 leading-relaxed">
+                        The core visual symbol without text lines. Optimized for mobile browser task bars, navigation
+                        footers, stamps, or minimal branding.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mt-6">
+                    <button onclick="copySvgCode('variant-glyph-logo', 'Isolated Mark')" class="py-2.5 bg-[var(--foreground)] text-[var(--background)] text-[9px] font-bold tracking-wider uppercase hover:bg-[var(--primary)] hover:text-white transition-all font-mono">COPY RAW VECTOR</button>
+                    <button onclick="downloadSvgCode('variant-glyph-logo', 'unlitify_growth_partner_glyph')" class="py-2.5 border border-[var(--primary)] text-[var(--primary)] text-[9px] font-bold tracking-wider uppercase hover:bg-[var(--primary)] hover:text-white transition-all font-mono">DOWNLOAD SVG</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- NOTIFICATION TOAST OVERLAY -->
+    <div id="toast" class="copy-toast">Matrix Parameter Cached</div>
+
+    <!-- PIPELINE LOGIC CONTROLLERS -->
+    <script>
+        function extractCleanSvgString(elementId) {
+            const svgElement = document.getElementById(elementId);
+            const serializer = new XMLSerializer();
+            let clone = svgElement.cloneNode(true);
+            
+            // Adjust vector viewport boundaries depending on layout target configurations
+            if(elementId === 'variant-inline-logo') { clone.setAttribute('width', '1040'); clone.setAttribute('height', '200'); }
+            else if(elementId === 'variant-stacked-logo') { clone.setAttribute('width', '560'); clone.setAttribute('height', '360'); }
+            else if(elementId === 'variant-subtext-logo') { clone.setAttribute('width', '920'); clone.setAttribute('height', '240'); }
+            else { clone.setAttribute('width', '500'); clone.setAttribute('height', '500'); }
+            
+            let svgString = serializer.serializeToString(clone);
+            if (!svgString.includes('xmlns')) {
+                svgString = svgString.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+            }
+            
+            // Flatten theme variable allocations down to static cross-platform canvas specifications
+            svgString = svgString.replace(/currentColor/g, '#ffaa00');
+            svgString = svgString.replace(/var\(--secondary\)/g, '#7a00ff');
+            svgString = svgString.replace(/var\(--foreground\)/g, '#111115');
+            svgString = svgString.replace(/var\(--background\)/g, '#ffffff');
+            svgString = svgString.replace(/var\(--muted-foreground\)/g, '#71717a');
+            return svgString;
+        }
+
+        function copySvgCode(elementId, identifier) {
+            const cleanSvg = extractCleanSvgString(elementId);
+            navigator.clipboard.writeText(cleanSvg).then(() => {
+                triggerToast(`${identifier} configuration vector copied to clipboard.`);
+            });
+        }
+
+        function downloadSvgCode(elementId, filename) {
+            const cleanSvg = extractCleanSvgString(elementId);
+            const blob = new Blob([cleanSvg], { type: 'image/svg+xml;charset=utf-8' });
+            const blobUrl = URL.createObjectURL(blob);
+            
+            const downloadLink = document.createElement('a');
+            downloadLink.href = blobUrl;
+            downloadLink.download = `${filename}.svg`;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(blobUrl);
+            triggerToast(`.SVG asset payload compiled and dispatched.`);
+        }
+
+        function triggerToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
