@@ -44,7 +44,7 @@
         /* Dynamic Theme Semantic Variables mapped to existing classes */
         :root {
             --primary: #FF4000;
-            --muted-bg: rgba(244, 239, 234, 0.4);
+            --muted-bg: rgba(244, 239, 234, 0.6);
             --card: #ffffff;
             --foreground: #0A0A0A;
             --muted-text: rgba(10, 10, 10, 0.6);
@@ -144,7 +144,9 @@
     </script>
 </head>
 
-<body x-data="{ darkMode: true }" x-cloak
+<!-- Light theme set as standard body fallback base -->
+
+<body x-data="{ darkMode: false }" x-cloak
     :class="{ 'dark bg-brand-dark text-neutral-200': darkMode, 'bg-brand-owhite-100 text-neutral-900': !darkMode }"
     class="antialiased transition-colors duration-500">
 
@@ -419,7 +421,7 @@
                             <div
                                 class="w-full bg-[var(--muted-bg)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
                                 <div
-                                    class="bg-[var(--card)] p-3 rounded-xl border border-[var(--foreground)]/5 flex flex-col gap-2">
+                                    class="bg-[var(--card)] p-3 rounded-xl border border-[var(--foreground)]/5 flex flex-col gap-1.5">
                                     <div
                                         class="flex items-center justify-between text-[9px] font-mono text-[var(--muted-text)]">
                                         <span>Inbound Pipeline</span>
