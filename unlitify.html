@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify — Optimized Solutions & IT Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#FF4000', // R: 255 G: 64 B: 0
+                            dark: '#0A0A0A',
+                            accent: '#121212',
+                            owhite: {
+                                100: '#FAF8F5',
+                                200: '#F4EFEA',
+                                300: '#EAE2D5'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Icons and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Pure JS typing animation hook simulating ityped -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const words = ["Optimized Solutions.", "IT Infrastructure.", "System Integrity."];
+            let i = 0, timer;
+            
+            function typingEffect() {
+                let word = words[i].split("");
+                var loopTyping = function() {
+                    if (word.length > 0) {
+                        document.querySelector('.ityped').innerHTML += word.shift();
+                    } else {
+                        setTimeout(deletingEffect, 2000);
+                        return false;
+                    }
+                    timer = setTimeout(loopTyping, 100);
+                };
+                loopTyping();
+            }
+            
+            function deletingEffect() {
+                let word = words[i].split("");
+                var loopDeleting = function() {
+                    if (word.length > 0) {
+                        word.pop();
+                        document.querySelector('.ityped').innerHTML = word.join("");
+                    } else {
+                        if (words.length > (i + 1)) i++;
+                        else i = 0;
+                        setTimeout(typingEffect, 500);
+                        return false;
+                    }
+                    timer = setTimeout(loopDeleting, 60);
+                };
+                loopDeleting();
+            }
+            typingEffect();
+        });
+    </script>
+</head>
+
+<body x-data="{ darkMode: true }"
+    :class="{ 'dark bg-brand-dark text-neutral-200': darkMode, 'bg-brand-owhite-100 text-neutral-900': !darkMode }"
+    class="antialiased transition-colors duration-500">
+
+    <!-- Minimalist Floating Header -->
+    <header
+        class="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 rounded-full border border-neutral-200/40 dark:border-neutral-800/40 backdrop-blur-xl transition-all duration-300"
+        :class="{ 'bg-brand-dark/60': darkMode, 'bg-brand-owhite-200/60': !darkMode }">
+        <div class="px-6 h-14 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-orange"></span>
+                <span class="font-black tracking-tighter text-base uppercase" :class="darkMode ? 'text-white' : 'text-brand-dark'">Unlitify</span>
+            </div>
+
+            <nav class="hidden sm:flex items-center gap-6 text-xs uppercase tracking-widest font-bold opacity-70">
+                <a href="#what-we-do" class="hover:text-brand-orange hover:opacity-100 transition-all">Core
+                    Capabilities</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <!-- Smooth Dark/Light Trigger -->
+                <button @click="darkMode = !darkMode" class="p-1.5 rounded-full hover:bg-neutral-500/10 transition-colors" aria-label="Toggle System Theme">
+                    <template x-if="darkMode">
+                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707m2.828 9.9a5 5 0 117.072 0 5 5 0 01-7.072 0z"/></svg>
+                    </template>
+                    <template x-if="!darkMode">
+                        <svg class="w-4 h-4 text-neutral-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    </template>
+                </button>
+                <a href="#what-we-do"
+                    class="bg-brand-orange text-white text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full hover:bg-orange-600 transition-all">
+                    Initialize System
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Swapped Custom Hero Section -->
+    <section
+        class="min-h-screen pt-44 pb-20 px-6 flex flex-col items-center justify-center text-center relative overflow-hidden transition-colors duration-500"
+        :class="{ 'bg-gradient-to-b from-brand-owhite-100 via-brand-owhite-200 to-brand-owhite-300 text-brand-dark': !darkMode, 'bg-gradient-to-b from-black via-brand-dark to-brand-dark text-white': darkMode }">
+
+        <!-- Adaptive Ambient Glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] rounded-full blur-[120px] -z-10 transition-colors duration-500"
+            :class="darkMode ? 'bg-brand-orange/5' : 'bg-orange-200/20'"></div>
+
+        <!-- Inline alignment grid lines for the premium Aviral feel -->
+        <div
+            class="absolute inset-0 bg-[linear-gradient(to_right,#80808006_1px,transparent_1px),linear-gradient(to_bottom,#80808006_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none">
+        </div>
+
+        <span class="border px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.25em] mb-8 relative z-10 transition-colors"
+              :class="darkMode ? 'border-brand-orange/30 text-brand-orange bg-brand-orange/5' : 'border-neutral-400/40 text-neutral-800 bg-white/40'">
+            IT Infrastructure for High-Scale Enterprise
+        </span>
+
+        <h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.95] uppercase relative z-10">
+            Your Brand Deserves <br>
+            <span class="bg-gradient-to-r from-brand-orange to-amber-600 bg-clip-text text-transparent ityped"></span>
+        </h1>
+
+        <p class="text-base md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-normal relative z-10"
+            :class="darkMode ? 'text-neutral-400' : 'text-neutral-600'">
+            Data-driven IT solutions and optimized processing frameworks. We eliminate architectural fragmentation to
+            build unstoppable operations through proven high-availability strategy and structural reliability.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 relative z-10 w-full sm:w-auto px-4">
+            <a href="#what-we-do"
+                class="bg-brand-orange text-white font-bold px-10 py-4.5 rounded-full hover:bg-orange-600 shadow-xl shadow-brand-orange/10 hover:translate-y-[-1px] transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-3">
+                <i class="fa-solid fa-bolt"></i> Optimize Infrastructure
+            </a>
+            <a href="#what-we-do"
+                class="border px-10 py-4.5 rounded-full transition-all font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm"
+                :class="darkMode ? 'border-neutral-800 hover:border-neutral-600 text-white' : 'border-neutral-300 hover:border-neutral-500 text-brand-dark'">
+                Explore Services <i class="fa-solid fa-arrow-down text-xs"></i>
+            </a>
+        </div>
+
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do"
+        class="py-32 px-6 border-t border-neutral-200/30 dark:border-neutral-900 transition-colors duration-500">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Brutalist Section Header Split -->
+            <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24 pb-12 border-b border-neutral-300/40 dark:border-neutral-800/40">
+                <div class="lg:col-span-4">
+                    <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-brand-orange">What We Do</h2>
+                </div>
+                <div class="lg:col-span-8">
+                    <p class="text-2xl sm:text-4xl font-light tracking-tight leading-tight"
+                        :class="!darkMode ? 'text-neutral-900': 'text-white'">
+                        High-performance engineered systems tuned to eliminate technical waste and secure maximum
+                        processing output.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Aviral Inspired Component Matrix Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card 1: Optimized Solutions -->
+                <div
+                    class="group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                    <div>
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="text-xs font-mono opacity-40">01 / PERFORMANCE</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand-orange/30 text-brand-orange">CORE REFAC</span>
+                        </div>
+                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Optimized Sol.</h3>
+                        <p class="text-sm opacity-70 leading-relaxed mb-6">We clean pipeline blocks to drop response
+                            latency, prune bloatware, and unlock real processing velocity.</p>
+
+                        <ul
+                            class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4 mb-6">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Clear Production
+                                Roadblocks</li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Extreme Resource Savings
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Highly Resilient
+                                Deployments</li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="bg-white dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200/60 dark:border-neutral-800/60 text-left font-mono text-[10px] mb-6">
+                        <div class="flex items-center gap-1 text-neutral-400 mb-1"><span>System Latency</span>
+                            <span class="text-emerald-500">★★★★★</span></div>
+                        <div class="text-brand-orange font-bold underline mb-1">core_cluster_optimization</div>
+                        <div class="text-green-600 dark:text-green-400">unlitify.com/sys
+                            <span class="text-neutral-400 text-[8px] border border-neutral-300 dark:border-neutral-700 px-1 rounded ml-1">STABLE_V4</span>
+                        </div>
+                    </div>
+
+                    <a href="#"
+                        class="inline-flex w-full justify-center items-center bg-brand-dark dark:bg-white text-white dark:text-brand-dark font-bold text-xs uppercase tracking-wider py-3 rounded-xl hover:bg-brand-orange dark:hover:bg-brand-orange dark:hover:text-white transition-colors">
+                        Request System Profiling
+                    </a>
+                </div>
+
+                <!-- Card 2: IT Solutions -->
+                <div
+                    class="group border border-neutral-200/60 dark:border-neutral-800/80 bg-neutral-50/40 dark:bg-brand-accent/50 p-8 rounded-3xl flex flex-col justify-between hover:border-brand-orange dark:hover:border-brand-orange transition-all duration-300">
+                    <div>
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="text-xs font-mono opacity-40">02 / INFRASTRUCTURE</span>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-400/30 text-neutral-400">SYS_PROD</span>
+                        </div>
+                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">IT Solutions</h3>
+                        <p class="text-sm opacity-70 leading-relaxed mb-6">Scalable networks, fully automated data
+                            models, and rock-solid compute resources built for modern scale.</p>
+
+                        <ul
+                            class="space-y-2.5 text-xs font-medium border-t border-neutral-200 dark:border-neutral-800 pt-4 mb-6">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Hardened Target Security
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Maximize Uptime Delivery
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        class="bg-white dark:bg-neutral-900 rounded-2xl p-4 border border-neutral-200/60 dark:border-neutral-800/60 text-center font-mono text-[10px] mb-6 flex items-center justify-between">
+                        <div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            <span class="text-neutral-400 text-[8px] uppercase font-bold">SECURE_SSL</span></div>
+                        <div class="text-emerald-500 font-bold tracking-tight">99.99% Node Availability</div>
+                    </div>
+
+                    <a href="#"
+                        class="inline-flex w-full justify-center items-center bg-brand-dark dark:bg-white text-white dark:text-brand-dark font-bold text-xs uppercase tracking-wider py-3 rounded-xl hover:bg-brand-orange dark:hover:bg-brand-orange dark:hover:text-white transition-colors">
+                        Deploy Infrastructure
+                    </a>
+                </div>
+
+                <!-- Structural Grid Filler Action Element -->
+                <div
+                    class="border border-dashed border-neutral-300 dark:border-neutral-800 p-8 rounded-3xl flex flex-col justify-center items-center text-center">
+                    <div class="w-3 h-3 rounded-full bg-brand-orange animate-ping mb-4"></div>
+                    <p class="text-sm font-bold uppercase tracking-widest mb-1">UNLITIFY_NODE_ACTIVE</p>
+                    <p class="text-xs opacity-60 max-w-[180px]">Parameters operating within design constraints.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
