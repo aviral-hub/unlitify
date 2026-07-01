@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify — Intake Infrastructure Audit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            orange: '#FF4000',
+                            dark: '#0A0A0A',
+                            bg: '#FAF9F6',
+                            card: '#FFFFFF',
+                            border: '#EAEAEA'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+        ::selection {
+            background: #FF4000;
+            color: #ffffff;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #EAEAEA;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel:hover {
+            border-color: #FF4000;
+            box-shadow: 0 20px 40px -15px rgba(255, 64, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .perspective-container {
+            perspective: 1200px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+
+        .perspective-container:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body class="bg-brand-bg text-neutral-800 antialiased font-sans overflow-x-hidden relative">
+
+    <!-- Faded Premium Education Scene Backdrop Wrapper -->
+    <div class="absolute top-0 right-0 left-0 h-[750px] pointer-events-none z-0 overflow-hidden select-none">
+        <img src="https://png.pngtree.com/thumb_back/fw800/background/20230322/pngtree-3d-school-building-isometric-pastel-color-education-scene-image_2051024.jpg"
+             alt="Education Backdrop"
+             class="w-full h-full object-cover object-center opacity-[0.09] mix-blend-multiply scale-105 pointer-events-none">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-bg/40 to-brand-bg"></div>
+    </div>
+
+    <!-- Geometric Grid Mask Layer Over Background Image -->
+    <div
+        class="absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none z-0">
+    </div>
+
+    <section class="relative min-h-screen pt-16 pb-24 px-4 sm:px-6 max-w-6xl mx-auto z-10" x-data="{ currentLogo: 1 }">
+
+        <!-- Header -->
+        <nav class="mb-16 flex items-center justify-between border-b border-neutral-200 pb-6">
+            <a href="index.html"
+                class="group text-neutral-500 hover:text-brand-dark transition-colors text-[10px] uppercase tracking-widest font-bold flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left text-brand-orange transition-transform group-hover:-translate-x-1"></i>
+                Services
+            </a>
+            <span class="font-black tracking-tighter text-xs uppercase text-brand-dark"><span class="text-brand-orange">■</span>
+            UNLITIFY</span>
+        </nav>
+
+        <!-- Hero Matrix -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+
+            <div class="lg:col-span-7 space-y-6">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/5 border border-brand-orange/10 text-brand-orange text-[10px] font-black uppercase tracking-wider">
+                    Intake Optimization Engine
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-[0.95] text-brand-dark">
+                    STOP LOSING ENROLMENTS TO <span class="text-brand-orange">SLOW PLUGINS.</span>
+                </h1>
+                <p class="text-neutral-600 text-base md:text-lg max-w-lg font-medium leading-relaxed">
+                    We build psychology-driven student acquisition pipelines. High-intent capture, zero data leaks,
+                    routed to admissions in under 60 seconds.
+                </p>
+                <div>
+                    <a href="audit.html"
+                        onclick="confetti({particleCount: 50, spread: 45, colors: ['#FF4000', '#0A0A0A']})"
+                        class="group inline-flex items-center gap-3 bg-brand-dark hover:bg-brand-orange text-white text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm">
+                        Book An Enrolment Audit
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive 3D Card Module -->
+            <div class="lg:col-span-5 perspective-container h-[280px]">
+                <div class="flip-card-inner">
+                    <!-- Front Card -->
+                    <div class="flip-card-front glass-panel rounded-2xl p-6 flex flex-col justify-between shadow-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Routing Infrastructure</span>
+                            <span class="text-emerald-600 font-bold text-[10px] px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200">&lt; 60s ACTIVE</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-[10px] text-neutral-500 font-bold uppercase">
+                                <span>Ingestion Accuracy</span>
+                                <span>99.9%</span>
+                            </div>
+                            <div
+                                class="h-2 w-full bg-neutral-100/60 rounded-full overflow-hidden p-[1px] border border-neutral-200">
+                                <div class="h-full bg-brand-orange rounded-full" style="width: 99.9%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-[10px] font-bold uppercase text-neutral-400">
+                            <span>Status: Optimized</span>
+                            <span class="text-brand-orange">Flip Card <i class="fa-solid fa-rotate"></i></span>
+                        </div>
+                    </div>
+                    <!-- Back Card -->
+                    <div
+                        class="flip-card-back glass-panel rounded-2xl p-6 flex flex-col justify-between shadow-sm bg-brand-dark text-white border-none">
+                        <div>
+                            <h4 class="text-sm font-bold uppercase tracking-wider text-brand-orange mb-2">Automated
+                                Verification</h4>
+                            <p class="text-xs text-neutral-400 leading-relaxed">
+                                Low-intent profiles are filtered instantly before hitting your counselors' workstations.
+                                Zero manual data handling.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 text-center text-xs border-t border-neutral-800 pt-4">
+                            <div>
+                                <div class="text-[9px] uppercase font-bold text-neutral-500">Response Window</div>
+                                <div class="font-black text-white mt-0.5">&lt; 5 mins</div>
+                            </div>
+                            <div>
+                                <div class="text-[9px] uppercase font-bold text-neutral-500">Pipeline Leaks</div>
+                                <div class="font-black text-emerald-400 mt-0.5">0.0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Section 1: The Core Bottleneck -->
+        <div class="py-12 border-t border-neutral-200 grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+            <div>
+                <span class="text-brand-orange uppercase text-[10px] font-black tracking-wider block mb-2">The Friction</span>
+                <h3 class="text-xl font-black text-brand-dark uppercase tracking-tight">Your Infrastructure Is Failing.
+                </h3>
+            </div>
+            <div class="space-y-2">
+                <h4 class="text-xs font-bold uppercase text-brand-dark">The Delayed Leak</h4>
+                <p class="text-neutral-600 text-xs leading-relaxed">Inquiries sit in shared inboxes. In education
+                    acquisition, a 30-minute delay drops enrollment actions by over 60%.</p>
+            </div>
+            <div class="space-y-2">
+                <h4 class="text-xs font-bold uppercase text-brand-dark">The Volume Trap</h4>
+                <p class="text-neutral-600 text-xs leading-relaxed">Agencies optimize for cheap, casual clicks. Your
+                    admissions team suffocates under unqualified phone lists.</p>
+            </div>
+        </div>
+
+        <!-- Section 2 & 3: Mechanics Matrix -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+            <div class="p-8 bg-white/90 border border-neutral-200 rounded-2xl space-y-4 backdrop-blur-sm">
+                <div class="text-brand-orange text-xs font-black uppercase tracking-wider">
+                    <i class="fa-solid fa-server mr-2"></i> Technical Routing Layer</div>
+                <ul class="space-y-3 text-xs text-neutral-600">
+                    <li><strong class="text-brand-dark uppercase block">Enrolment Data Pipelines:</strong> Secure,
+                        friction-free intake forms built for course entry criteria.</li>
+                    <li><strong class="text-brand-dark uppercase block">Instant CRM Sync:</strong> Webhooks process and
+                        push student records the millisecond they apply.</li>
+                    <li><strong class="text-brand-dark uppercase block">Counselor Notifications:</strong> Automated
+                        alert routing guarantees rapid team response cycles.</li>
+                </ul>
+            </div>
+            <div class="p-8 bg-white/90 border border-neutral-200 rounded-2xl space-y-4 backdrop-blur-sm">
+                <div class="text-brand-orange text-xs font-black uppercase tracking-wider">
+                    <i class="fa-solid fa-bullseye mr-2"></i> Strategic Marketing Layer</div>
+                <ul class="space-y-3 text-xs text-neutral-600">
+                    <li><strong class="text-brand-dark uppercase block">High-Intent Campaigns:</strong> Ad copies
+                        structured using psychological friction to screen out casual browsers.</li>
+                    <li><strong class="text-brand-dark uppercase block">Course Authority SEO:</strong> Dominate specific
+                        certifications and placement-driven structural search queries.</li>
+                    <li><strong class="text-brand-dark uppercase block">End-to-End Tracking:</strong> Match enrollment
+                        marketing spends to paid registrants with total precision.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- NEW SYSTEM COMPONENT: Enterprise LMS Architecture Component with Kinetic Autoplay Engine -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16 border-y border-neutral-200/80 mb-24"
+            x-data="{ 
+                activeSlide: 0, 
+                slides: [
+                    'https://i0.wp.com/senseilms.com/wp-content/uploads/2022/10/image-23-2.png?resize=1024%2C853&quality=80&ssl=1',
+                    'https://i0.wp.com/senseilms.com/wp-content/uploads/2022/10/image-19-1.png?resize=600%2C529&quality=80&ssl=1',
+                    'https://i0.wp.com/senseilms.com/wp-content/uploads/2022/10/image-20-1.png?resize=600%2C529&quality=80&ssl=1'
+                ],
+                init() {
+                    setInterval(() => {
+                        this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+                    }, 4000);
+                }
+             }">
+
+            <!-- Left Narrative Structural Copy -->
+            <div class="lg:col-span-5 space-y-5">
+                <div class="text-brand-orange text-xs font-black uppercase tracking-wider flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Proprietary Learning Architecture
+                </div>
+                <h3 class="text-2xl md:text-3xl font-black text-brand-dark uppercase tracking-tight">
+                    Get help every step of the way
+                </h3>
+                <p class="text-neutral-600 text-xs md:text-sm leading-relaxed font-medium">
+                    Have peace of mind that our support team will be ready to support you 365 days a year — with all
+                    your questions and issues. We are your guide through the entire course creation and management
+                    process.
+                </p>
+                <div class="flex gap-2 pt-2">
+                    <template x-for="(slide, index) in slides">
+                        <button @click="activeSlide = index"
+                                class="h-1 rounded-full transition-all duration-300"
+                                :class="activeSlide === index ? 'w-8 bg-brand-orange' : 'w-2 bg-neutral-200'"></button>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Right Visual Layout Engine -->
+            <div
+                class="lg:col-span-7 bg-white border border-neutral-200 p-4 rounded-2xl shadow-sm relative overflow-hidden h-[340px] flex items-center justify-center">
+                <template x-for="(slide, index) in slides">
+                    <div x-show="activeSlide === index" x-transition:enter="transition ease-out duration-500 absolute"
+                        x-transition:enter-start="opacity-0 transform scale-95"
+                        x-transition:enter-end="opacity-100 transform scale-100"
+                        x-transition:leave="transition ease-in duration-300 absolute"
+                        x-transition:leave-end="opacity-0 transform scale-105"
+                        class="w-full h-full flex items-center justify-center p-4">
+                        <img :src="slide" alt="LMS Interface Layout" class="max-w-full max-h-full object-contain rounded-lg">
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Section 4: Operational Shift (Transformation Table) -->
+        <div class="space-y-6 mb-24">
+            <div class="overflow-x-auto rounded-xl border border-neutral-200 bg-white/90 backdrop-blur-sm">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr
+                            class="bg-neutral-50/80 border-b border-neutral-200 text-neutral-500 uppercase tracking-wider font-bold">
+                            <th class="p-4 w-1/2">Current Fragmented Funnel</th>
+                            <th class="p-4 w-1/2 text-brand-orange">Streamlined Intake System</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-neutral-100 text-neutral-600">
+                        <tr>
+                            <td class="p-4">Inquiries left stagnant in unstructured spreadsheets.</td>
+                            <td class="p-4 text-brand-dark font-medium">Auto-parsed and assigned to counselors
+                                instantly.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Broad keywords pulling accidental junk clicks.</td>
+                            <td class="p-4 text-brand-dark font-medium">Hyper-targeted placement targeting for ready
+                                applicants.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Inability to track creative source behind registrations.</td>
+                            <td class="p-4 text-brand-dark font-medium">Absolute click-to-registration attribution
+                                metrics.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 5: Call To Action -->
+        <div
+            class="rounded-3xl border border-neutral-200 bg-white/95 backdrop-blur-md p-12 text-center space-y-6 shadow-sm relative overflow-hidden">
+            <div class="max-w-sm mx-auto space-y-6 relative z-10">
+                <h2 class="text-2xl md:text-4xl font-black tracking-tight text-brand-dark uppercase">
+                    READY TO SCALE YOUR NEXT INTAKE?
+                </h2>
+                <p class="text-neutral-500 text-xs leading-relaxed">
+                    We will audit your pipeline layout, identify where you are losing students, and provide a direct
+                    technical blueprint.
+                </p>
+                <div class="pt-2">
+                    <a href="audit.html"
+                        class="inline-block bg-brand-orange text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:bg-brand-dark transition-colors shadow-sm">
+                        Schedule A System Call
+                    </a>
+                    <span class="block text-[9px] text-neutral-400 uppercase tracking-widest font-medium mt-3">A direct tactical blueprint for your institution.</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
