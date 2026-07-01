@@ -1,744 +1,190 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en" x-data="{ darkMode: true, selectedIndustry: 'E-commerce', selectedProblem: 'low_conversion', selectedService: 'growth_retainer', personaName: '', companyName: '', copiedField: null }" :class="{ 'dark': darkMode }">
 <head>
-    <script>
-        window.huggingface={variables:{"SPACE_CREATOR_USER_ID":"682347dbc87061262c9772fc"}};
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlitify — Conversion Infrastructure & High-Scale Growth</title>
+    <title>Unlitify // BDE Outreach Matrix</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
                     colors: {
                         brand: {
-                            primary: 'var(--color-primary)',
-                            accent1: 'var(--color-accent-1)',
-                            accent2: 'var(--color-accent-2)',
-                            accent3: 'var(--color-accent-3)',
-                            accent4: 'var(--color-accent-4)',
-                            bgCustom: 'var(--color-background)',
-                            textCustom: 'var(--color-text)',
-                            neutralCustom: 'var(--color-neutral)',
-                            dark: '#0A0A0A',
-                            accent: '#121212',
-                            owhite: {
-                                100: '#FAF8F5',
-                                200: '#F4EFEA',
-                                300: '#EAE2D5'
-                            }
+                            dark: '#0F0F11',
+                            panel: '#161619',
+                            primary: '#FF6B00',
+                            accent: '#8A2BE2'
                         }
                     }
                 }
             }
         }
     </script>
-    <!-- Icons and Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;900&display=swap"
-        rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
-        [x-cloak] {
-            display: none !important;
-        }
-
-        :root {
-            --color-primary: #f3a517;
-            --color-accent-1: #ad760b;
-            --color-accent-2: #871ef5;
-            --color-accent-3: #be84f4;
-            --color-accent-4: #d97a4c;
-            --color-background: #ead5f9;
-            --color-text: #110f13;
-            --color-neutral: #261c0e;
-
-            --primary: var(--color-primary);
-            --muted-bg: rgba(244, 239, 234, 0.6);
-            --card: #ffffff;
-            --foreground: var(--color-text);
-            --muted-text: rgba(11, 15, 19, 0.6);
-        }
-
-        .dark {
-            --muted-bg: rgba(18, 18, 18, 0.5);
-            --card: #0A0A0A;
-            --foreground: #FAF8F5;
-            --muted-text: rgba(250, 248, 245, 0.6);
-        }
-
-        .cursor-blink::after {
-            content: '|';
-            animation: blink 0.8s infinite;
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .perspective-container {
-            perspective: 1200px;
-        }
-
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            transform-style: preserve-3d;
-        }
-
-        .perspective-container:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flip-card-front,
-        .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
-
-        .flip-card-back {
-            transform: rotateY(180deg);
-        }
+        [x-cloak] { display: none !important; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #161619; }
+        ::-webkit-scrollbar-thumb { background: #2B2B30; border-radius: 3px; }
     </style>
-    <!-- Optimized Typing Animation Engine -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const words = ["Digital Dominance.", "Conversion Engines.", "Unstoppable Growth."];
-            let currentWordIndex = 0;
-            let currentCharIndex = 0;
-            let isDeleting = false;
-            const target = document.querySelector('.ityped');
-            
-            function type() {
-                const currentWord = words[currentWordIndex];
-                if (isDeleting) {
-                    target.innerHTML = currentWord.substring(0, currentCharIndex - 1);
-                    currentCharIndex--;
-                } else {
-                    target.innerHTML = currentWord.substring(0, currentCharIndex + 1);
-                    currentCharIndex++;
-                }
-
-                let typeSpeed = isDeleting ? 40 : 80;
-                if (!isDeleting && currentCharIndex === currentWord.length) {
-                    typeSpeed = 2000;
-                    isDeleting = true;
-                } else if (isDeleting && currentCharIndex === 0) {
-                    isDeleting = false;
-                    currentWordIndex = (currentWordIndex + 1) % words.length;
-                    typeSpeed = 400;
-                }
-                setTimeout(type, typeSpeed);
-            }
-            if (target) type();
-        });
-    </script>
 </head>
+<body class="bg-zinc-50 text-zinc-900 dark:bg-brand-dark dark:text-zinc-100 font-sans min-h-screen transition-colors duration-300">
 
-<body x-data="{ darkMode: false, mobileMenuOpen: false }" x-cloak
-    :class="{ 'dark bg-brand-dark text-neutral-200': darkMode, 'bg-white text-brand-textCustom': !darkMode }"
-    class="antialiased transition-colors duration-500">
-
-    <!-- Floating Header -->
-    <header
-        class="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 rounded-full border border-neutral-200/40 dark:border-neutral-800/40 backdrop-blur-xl transition-all duration-300"
-        :class="{ 'bg-brand-dark/60': darkMode, 'bg-white/60': !darkMode }"
-        x-data="{ activeLogo: 1, dropdownOpen: false, init() { setInterval(() => { this.activeLogo = this.activeLogo === 1 ? 2 : 1; }, 5000); } }">
-        <div class="px-6 h-14 flex items-center justify-between">
-            <!-- Dynamic Auto-Swapping Logo Container -->
-            <div class="relative flex items-center h-9 w-56 overflow-hidden">
-                <!-- Variant 1: Subtext Logo Layout -->
-                <div class="absolute inset-0 flex items-center transition-all duration-700 ease-in-out"
-                    x-show="activeLogo === 1" x-transition:enter="transition ease-out duration-500 transform"
-                    x-transition:enter-start="opacity-0 translate-y-2"
-                    x-transition:enter-end="opacity-100 translate-y-0"
-                    x-transition:leave="transition ease-in duration-400 transform"
-                    x-transition:leave-start="opacity-100 translate-y-0"
-                    x-transition:leave-end="opacity-0 -translate-y-2">
-                    <svg id="variant-subtext-logo" class="h-9 w-auto text-brand-accent2" viewBox="0 0 460 120"
-                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g class="prism-core" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                            <g transform="translate(10, 10)">
-                                <polygon class="prism-facet" points="25,50 50,20 75,35" fill="currentColor"
-                                    fill-opacity="0.1" stroke="currentColor" />
-                                <polygon class="prism-facet" points="25,50 75,35 65,75" fill="none"
-                                    stroke="currentColor" />
-                                <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none"
-                                    stroke="currentColor" stroke-opacity="0.5" />
-                                <polygon class="prism-facet" points="65,75 75,35 85,45" fill="none"
-                                    stroke="currentColor" />
-                                <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor"
-                                    stroke-opacity="0.4" />
-                            </g>
-                        </g>
-                        <text x="125" y="66" :fill="darkMode ? '#FAF8F5' : 'var(--color-text)'"
-                            font-family="'Inter', sans-serif" font-size="38" font-weight="900"
-                            letter-spacing="0.01em">UNLITIFY</text>
-                        <text x="127" y="95" fill="var(--color-accent-4)" font-family="'Inter', sans-serif"
-                            font-size="13" font-weight="800" letter-spacing="0.32em">GROWTH PARTNER</text>
-                    </svg>
-                </div>
-                <!-- Variant 2: Inline Architecture Layout -->
-                <div class="absolute inset-0 flex items-center transition-all duration-700 ease-in-out"
-                    x-show="activeLogo === 2" x-transition:enter="transition ease-out duration-500 transform"
-                    x-transition:enter-start="opacity-0 translate-y-2"
-                    x-transition:enter-end="opacity-100 translate-y-0"
-                    x-transition:leave="transition ease-in duration-400 transform"
-                    x-transition:leave-start="opacity-100 translate-y-0"
-                    x-transition:leave-end="opacity-0 -translate-y-2">
-                    <svg id="variant-inline-logo" class="h-7 w-auto text-brand-accent2" viewBox="0 0 520 100"
-                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g class="prism-core" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon class="prism-facet" points="25,50 50,20 75,35" fill="currentColor"
-                                fill-opacity="0.1" stroke="currentColor" />
-                            <polygon class="prism-facet" points="25,50 75,35 65,75" fill="none" stroke="currentColor" />
-                            <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none" stroke="currentColor"
-                                stroke-opacity="0.5" />
-                            <polygon class="prism-facet" points="65,75 75,35 85,45" fill="none" stroke="currentColor" />
-                            <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor"
-                                stroke-opacity="0.4" />
-                        </g>
-                        <text x="115" y="63" :fill="darkMode ? '#FAF8F5' : 'var(--color-text)'"
-                            font-family="'Inter', sans-serif" font-size="34" font-weight="900"
-                            letter-spacing="-0.01em">UNLITIFY</text>
-                        <text x="285" y="63" :fill="darkMode ? '#A3A3A3' : 'var(--color-neutral)'"
-                            font-family="'Inter', sans-serif" font-size="34" font-weight="400"
-                            letter-spacing="-0.02em">Growth Partner</text>
-                    </svg>
-                </div>
+    <!-- Header Navigation -->
+    <header class="border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-brand-panel/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="h-3 w-3 rounded-full bg-brand-primary animate-pulse"></div>
+                <span class="font-black tracking-tighter text-xl uppercase">UNLITIFY <span class="text-zinc-400 font-normal text-xs tracking-widest lowercase">// bde engine</span></span>
             </div>
-            <!-- Expanded Desktop Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-5 text-[10px] uppercase tracking-widest font-bold opacity-80">
-                <a href="services.html" class="hover:text-brand-accent2 transition-colors">Services</a>
-                <a href="#what-we-do" class="hover:text-brand-accent2 transition-colors">Capabilities</a>
-
-                <!-- Industries Dropdown Module -->
-                <div class="relative group" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
-                    <button @click="dropdownOpen = !dropdownOpen" class="flex items-center gap-1.5 hover:text-brand-accent2 transition-colors focus:outline-none uppercase text-[10px] tracking-widest font-bold">
-                        <span>Industries We Serve</span>
-                        <svg class="w-3 h-3 transition-transform duration-300 transform" :class="{ 'rotate-180 text-brand-accent2': dropdownOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <!-- Dropdown Menu items -->
-                    <div x-show="dropdownOpen" x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter-start="opacity-0 translate-y-2 scale-95"
-                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                        x-transition:leave="transition ease-in duration-150"
-                        x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                        x-transition:leave-end="opacity-0 translate-y-2 scale-95"
-                        class="absolute left-1/2 -translate-x-1/2 mt-3 w-48 rounded-xl border border-neutral-200/50 dark:border-neutral-800/50 shadow-lg backdrop-blur-xl p-2 flex flex-col gap-1 z-50 text-[11px]"
-                        :class="{ 'bg-brand-dark/90 text-white': darkMode, 'bg-white/90 text-neutral-800': !darkMode }"
-                        style="display: none;">
-                        <a href="education.html" @click="dropdownOpen = false"
-                            class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Education</a>
-                        <a href="real-estate.html" @click="dropdownOpen = false"
-                            class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Real
-                            Estate</a>
-                        <a href="retail.html" @click="dropdownOpen = false"
-                            class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Clothes
-                            & Retail</a>
-                        <a href="healthcare.html" @click="dropdownOpen = false"
-                            class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Healthcare</a>
-                        <a href="hospitality.html" @click="dropdownOpen = false"
-                            class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Cafe
-                            & Restaurant</a>
-                    </div>
-                </div>
-                <a href="https://unlitify.blogspot.com/" class="hover:text-brand-accent2 transition-colors">Blogs</a>
-                <a href="casestudy.html" class="hover:text-brand-accent2 transition-colors">Case study</a>
-                <a href="about.html" class="hover:text-brand-accent2 transition-colors">About us </a>
-            </nav>
-            <!-- Actions Shell -->
-            <div class="flex items-center gap-2 sm:gap-3">
-                <!-- Theme Toggle Button -->
-                <button @click="darkMode = !darkMode" class="p-1.5 rounded-full hover:bg-neutral-500/10 transition-colors" aria-label="Toggle System Theme">
-                    <template x-if="darkMode">
-                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707m2.828 9.9a5 5 0 117.072 0 5 5 0 01-7.072 0z"/></svg>
-                    </template>
-                    <template x-if="!darkMode">
-                        <svg class="w-4 h-4 text-neutral-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-                    </template>
-                </button>
-                <!-- CTA Primary Button -->
-                <a href="https://unlitify.vercel.app/audit.html"
-                    class="hidden sm:inline-block bg-brand-primary text-brand-neutralCustom text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-brand-accent1 hover:text-white transition-all">
-                    Start Growing
-                </a>
-                <!-- Mobile Navigation Trigger Menu Button -->
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden p-1.5 rounded-full hover:bg-neutral-500/10 transition-colors" aria-label="Toggle Mobile Menu">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path :class="{'hidden': mobileMenuOpen, 'inline-flex': !mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
-                        <path :class="{'hidden': !mobileMenuOpen, 'inline-flex': mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <!-- Dropdown Mobile Menu System Panel -->
-        <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
-            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
-            x-transition:leave-end="opacity-0 -translate-y-4"
-            class="lg:hidden px-6 pb-6 pt-2 flex flex-col gap-4 border-t border-neutral-200/20 dark:border-neutral-800/20"
-            @click.away="mobileMenuOpen = false">
-            <a href="services.html" @click="mobileMenuOpen = false"
-                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Services</a>
-            <a href="#what-we-do" @click="mobileMenuOpen = false"
-                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Capabilities</a>
-
-            <!-- Mobile Native Accordion for Industries -->
-            <div x-data="{ localOpen: false }" class="flex flex-col gap-2">
-                <button @click="localOpen = !localOpen" class="text-xs uppercase tracking-wider font-bold py-1 flex items-center justify-between hover:text-brand-accent2 transition-colors">
-                    <span>Industries We Serve</span>
-                    <svg class="w-3 h-3 transition-transform duration-200" :class="{ 'rotate-180': localOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
-                <div x-show="localOpen" x-cloak
-                    class="pl-4 flex flex-col gap-2 border-l border-neutral-200/40 dark:border-neutral-800/40 text-[11px] font-semibold text-neutral-500">
-                    <a href="education.html" @click="mobileMenuOpen = false"
-                        class="hover:text-brand-accent2 py-1">Education</a>
-                    <a href="real-estate.html" @click="mobileMenuOpen = false"
-                        class="hover:text-brand-accent2 py-1">Real Estate</a>
-                    <a href="retail.html" @click="mobileMenuOpen = false" class="hover:text-brand-accent2 py-1">Clothes
-                        & Retail</a>
-                    <a href="healthcare.html" @click="mobileMenuOpen = false"
-                        class="hover:text-brand-accent2 py-1">Healthcare</a>
-                    <a href="hospitality.html" @click="mobileMenuOpen = false"
-                        class="hover:text-brand-accent2 py-1">Cafe & Restaurant</a>
-                </div>
-            </div>
-            <a href="https://unlitify.blogspot.com/" @click="mobileMenuOpen = false"
-                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Blogs</a>
-            <a href="casestudy.html" @click="mobileMenuOpen = false"
-                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Case study </a>
-            <a href="about.html" @click="mobileMenuOpen = false"
-                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">About us </a>
-            <a href="https://unlitify.vercel.app/audit.html" @click="mobileMenuOpen = false"
-                class="sm:hidden block text-center bg-brand-primary text-brand-neutralCustom text-xs font-bold uppercase tracking-widest py-2.5 rounded-full hover:bg-brand-accent1 transition-all mt-2">
-                Start Growing
-            </a>
+            <button @click="darkMode = !darkMode" class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-mono transition">
+                TOGGLE: <span x-text="darkMode ? 'DARK' : 'LIGHT'"></span>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section (Now White Background) -->
-    <section
-        class="min-h-screen pt-44 pb-20 px-6 flex flex-col items-center justify-center text-center relative overflow-hidden transition-colors duration-500"
-        :class="{ 'bg-white text-brand-textCustom': !darkMode, 'bg-gradient-to-b from-black via-brand-dark to-brand-dark text-white': darkMode }">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] rounded-full blur-[120px] -z-10 transition-colors duration-500"
-            :class="darkMode ? 'bg-brand-accent2/10' : 'bg-brand-primary/10'"></div>
-        <div
-            class="absolute inset-0 bg-[linear-gradient(to_right,#80808006_1px,transparent_1px),linear-gradient(to_bottom,#80808006_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none">
-        </div>
+    <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Parameter Control Column -->
+        <section class="lg:col-span-4 space-y-6">
+            <div class="bg-white dark:bg-brand-panel p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xl space-y-5">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-primary">Outreach Parameter Matrix</h2>
+                
+                <!-- Variable Inputs -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-zinc-400">Target Context</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" x-model="personaName" placeholder="Lead Name" class="w-full bg-zinc-100 dark:bg-zinc-900 text-sm border border-zinc-200 dark:border-zinc-800 rounded-xl px-3 py-2.5 focus:outline-none focus:border-brand-primary transition">
+                            <input type="text" x-model="companyName" placeholder="Company" class="w-full bg-zinc-100 dark:bg-zinc-900 text-sm border border-zinc-200 dark:border-zinc-800 rounded-xl px-3 py-2.5 focus:outline-none focus:border-brand-primary transition">
+                        </div>
+                    </div>
 
-        <span class="border px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.25em] mb-8 relative z-10 transition-colors"
-            :class="darkMode ? 'border-brand-accent3/30 text-brand-accent3 bg-brand-accent2/10' : 'border-neutral-200 text-brand-neutralCustom bg-neutral-50'">
-            Conversion Infrastructure for High-Scale Growth
-        </span>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-zinc-400">Target Industry</label>
+                        <select x-model="selectedIndustry" class="w-full bg-zinc-100 dark:bg-zinc-900 text-sm border border-zinc-200 dark:border-zinc-800 rounded-xl px-3 py-2.5 focus:outline-none focus:border-brand-primary transition">
+                            <option value="E-commerce">E-commerce Brands</option>
+                            <option value="Healthcare">Healthcare & Clinics</option>
+                            <option value="B2B SaaS">B2B SaaS Platforms</option>
+                            <option value="Real Estate">Real Estate Developers</option>
+                            <option value="EdTech">EdTech & Institutes</option>
+                        </select>
+                    </div>
 
-        <h1
-            class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.95] uppercase relative z-10 min-h-[2.25em] md:min-h-[1.9em]">
-            Your Brand Deserves <br>
-            <span class="bg-gradient-to-r from-brand-primary via-brand-accent4 to-brand-accent2 bg-clip-text text-transparent ityped cursor-blink"></span>
-        </h1>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-zinc-400">Identified Friction Point</label>
+                        <select x-model="selectedProblem" class="w-full bg-zinc-100 dark:bg-zinc-900 text-sm border border-zinc-200 dark:border-zinc-800 rounded-xl px-3 py-2.5 focus:outline-none focus:border-brand-primary transition">
+                            <option value="low_conversion">High traffic, low sales conversion</option>
+                            <option value="manual_ops">Wasting 15+ hours/week on administrative tasks</option>
+                            <option value="leaky_funnel">Unoptimized ad spend / high CAC</option>
+                            <option value="outdated_ui">Legacy website losing organic traffic trust</option>
+                        </select>
+                    </div>
 
-        <p class="text-base md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-normal relative z-10"
-            :class="darkMode ? 'text-neutral-400' : 'text-neutral-600'">
-            Data-driven digital marketing optimized for conversion. We eliminate growth fragmentation to build an
-            unstoppable online presence through proven psychological systems and deep value infrastructure strategies.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 relative z-10 w-full sm:w-auto px-4">
-            <a href="https://unlitify.vercel.app/audit.html"
-                class="bg-brand-primary text-brand-neutralCustom font-bold px-10 py-4.5 rounded-full hover:bg-brand-accent1 hover:text-white shadow-xl shadow-brand-primary/10 hover:translate-y-[-1px] transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-3">
-                <i class="fa-solid fa-bolt"></i> Start Growing
-            </a>
-            <a href="#what-we-do"
-                class="border px-10 py-4.5 rounded-full transition-all font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-3 bg-neutral-50 dark:bg-white/10 backdrop-blur-sm"
-                :class="darkMode ? 'border-neutral-800 hover:border-neutral-600 text-white' : 'border-neutral-200 hover:border-neutral-400 text-brand-textCustom'">
-                Explore Services <i class="fa-solid fa-arrow-down text-xs"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- What We Do Section (Maintained Adaptive Brand Background Tone) -->
-    <section id="what-we-do" class="py-32 px-6 border-t transition-colors duration-500"
-        :class="{ 'bg-brand-bgCustom text-brand-textCustom border-purple-200/40': !darkMode, 'bg-brand-dark border-neutral-900 text-white': darkMode }">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24 pb-12 border-b"
-                :class="darkMode ? 'border-neutral-800' : 'border-purple-300/40'">
-                <div class="lg:col-span-4">
-                    <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent2">What We Do</h2>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-zinc-400">Unlitify Deployment Pipeline</label>
+                        <select x-model="selectedService" class="w-full bg-zinc-100 dark:bg-zinc-900 text-sm border border-zinc-200 dark:border-zinc-800 rounded-xl px-3 py-2.5 focus:outline-none focus:border-brand-primary transition">
+                            <option value="growth_retainer">Growth Retainer & Performance Marketing</option>
+                            <option value="ai_studio">AI Studio Automation & Custom Chatbots</option>
+                            <option value="it_dev">Custom IT Software & SaaS Engineering</option>
+                            <option value="creative_studio">High-Impact Creative & Video Production</option>
+                            <option value="micro_services">Targeted Micro-Services & Site Optimization</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="lg:col-span-8">
-                    <p class="text-2xl sm:text-4xl font-light tracking-tight leading-tight">
-                        High-performance growth systems engineered to extract maximum market share and establish digital
-                        dominance.
-                    </p>
+            </div>
+        </section>
+
+        <!-- Right Template Engine Output Column -->
+        <section class="lg:col-span-8 space-y-6" x-data="{ currentTab: 'email' }">
+            
+            <!-- Target Navigation Tab Structure -->
+            <div class="flex space-x-2 border-b border-zinc-200 dark:border-zinc-800">
+                <button @click="currentTab = 'email'" :class="currentTab === 'email' ? 'border-brand-primary text-brand-primary font-bold' : 'border-transparent text-zinc-400'" class="border-b-2 px-4 py-2 text-xs font-bold uppercase tracking-wider transition">01. Cold Email Pitch</button>
+                <button @click="currentTab = 'linkedin'" :class="currentTab === 'linkedin' ? 'border-brand-primary text-brand-primary font-bold' : 'border-transparent text-zinc-400'" class="border-b-2 px-4 py-2 text-xs font-bold uppercase tracking-wider transition">02. LinkedIn / DM Sequence</button>
+                <button @click="currentTab = 'followup'" :class="currentTab === 'followup' ? 'border-brand-primary text-brand-primary font-bold' : 'border-transparent text-zinc-400'" class="border-b-2 px-4 py-2 text-xs font-bold uppercase tracking-wider transition">03. Follow-Up Protocol</button>
+            </div>
+
+            <!-- TAB 1: COLD EMAIL -->
+            <div x-show="currentTab === 'email'" class="space-y-4">
+                <div class="bg-white dark:bg-brand-panel p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xl relative">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-mono text-zinc-400">Subject Blueprint</span>
+                        <button @click="navigator.clipboard.writeText($refs.subLine.innerText); copiedField = 'subject'; setTimeout(() => copiedField = null, 2000)" class="text-xs bg-zinc-100 dark:bg-zinc-800 px-3 py-1 rounded-lg hover:text-brand-primary transition">
+                            <span x-text="copiedField === 'subject' ? 'Copied!' : 'Copy Subject'"></span>
+                        </button>
+                    </div>
+                    <p x-ref="subLine" class="font-bold text-base select-all">Fixing <span x-text="selectedIndustry"></span> conversion leakage at <span x-text="companyName || 'your brand'"></span></p>
+                </div>
+
+                <div class="bg-white dark:bg-brand-panel p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xl relative">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-mono text-zinc-400">Body Engine Template</span>
+                        <button @click="navigator.clipboard.writeText($refs.emailBody.innerText); copiedField = 'body'; setTimeout(() => copiedField = null, 2000)" class="text-xs bg-zinc-100 dark:bg-zinc-800 px-3 py-1 rounded-lg hover:text-brand-primary transition">
+                            <span x-text="copiedField === 'body' ? 'Copied!' : 'Copy Body'"></span>
+                        </button>
+                    </div>
+                    <div x-ref="emailBody" class="text-sm leading-relaxed space-y-4 whitespace-pre-line select-all">Hey <span x-text="personaName || 'there'"></span>,
+
+                    I was reviewing how <span x-text="companyName || 'your team'"></span> handles digital workflows in the <span x-text="selectedIndustry"></span> space. 
+
+                    Most companies we partner with face a critical risk point: <span x-text="selectedProblem === 'low_conversion' ? 'driving heavy marketing traffic directly into an unoptimized framework that soft-kills conversions' : selectedProblem === 'manual_ops' ? 'losing up to 15 hours a week manually managing tasks that should operate on automated loops' : 'burning budget on broad performance campaigns missing foundational psychological friction tracking'"></span >.
+
+                    At Unlitify, we deploy integrated architectural pipelines to fix this. Specifically, through our <span x-text="selectedService === 'growth_retainer' ? 'Growth Retainer architecture' : selectedService === 'ai_studio' ? 'AI Automation Studio builds' : 'Custom Software Engineering assets'"></span >, we restructure operational pipelines directly to drive conversion metrics.
+
+                    We built a 3-step solution matrix mapping how this applies explicitly to <span x-text="companyName || 'your infrastructure'"></span>. Drop me a quick 'yes' if you want me to send over the raw screen-recording review?
+
+                    Best,
+                    [Your Name] // Unlitify Strategy Engine</div>
                 </div>
             </div>
 
-            <!-- Matrix Grid Layer Section -->
-            <section class="py-12 md:py-20 bg-transparent">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- TAB 2: LINKEDIN DM -->
+            <div x-show="currentTab === 'linkedin'" class="space-y-4" x-cloak>
+                <div class="bg-white dark:bg-brand-panel p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xl">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-xs font-mono text-zinc-400">Micro-Friction Inbound Hook (1st Touch)</span>
+                        <button @click="navigator.clipboard.writeText($refs.li1.innerText); copiedField = 'li1'; setTimeout(() => copiedField = null, 2000)" class="text-xs bg-zinc-100 dark:bg-zinc-800 px-3 py-1 rounded-lg hover:text-brand-primary transition">
+                            <span x-text="copiedField === 'li1' ? 'Copied!' : 'Copy Touch 1'"></span>
+                        </button>
+                    </div>
+                    <p x-ref="li1" class="text-sm select-all">Hey <span x-text="personaName || 'there'"></span> — noticed your framework at <span x-text="companyName || 'your company'"></span>. Most operators in <span x-text="selectedIndustry"></span> are bleeding margins right now due to unoptimized system bottlenecks. We engineered a rapid-deployment fix for this using our core Unlitify infrastructure pipelines. Worth looking at a 45-second summary graph?</p>
+                </div>
+            </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- TAB 3: FOLLOW UP PROTOCOL -->
+            <div x-show="currentTab === 'followup'" class="space-y-6" x-cloak>
+                <div class="border-l-2 border-brand-primary pl-4">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-brand-primary mb-1">Day 3 // The Structural Proof</span>
+                    <div class="bg-white dark:bg-brand-panel p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 text-sm whitespace-pre-line relative">
+                        <button @click="navigator.clipboard.writeText($refs.f1.innerText); copiedField = 'f1'; setTimeout(() => copiedField = null, 2000)" class="absolute top-4 right-4 text-xs bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded hover:text-brand-primary transition">
+                            <span x-text="copiedField === 'f1' ? 'Copied!' : 'Copy'"></span>
+                        </button>
+                        <div x-ref="f1" class="select-all">Hey <span x-text="personaName || 'there'"></span>, quick tracking note. 
 
-                        <!-- Card 1: Local SEO -->
-                        <div class="perspective-container h-[500px]">
-                            <div class="flip-card-inner">
-                                <!-- Front Face (Solid Black in light mode, Solid White in dark mode) -->
-                                <div
-                                    class="flip-card-front group p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300 bg-black text-white border-neutral-800 hover:border-brand-orange dark:bg-white dark:text-black dark:border-neutral-200 dark:hover:border-brand-orange">
-                                    <div>
-                                        <div class="flex items-center justify-between mb-8">
-                                            <span class="text-xs font-mono opacity-40">01 / SEARCH ACCELERATION</span>
-                                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand-orange/30 text-brand-orange bg-brand-orange/5">ALGO_DOMINANCE</span>
-                                        </div>
-                                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Local SEO</h3>
-                                        <p class="text-sm opacity-70 leading-relaxed mb-6">We rank your business at the
-                                            top of location-based search engines precisely when high-intent customers
-                                            are ready to convert.</p>
-                                        <ul
-                                            class="space-y-2.5 text-xs font-medium border-t pt-4 border-neutral-800 dark:border-neutral-200">
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Get Found
-                                                by More Customers
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Free
-                                                Marketing That Works 24/7
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Build
-                                                Trust and Look Professional
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span class="text-[10px] font-mono tracking-wider text-center mt-4 uppercase block opacity-40">Hover to view architecture framework</span>
-                                </div>
-                                <!-- Back Face -->
-                                <div
-                                    class="flip-card-back border border-brand-orange bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
-                                    <div
-                                        class="w-full bg-[rgba(18,18,18,0.5)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
-                                        <div
-                                            class="flex items-center gap-2 border-b border-white/5 pb-2 text-[10px] font-bold text-neutral-400">
-                                            <span class="text-[var(--primary)] tracking-tight font-black">Google</span>
-                                            <div
-                                                class="bg-[#0A0A0A] px-2 py-0.5 rounded-md border border-white/5 flex-1 text-left text-[9px] text-neutral-400 flex justify-between">
-                                                local service near me
-                                                <i class="fa-solid fa-magnifying-glass text-[var(--primary)] scale-75"></i>
-                                            </div>
-                                        </div>
-                                        <div class="flex flex-col gap-2 relative h-36 justify-end">
-                                            <div
-                                                class="bg-[#0A0A0A] p-2 rounded-xl border border-white/5 flex items-center gap-2 opacity-40">
-                                                <div
-                                                    class="w-5 h-5 rounded bg-blue-500/10 text-[9px] text-blue-500 font-bold flex items-center justify-center">
-                                                    B2</div>
-                                                <div class="w-24 h-2 bg-white/20 rounded"></div>
-                                            </div>
-                                            <div
-                                                class="bg-[#0A0A0A] p-2 rounded-xl border border-white/5 flex items-center gap-2 opacity-40">
-                                                <div
-                                                    class="w-5 h-5 rounded bg-emerald-500/10 text-[9px] text-emerald-500 font-bold flex items-center justify-center">
-                                                    LS</div>
-                                                <div class="w-20 h-2 bg-white/20 rounded"></div>
-                                            </div>
-                                            <div
-                                                class="absolute inset-x-0 bottom-0 bg-[#0A0A0A] p-2.5 rounded-xl border-2 border-[var(--primary)] flex items-center gap-2 shadow-lg">
-                                                <div
-                                                    class="w-6 h-6 rounded bg-[var(--primary)] text-white font-black text-[10px] flex items-center justify-center">
-                                                    #1</div>
-                                                <div class="flex-1">
-                                                    <div class="text-[8px] text-[var(--primary)] font-bold">
-                                                        yourbusiness.com</div>
-                                                    <div class="w-28 h-2 bg-white opacity-40 rounded mt-1"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#"
-                                        class="inline-flex w-full justify-center items-center bg-brand-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-colors">
-                                        Get Free SEO Audit
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        We dropped a direct breakdown illustrating how our <span x-text="selectedService"></span> handles exactly this infrastructure layer over at unlitify.vercel.app. 
 
-                        <!-- Card 2: Website Dev -->
-                        <div class="perspective-container h-[500px]">
-                            <div class="flip-card-inner">
-                                <!-- Front Face -->
-                                <div
-                                    class="flip-card-front group p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300 bg-black text-white border-neutral-800 hover:border-brand-orange dark:bg-white dark:text-black dark:border-neutral-200 dark:hover:border-brand-orange">
-                                    <div>
-                                        <div class="flex items-center justify-between mb-8">
-                                            <span class="text-xs font-mono opacity-40">02 / ARCHITECTURE</span>
-                                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-700 text-neutral-400 dark:border-neutral-300 dark:text-neutral-500">CONV_ENGINE</span>
-                                        </div>
-                                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Website Dev</h3>
-                                        <p class="text-sm opacity-70 leading-relaxed mb-6">We engineer ultra-fast,
-                                            premium digital assets that form your brand's core infrastructure and
-                                            systematically turn traffic into revenue.</p>
-                                        <ul
-                                            class="space-y-2.5 text-xs font-medium border-t pt-4 border-neutral-800 dark:border-neutral-200">
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Great
-                                                First Impression
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
-                                                High-converting User Journeys
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span class="text-[10px] font-mono tracking-wider text-center mt-4 uppercase block opacity-40">Hover to view architecture framework</span>
-                                </div>
-                                <!-- Back Face -->
-                                <div
-                                    class="flip-card-back border border-brand-orange bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
-                                    <div
-                                        class="w-full bg-[rgba(18,18,18,0.5)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
-                                        <div
-                                            class="flex items-center justify-between border-b border-white/5 pb-2 text-[9px] font-mono text-neutral-400">
-                                            <div class="flex gap-1">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-                                                <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
-                                                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                                            </div>
-                                            <span>https://yourbrand.com</span>
-                                        </div>
-                                        <div
-                                            class="h-32 flex flex-col justify-center items-center gap-2 bg-[#0A0A0A] rounded-xl border border-white/5 p-4">
-                                            <div class="text-[10px] font-bold text-emerald-500 flex items-center gap-1">
-                                                <i class="fa-solid fa-shield-halved"></i> SSL ACTIVE
-                                            </div>
-                                            <div class="text-2xl font-black tracking-tight text-white">$942.00</div>
-                                            <div
-                                                class="text-[8px] tracking-widest text-neutral-400 uppercase font-bold">
-                                                Conversion Value Logged</div>
-                                        </div>
-                                    </div>
-                                    <a href="#"
-                                        class="inline-flex w-full justify-center items-center bg-brand-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-colors">
-                                        Request Core Build
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 3: Campaigns -->
-                        <div class="perspective-container h-[500px]">
-                            <div class="flip-card-inner">
-                                <!-- Front Face -->
-                                <div
-                                    class="flip-card-front group p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300 bg-black text-white border-neutral-800 hover:border-brand-orange dark:bg-white dark:text-black dark:border-neutral-200 dark:hover:border-brand-orange">
-                                    <div>
-                                        <div class="flex items-center justify-between mb-8">
-                                            <span class="text-xs font-mono opacity-40">03 / RETENTION PIPELINE</span>
-                                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-700 text-neutral-400 dark:border-neutral-300 dark:text-neutral-500">DIRECT_FLOW</span>
-                                        </div>
-                                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Campaigns</h3>
-                                        <p class="text-sm opacity-70 leading-relaxed mb-6">Automated Email, SMS, and
-                                            WhatsApp architectures that stream personalized retention sequences directly
-                                            to your users' devices.</p>
-                                        <ul
-                                            class="space-y-2.5 text-xs font-medium border-t pt-4 border-neutral-800 dark:border-neutral-200">
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Reach
-                                                Mobile Wallets
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Retain
-                                                Past Buyers Efficiently
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span class="text-[10px] font-mono tracking-wider text-center mt-4 uppercase block opacity-40">Hover to view architecture framework</span>
-                                </div>
-                                <!-- Back Face -->
-                                <div
-                                    class="flip-card-back border border-brand-orange bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
-                                    <div
-                                        class="w-full bg-[rgba(18,18,18,0.5)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
-                                        <div
-                                            class="bg-[#0A0A0A] p-3 rounded-xl border border-white/5 flex flex-col gap-1.5">
-                                            <div
-                                                class="flex items-center justify-between text-[9px] font-mono text-neutral-400">
-                                                <span>Inbound Pipeline</span>
-                                                <span class="text-[var(--primary)] font-bold">VIP ACCESS</span>
-                                            </div>
-                                            <div class="text-[10px] text-white font-bold italic">"Claim 20% off
-                                                inside..."</div>
-                                            <div
-                                                class="border-t border-white/5 pt-1.5 flex items-center justify-between text-[9px]">
-                                                <span class="text-emerald-500 font-bold">Invoice Settled</span>
-                                                <span class="text-neutral-400">Repeat Purchase ✓</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#"
-                                        class="inline-flex w-full justify-center items-center bg-brand-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-colors">
-                                        Initialize Retention Loop
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 4: Social Media -->
-                        <div class="perspective-container h-[500px]">
-                            <div class="flip-card-inner">
-                                <!-- Front Face -->
-                                <div
-                                    class="flip-card-front group p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300 bg-black text-white border-neutral-800 hover:border-brand-orange dark:bg-white dark:text-black dark:border-neutral-200 dark:hover:border-brand-orange">
-                                    <div>
-                                        <div class="flex items-center justify-between mb-8">
-                                            <span class="text-xs font-mono opacity-40">04 / AMPLIFICATION</span>
-                                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-700 text-neutral-400 dark:border-neutral-300 dark:text-neutral-500">DISCOVERY_LOOP</span>
-                                        </div>
-                                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Social Media</h3>
-                                        <p class="text-sm opacity-70 leading-relaxed mb-6">We manage your multi-platform
-                                            content pipeline to capture native discovery channels and drive consistent
-                                            organic acquisition infrastructure.</p>
-                                        <ul
-                                            class="space-y-2.5 text-xs font-medium border-t pt-4 border-neutral-800 dark:border-neutral-200">
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Attract
-                                                Discovery Channels
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Real
-                                                Customer Relationships
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span class="text-[10px] font-mono tracking-wider text-center mt-4 uppercase block opacity-40">Hover to view architecture framework</span>
-                                </div>
-                                <!-- Back Face -->
-                                <div
-                                    class="flip-card-back border border-brand-orange bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
-                                    <div
-                                        class="w-full bg-[rgba(18,18,18,0.5)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
-                                        <div
-                                            class="bg-[#0A0A0A] p-3 rounded-xl border border-white/5 flex flex-col gap-1.5">
-                                            <div class="text-[8px] uppercase tracking-wider text-neutral-400 font-mono">
-                                                Engagement Analytics</div>
-                                            <div class="flex items-baseline gap-2">
-                                                <span class="text-2xl font-black text-emerald-500">+314%</span>
-                                                <span class="text-[9px] text-neutral-400 font-mono">Growth Loop</span>
-                                            </div>
-                                            <div
-                                                class="w-full bg-[rgba(18,18,18,0.5)] h-1.5 rounded-full overflow-hidden">
-                                                <div
-                                                    class="bg-gradient-to-r from-[var(--primary)] to-amber-500 h-full w-[85%]">
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="text-[8px] bg-[var(--primary)]/10 text-[var(--primary)] font-bold px-1.5 py-0.5 rounded self-start uppercase">
-                                                Viral Pipeline Node</div>
-                                        </div>
-                                    </div>
-                                    <a href="#"
-                                        class="inline-flex w-full justify-center items-center bg-brand-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-colors">
-                                        Scale Content Pipeline
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 5: Branding -->
-                        <div class="perspective-container h-[500px]">
-                            <div class="flip-card-inner">
-                                <!-- Front Face -->
-                                <div
-                                    class="flip-card-front group p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300 bg-black text-white border-neutral-800 hover:border-brand-orange dark:bg-white dark:text-black dark:border-neutral-200 dark:hover:border-brand-orange">
-                                    <div>
-                                        <div class="flex items-center justify-between mb-8">
-                                            <span class="text-xs font-mono opacity-40">05 / IDENTITY SYSTEM</span>
-                                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-neutral-700 text-neutral-400 dark:border-neutral-300 dark:text-neutral-500">PREMIUM_ASSET</span>
-                                        </div>
-                                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Branding</h3>
-                                        <p class="text-sm opacity-70 leading-relaxed mb-6">We design memorable, clean
-                                            visual architectures that command significant market premiums and establish
-                                            ultimate market authority.</p>
-                                        <ul
-                                            class="space-y-2.5 text-xs font-medium border-t pt-4 border-neutral-800 dark:border-neutral-200">
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Stand Out
-                                                from Competition
-                                            </li>
-                                            <li class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Attract
-                                                High-Value Deals
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span class="text-[10px] font-mono tracking-wider text-center mt-4 uppercase block opacity-40">Hover to view architecture framework</span>
-                                </div>
-                                <!-- Back Face -->
-                                <div
-                                    class="flip-card-back border border-brand-orange bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
-                                    <div
-                                        class="w-full bg-[rgba(18,18,18,0.5)] rounded-2xl p-4 border border-white/5 shadow-inner flex flex-col gap-2.5 relative shrink-0">
-                                        <div
-                                            class="h-32 flex flex-col justify-center items-center gap-2 border-2 border-dashed border-[var(--primary)]/30 rounded-xl relative overflow-hidden">
-                                            <div
-                                                class="w-10 h-10 border-4 border-[var(--primary)] rounded-full flex items-center justify-center font-black text-xs text-[var(--primary)]">
-                                                U</div>
-                                            <div class="text-[9px] font-mono text-[var(--primary)] font-bold">R: 255 G:
-                                                64 B: 0</div>
-                                            <div
-                                                class="text-[7px] uppercase tracking-widest text-neutral-400 font-mono">
-                                                Scale: Vector 1:1</div>
-                                        </div>
-                                    </div>
-                                    <a href="#"
-                                        class="inline-flex w-full justify-center items-center bg-brand-orange text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-colors">
-                                        Deploy Brand Strategy
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Structural Grid Filler element -->
-                        <div class="border border-dashed p-8 rounded-3xl flex flex-col justify-center items-center text-center h-[500px]"
-                            :class="darkMode ? 'border-neutral-800 text-white' : 'border-neutral-400 text-brand-dark'">
-                            <div class="w-3 h-3 rounded-full bg-brand-orange animate-ping mb-4"></div>
-                            <p class="text-sm font-bold uppercase tracking-widest mb-1">GROWTH_NODE_ACTIVE</p>
-                            <p class="text-xs opacity-60 max-w-[180px]">Parameters operating within design constraints.
-                            </p>
-                        </div>
-
+                        Our latest implementation drove a clear metrics uplift by systematically eliminating manual overhead. Should I send the specific code block mapping for <span x-text="companyName || 'your brand'"></span>?</div>
                     </div>
                 </div>
-            </section>
 
+                <div class="border-l-2 border-brand-accent pl-4">
+                    <span class="block text-xs font-bold uppercase tracking-widest text-brand-accent mb-1">Day 7 // The Direct Friction Call</span>
+                    <div class="bg-white dark:bg-brand-panel p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 text-sm whitespace-pre-line relative">
+                        <button @click="navigator.clipboard.writeText($refs.f2.innerText); copiedField = 'f2'; setTimeout(() => copiedField = null, 2000)" class="absolute top-4 right-4 text-xs bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded hover:text-brand-primary transition">
+                            <span x-text="copiedField === 'f2' ? 'Copied!' : 'Copy'"></span>
+                        </button>
+                        <div x-ref="f2" class="select-all"><span x-text="personaName || 'Hey'"></span> — closing the loop on this parameter. 
 
-            <!-- NEW SECTION SLOP (Paste your future 3rd sections using this background layout configuration below) -->
-            <!-- <section class="py-32 px-6 border-t bg-white dark:bg-brand-dark text-brand-textCustom dark:text-white transition-colors duration-500"> ... </section> -->
+                        If optimizing your current <span x-text="selectedIndustry"></span> system conversion layers isn't an active operational priority for <span x-text="companyName || 'your team'"></span> right now, completely understand. 
 
+                        If it is, let's skip the standard discovery pitch fluff and swap terminal data blocks directly. Are you open to a call this Thursday at 4 PM?</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
-
 </html>
