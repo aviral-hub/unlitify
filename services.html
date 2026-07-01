@@ -954,6 +954,132 @@
     
         </div>
     </section>
+     <!-- Contact Matrix Section -->
+            <!-- Contact Matrix Section -->
+            <section id="contact" class="py-12 md:py-24 bg-transparent scroll-mt-12">
+            
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+                        <!-- Left Column: Context & Metadata -->
+                        <div class="lg:col-span-5 space-y-6">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+                                <span class="text-xs font-mono uppercase tracking-widest opacity-60">Inbound Node Gateway</span>
+                            </div>
+                            <h2 class="text-4xl font-black uppercase tracking-tight text-black dark:text-white">
+                                Initialize Your <br><span class="text-brand-orange">Growth Architecture</span>
+                            </h2>
+                            <p class="text-sm opacity-70 leading-relaxed max-w-md">
+                                Select your operational requirements below. Our automated validation engine routes your
+                                specifications straight to our active core development team.
+                            </p>
+            
+                            <!-- Status Feedback Hub (Formspree AJAX hooks) -->
+                            <div class="pt-4 space-y-3">
+                                <!-- Success Node -->
+                                <div data-fs-success
+                                    class="hidden p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-xs font-medium">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span>TRANSMISSION SUCCESSFUL. Our team will ping you back shortly.</span>
+                                    </div>
+                                </div>
+                                <!-- Global Error Node -->
+                                <div data-fs-error
+                                    class="hidden p-4 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-medium">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-exclamation"></i>
+                                        <span>TRANSMISSION FAILURE. Please verify fields and re-initialize.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Right Column: Tailored Architecture Form -->
+                        <div
+                            class="lg:col-span-7 bg-black text-white border border-neutral-800 p-8 rounded-3xl dark:bg-white dark:text-black dark:border-neutral-200 shadow-xl">
+                            <form id="matrix-contact-form" class="space-y-6">
+            
+                                <!-- Form Row 1 -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div class="flex flex-col gap-2">
+                                        <label for="email" class="text-xs font-mono uppercase tracking-wider opacity-60">Identity Vector (Email)</label>
+                                        <input type="email" id="email" name="email" data-fs-field required
+                                            class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors dark:bg-neutral-50 dark:border-neutral-200 dark:focus:border-brand-orange"
+                                            placeholder="you@domain.com">
+                                        <span data-fs-error="email" class="text-[10px] text-red-500 font-mono mt-1"></span>
+                                    </div>
+            
+                                    <div class="flex flex-col gap-2">
+                                        <label for="service" class="text-xs font-mono uppercase tracking-wider opacity-60">Target Architecture</label>
+                                        <select id="service" name="service" data-fs-field required
+                                            class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors dark:bg-neutral-50 dark:border-neutral-200 dark:focus:border-brand-orange text-neutral-400 dark:text-neutral-600">
+                                            <option value="" disabled selected>Select Core Asset Group</option>
+                                            <option value="Creative & Branding">Creative & Branding System</option>
+                                            <option value="Website Deployment">Web Systems / E-Commerce</option>
+                                            <option value="SEO & Search Marketing">SEO / Search Optimization</option>
+                                            <option value="Paid Advertising">Google PPC & Display Campaigns</option>
+                                            <option value="Social Systems">Social Media Management & Video</option>
+                                            <option value="Lifecycle Automation">Email / CRM / Funnel Automation</option>
+                                            <option value="Advanced IT & AI">Elite App / SaaS / AI Agent Systems</option>
+                                            <option value="Micro Services">Micro Operations Setup</option>
+                                        </select>
+                                        <span data-fs-error="service" class="text-[10px] text-red-500 font-mono mt-1"></span>
+                                    </div>
+                                </div>
+            
+                                <!-- Form Row 2 -->
+                                <div class="flex flex-col gap-2 hidden" id="conditional-budget-row">
+                                    <label for="budget" class="text-xs font-mono uppercase tracking-wider opacity-60">Project Budget Scope</label>
+                                    <select id="budget" name="budget" data-fs-field
+                                        class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors dark:bg-neutral-50 dark:border-neutral-200 dark:focus:border-brand-orange text-neutral-400 dark:text-neutral-600">
+                                        <option value="Micro Tier (< ₹15,000)">Micro Tier (&lt; ₹15,000)</option>
+                                        <option value="Growth Tier (₹15,000 - ₹1,00,000)">Growth Tier (₹15,000 - ₹1,00,000)</option>
+                                        <option value="Enterprise Tier (₹1,00,000 - ₹5,00,000)">Enterprise Tier (₹1,00,000 - ₹5,00,000)</option>
+                                        <option value="Elite Scale Tier (₹5,00,000+)">Elite Scale Tier (₹5,00,000+)</option>
+                                    </select>
+                                </div>
+            
+                                <!-- Form Row 3 -->
+                                <div class="flex flex-col gap-2">
+                                    <label for="message" class="text-xs font-mono uppercase tracking-wider opacity-60">Operational Scope (Message)</label>
+                                    <textarea id="message" name="message" data-fs-field required rows="4"
+                                        class="w-full bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors dark:bg-neutral-50 dark:border-neutral-200 dark:focus:border-brand-orange"
+                                        placeholder="Provide operational constraints, desired milestones, or specific feature targets..."></textarea>
+                                    <span data-fs-error="message" class="text-[10px] text-red-500 font-mono mt-1"></span>
+                                </div>
+            
+                                <!-- Submission Action -->
+                                <button type="submit" data-fs-submit-btn
+                                    class="w-full inline-flex justify-center items-center bg-brand-orange hover:bg-brand-orange/90 text-white font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition-all shadow-md active:scale-[0.99] disabled:opacity-50 disabled:pointer-events-none">
+                                    Fire Data Pipeline
+                                </button>
+            
+                            </form>
+                        </div>
+            
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Formspree Activation Scripts -->
+            <script>
+                // Initialize the Vanilla JS global array instance safe setup
+                window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+                formspree('initForm', { formElement: '#matrix-contact-form', formId: 'xgojnkzj' });
+            
+                // UX Optimization: Expose budget selector only when target service is set
+                document.getElementById('service').addEventListener('change', function() {
+                    const budgetRow = document.getElementById('conditional-budget-row');
+                    if(this.value) {
+                        budgetRow.classList.remove('hidden');
+                    }
+                });
+            </script>
+            <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
 
 
     <!-- NEW SECTION SLOP (Paste your future 3rd sections using this background layout configuration below) -->
