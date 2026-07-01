@@ -1,164 +1,629 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>About Us | Unlitify - The Growth Infrastructure</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<html lang="en" class="scroll-smooth">
 
+<head>
+    <script>
+        window.huggingface={variables:{"SPACE_CREATOR_USER_ID":"682347dbc87061262c9772fc"}};
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — Unlitify | The Conversion Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: 'var(--color-primary)',
+                            accent1: 'var(--color-accent-1)',
+                            accent2: 'var(--color-accent-2)',
+                            accent3: 'var(--color-accent-3)',
+                            accent4: 'var(--color-accent-4)',
+                            bgCustom: 'var(--color-background)',
+                            textCustom: 'var(--color-text)',
+                            neutralCustom: 'var(--color-neutral)',
+                            dark: '#0A0A0A',
+                            accent: '#121212',
+                            owhite: {
+                                100: '#FAF8F5',
+                                200: '#F4EFEA',
+                                300: '#EAE2D5'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Icons and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
         :root {
-            --unlitify-bg: #050505;
-            --unlitify-cyan: #00D1FF;
+            --color-primary: #f3a517;
+            --color-accent-1: #ad760b;
+            --color-accent-2: #871ef5;
+            --color-accent-3: #be84f4;
+            --color-accent-4: #d97a4c;
+            --color-background: #ead5f9;
+            --color-text: #110f13;
+            --color-neutral: #261c0e;
+
+            --primary: var(--color-primary);
+            --muted-bg: rgba(244, 239, 234, 0.6);
+            --card: #ffffff;
+            --foreground: var(--color-text);
+            --muted-text: rgba(11, 15, 19, 0.6);
         }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--unlitify-bg);
-            color: #ffffff;
-            overflow-x: hidden;
+
+        .dark {
+            --muted-bg: rgba(12, 10, 15, 0.5);
+            --card: #0A0A0A;
+            --foreground: #FAF8F5;
+            --muted-text: rgba(250, 248, 245, 0.6);
         }
-        .text-gradient {
-            background: linear-gradient(135deg, #ffffff 30%, var(--unlitify-cyan) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        .perspective-container {
+            perspective: 1200px;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
         }
-        .stats-border {
-            border-left: 2px solid var(--unlitify-cyan);
+
+        .perspective-container:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
         }
     </style>
 </head>
-<body class="antialiased">
 
-    <header class="fixed top-0 left-0 right-0 z-[90] bg-black/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="index.html" class="text-2xl font-black text-white tracking-tighter">UNLITI<span class="text-[#00D1FF]">FY.</span></a>
-            <nav class="hidden lg:flex space-x-8">
-                <a href="index.html" class="text-white/70 hover:text-[#00D1FF] transition-colors">Home</a>
-                <a href="#mission" class="text-white/70 hover:text-[#00D1FF] transition-colors">Mission</a>
-                <a href="#team" class="text-white/70 hover:text-[#00D1FF] transition-colors">Approach</a>
+<body x-data="{ darkMode: false, mobileMenuOpen: false }" x-cloak
+    :class="{ 'dark bg-brand-dark text-neutral-200': darkMode, 'bg-white text-brand-textCustom': !darkMode }"
+    class="antialiased transition-colors duration-500">
+
+    <!-- Floating Header (Exactly As Provided) -->
+    <header
+        class="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 rounded-full border border-neutral-200/40 dark:border-neutral-800/40 backdrop-blur-xl transition-all duration-300"
+        :class="{ 'bg-brand-dark/60': darkMode, 'bg-white/60': !darkMode }"
+        x-data="{ activeLogo: 1, dropdownOpen: false, init() { setInterval(() => { this.activeLogo = this.activeLogo === 1 ? 2 : 1; }, 5000); } }">
+        <div class="px-6 h-14 flex items-center justify-between">
+            <!-- Dynamic Auto-Swapping Logo Container -->
+            <div class="relative flex items-center h-9 w-56 overflow-hidden">
+                <!-- Variant 1: Subtext Logo Layout -->
+                <div class="absolute inset-0 flex items-center transition-all duration-700 ease-in-out"
+                    x-show="activeLogo === 1" x-transition:enter="transition ease-out duration-500 transform"
+                    x-transition:enter-start="opacity-0 translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-400 transform"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2">
+                    <svg id="variant-subtext-logo" class="h-9 w-auto text-brand-accent2" viewBox="0 0 460 120"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g class="prism-core" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <g transform="translate(10, 10)">
+                                <polygon class="prism-facet" points="25,50 50,20 75,35" fill="currentColor"
+                                    fill-opacity="0.1" stroke="currentColor" />
+                                <polygon class="prism-facet" points="25,50 75,35 65,75" fill="none"
+                                    stroke="currentColor" />
+                                <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none"
+                                    stroke="currentColor" stroke-opacity="0.5" />
+                                <polygon class="prism-facet" points="65,75 75,35 85,45" fill="none"
+                                    stroke="currentColor" />
+                                <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor"
+                                    stroke-opacity="0.4" />
+                            </g>
+                        </g>
+                        <text x="125" y="66" :fill="darkMode ? '#FAF8F5' : 'var(--color-text)'"
+                            font-family="'Inter', sans-serif" font-size="38" font-weight="900"
+                            letter-spacing="0.01em">UNLITI<tspan fill="var(--color-primary)">FY</tspan></text>
+                        <text x="127" y="95" fill="var(--color-accent-4)" font-family="'Inter', sans-serif"
+                            font-size="13" font-weight="800" letter-spacing="0.32em">GROWTH PARTNER</text>
+                    </svg>
+                </div>
+                <!-- Variant 2: Inline Architecture Layout -->
+                <div class="absolute inset-0 flex items-center transition-all duration-700 ease-in-out"
+                    x-show="activeLogo === 2" x-transition:enter="transition ease-out duration-500 transform"
+                    x-transition:enter-start="opacity-0 translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-400 transform"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2">
+                    <svg id="variant-inline-logo" class="h-7 w-auto text-brand-accent2" viewBox="0 0 520 100"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g class="prism-core" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon class="prism-facet" points="25,50 50,20 75,35" fill="currentColor"
+                                fill-opacity="0.1" stroke="currentColor" />
+                            <polygon class="prism-facet" points="25,50 75,35 65,75" fill="none" stroke="currentColor" />
+                            <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none" stroke="currentColor"
+                                stroke-opacity="0.5" />
+                            <polygon class="prism-facet" points="65,75 75,35 85,45" fill="none" stroke="currentColor" />
+                            <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor"
+                                stroke-opacity="0.4" />
+                        </g>
+                        <text x="115" y="63" :fill="darkMode ? '#FAF8F5' : 'var(--color-text)'"
+                            font-family="'Inter', sans-serif" font-size="34" font-weight="900"
+                            letter-spacing="-0.01em">UNLITIFY</text>
+                        <text x="285" y="63" :fill="darkMode ? '#A3A3A3' : 'var(--color-neutral)'"
+                            font-family="'Inter', sans-serif" font-size="34" font-weight="400"
+                            letter-spacing="-0.02em">Growth Partner</text>
+                    </svg>
+                </div>
+            </div>
+            <!-- Expanded Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-5 text-[10px] uppercase tracking-widest font-bold opacity-80">
+                <a href="services.html" class="hover:text-brand-accent2 transition-colors">Services</a>
+                <a href="services.html#services-matrix"
+                    class="hover:text-brand-accent2 transition-colors">Capabilities</a>
+
+                <!-- Industries Dropdown Module -->
+                <div class="relative group" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
+                    <button @click="dropdownOpen = !dropdownOpen" class="flex items-center gap-1.5 hover:text-brand-accent2 transition-colors focus:outline-none uppercase text-[10px] tracking-widest font-bold">
+                        <span>Industries We Serve</span>
+                        <svg class="w-3 h-3 transition-transform duration-300 transform" :class="{ 'rotate-180 text-brand-accent2': dropdownOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown Menu items -->
+                    <div x-show="dropdownOpen" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                        x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+                        class="absolute left-1/2 -translate-x-1/2 mt-3 w-48 rounded-xl border border-neutral-200/50 dark:border-neutral-800/50 shadow-lg backdrop-blur-xl p-2 flex flex-col gap-1 z-50 text-[11px]"
+                        :class="{ 'bg-brand-dark/90 text-white': darkMode, 'bg-white/90 text-neutral-800': !darkMode }"
+                        style="display: none;">
+                        <a href="education.html" @click="dropdownOpen = false"
+                            class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Education</a>
+                        <a href="real-estate.html" @click="dropdownOpen = false"
+                            class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Real
+                            Estate</a>
+                        <a href="retail.html" @click="dropdownOpen = false"
+                            class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Clothes
+                            & Retail</a>
+                        <a href="healthcare.html" @click="dropdownOpen = false"
+                            class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Healthcare</a>
+                        <a href="hospitality.html" @click="dropdownOpen = false"
+                            class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Cafe
+                            & Restaurant</a>
+                    </div>
+                </div>
+                <a href="https://unlitify.blogspot.com/" class="hover:text-brand-accent2 transition-colors">Blogs</a>
+                <a href="casestudy.html" class="hover:text-brand-accent2 transition-colors">Case study</a>
+                <a href="about.html" class="text-brand-primary font-black transition-colors">About us </a>
             </nav>
-            <a href="audit.html" class="hidden sm:block border border-[#00D1FF] text-[#00D1FF] px-6 py-2 rounded-full font-bold text-sm hover:bg-[#00D1FF] hover:text-black transition-all">Free Strategy Call</a>
+            <!-- Actions Shell -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Theme Toggle Button -->
+                <button @click="darkMode = !darkMode" class="p-1.5 rounded-full hover:bg-neutral-500/10 transition-colors" aria-label="Toggle System Theme">
+                    <template x-if="darkMode">
+                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707m2.828 9.9a5 5 0 117.072 0 5 5 0 01-7.072 0z"/></svg>
+                    </template>
+                    <template x-if="!darkMode">
+                        <svg class="w-4 h-4 text-neutral-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    </template>
+                </button>
+                <!-- CTA Primary Button -->
+                <a href="https://unlitify.vercel.app/audit.html"
+                    class="hidden sm:inline-block bg-brand-primary text-brand-neutralCustom text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-brand-accent1 hover:text-white transition-all">
+                    Start Growing
+                </a>
+                <!-- Mobile Navigation Trigger Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden p-1.5 rounded-full hover:bg-neutral-500/10 transition-colors" aria-label="Toggle Mobile Menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path :class="{'hidden': mobileMenuOpen, 'inline-flex': !mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path :class="{'hidden': !mobileMenuOpen, 'inline-flex': mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Dropdown Mobile Menu System Panel -->
+        <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4"
+            class="lg:hidden px-6 pb-6 pt-2 flex flex-col gap-4 border-t border-neutral-200/20 dark:border-neutral-800/20"
+            @click.away="mobileMenuOpen = false">
+            <a href="services.html" @click="mobileMenuOpen = false"
+                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Services</a>
+            <a href="services.html#services-matrix" @click="mobileMenuOpen = false"
+                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Capabilities</a>
+
+            <!-- Mobile Native Accordion for Industries -->
+            <div x-data="{ localOpen: false }" class="flex flex-col gap-2">
+                <button @click="localOpen = !localOpen" class="text-xs uppercase tracking-wider font-bold py-1 flex items-center justify-between hover:text-brand-accent2 transition-colors">
+                    <span>Industries We Serve</span>
+                    <svg class="w-3 h-3 transition-transform duration-200" :class="{ 'rotate-180': localOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div x-show="localOpen" x-cloak
+                    class="pl-4 flex flex-col gap-2 border-l border-neutral-200/40 dark:border-neutral-800/40 text-[11px] font-semibold text-neutral-500">
+                    <a href="education.html" @click="mobileMenuOpen = false"
+                        class="hover:text-brand-accent2 py-1">Education</a>
+                    <a href="real-estate.html" @click="mobileMenuOpen = false"
+                        class="hover:text-brand-accent2 py-1">Real Estate</a>
+                    <a href="retail.html" @click="mobileMenuOpen = false" class="hover:text-brand-accent2 py-1">Clothes
+                        & Retail</a>
+                    <a href="healthcare.html" @click="mobileMenuOpen = false"
+                        class="hover:text-brand-accent2 py-1">Healthcare</a>
+                    <a href="hospitality.html" @click="mobileMenuOpen = false"
+                        class="hover:text-brand-accent2 py-1">Cafe & Restaurant</a>
+                </div>
+            </div>
+            <a href="https://unlitify.blogspot.com/" @click="mobileMenuOpen = false"
+                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Blogs</a>
+            <a href="casestudy.html" @click="mobileMenuOpen = false"
+                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Case
+                study </a>
+            <a href="about.html" @click="mobileMenuOpen = false"
+                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">About
+                us </a>
+            <a href="https://unlitify.vercel.app/audit.html" @click="mobileMenuOpen = false"
+                class="sm:hidden block text-center bg-brand-primary text-brand-neutralCustom text-xs font-bold uppercase tracking-widest py-2.5 rounded-full hover:bg-brand-accent1 transition-all mt-2">
+                Start Growing
+            </a>
         </div>
     </header>
 
-    <section class="pt-40 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="text-[#00D1FF] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Behind the Glow</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-tight">
-                We Build <span class="text-gradient">Digital Empires</span> <br> Not Just Campaigns.
-            </h1>
-            <p class="text-gray-400 text-lg md:text-xl leading-relaxed">
-                Most agencies focus on clicks. We focus on <strong>infrastructure</strong>. Unlitify was born out of a single realization: Great brands fail not because of their product, but because their digital presence isn't built to scale.
-            </p>
+    <!-- ABOUT HERO LAYER -->
+    <section
+        class="min-h-[85vh] pt-44 pb-20 px-6 flex flex-col items-center justify-center text-center relative overflow-hidden transition-colors duration-500"
+        :class="{ 'bg-white text-brand-textCustom': !darkMode, 'bg-gradient-to-b from-black via-brand-dark to-brand-dark text-white': darkMode }">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] rounded-full blur-[120px] -z-10 transition-colors duration-500"
+            :class="darkMode ? 'bg-brand-accent2/10' : 'bg-brand-primary/10'"></div>
+        <div
+            class="absolute inset-0 bg-[linear-gradient(to_right,#80808006_1px,transparent_1px),linear-gradient(to_bottom,#80808006_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none">
         </div>
+
+        <span class="border px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.25em] mb-8 relative z-10 transition-colors"
+            :class="darkMode ? 'border-brand-accent3/30 text-brand-accent3 bg-brand-accent2/10' : 'border-neutral-200 text-brand-neutralCustom bg-neutral-50'">
+            Behind the Growth Architecture
+        </span>
+
+        <h1 class="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.95] uppercase relative z-10">
+            WE ARCHITECT<br>
+            <span class="bg-gradient-to-r from-brand-primary via-brand-accent4 to-brand-accent2 bg-clip-text text-transparent">MARKET DOMINANCE.</span>
+        </h1>
+
+        <p class="text-base md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed font-normal relative z-10"
+            :class="darkMode ? 'text-neutral-400' : 'text-neutral-600'">
+            Unlitify was engineered out of a basic realization: typical agencies sell generic vanity parameters while
+            ignoring conversion economics. We build high-performance data pipelines, technical infrastructures, and
+            psychological frameworks that convert intent into continuous scale.
+        </p>
     </section>
 
-    <section id="mission" class="py-20 px-6 bg-zinc-900/20">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="text-3xl md:text-4xl font-black mb-6">Our Obsession with <br><span class="text-[#00D1FF]">Results Over Hype.</span></h2>
-                <p class="text-gray-400 mb-8 leading-relaxed">
-                    At Unlitify, we don't believe in "pretty" marketing that doesn't sell. We combine deep data analytics with psychological triggers to ensure every dollar you spend is an investment, not an expense.
-                </p>
-                <div class="grid grid-cols-2 gap-8">
-                    <div class="stats-border pl-4">
-                        <div class="text-3xl font-black text-white">94%</div>
-                        <div class="text-gray-500 text-xs uppercase font-bold tracking-widest">Client Retention</div>
-                    </div>
-                    <div class="stats-border pl-4">
-                        <div class="text-3xl font-black text-white">3.5x</div>
-                        <div class="text-gray-500 text-xs uppercase font-bold tracking-widest">Average ROI</div>
-                    </div>
+    <!-- THE MANIFESTO / OPERATING PRINCIPLES SECTION -->
+    <section id="manifesto" class="py-32 px-6 border-t transition-colors duration-500"
+        :class="{ 'bg-brand-bgCustom text-brand-textCustom border-purple-200/40': !darkMode, 'bg-brand-dark border-neutral-900 text-white': darkMode }">
+        <div class="max-w-6xl mx-auto">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-24 pb-12 border-b"
+                :class="darkMode ? 'border-neutral-800' : 'border-purple-300/40'">
+                <div class="lg:col-span-4">
+                    <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent2">Our DNA</h2>
+                </div>
+                <div class="lg:col-span-8">
+                    <p class="text-2xl sm:text-4xl font-light tracking-tight leading-tight">
+                        No corporate presentation padding. No vanity metrics. Just pure development stack deployment and
+                        psychology-backed conversion layers.
+                    </p>
                 </div>
             </div>
-            <div class="relative">
-                <div class="aspect-video bg-zinc-800 rounded-3xl overflow-hidden border border-white/10 flex items-center justify-center">
-                    <i class="fa-solid fa-chart-area text-white/10 text-9xl absolute"></i>
-                    <div class="relative z-10 p-8 text-center">
-                        <p class="italic text-gray-300">"Our mission is to turn the 'underdogs' of today into the category leaders of tomorrow."</p>
-                        <p class="mt-4 font-bold text-[#00D1FF]">— Aviral Pathak, Founder</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="team" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black mb-4">The Unlitify Philosophy</h2>
-            <p class="text-gray-500">The three pillars that support every brand we scale.</p>
-        </div>
+            <!-- Matrix Grid Layer for Core Values using the Perspective/Flip Interface Logic -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass-card p-10 rounded-[40px] hover:border-[#00D1FF]/50 transition-all">
-                <div class="w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-microscope text-[#00D1FF] text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4">Hyper-Analysis</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">We don't guess. We audit your competitors, your keywords, and your customer's behavior before writing a single line of code.</p>
-            </div>
-
-            <div class="glass-card p-10 rounded-[40px] hover:border-[#00D1FF]/50 transition-all">
-                <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-brain text-purple-500 text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4">Cognitive Creative</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Design should be invisible. We focus on conversion-centered design that guides the user toward the "Buy" button naturally.</p>
-            </div>
-
-            <div class="glass-card p-10 rounded-[40px] hover:border-[#00D1FF]/50 transition-all">
-                <div class="w-14 h-14 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-infinity text-green-500 text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-4">Infinite Scaling</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Growth shouldn't stop after a month. We build automated systems that continue to generate leads while you sleep.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6">
-        <div class="max-w-5xl mx-auto relative">
-            <div class="absolute inset-0 bg-cyan-500/10 blur-[100px] -z-10"></div>
-            <div class="glass-card rounded-[50px] p-10 md:p-20 text-center border-[#00D1FF]/20">
-                <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-tight">
-                    Stop Gambling With <br> Your <span class="text-[#00D1FF]">Ad Spend.</span>
-                </h2>
-                <p class="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
-                    We aren't just a service provider; we are your growth partners. If we don't think we can help you scale, we won't take your money. That's the Unlitify guarantee.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    <a href="https://wa.me/917020729200" class="w-full sm:w-auto bg-white text-black font-black px-10 py-5 rounded-2xl hover:bg-[#00D1FF] transition-all uppercase tracking-widest text-sm shadow-xl">
-                        Talk to a Specialist
-                    </a>
-                    <div class="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 border border-white/10">
-                        <div class="flex -space-x-3">
-                            <img src="https://i.pravatar.cc/100?u=1" class="w-8 h-8 rounded-full border-2 border-black">
-                            <img src="https://i.pravatar.cc/100?u=2" class="w-8 h-8 rounded-full border-2 border-black">
-                            <img src="https://i.pravatar.cc/100?u=3" class="w-8 h-8 rounded-full border-2 border-black">
+                <!-- Card 1: Brutal Honesty -->
+                <div class="perspective-container h-[420px]">
+                    <div class="flip-card-inner">
+                        <!-- Front Face -->
+                        <div :class="darkMode ? 'bg-white text-black border-neutral-200' : 'bg-black text-white border-neutral-800'"
+                            class="flip-card-front p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300">
+                            <div>
+                                <div class="flex items-center justify-between mb-8">
+                                    <span class="text-xs font-mono opacity-40">01 / ENGAGEMENT CORE</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand-primary/30 text-brand-primary bg-brand-primary/5">0_FLUFF</span>
+                                </div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Brutal Honesty</h3>
+                                <p class="text-sm opacity-70 leading-relaxed">
+                                    We do not manufacture pleasant reports to secure long contracts. If your acquisition
+                                    models, logic, or landing pages are fundamentally flawed, we tell you immediately
+                                    and change the framework.
+                                </p>
+                            </div>
+                            <span class="text-[10px] font-mono tracking-wider text-center uppercase block opacity-40">Hover to read deployment</span>
                         </div>
-                        <span class="text-xs font-bold text-gray-300">Join 50+ scaled brands</span>
+                        <!-- Back Face -->
+                        <div
+                            class="flip-card-back border border-brand-primary bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
+                            <div class="space-y-4">
+                                <h4 class="text-xs font-mono text-brand-primary uppercase tracking-widest">// CRITICAL
+                                    AUDIT MODEL</h4>
+                                <p class="text-sm text-neutral-300 leading-relaxed">
+                                    We replace emotional bias with real-time analytics dashboards. Every tracking
+                                    deployment, pixel log, and strategy configuration remains completely accessible to
+                                    your executive teams round-the-clock.
+                                </p>
+                            </div>
+                            <div class="h-px bg-white/10 my-4"></div>
+                            <span class="text-xs font-bold text-brand-primary uppercase">Infrastructure Over Decoration</span>
+                        </div>
                     </div>
                 </div>
-                
-                <p class="mt-12 text-gray-500 text-xs font-bold uppercase tracking-[0.2em]">
-                    <i class="fa-solid fa-shield-halved text-[#00D1FF] mr-2"></i> No Hidden Fees • No Long-Term Lock-ins • Pure Growth
-                </p>
+
+                <!-- Card 2: Psychological Friction -->
+                <div class="perspective-container h-[420px]">
+                    <div class="flip-card-inner">
+                        <!-- Front Face -->
+                        <div :class="darkMode ? 'bg-white text-black border-neutral-200' : 'bg-black text-white border-neutral-800'"
+                            class="flip-card-front p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300">
+                            <div>
+                                <div class="flex items-center justify-between mb-8">
+                                    <span class="text-xs font-mono opacity-40">02 / ACQUISITION MATRIX</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand-accent2/30 text-brand-accent2 bg-brand-accent2/5">PSYCH_ENG</span>
+                                </div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Value Frameworks</h3>
+                                <p class="text-sm opacity-70 leading-relaxed">
+                                    Modern consumers reject standard advertising slogans. We design communication
+                                    systems rooted in cognitive psychology, capturing qualified traffic by answering
+                                    user friction points first.
+                                </p>
+                            </div>
+                            <span class="text-[10px] font-mono tracking-wider text-center uppercase block opacity-40">Hover to read deployment</span>
+                        </div>
+                        <!-- Back Face -->
+                        <div
+                            class="flip-card-back border border-brand-accent2 bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
+                            <div class="space-y-4">
+                                <h4 class="text-xs font-mono text-brand-accent2 uppercase tracking-widest">// INTENT
+                                    MAPPING LAYER</h4>
+                                <p class="text-sm text-neutral-300 leading-relaxed">
+                                    We align ad variants to unique landing system vectors. Instead of relying on random
+                                    discounts, we maximize system conversion by establishing undeniable product utility.
+                                </p>
+                            </div>
+                            <div class="h-px bg-white/10 my-4"></div>
+                            <span class="text-xs font-bold text-brand-accent2 uppercase">Conversion Driven Architecture</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Deep Engineering Stack -->
+                <div class="perspective-container h-[420px]">
+                    <div class="flip-card-inner">
+                        <!-- Front Face -->
+                        <div :class="darkMode ? 'bg-white text-black border-neutral-200' : 'bg-black text-white border-neutral-800'"
+                            class="flip-card-front p-8 rounded-3xl flex flex-col justify-between border transition-all duration-300">
+                            <div>
+                                <div class="flex items-center justify-between mb-8">
+                                    <span class="text-xs font-mono opacity-40">03 / APPLICATION LOGIC</span>
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border border-brand-accent4/30 text-brand-accent4 bg-brand-accent4/5">FULL_STACK</span>
+                                </div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Deep Engineering</h3>
+                                <p class="text-sm opacity-70 leading-relaxed">
+                                    We don't assemble fragile third-party platform plug-ins. We write hyper-clean,
+                                    lightning-fast scripts, automate communication pipelines via API hooks, and optimize
+                                    core web files to drop bounce rates down.
+                                </p>
+                            </div>
+                            <span class="text-[10px] font-mono tracking-wider text-center uppercase block opacity-40">Hover to read deployment</span>
+                        </div>
+                        <!-- Back Face -->
+                        <div
+                            class="flip-card-back border border-brand-accent4 bg-brand-accent/95 p-8 rounded-3xl flex flex-col justify-between text-white">
+                            <div class="space-y-4">
+                                <h4 class="text-xs font-mono text-brand-accent4 uppercase tracking-widest">// VELOCITY
+                                    PROTOCOL</h4>
+                                <p class="text-sm text-neutral-300 leading-relaxed">
+                                    Our stack deployments optimize DOM layouts and clean up server-side execution.
+                                    Faster indexing combined with custom database architecture ensures conversion loops
+                                    function flawlessly.
+                                </p>
+                            </div>
+                            <div class="h-px bg-white/10 my-4"></div>
+                            <span class="text-xs font-bold text-brand-accent4 uppercase">Code Level Execution</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 text-center">
-        <p class="text-gray-600 text-sm">© 2026 UNLITIFY. All Rights Reserved. Built for Leaders.</p>
+    <!-- CORE EXECUTION ARCHITECTURE LAB -->
+    <section class="py-32 px-6 relative overflow-hidden transition-colors duration-500"
+        :class="{ 'bg-white text-brand-textCustom': !darkMode, 'bg-brand-dark text-white': darkMode }">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <div class="space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent2 block">Operational Infrastructure</span>
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-tight">
+                        We don't offer services.<br>We deploy engines.
+                    </h2>
+                    <p class="text-sm opacity-70 leading-relaxed">
+                        Agencies traditionally stay ambiguous to mask underperformance. We do the opposite. Our
+                        operations are cataloged down to the exact task, exact pricing, and exact server configurations.
+                    </p>
+                    <p class="text-sm opacity-70 leading-relaxed">
+                        Whether it is structural Local SEO configuration, clean custom full-stack infrastructure
+                        deployment, automated webhook responses, or optimized PPC setups—your architecture is built
+                        cleanly from line zero.
+                    </p>
+                    <div class="pt-4">
+                        <a href="services.html"
+                            class="inline-flex items-center gap-3 bg-brand-primary text-brand-neutralCustom font-bold px-8 py-4 rounded-full hover:bg-brand-accent1 hover:text-white transition-all uppercase text-xs tracking-widest">
+                            View Capabilities Matrix <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div
+                        class="p-6 rounded-3xl border border-neutral-200/50 dark:border-neutral-800/50 bg-neutral-50 dark:bg-brand-accent/40">
+                        <span class="text-4xl font-black block text-brand-accent2">50+</span>
+                        <span class="text-[10px] font-mono uppercase tracking-wider opacity-60 mt-2 block">Brands Scaled</span>
+                    </div>
+                    <div
+                        class="p-6 rounded-3xl border border-neutral-200/50 dark:border-neutral-800/50 bg-neutral-50 dark:bg-brand-accent/40">
+                        <span class="text-4xl font-black block text-brand-primary">70+</span>
+                        <span class="text-[10px] font-mono uppercase tracking-wider opacity-60 mt-2 block">Modular Engineering Tasks</span>
+                    </div>
+                    <div
+                        class="p-6 rounded-3xl border border-neutral-200/50 dark:border-neutral-800/50 bg-neutral-50 dark:bg-brand-accent/40">
+                        <span class="text-4xl font-black block text-brand-accent4">0</span>
+                        <span class="text-[10px] font-mono uppercase tracking-wider opacity-60 mt-2 block">Lock-In Contracts</span>
+                    </div>
+                    <div
+                        class="p-6 rounded-3xl border border-neutral-200/50 dark:border-neutral-800/50 bg-neutral-50 dark:bg-brand-accent/40">
+                        <span class="text-4xl font-black block text-emerald-500">100%</span>
+                        <span class="text-[10px] font-mono uppercase tracking-wider opacity-60 mt-2 block">Transparent Architecture</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION (CTA) -->
+    <section class="py-24 px-6 transition-colors duration-500"
+        :class="{ 'bg-brand-bgCustom/30': !darkMode, 'bg-neutral-950': darkMode }">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase leading-tight">
+                Stop Gambling With <br>Your <span class="text-brand-primary">Conversion Flow.</span>
+            </h2>
+            <p class="text-base opacity-70 mb-10 max-w-xl mx-auto">
+                Let's run a precise technical audit on your structural presence. No obligations, no hard-sales
+                calls—just factual, data-driven architecture.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://unlitify.vercel.app/audit.html"
+                    class="w-full sm:w-auto bg-brand-primary text-brand-neutralCustom font-bold px-8 py-4 rounded-full hover:bg-brand-accent1 hover:text-white transition-all uppercase text-xs tracking-widest shadow-xl shadow-brand-primary/10">
+                    Secure Free Strategy Call
+                </a>
+                <a href="services.html"
+                    class="w-full sm:w-auto border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-white/5 px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all">
+                    Explore Pricing Models
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- ========================================== -->
+    <!-- 03. BRAND IDENTITY & ORIGIN INFRASTRUCTURE -->
+    <!-- ========================================== -->
+    <section id="brand-identity" class="w-full py-32 px-6 border-t transition-colors duration-500 relative overflow-hidden"
+        :class="{ 'bg-brand-owhite-100 text-brand-textCustom border-neutral-200/60': !darkMode, 'bg-[#0F0F11] text-white border-neutral-900': darkMode }">
+    
+        <!-- Subtle architectural alignment accent grid -->
+        <div
+            class="absolute inset-0 bg-[linear-gradient(to_right,#80808003_1px,transparent_1px),linear-gradient(to_bottom,#80808003_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none">
+        </div>
+    
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+    
+            <!-- Embedded Social Asset Matrix Framework -->
+            <div class="lg:col-span-5 order-2 lg:order-1 relative w-full max-w-md mx-auto lg:max-w-none">
+    
+                <!-- Structural Container Frame for Media Pipeline -->
+                <div class="relative z-10 border p-3 rounded-[32px] shadow-2xl transition-colors duration-500 backdrop-blur-xl"
+                    :class="{ 'bg-white/80 border-neutral-200/80': !darkMode, 'bg-brand-dark/80 border-neutral-800/80': darkMode }">
+    
+                    <div class="rounded-[22px] overflow-hidden flex justify-center bg-white">
+                        <iframe class="instagram-media instagram-media-rendered" id="instagram-embed-0"
+                            src="https://www.instagram.com/reel/DNDVb52SMuc/embed/?cr=1&amp;v=14&amp;wp=724&amp;rd=https%3A%2F%2Funlitify.vercel.app&amp;rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A3390.2999999523163%2C%22ls%22%3A1736.0999999046326%2C%22le%22%3A2389.9000000953674%7D"
+                            allowtransparency="true" allowfullscreen="true" frameborder="0" height="580" scrolling="no"
+                            style="background: white; width: 100%; border: none; display: block; margin: 0px; padding: 0px;"></iframe>
+                    </div>
+                </div>
+    
+                <!-- Absolute Data Overlay Badge -->
+                <div class="absolute -bottom-5 -right-4 z-20 text-brand-neutralCustom p-5 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300 border border-black/5"
+                    style="background: var(--color-primary);">
+                    <span class="block text-3xl font-black tracking-tighter leading-none">49+</span>
+                    <span class="text-[9px] font-bold uppercase tracking-wider block mt-1 opacity-90">Systems Optimized</span>
+                </div>
+            </div>
+    
+            <!-- Copy and Positioning Architecture -->
+            <div class="lg:col-span-7 order-1 lg:order-2 space-y-8">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent2 block mb-3">Origin & Architecture</span>
+                    <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-[1.05]">
+                        TURNING AMBITIOUS CORES INTO <br>
+                        <span class="bg-gradient-to-r from-brand-primary via-brand-accent4 to-brand-accent2 bg-clip-text text-transparent">MARKET LEADERS.</span>
+                    </h2>
+                </div>
+    
+                <div class="space-y-6 text-sm md:text-base leading-relaxed opacity-80 font-normal">
+                    <p>
+                        Unlitify is a growth implementation engine engineered by
+                        <span class="font-bold border-b" :class="darkMode ? 'border-neutral-700 text-white' : 'border-neutral-300 text-brand-textCustom'">OpenBox Organization</span>.
+                        We share a single target parameter: transforming volatile scaling attempts into programmatic market
+                        authority.
+                    </p>
+                    <p>
+                        Founded by <span class="font-bold text-brand-accent4">Aviral Pathak</span>, author, podcaster, and
+                        full-stack deployment strategist, Unlitify was born from severe disillusionment with standard agency
+                        smoke-and-mirrors. We replaces arbitrary advice with verified psychological friction logs and direct
+                        technical execution.
+                    </p>
+    
+                    <!-- High-Impact Quote Block Layer -->
+                    <div class="border-l-2 p-6 my-8 transition-colors duration-500 rounded-r-2xl"
+                        :class="{ 'border-brand-primary bg-brand-primary/5': !darkMode, 'border-brand-accent2 bg-brand-accent2/5': darkMode }">
+                        <p class="text-lg md:text-xl italic font-semibold tracking-tight leading-snug"
+                            :class="darkMode ? 'text-neutral-200' : 'text-brand-neutralCustom'">
+                            "Brands do not gain traction by escalating noise volume. They dominate conversion layers by
+                            engineering systemic clarity."
+                        </p>
+                    </div>
+    
+                    <p>
+                        We abandon standard vanity templates completely. By layering custom programmatic scripts, structural
+                        SEO mechanics, and conversion psychology models directly over your workflow, we construct verified
+                        digital systems that audiences implicitly trust.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER TERMINAL -->
+    <footer class="py-12 border-t text-center text-xs font-mono opacity-50 transition-colors duration-500"
+        :class="{ 'border-neutral-200 text-brand-neutralCustom': !darkMode, 'border-neutral-900 text-neutral-400': darkMode }">
+        <p>© 2026 UNLITIFY. Built for Leaders. Powered by Absolute Execution.</p>
     </footer>
 
 </body>
+
 </html>
