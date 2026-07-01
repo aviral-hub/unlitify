@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <script>
+        window.huggingface={variables:{"SPACE_CREATOR_USER_ID":"682347dbc87061262c9772fc"}};
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlitify — Conversion Infrastructure & High-Scale Growth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: 'var(--color-primary)',
+                            accent1: 'var(--color-accent-1)',
+                            accent2: 'var(--color-accent-2)',
+                            accent3: 'var(--color-accent-3)',
+                            accent4: 'var(--color-accent-4)',
+                            bgCustom: 'var(--color-background)',
+                            textCustom: 'var(--color-text)',
+                            neutralCustom: 'var(--color-neutral)',
+                            dark: '#0A0A0A',
+                            accent: '#121212',
+                            owhite: {
+                                100: '#FAF8F5',
+                                200: '#F4EFEA',
+                                300: '#EAE2D5'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Icons and Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+        :root {
+            --color-primary: #f3a517;
+            --color-accent-1: #ad760b;
+            --color-accent-2: #871ef5;
+            --color-accent-3: #be84f4;
+            --color-accent-4: #d97a4c;
+            --color-background: #ead5f9;
+            --color-text: #110f13;
+            --color-neutral: #261c0e;
+
+            --primary: var(--color-primary);
+            --muted-bg: rgba(244, 239, 234, 0.6);
+            --card: #ffffff;
+            --foreground: var(--color-text);
+            --muted-text: rgba(11, 15, 19, 0.6);
+        }
+        .dark {
+            --muted-bg: rgba(18, 18, 18, 0.5);
+            --card: #0A0A0A;
+            --foreground: #FAF8F5;
+            --muted-text: rgba(250, 248, 245, 0.6);
+        }
+        .cursor-blink::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .perspective-container {
+            perspective: 1200px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+        .perspective-container:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+    <!-- Optimized Typing Animation Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const words = ["Digital Dominance.", "Conversion Engines.", "Unstoppable Growth."];
+            let currentWordIndex = 0;
+            let currentCharIndex = 0;
+            let isDeleting = false;
+            const target = document.querySelector('.ityped');
+            
+            function type() {
+                const currentWord = words[currentWordIndex];
+                if (isDeleting) {
+                    target.innerHTML = currentWord.substring(0, currentCharIndex - 1);
+                    currentCharIndex--;
+                } else {
+                    target.innerHTML = currentWord.substring(0, currentCharIndex + 1);
+                    currentCharIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 40 : 80;
+                if (!isDeleting && currentCharIndex === currentWord.length) {
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && currentCharIndex === 0) {
+                    isDeleting = false;
+                    currentWordIndex = (currentWordIndex + 1) % words.length;
+                    typeSpeed = 400;
+                }
+                setTimeout(type, typeSpeed);
+            }
+            if (target) type();
+        });
+    </script>
+</head>
+<body x-data="{ darkMode: false, mobileMenuOpen: false }" x-cloak
+    :class="{ 'dark bg-brand-dark text-neutral-200': darkMode, 'bg-white text-brand-textCustom': !darkMode }"
+    class="antialiased transition-colors duration-500">
+
+    <!-- Floating Header -->
+    <header class="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 rounded-full border border-neutral-200/40 dark:border-neutral-800/40 backdrop-blur-xl transition-all duration-300"
+        :class="{ 'bg-brand-dark/60': darkMode, 'bg-white/60': !darkMode }" 
+        x-data="{ activeLogo: 1, dropdownOpen: false, init() { setInterval(() => { this.activeLogo = this.activeLogo === 1 ? 2 : 1; }, 5000); } }">
+        <div class="px-6 h-14 flex items-center justify-between">
+            <!-- Dynamic Auto-Swapping Logo Container -->
+            <div class="relative flex items-center h-9 w-56 overflow-hidden">
+                <!-- Variant 1: Subtext Logo Layout -->
+                <div class="absolute inset-0 flex items-center transition-all duration-700 ease-in-out"
+                    x-show="activeLogo === 1" x-transition:enter="transition ease-out duration-500 transform"
+                    x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-400 transform" x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2">
+                    <svg id="variant-subtext-logo" class="h-9 w-auto text-brand-accent2" viewBox="0 0 460 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g class="prism-core" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <g transform="translate(10, 10)">
+                                <polygon class="prism-facet" points="25,50 50,20 75,35" fill="currentColor" fill-opacity="0.1" stroke="currentColor" />
+                                <polygon class="prism-facet" points="25,50 75,35 65,75" fill="none" stroke="currentColor" />
+                                <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none" stroke="currentColor" stroke-opacity="0.5" />
+                                <polygon class="prism-facet" points="65,75 75,35 85,45" fill="none" stroke="currentColor" />
+                                <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor" stroke-opacity="0.4" />
+                            </g>
+                        </g>
+                        <text x="125" y="66" :fill="darkMode ? '#FAF8F5' : 'var(--color-text)'" font-family="'Inter', sans-serif" font-size="38" font-weight="900" letter-spacing="0.01em">UNLITIFY</text>
+                        <text x="127" y="95" fill="var(--color-accent-4)" font-family="'Inter', sans-serif" font-size="13" font-weight="800" letter-spacing="0.32em">GROWTH PARTNER</text>
+                    </svg>
+                </div>
+                <!-- Variant 2: Inline Architecture Layout -->
+                <div class="absolute inset-0 flex items-center transition-all duration-700 ease-in-out"
+                    x-show="activeLogo === 2" x-transition:enter="transition ease-out duration-500 transform"
+                    x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition ease-in duration-400 transform" x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2">
+                    <svg id="variant-inline-logo" class="h-7 w-auto text-brand-accent2" viewBox="0 0 520 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g class="prism-core" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon class="prism-facet" points="25,50 50,20 75,35" fill="currentColor" fill-opacity="0.1" stroke="currentColor" />
+                            <polygon class="prism-facet" points="25,50 75,35 65,75" fill="none" stroke="currentColor" />
+                            <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none" stroke="currentColor" stroke-opacity="0.5" />
+                            <polygon class="prism-facet" points="65,75 75,35 85,45" fill="none" stroke="currentColor" />
+                            <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor" stroke-opacity="0.4" />
+                        </g>
+                        <text x="115" y="63" :fill="darkMode ? '#FAF8F5' : 'var(--color-text)'" font-family="'Inter', sans-serif" font-size="34" font-weight="900" letter-spacing="-0.01em">UNLITIFY</text>
+                        <text x="285" y="63" :fill="darkMode ? '#A3A3A3' : 'var(--color-neutral)'" font-family="'Inter', sans-serif" font-size="34" font-weight="400" letter-spacing="-0.02em">Growth Partner</text>
+                    </svg>
+                </div>
+            </div>
+            <!-- Expanded Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-5 text-[10px] uppercase tracking-widest font-bold opacity-80">
+                <a href="#services" class="hover:text-brand-accent2 transition-colors">Services</a>
+                <a href="#what-we-do" class="hover:text-brand-accent2 transition-colors">Capabilities</a>
+                
+                <!-- Industries Dropdown Module -->
+                <div class="relative group" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
+                    <button @click="dropdownOpen = !dropdownOpen" class="flex items-center gap-1.5 hover:text-brand-accent2 transition-colors focus:outline-none uppercase text-[10px] tracking-widest font-bold">
+                        <span>Industries We Serve</span>
+                        <svg class="w-3 h-3 transition-transform duration-300 transform" :class="{ 'rotate-180 text-brand-accent2': dropdownOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown Menu items -->
+                    <div x-show="dropdownOpen" 
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                        x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+                        class="absolute left-1/2 -translate-x-1/2 mt-3 w-48 rounded-xl border border-neutral-200/50 dark:border-neutral-800/50 shadow-lg backdrop-blur-xl p-2 flex flex-col gap-1 z-50 text-[11px]"
+                        :class="{ 'bg-brand-dark/90 text-white': darkMode, 'bg-white/90 text-neutral-800': !darkMode }"
+                        style="display: none;">
+                        <a href="education.html" @click="dropdownOpen = false" class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Education</a>
+                        <a href="real-estate.html" @click="dropdownOpen = false" class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Real Estate</a>
+                        <a href="retail.html" @click="dropdownOpen = false" class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Clothes & Retail</a>
+                        <a href="healthcare.html" @click="dropdownOpen = false" class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Healthcare</a>
+                        <a href="hospitality.html" @click="dropdownOpen = false" class="px-3 py-2 rounded-lg hover:bg-brand-accent2 hover:text-white transition-colors">Cafe & Restaurant</a>
+                    </div>
+                </div>
+                <a href="#faq" class="hover:text-brand-accent2 transition-colors">Doubts</a>
+                <a href="#geo-coordinates" class="hover:text-brand-accent2 transition-colors">Global Node</a>
+            </nav>
+            <!-- Actions Shell -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Theme Toggle Button -->
+                <button @click="darkMode = !darkMode" class="p-1.5 rounded-full hover:bg-neutral-500/10 transition-colors" aria-label="Toggle System Theme">
+                    <template x-if="darkMode">
+                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707m2.828 9.9a5 5 0 117.072 0 5 5 0 01-7.072 0z"/></svg>
+                    </template>
+                    <template x-if="!darkMode">
+                        <svg class="w-4 h-4 text-neutral-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    </template>
+                </button>
+                <!-- CTA Primary Button -->
+                <a href="https://unlitify.vercel.app/audit.html"
+                    class="hidden sm:inline-block bg-brand-primary text-brand-neutralCustom text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full hover:bg-brand-accent1 hover:text-white transition-all">
+                    Start Growing
+                </a>
+                <!-- Mobile Navigation Trigger Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden p-1.5 rounded-full hover:bg-neutral-500/10 transition-colors" aria-label="Toggle Mobile Menu">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path :class="{'hidden': mobileMenuOpen, 'inline-flex': !mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path :class="{'hidden': !mobileMenuOpen, 'inline-flex': mobileMenuOpen }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Dropdown Mobile Menu System Panel -->
+        <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4"
+            class="lg:hidden px-6 pb-6 pt-2 flex flex-col gap-4 border-t border-neutral-200/20 dark:border-neutral-800/20"
+            @click.away="mobileMenuOpen = false">
+            <a href="#services" @click="mobileMenuOpen = false" class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Services</a>
+            <a href="#what-we-do" @click="mobileMenuOpen = false" class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Capabilities</a>
+            
+            <!-- Mobile Native Accordion for Industries -->
+            <div x-data="{ localOpen: false }" class="flex flex-col gap-2">
+                <button @click="localOpen = !localOpen" class="text-xs uppercase tracking-wider font-bold py-1 flex items-center justify-between hover:text-brand-accent2 transition-colors">
+                    <span>Industries We Serve</span>
+                    <svg class="w-3 h-3 transition-transform duration-200" :class="{ 'rotate-180': localOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div x-show="localOpen" x-cloak class="pl-4 flex flex-col gap-2 border-l border-neutral-200/40 dark:border-neutral-800/40 text-[11px] font-semibold text-neutral-500">
+                    <a href="education.html" @click="mobileMenuOpen = false" class="hover:text-brand-accent2 py-1">Education</a>
+                    <a href="real-estate.html" @click="mobileMenuOpen = false" class="hover:text-brand-accent2 py-1">Real Estate</a>
+                    <a href="retail.html" @click="mobileMenuOpen = false" class="hover:text-brand-accent2 py-1">Clothes & Retail</a>
+                    <a href="healthcare.html" @click="mobileMenuOpen = false" class="hover:text-brand-accent2 py-1">Healthcare</a>
+                    <a href="hospitality.html" @click="mobileMenuOpen = false" class="hover:text-brand-accent2 py-1">Cafe & Restaurant</a>
+                </div>
+            </div>
+            <a href="#faq" @click="mobileMenuOpen = false" class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Doubts</a>
+            <a href="#geo-coordinates" @click="mobileMenuOpen = false" class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Global Node</a>
+            <a href="https://unlitify.vercel.app/audit.html" @click="mobileMenuOpen = false"
+                class="sm:hidden block text-center bg-brand-primary text-brand-neutralCustom text-xs font-bold uppercase tracking-widest py-2.5 rounded-full hover:bg-brand-accent1 transition-all mt-2">
+                Start Growing
+            </a>
+        </div>
+    </header><!-- =========================================================================
+         SERVICES PAGE CONTENT BLOCK 
+         Includes: Hero System + Interactive Capabilities Matrix
+         ========================================================================= -->
+    
+    <!-- 1. HERO ACQUISITION LAYER -->
+    <section id="services-hero" class="relative pt-36 pb-20 px-6 overflow-hidden transition-colors duration-500"
+        :class="{ 'bg-white text-black': !darkMode, 'bg-brand-dark text-white': darkMode }">
+    
+        <!-- Subtle Background Grid/Accent Texture -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-difference"
+            :class="darkMode ? 'bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px]' : 'bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:40px_40px]'">
+        </div>
+    
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    
+                <!-- Hero Left: Content Hook -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-mono tracking-wider uppercase border"
+                        :class="darkMode ? 'bg-neutral-900 border-neutral-800 text-brand-accent4' : 'bg-neutral-50 border-neutral-200 text-brand-accent4'">
+                        <span class="flex h-2 w-2 rounded-full bg-brand-accent4 animate-pulse"></span>
+                        On-Demand Execution Suite
+                    </div>
+    
+                    <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight leading-[0.95]">
+                        Our Services.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent4 via-brand-accent2 to-brand-primary">
+                            No Fluff, Just Code & Growth.
+                        </span>
+                    </h1>
+    
+                    <p class="text-sm sm:text-base opacity-75 max-w-xl leading-relaxed">
+                        We eliminated standard marketing agency ambiguity. Below is our complete capabilities matrix mapped
+                        transparently by tier, pricing benchmarks, and deployment scope. Browse what you need, pick your
+                        architecture, and spin up optimization pipelines.
+                    </p>
+    
+                    <!-- Anchor Call-to-Actions -->
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#services-console"
+                            class="px-6 py-3 rounded-xl font-bold uppercase tracking-wider text-xs bg-brand-accent4 text-black hover:opacity-90 transition-all flex items-center gap-2">
+                            Explore Capabilities Matrix <i class="fa-solid fa-arrow-down text-[10px]"></i>
+                        </a>
+                        <a href="#contact"
+                            class="px-6 py-3 rounded-xl font-bold uppercase tracking-wider text-xs border transition-all"
+                            :class="darkMode ? 'border-neutral-800 hover:bg-neutral-900 text-white' : 'border-neutral-200 hover:bg-neutral-50 text-black'">
+                            Request Custom Scope
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Hero Right: Quick Value Stats Box -->
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <div class="p-6 border rounded-2xl"
+                        :class="darkMode ? 'border-neutral-800 bg-neutral-900/20' : 'border-neutral-200 bg-neutral-50/50'">
+                        <span class="text-3xl font-black block tracking-tight">70+</span>
+                        <span class="text-[10px] font-mono uppercase tracking-wider opacity-60">Modular Tasks Ready</span>
+                    </div>
+                    <div class="p-6 border rounded-2xl"
+                        :class="darkMode ? 'border-neutral-800 bg-neutral-900/20' : 'border-neutral-200 bg-neutral-50/50'">
+                        <span class="text-3xl font-black block tracking-tight">100%</span>
+                        <span class="text-[10px] font-mono uppercase tracking-wider opacity-60">Transparent Pricing</span>
+                    </div>
+                    <div class="p-6 border rounded-2xl"
+                        :class="darkMode ? 'border-neutral-800 bg-neutral-900/20' : 'border-neutral-200 bg-neutral-50/50'">
+                        <span class="text-3xl font-black block tracking-tight">Zero</span>
+                        <span class="text-[10px] font-mono uppercase tracking-wider opacity-60">Locked-in Contracts</span>
+                    </div>
+                    <div class="p-6 border rounded-2xl"
+                        :class="darkMode ? 'border-neutral-800 bg-neutral-900/20' : 'border-neutral-200 bg-neutral-50/50'">
+                        <span class="text-3xl font-black block tracking-tight">AI + IT</span>
+                        <span class="text-[10px] font-mono uppercase tracking-wider opacity-60">Full-Stack Capability</span>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    
+    <!-- 2. STREAMLINED INTERACTIVE SERVICES CONSOLE -->
+    <section id="services-console" class="py-24 px-6 border-t transition-colors duration-500"
+        x-data="{ activeTab: 'ignite' }"
+        :class="{ 'bg-white text-brand-textCustom border-neutral-200': !darkMode, 'bg-brand-dark border-neutral-900 text-white': darkMode }">
+        <div class="max-w-7xl mx-auto">
+    
+            <!-- Context Header -->
+            <div class="mb-16 max-w-2xl">
+                <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-brand-accent2 mb-4">Capabilities Matrix</h2>
+                <p class="text-3xl sm:text-4xl font-black tracking-tight uppercase leading-none">
+                    Select a Growth Tier
+                </p>
+                <p class="text-xs mt-3 opacity-60">
+                    Explore individual operational tasks and baseline deployment architectures by category. Click a tier to
+                    switch tabs.
+                </p>
+            </div>
+    
+            <!-- Main Interface Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    
+                <!-- LEFT NAVIGATION COLUMN: Category Selector -->
+                <div class="lg:col-span-4 space-y-2 lg:sticky lg:top-24">
+                    <button @click="activeTab = 'ignite'"
+                        class="w-full text-left px-5 py-4 rounded-xl transition-all flex items-center justify-between group"
+                        :class="activeTab === 'ignite' ? (darkMode ? 'bg-neutral-900 text-white border-l-4 border-brand-accent4' : 'bg-neutral-50 text-black border-l-4 border-brand-accent4') : 'opacity-60 hover:opacity-100'">
+                        <div>
+                            <span class="text-[9px] font-mono block tracking-wider opacity-50">01 // IMPULSE OPERATIONAL</span>
+                            <span class="text-sm font-bold uppercase tracking-tight">Ignite Studio</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs transform transition-transform group-hover:translate-x-1" :class="activeTab === 'ignite' ? 'text-brand-accent4' : 'opacity-30'"></i>
+                    </button>
+    
+                    <button @click="activeTab = 'launch'"
+                        class="w-full text-left px-5 py-4 rounded-xl transition-all flex items-center justify-between group"
+                        :class="activeTab === 'launch' ? (darkMode ? 'bg-neutral-900 text-white border-l-4 border-brand-accent2' : 'bg-neutral-50 text-black border-l-4 border-brand-accent2') : 'opacity-60 hover:opacity-100'">
+                        <div>
+                            <span class="text-[9px] font-mono block tracking-wider opacity-50">02 // CORE GO-TO-MARKET</span>
+                            <span class="text-sm font-bold uppercase tracking-tight">Launch Assets</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs transform transition-transform group-hover:translate-x-1" :class="activeTab === 'launch' ? 'text-brand-accent2' : 'opacity-30'"></i>
+                    </button>
+    
+                    <button @click="activeTab = 'growth'"
+                        class="w-full text-left px-5 py-4 rounded-xl transition-all flex items-center justify-between group"
+                        :class="activeTab === 'growth' ? (darkMode ? 'bg-neutral-900 text-white border-l-4 border-brand-primary' : 'bg-neutral-50 text-black border-l-4 border-brand-primary') : 'opacity-60 hover:opacity-100'">
+                        <div>
+                            <span class="text-[9px] font-mono block tracking-wider opacity-50">03 // VOLUME RETAINERS</span>
+                            <span class="text-sm font-bold uppercase tracking-tight">Growth Velocity</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs transform transition-transform group-hover:translate-x-1" :class="activeTab === 'growth' ? 'text-brand-primary' : 'opacity-30'"></i>
+                    </button>
+    
+                    <button @click="activeTab = 'build'"
+                        class="w-full text-left px-5 py-4 rounded-xl transition-all flex items-center justify-between group"
+                        :class="activeTab === 'build' ? (darkMode ? 'bg-neutral-900 text-white border-l-4 border-neutral-400' : 'bg-neutral-50 text-black border-l-4 border-neutral-500') : 'opacity-60 hover:opacity-100'">
+                        <div>
+                            <span class="text-[9px] font-mono block tracking-wider opacity-50">04 // LOGIC & HARD CORE CODE</span>
+                            <span class="text-sm font-bold uppercase tracking-tight">Build (IT Dev)</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs transform transition-transform group-hover:translate-x-1" :class="activeTab === 'build' ? 'text-neutral-400' : 'opacity-30'"></i>
+                    </button>
+    
+                    <button @click="activeTab = 'ai'"
+                        class="w-full text-left px-5 py-4 rounded-xl transition-all flex items-center justify-between group"
+                        :class="activeTab === 'ai' ? (darkMode ? 'bg-neutral-900 text-white border-l-4 border-brand-accent3' : 'bg-neutral-50 text-black border-l-4 border-brand-accent3') : 'opacity-60 hover:opacity-100'">
+                        <div>
+                            <span class="text-[9px] font-mono block tracking-wider opacity-50">05 // COGNITIVE INTEGRATIONS</span>
+                            <span class="text-sm font-bold uppercase tracking-tight">AI Studio Engines</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs transform transition-transform group-hover:translate-x-1" :class="activeTab === 'ai' ? 'text-brand-accent3' : 'opacity-30'"></i>
+                    </button>
+    
+                    <button @click="activeTab = 'creative'"
+                        class="w-full text-left px-5 py-4 rounded-xl transition-all flex items-center justify-between group"
+                        :class="activeTab === 'creative' ? (darkMode ? 'bg-neutral-900 text-white border-l-4 border-brand-accent1' : 'bg-neutral-50 text-black border-l-4 border-brand-accent1') : 'opacity-60 hover:opacity-100'">
+                        <div>
+                            <span class="text-[9px] font-mono block tracking-wider opacity-50">06 // BRANDING PSYCHOLOGY</span>
+                            <span class="text-sm font-bold uppercase tracking-tight">Creative Assets</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs transform transition-transform group-hover:translate-x-1" :class="activeTab === 'creative' ? 'text-brand-accent1' : 'opacity-30'"></i>
+                    </button>
+    
+                    <button @click="activeTab = 'industrial'"
+                        class="w-full text-left px-5 py-4 rounded-xl transition-all flex items-center justify-between group"
+                        :class="activeTab === 'industrial' ? (darkMode ? 'bg-neutral-900 text-white border-l-4 border-brand-accent2' : 'bg-neutral-50 text-black border-l-4 border-brand-accent2') : 'opacity-60 hover:opacity-100'">
+                        <div>
+                            <span class="text-[9px] font-mono block tracking-wider opacity-50">07 // PRE-MADE MODULES</span>
+                            <span class="text-sm font-bold uppercase tracking-tight">Niche Frameworks</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-xs transform transition-transform group-hover:translate-x-1" :class="activeTab === 'industrial' ? 'text-brand-accent2' : 'opacity-30'"></i>
+                    </button>
+                </div>
+    
+    
+                <!-- RIGHT CONTENT COLUMN: Data Delivery Grid -->
+                <div class="lg:col-span-8 border rounded-2xl p-6 sm:p-10 min-h-[500px]"
+                    :class="darkMode ? 'border-neutral-800 bg-neutral-950/30' : 'border-neutral-200 bg-neutral-50/30'">
+    
+                    <!-- TAB 1: IGNITE -->
+                    <div x-show="activeTab === 'ignite'" x-transition:enter="transition ease-out duration-200"
+                        class="space-y-6">
+                        <div class="border-b pb-4 flex justify-between items-center"
+                            :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                            <h3 class="text-lg font-black uppercase">Ignite Micro Operations
+                                <span class="text-xs font-normal opacity-50 block sm:inline sm:ml-2">(₹499 – ₹2,999)</span>
+                            </h3>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xs">
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Google Business Profile Setup</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Google Maps Verification</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Business Email Setup</span><span class="font-bold">₹799</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>SSL Certificate Installation</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Domain Mapping Connection</span><span class="font-bold">₹499</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>DNS Records & TXT Setup</span><span class="font-bold">₹499</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Lead Contact Form Setup</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>WhatsApp API Integration</span><span class="font-bold">₹799</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Live Chat Widget Deployment</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Complete Website Backup Run</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Website Server Migration</span><span class="font-bold">₹2,999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Website Speed Optimization</span><span class="font-bold">₹2,999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Malware Cleanse & Removal</span><span class="font-bold">₹4,999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Hot Website Bug Remediation</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>XML Sitemap Submission</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Robots.txt Directive Architecture</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Google Analytics 4 Engine</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Search Console Configuration</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Meta Tracking Pixel Suite</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Facebook Business Manager Setup</span><span class="font-bold">₹1,499</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Google Tag Manager Setup</span><span class="font-bold">₹1,499</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Corporate Email Signature</span><span class="font-bold">₹499</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Dynamic Vector QR Design</span><span class="font-bold">₹499</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Business Card Layout Architecture</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>High-Conversion Flyer Vector</span><span class="font-bold">₹999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Creative Social Post Layer (1)</span><span class="font-bold">₹499</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Minimalist Logo Refresh</span><span class="font-bold">₹1,999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Landing Page Code Correction</span><span class="font-bold">₹2,999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Inventory/Product Load (50 items)</span><span class="font-bold">₹2,999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Technical SEO Audit Audit</span><span class="font-bold">₹2,999</span></div>
+                        </div>
+                    </div>
+    
+                    <!-- TAB 2: LAUNCH -->
+                    <div x-show="activeTab === 'launch'" x-transition:enter="transition ease-out duration-200"
+                        class="space-y-6">
+                        <div class="border-b pb-4" :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                            <h3 class="text-lg font-black uppercase">Launch Core Frameworks
+                                <span class="text-xs font-normal opacity-50 ml-2">(₹5,000 – ₹50,000)</span></h3>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xs">
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Logo + Complete Branding Kit</span><span class="font-bold text-brand-accent2">₹7,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Company Profile Corporate Architecture</span><span class="font-bold text-brand-accent2">₹9,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>High-Performance Startup Website</span><span class="font-bold text-brand-accent2">₹14,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>WordPress Tailored System</span><span class="font-bold text-brand-accent2">₹19,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Shopify Conversion Engine Store</span><span class="font-bold text-brand-accent2">₹24,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Authority Portfolio Space</span><span class="font-bold text-brand-accent2">₹14,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Restaurant Order Mapping System</span><span class="font-bold text-brand-accent2">₹12,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>School Infrastructure Portal</span><span class="font-bold text-brand-accent2">₹19,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Hospital Records & Info Platform</span><span class="font-bold text-brand-accent2">₹24,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>NGO Validation Authority Platform</span><span class="font-bold text-brand-accent2">₹14,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Real Estate Pipeline Platform</span><span class="font-bold text-brand-accent2">₹34,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Initial Organic SEO Foundations</span><span class="font-bold text-brand-accent2">₹9,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Local Maps Rank SEO Expansion</span><span class="font-bold text-brand-accent2">₹9,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Google PPC Ads Launch Suite</span><span class="font-bold text-brand-accent2">₹9,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Meta Paid Acquisition Launch Kit</span><span class="font-bold text-brand-accent2">₹9,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Instagram Strategic Architecture</span><span class="font-bold text-brand-accent2">₹9,999/mo</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>LinkedIn Executive Profile Placement</span><span class="font-bold text-brand-accent2">₹14,999/mo</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Conversion Copywriting Blueprint</span><span class="font-bold text-brand-accent2">₹1,500/art</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>High-Fidelity Authority Blog Unit</span><span class="font-bold text-brand-accent2">₹999/art</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Email Distribution Flow Rigging</span><span class="font-bold text-brand-accent2">₹7,999</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- TAB 3: GROWTH -->
+                    <div x-show="activeTab === 'growth'" x-transition:enter="transition ease-out duration-200"
+                        class="space-y-6">
+                        <div class="border-b pb-4" :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                            <h3 class="text-lg font-black uppercase">Growth Retainer Frameworks
+                                <span class="text-xs font-normal opacity-50 ml-2">(₹25,000 – ₹2,00,000/mo)</span></h3>
+                        </div>
+                        <div class="grid grid-cols-1 gap-2 text-xs">
+                            <div class="flex justify-between p-3 border rounded-xl bg-neutral-900/5 dark:bg-black/40"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>Full Enterprise Organic SEO Dominance Retainer</span><span class="font-bold text-brand-primary">₹25,000/month</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>Omnichannel Social Architecture Management Package</span><span class="font-bold">₹25,000/month</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>Performance Scale Outbound Acquisition Layer</span><span class="font-bold">₹30,000/month</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>Google Search Networks Ads Retainer Management</span><span class="font-bold">₹25,000/month</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>Meta High-Velocity Conversion Engine Management</span><span class="font-bold">₹25,000/month</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>LinkedIn Enterprise Inbound B2B Lead Pipelines</span><span class="font-bold">₹35,000/month</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>Value-Driven Distribution Content Marketing Matrix</span><span class="font-bold">₹30,000/month</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>Total Multi-Channel Operational Marketing Automation</span><span class="font-bold">₹40,000</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl bg-purple-500/5 border-purple-500/20">
+                                <span>Enterprise Hubspot / Custom CRM Architecture Setup</span><span class="font-bold text-brand-accent2">₹50,000</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>Psychology-Focused Complete Digital Sales Funnel Engine</span><span class="font-bold">₹40,000</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>Automated WhatsApp Interactivity API Workflows</span><span class="font-bold">₹35,000</span>
+                            </div>
+                            <div class="flex justify-between p-3 border rounded-xl"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-100'">
+                                <span>Autonomous Lifecycle Automated Email Sequences</span><span class="font-bold">₹25,000</span>
+                            </div>
+                            <div
+                                class="flex justify-between p-3 border rounded-xl bg-brand-primary/5 border-brand-primary/20">
+                                <span>Complete Independent Outbound Lead Generation System</span><span class="font-bold text-brand-primary">₹50,000</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- TAB 4: BUILD -->
+                    <div x-show="activeTab === 'build'" x-transition:enter="transition ease-out duration-200"
+                        class="space-y-6">
+                        <div class="border-b pb-4" :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                            <h3 class="text-lg font-black uppercase">Build Systems Code Engineering
+                                <span class="text-xs font-normal opacity-50 ml-2">(₹20,000 – ₹20 Lakhs)</span></h3>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Custom Web Application Node</span><span class="font-mono font-black">₹75,000+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Proprietary CRM Core Engine</span><span class="font-mono font-black">₹2 L+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Custom ERP Operational Enterprise</span><span class="font-mono font-black">₹5 L+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Multi-Tenant Cloud SaaS Platform</span><span class="font-mono font-black">₹10 L+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Native Android Execution Engine</span><span class="font-mono font-black">₹75,000+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Native iOS Swift Deployment</span><span class="font-mono font-black">₹1.2 L+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Cross-Platform Flutter Build</span><span class="font-mono font-black">₹1 Lakh+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Custom Internal Data Analytics Dashboard</span><span class="font-mono font-black">₹50,000+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Secure REST/GraphQL API Architecture</span><span class="font-mono font-black">₹20,000+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Third-Party Pipeline API Integration</span><span class="font-mono font-black">₹15,000+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Payment Gateway Split Routing Protocols</span><span class="font-mono font-black">₹15,000+</span>
+                            </div>
+                            <div class="p-4 border rounded-xl flex justify-between items-center"
+                                :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                                <span>Automated Logistics & Inventory Layer</span><span class="font-mono font-black">₹2 Lakhs+</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- TAB 5: AI STUDIO -->
+                    <div x-show="activeTab === 'ai'" x-transition:enter="transition ease-out duration-200"
+                        class="space-y-6">
+                        <div class="border-b pb-4" :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                            <h3 class="text-lg font-black uppercase">AI Studio Systems
+                                <span class="text-xs font-normal opacity-50 ml-2">(₹15,000 – ₹50 Lakhs)</span></h3>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3 border rounded-xl flex justify-between"
+                                :class="darkMode ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-white'">
+                                <span>AI Conversational Custom Chatbot</span><span class="font-bold text-brand-accent3">₹25,000</span>
+                            </div>
+                            <div class="p-3 border rounded-xl flex justify-between"
+                                :class="darkMode ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-white'">
+                                <span>Natural Context AI Voice Agent</span><span class="font-bold text-brand-accent3">₹75,000</span>
+                            </div>
+                            <div class="p-3 border rounded-xl flex justify-between"
+                                :class="darkMode ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-white'">
+                                <span>Autonomous AI Help Desk / Support Layer</span><span class="font-bold text-brand-accent3">₹60,000</span>
+                            </div>
+                            <div class="p-3 border rounded-xl flex justify-between"
+                                :class="darkMode ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-white'">
+                                <span>AI Qualification Pre-Sales Matrix</span><span class="font-bold text-brand-accent3">₹40,000</span>
+                            </div>
+                            <div class="p-3 border rounded-xl flex justify-between"
+                                :class="darkMode ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-white'">
+                                <span>Cognitive Engine Task Automation</span><span class="font-bold text-brand-accent3">₹50,000</span>
+                            </div>
+                            <div class="p-3 border rounded-xl flex justify-between"
+                                :class="darkMode ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-white'">
+                                <span>Custom LLM Fine-Tuning Integration</span><span class="font-bold text-brand-accent3">₹25,000</span>
+                            </div>
+                            <div class="p-3 border rounded-xl flex justify-between"
+                                :class="darkMode ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-white'">
+                                <span>Vector Knowledge Base Semantic Layer</span><span class="font-bold text-brand-accent3">₹40,000</span>
+                            </div>
+                            <div class="p-3 border rounded-xl flex justify-between"
+                                :class="darkMode ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-white'">
+                                <span>Intelligent Document Parsing (IDP) Engine</span><span class="font-bold text-brand-accent3">₹1,00,000</span>
+                            </div>
+                            <div class="p-3 border rounded-xl flex justify-between"
+                                :class="darkMode ? 'border-neutral-800 bg-neutral-900/40' : 'border-neutral-200 bg-white'">
+                                <span>Complex AI Workflow Cross-Automation</span><span class="font-bold text-brand-accent3">₹2 Lakhs+</span>
+                            </div>
+                            <div
+                                class="p-3 border border-dashed rounded-xl flex justify-between bg-purple-500/5 border-purple-500/20">
+                                <span>Full Generation AI SaaS Platform Build</span><span class="font-bold text-brand-accent2">₹15 Lakhs+</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- TAB 6: CREATIVE -->
+                    <div x-show="activeTab === 'creative'" x-transition:enter="transition ease-out duration-200"
+                        class="space-y-6">
+                        <div class="border-b pb-4" :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                            <h3 class="text-lg font-black uppercase">Creative Studio Vectors</h3>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xs">
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Master Structural Logo Design</span><span class="font-bold">₹4,999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Deep Psychology Brand Identity Kit</span><span class="font-bold">₹19,999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>FMCG Consumer Packaging Engineering</span><span class="font-bold">₹14,999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Omnichannel Social Launch Assets Kit</span><span class="font-bold">₹9,999</span></div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>High-Fidelity Kinetic Motion Graphics</span><span class="font-bold">₹12,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>High-Conversion Script Explainer Video</span><span class="font-bold">₹19,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>High-Fidelity Product Line Photography</span><span class="font-bold">₹9,999</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b"
+                                :class="darkMode ? 'border-neutral-900' : 'border-neutral-100'">
+                                <span>Premium Authority Corporate Film / Video</span><span class="font-bold">₹49,999</span>
+                            </div>
+                        </div>
+    
+                        <!-- Fixed Tier Subscriptions Mini-Row Inside Container -->
+                        <div class="pt-8 border-t" :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                            <span class="text-[9px] font-mono uppercase tracking-widest block opacity-40 mb-3">Or Opt for Flat Monthly Subscriptions:</span>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+                                <div class="p-2 border rounded-xl text-[11px]"
+                                    :class="darkMode ? 'border-neutral-800 bg-neutral-950' : 'border-neutral-200 bg-white'">
+                                    <span class="block font-black uppercase">Starter</span><span class="opacity-70">₹9,999/mo</span>
+                                </div>
+                                <div class="p-2 border rounded-xl text-[11px] border-brand-accent4 bg-brand-accent4/5">
+                                    <span class="block font-black uppercase text-brand-accent4">Growth</span><span class="opacity-70">₹24,999/mo</span>
+                                </div>
+                                <div class="p-2 border rounded-xl text-[11px]"
+                                    :class="darkMode ? 'border-neutral-800 bg-neutral-950' : 'border-neutral-200 bg-white'">
+                                    <span class="block font-black uppercase">Business</span><span class="opacity-70">₹49,999/mo</span>
+                                </div>
+                                <div class="p-2 border rounded-xl text-[11px] border-brand-accent2 bg-brand-accent2/5">
+                                    <span class="block font-black uppercase text-brand-accent2">Premium</span><span class="opacity-70">₹99,999/mo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- TAB 7: INDUSTRIAL NICHE FRAMEWORKS -->
+                    <div x-show="activeTab === 'industrial'" x-transition:enter="transition ease-out duration-200"
+                        class="space-y-6">
+                        <div class="border-b pb-4" :class="darkMode ? 'border-neutral-800' : 'border-neutral-200'">
+                            <h3 class="text-lg font-black uppercase">Pre-Assembled Vertical Solutions</h3>
+                        </div>
+                        <p class="text-xs opacity-70 leading-relaxed max-w-xl">
+                            We blueprint pre-bundled conversion tech packages optimized specific to individual niches. Tap
+                            your operational vertical below during consultation for tailored frameworks:
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-graduation-cap text-brand-accent2 text-[10px]"></i> Schools & Colleges
+                            </div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-hospital text-brand-accent2 text-[10px]"></i> Hospitals & Clinics
+                            </div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-utensils text-brand-accent2 text-[10px]"></i> Restaurants & Cafés
+                            </div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-hotel text-brand-accent2 text-[10px]"></i> Hotels & Resorts</div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-building text-brand-accent2 text-[10px]"></i> Real Estate Teams</div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-industry text-brand-accent2 text-[10px]"></i> Manufacturers</div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-scale-balanced text-brand-accent2 text-[10px]"></i> CA & Legal Firms
+                            </div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-dumbbell text-brand-accent2 text-[10px]"></i> Gyms & Fitness Centers
+                            </div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-sparkles text-brand-accent2 text-[10px]"></i> Salons & Day Spas</div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-cart-shopping text-brand-accent2 text-[10px]"></i> E-commerce Brands
+                            </div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-hand-holding-heart text-brand-accent2 text-[10px]"></i> Active NGOs
+                            </div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-rocket text-brand-accent2 text-[10px]"></i> Tech Startups</div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-store text-brand-accent2 text-[10px]"></i> Local MSMEs</div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-check-to-slot text-brand-accent2 text-[10px]"></i> Political Campaigns
+                            </div>
+                            <div class="p-2.5 border rounded-lg flex items-center gap-2 text-[11px] font-bold"
+                                :class="darkMode ? 'border-neutral-900 bg-neutral-900/20' : 'border-neutral-200 bg-white'">
+                                <i class="fa-solid fa-user-tie text-brand-accent2 text-[10px]"></i> Personal Brands</div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+    
+        </div>
+    </section>
+
+
+    <!-- NEW SECTION SLOP (Paste your future 3rd sections using this background layout configuration below) -->
+    <!-- <section class="py-32 px-6 border-t bg-white dark:bg-brand-dark text-brand-textCustom dark:text-white transition-colors duration-500"> ... </section> -->
+
+</body>
+</html>
