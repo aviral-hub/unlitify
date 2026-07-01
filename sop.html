@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNLITIFY // Standard Operating Procedures Engine</title>
+    <!-- Core Tailwind UI Architecture -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Plus Jakarta Sans Typographic Base -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0F0F11;
+            color: #E4E4E7;
+            scroll-behavior: smooth;
+        }
+        /* Custom textured architectural background grid lines */
+        .bg-grid-texture {
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+        }
+        /* Prose styling for the list elements inside SOPs */
+        .sop-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .sop-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #7a00ff; /* Unlitify Violet */
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body class="bg-grid-texture min-h-screen selection:bg-[#7a00ff] selection:text-white">
+
+    <!-- Global Operations Navigation Header -->
+    <header class="border-b border-zinc-900 bg-[#0F0F11]/90 backdrop-blur-md sticky top-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <!-- Asymmetric Brand Mark Symbol -->
+                <div class="w-6 h-6 relative flex items-center justify-center">
+                    <span class="absolute block w-full h-full border border-[#7a00ff] rotate-45 rounded"></span>
+                    <span class="absolute block w-3 h-3 bg-[#ffaa00] rotate-12"></span>
+                </div>
+                <span class="font-black text-lg tracking-tighter uppercase text-white">UNLITIFY<span class="text-zinc-600 font-normal text-xs ml-2 tracking-widest">// OPS ENGINE v1.0</span></span>
+            </div>
+            <div class="font-mono text-[11px] tracking-widest text-zinc-500 uppercase hidden md:block">
+                Systems. Optimization. Growth.
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Arena -->
+    <main class="max-w-7xl mx-auto px-6 py-12 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Sticky Left Sidebar Index -->
+        <nav class="lg:col-span-3 lg:sticky lg:top-28 h-fit space-y-3 pt-2">
+            <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-[#ffaa00] mb-5">SOP Directory</h3>
+            <a href="#leads" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">01. Lead Generation</a>
+            <a href="#qualify" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">02. Lead Qualification</a>
+            <a href="#discovery" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">03. Discovery Call</a>
+            <a href="#closing" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">04. Proposal & Closing</a>
+            <a href="#onboarding" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">05. Client Onboarding</a>
+            <a href="#kickoff" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">06. Project Kickoff</a>
+            <a href="#delivery" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">07. Service Delivery</a>
+            <a href="#qa" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">08. Quality Assurance</a>
+            <a href="#comms" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">09. Client Communication</a>
+            <a href="#reporting" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">10. Monthly Reporting</a>
+            <a href="#finance" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">11. Finance Protocol</a>
+            <a href="#closure" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">12. Project Closure</a>
+            <a href="#review" class="block text-sm font-medium text-zinc-400 hover:text-[#7a00ff] transition border-l-2 border-zinc-900 pl-4 py-1.5 hover:border-[#7a00ff]">13. Internal Review</a>
+        </nav>
+
+        <!-- Right Core Manual Body -->
+        <section class="lg:col-span-9 space-y-16">
+            
+            <!-- Intro Lockup -->
+            <div class="space-y-4 mb-16 border-b border-zinc-900 pb-12">
+                <span class="text-xs font-bold uppercase tracking-[0.3em] text-[#ffaa00]">Agency Manual</span>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight uppercase leading-none text-white max-w-3xl">
+                    Standard Operating Procedures
+                </h1>
+                <p class="text-zinc-400 text-base md:text-lg max-w-2xl pt-2">
+                    These SOPs are engineered to install systemic clarity across the Unlitify engine. If a repeated task requires execution more than three times, it must be documented here. Document. Automate. Scale.
+                </p>
+            </div>
+
+            <!-- SOP Cards Grid/List -->
+            <div class="space-y-12">
+
+                <!-- 01. Lead Gen -->
+                <div id="leads" class="bg-[#161619] border border-zinc-900 rounded-3xl p-8 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#7a00ff]/10 via-transparent to-transparent"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
+                        <div>
+                            <span class="text-[10px] font-mono tracking-widest text-[#7a00ff] uppercase block mb-1">Owner: Marketing Team</span>
+                            <h2 class="text-2xl font-black uppercase text-white tracking-tight">SOP 1: Lead Generation</h2>
+                        </div>
+                        <div class="text-xs font-bold bg-[#F5F5F7] text-[#111115] px-4 py-2 rounded-xl text-center md:text-right">KPI: Leads/Month • CPL • Traffic</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider">Operational Process</h4>
+                            <ul class="sop-list text-zinc-400 text-sm space-y-1.5 font-medium">
+                                <li>Publish SEO blog content matrix.</li>
+                                <li>Programmatic Posting: LinkedIn, Instagram, X (Twitter).</li>
+                                <li>Execute Performance Campaigns: Meta / Google Ads.</li>
+                                <li>Convert Traffic via Website Intake Forms.</li>
+                                <li>Route verified leads into CRM system.</li>
+                                <li>Execute immediate triage: Assign to Sales <span class="font-bold text-[#ffaa00]">< 30 minutes</span>.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-[#0F0F11] p-6 rounded-2xl border border-zinc-900 space-y-3">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider">Objective</h4>
+                            <p class="text-zinc-400 text-sm leading-relaxed">Systematically generate and capture qualified inbound lead velocity consistently over defined sprint cycles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 02. Lead Qual -->
+                <div id="qualify" class="bg-[#161619] border border-zinc-900 rounded-3xl p-8 group">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
+                        <div>
+                            <span class="text-[10px] font-mono tracking-widest text-[#7a00ff] uppercase block mb-1">Owner: Sales</span>
+                            <h2 class="text-2xl font-black uppercase text-white tracking-tight">SOP 2: Lead Qualification</h2>
+                        </div>
+                        <div class="text-xs font-bold bg-[#F5F5F7] text-[#111115] px-4 py-2 rounded-xl text-center md:text-right">Determine Fit</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider">Friction Checklist</h4>
+                            <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-zinc-400 font-medium">
+                                <div>Business Name</div> <div>Industry Vertical</div>
+                                <div>Available Budget</div> <div>Decision Maker</div>
+                                <div>Project Timeline</div> <div>Required Scopes</div>
+                            </div>
+                        </div>
+                        <div class="bg-[#0F0F11] p-6 rounded-2xl border border-zinc-900 space-y-3">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider">Status Outcome</h4>
+                            <div class="flex flex-wrap gap-2 text-xs font-bold uppercase tracking-widest">
+                                <span class="bg-green-950 text-green-300 px-3 py-1.5 rounded-lg border border-green-800">Qualified</span>
+                                <span class="bg-amber-950 text-amber-300 px-3 py-1.5 rounded-lg border border-amber-800">Nurture</span>
+                                <span class="bg-red-950 text-red-300 px-3 py-1.5 rounded-lg border border-red-800">Reject</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03. Discovery -->
+                <div id="discovery" class="bg-[#161619] border border-zinc-900 rounded-3xl p-8 relative overflow-hidden group">
+                     <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#ffaa00]/10 via-transparent to-transparent"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
+                        <div>
+                            <span class="text-[10px] font-mono tracking-widest text-[#7a00ff] uppercase block mb-1">Owner: Sales</span>
+                            <h2 class="text-2xl font-black uppercase text-white tracking-tight">SOP 3: Discovery Call</h2>
+                        </div>
+                        <div class="text-xs font-bold bg-[#F5F5F7] text-[#111115] px-4 py-2 rounded-xl text-center md:text-right">KPI: Disc-to-Proposal Rate</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-medium text-sm text-zinc-400">
+                        <div class="border border-zinc-800/80 p-6 rounded-2xl space-y-3">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">Before Call</h4>
+                            <p>Verify data: Research Company.</p>
+                            <p>Map friction: Visit website / social.</p>
+                            <p>Prepare high-impact questions.</p>
+                        </div>
+                        <div class="border border-zinc-800/80 p-6 rounded-2xl space-y-3">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">During Call</h4>
+                            <p>Understand defined goals.</p>
+                            <p>Identify bottleneck pain points.</p>
+                            <p>Anchor parameters (Budget/Timeline).</p>
+                            <p>Outline Unlitify systemic workflow.</p>
+                        </div>
+                        <div class="border border-zinc-800/80 p-6 rounded-2xl space-y-3">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">After Call</h4>
+                            <p>Bake CRM: Update data points.</p>
+                            <p>Transmit summary meeting notes.</p>
+                            <p>Initialize Proposal Module.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 04. Proposal -->
+                <div id="closing" class="bg-[#161619] border border-zinc-900 rounded-3xl p-8 group">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
+                        <div>
+                            <span class="text-[10px] font-mono tracking-widest text-[#7a00ff] uppercase block mb-1">Owner: Sales</span>
+                            <h2 class="text-2xl font-black uppercase text-white tracking-tight">SOP 4: Proposal & Closing</h2>
+                        </div>
+                        <div class="text-xs font-bold bg-[#F5F5F7] text-[#111115] px-4 py-2 rounded-xl text-center md:text-right">KPI: Win Rate</div>
+                    </div>
+                    
+                    <div class="bg-[#0F0F11] border border-zinc-900 p-8 rounded-3xl space-y-8">
+                        <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
+                            <span class="text-xs font-bold uppercase text-[#7a00ff] border-r-2 border-[#7a00ff] pr-4">Build Phase</span>
+                            <div class="flex flex-wrap gap-2 text-sm font-medium text-zinc-300">
+                                <span class="bg-zinc-800 px-3 py-1.5 rounded-lg border border-zinc-700">Proposal Module</span>
+                                <span class="bg-zinc-800 px-3 py-1.5 rounded-lg border border-zinc-700">Scope of Work (SOW)</span>
+                                <span class="bg-zinc-800 px-3 py-1.5 rounded-lg border border-zinc-700">Sprint Timeline</span>
+                                <span class="bg-zinc-800 px-3 py-1.5 rounded-lg border border-zinc-700">Pricing Matrix</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
+                            <span class="text-xs font-bold uppercase text-[#ffaa00] border-r-2 border-[#ffaa00] pr-4">Close Phase</span>
+                            <div class="flex flex-wrap gap-2 text-sm font-medium text-zinc-300">
+                                <span class="bg-zinc-800 px-3 py-1.5 rounded-lg border border-zinc-700">Execute Transmission</span>
+                                <span class="bg-zinc-800 px-3 py-1.5 rounded-lg border border-zinc-700">Friction Follow-up (48h)</span>
+                                <span class="bg-zinc-800 px-3 py-1.5 rounded-lg border border-zinc-700">Closing Interaction</span>
+                                <span class="bg-zinc-800 px-3 py-1.5 rounded-lg border border-zinc-700">Service Agreement</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 05. Onboarding -->
+                <div id="onboarding" class="bg-[#161619] border border-zinc-900 rounded-3xl p-8 relative group">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
+                        <div>
+                            <span class="text-[10px] font-mono tracking-widest text-[#7a00ff] uppercase block mb-1">Owner: Operations</span>
+                            <h2 class="text-2xl font-black uppercase text-white tracking-tight">SOP 5: Client Onboarding</h2>
+                        </div>
+                        <div class="text-xs font-bold bg-[#F5F5F7] text-[#111115] px-4 py-2 rounded-xl text-center md:text-right">Engine Setup</div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider">Access Checklist</h4>
+                            <ul class="sop-list text-zinc-400 text-sm space-y-1.5 font-medium">
+                                <li>Verify Signed Agreement.</li>
+                                <li>Verify Payment Status (Advance received).</li>
+                                <li>Distribute Client Questionnaire module.</li>
+                                <li>Capture Brand Assets & Vector packs.</li>
+                                <li>Provision Access: Website backend.</li>
+                                <li>Provision Access: Social channels.</li>
+                                <li>Provision Access: Analytics / Friction nodes.</li>
+                                <li>Initialize WhatsApp Group (Workflow comms).</li>
+                                <li>Provision cloud project folder architecture.</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wider">Deliverables transmitted</h4>
+                            <div class="bg-[#0F0F11] p-6 rounded-2xl border border-zinc-900 font-medium text-sm text-zinc-400 space-y-2">
+                                <p>Welcome Transmission (verified data).</p>
+                                <p>Operational Sprint Timeline.</p>
+                                <p>Core Team Introduction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 06. Kickoff -->
+                <div id="kickoff" class="bg-[#161619] border border-zinc-900 rounded-3xl p-8 group">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
+                        <div>
+                            <span class="text-[10px] font-mono tracking-widest text-[#7a00ff] uppercase block mb-1">Owner: Operations / Sales</span>
+                            <h2 class="text-2xl font-black uppercase text-white tracking-tight">SOP 6: Project Kickoff</h2>
+                        </div>
+                        <div class="text-xs font-bold bg-[#F5F5F7] text-[#111115] px-4 py-2 rounded-xl text-center md:text-right">Agenda Locked</div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 text-sm font-bold uppercase tracking-widest pt-2">
+                        <span class="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-lg border border-zinc-700">Goals</span>
+                        <span class="bg-zinc-800 text-zinc-300 px-4 py
