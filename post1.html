@@ -1,146 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlitify Case Study Slider</title>
+    <title>Unlitify // Blogger Header Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        :root {
-            --cyan: #00D1FF;
-            --bg: #050505;
-        }
-        body { background: var(--bg); font-family: 'Plus Jakarta Sans', sans-serif; }
-
-        /* The 4:5 Container */
-        .case-study-container {
-            width: 100%;
-            max-width: 450px; /* Desktop scaling */
-            aspect-ratio: 4 / 5;
-            margin: 40px auto;
-            border-radius: 32px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            position: relative;
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0F0F11;
+            color: #F5F5F7;
         }
 
-        .swiper { width: 100%; height: 100%; }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
+        .canvas-container canvas {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid #27272a;
         }
-
-        .metric-badge {
-            background: linear-gradient(135deg, rgba(0, 209, 255, 0.2), rgba(0, 209, 255, 0.05));
-            border: 1px solid var(--cyan);
-        }
-
-        .swiper-pagination-bullet { background: #555; opacity: 1; }
-        .swiper-pagination-bullet-active { background: var(--cyan); }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
 
-    <div class="case-study-container shadow-2xl group">
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            
-            <div class="swiper-slide p-8 flex flex-col justify-between bg-black relative">
-                <div class="absolute top-[-50px] left-[-50px] w-64 h-64 bg-cyan-500/10 blur-[80px]"></div>
-                <div>
-                    <span class="text-[#00D1FF] font-bold text-xs tracking-widest uppercase">Protocol: Success</span>
-                    <h2 class="text-4xl font-black text-white mt-4 leading-tight">Client Story:<br> <span class="text-[#00D1FF]">2x Sales</span> in 90 Days</h2>
-                    <p class="text-gray-400 mt-4 text-sm leading-relaxed">How a premium brand rebuilt their digital infrastructure to automate growth.</p>
-                </div>
-                
-                <div class="glass-card p-6">
-                    <p class="text-[10px] text-gray-500 uppercase font-black tracking-widest mb-4">Core Objective</p>
-                    <p class="text-white font-medium italic">"Scale revenue without increasing daily management time."</p>
-                </div>
+<body class="p-6 md:p-12 min-h-screen">
 
-                <div class="flex items-center gap-2 text-gray-500 text-[10px] font-bold uppercase">
-                    <span>Use arrows or swipe</span>
-                </div>
-            </div>
+    <header class="max-w-6xl mx-auto mb-12 flex justify-between items-center border-b border-zinc-800 pb-6">
+        <div>
+            <span class="text-xs font-bold tracking-[0.3em] uppercase text-[#ffaa00]">Publisher Engine</span>
+            <h1 class="text-3xl font-black tracking-tighter uppercase mt-1">BLOGGER HEADER STUDIO</h1>
+        </div>
+        <div class="text-right font-mono text-xs text-zinc-500">
+            Output Engine // Dual Multi-Scale Rendering
+        </div>
+    </header>
 
-            <div class="swiper-slide p-8 flex flex-col bg-zinc-950">
-                <h3 class="text-xl font-bold text-white mb-8">The Transformation</h3>
-                <div class="space-y-6 flex-grow">
-                    <div class="relative p-6 rounded-2xl border border-white/5 bg-white/5">
-                        <span class="absolute top-[-10px] left-4 bg-red-500 text-white text-[9px] px-2 py-0.5 rounded font-bold">BEFORE</span>
-                        <div class="flex justify-between items-end">
-                            <div>
-                                <p class="text-gray-500 text-xs">Monthly Revenue</p>
-                                <p class="text-2xl font-bold text-gray-300">₹12,40,000</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="text-gray-500 text-xs">Cost Per Sale</p>
-                                <p class="text-lg font-bold text-gray-400">₹420</p>
-                            </div>
-                        </div>
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+        <!-- Controls Column -->
+        <div class="lg:col-span-4 bg-[#161619] p-6 rounded-3xl border border-zinc-800/80 shadow-2xl h-fit space-y-6">
+            <div>
+                <h2 class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-4">01. Metadata Input
+                    Configuration</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-500 mb-1">Article / Header Title</label>
+                        <input type="text" id="post-title" value="ENGINEERING HIGH-CONVERSION USER SYSTEMS" class="w-full bg-[#0F0F11] border border-zinc-800 rounded-xl px-4 py-2.5 text-sm font-bold tracking-wide text-white focus:outline-none focus:border-[#7a00ff]">
                     </div>
-                    <div class="relative p-6 rounded-2xl border border-cyan-500/30 bg-cyan-500/5">
-                        <span class="absolute top-[-10px] left-4 bg-cyan-500 text-black text-[9px] px-2 py-0.5 rounded font-bold">AFTER UNLITIFY</span>
-                        <div class="flex justify-between items-end">
-                            <div>
-                                <p class="text-cyan-400 text-xs">Monthly Revenue</p>
-                                <p class="text-3xl font-black text-white tracking-tighter">₹28,90,000</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="text-cyan-400 text-xs">Cost Per Sale</p>
-                                <p class="text-xl font-black text-white">₹195</p>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-500 mb-1">Category / Tag Asset</label>
+                        <input type="text" id="post-tag" value="CONVERSION PSYCHOLOGY" class="w-full bg-[#0F0F11] border border-zinc-800 rounded-xl px-4 py-2.5 text-sm font-bold tracking-wider text-[#ffaa00] focus:outline-none focus:border-[#7a00ff]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-500 mb-1">Feature Background Image</label>
+                        <div
+                            class="relative group mt-1 flex justify-center px-4 pt-4 pb-5 border-2 border-zinc-800 border-dashed rounded-xl hover:border-zinc-700 transition cursor-pointer bg-[#0F0F11]">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-6 w-6 text-zinc-600 group-hover:text-zinc-500"
+                                    stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                    <path
+                                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4-4m4-24h8m-4-4v8m-12 4h.02"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div class="text-xs text-zinc-400">
+                                    <label for="image-upload" class="relative cursor-pointer font-semibold text-[#7a00ff] hover:text-[#6400d6]">
+                                        <span>Upload Art Layer</span>
+                                        <input id="image-upload" type="file" accept="image/*" class="sr-only">
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="swiper-slide p-8 flex flex-col justify-center text-center bg-black">
-                <h2 class="text-3xl font-black text-white mb-4">Ready to be the next <span class="text-[#00D1FF]">success story?</span></h2>
-                <a href="https://wa.me/917020729200" class="bg-[#00D1FF] text-black font-extrabold py-5 rounded-2xl uppercase tracking-widest text-xs">
-                    Claim Your Audit
-                </a>
+            <div class="pt-4 border-t border-zinc-800 space-y-3">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-400">02. Design Adaptations</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <button id="theme-btn" class="bg-[#0F0F11] border border-zinc-800 text-xs font-bold py-2.5 rounded-xl hover:bg-zinc-900 transition">BASE: DARK</button>
+                    <button id="overlay-btn" class="bg-[#0F0F11] border border-zinc-800 text-xs font-bold py-2.5 rounded-xl hover:bg-zinc-900 transition">IMAGE: COVER</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Render Viewport Output Column -->
+        <div class="lg:col-span-8 space-y-8">
+
+            <!-- Output 1: Classic Wide Canvas Layer -->
+            <div class="bg-[#161619] p-6 rounded-3xl border border-zinc-800/80 space-y-4 shadow-2xl">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-sm font-black uppercase tracking-wider text-white">01. Classic Wide Header</h3>
+                        <p class="text-xs text-zinc-500">Standard Blog Architecture Dimensions // 1200 × 400 px</p>
+                    </div>
+                    <button onclick="downloadHeader('header-wide', 'unlitify-classic-header')" class="bg-[#7a00ff] hover:bg-[#6400d6] text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-xl transition">Export PNG</button>
+                </div>
+                <div class="canvas-container bg-[#0F0F11] p-2 flex justify-center">
+                    <canvas id="header-wide" width="1200" height="400"></canvas>
+                </div>
+            </div>
+
+            <!-- Output 2: Compact Mini Canvas Card Layer -->
+            <div class="bg-[#161619] p-6 rounded-3xl border border-zinc-800/80 space-y-4 shadow-2xl max-w-md">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-sm font-black uppercase tracking-wider text-white">02. Compact Graphic Feature
+                        </h3>
+                        <p class="text-xs text-zinc-500">Custom Card Layout Bounds // 380 × 200 px</p>
+                    </div>
+                    <button onclick="downloadHeader('header-compact', 'unlitify-compact-card')" class="bg-[#7a00ff] hover:bg-[#6400d6] text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-xl transition">Export</button>
+                </div>
+                <div class="canvas-container bg-[#0F0F11] p-2 flex justify-center">
+                    <canvas id="header-compact" width="380" height="200"></canvas>
+                </div>
             </div>
 
         </div>
+    </main>
 
-        <div class="swiper-button-next !text-[#00D1FF] !w-10 !h-10 !bg-black/50 backdrop-blur-md rounded-full after:!text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        <div class="swiper-button-prev !text-[#00D1FF] !w-10 !h-10 !bg-black/50 backdrop-blur-md rounded-full after:!text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        
-        <div class="swiper-pagination !bottom-4"></div>
-    </div>
-</div>
-
-<script>
-    var swiper = new Swiper(".mySwiper", {
-        grabCursor: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            dynamicBullets: true,
-        },
-    });
-</script>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            grabCursor: true,
-            pagination: {
-                el: ".swiper-pagination",
-                dynamicBullets: true,
-            },
+        const titleInput = document.getElementById('post-title');
+        const tagInput = document.getElementById('post-tag');
+        const fileInput = document.getElementById('image-upload');
+        const themeBtn = document.getElementById('theme-btn');
+        const overlayBtn = document.getElementById('overlay-btn');
+
+        let uploadedImage = null;
+        let activeTheme = 'dark'; // dark | light
+        let imageStyle = 'cover'; // cover | subtle
+
+        function drawQuantumPrism(ctx, x, y, scale = 1) {
+            ctx.save(); ctx.translate(x, y); ctx.scale(scale, scale);
+            ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+            ctx.beginPath(); ctx.moveTo(25, 50); ctx.lineTo(50, 20); ctx.lineTo(75, 35); ctx.closePath();
+            ctx.fillStyle = 'rgba(122, 0, 255, 0.15)'; ctx.fill(); ctx.strokeStyle = '#7a00ff'; ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(25, 50); ctx.lineTo(75, 35); ctx.lineTo(65, 75); ctx.closePath();
+            ctx.fillStyle = '#111115'; ctx.fill(); ctx.strokeStyle = '#ffaa00'; ctx.stroke();
+            ctx.restore();
+        }
+
+        function drawAbstractBackground(ctx, w, h) {
+            ctx.save();
+            ctx.strokeStyle = activeTheme === 'dark' ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.03)';
+            ctx.lineWidth = 1;
+            for(let i = 0; i < w; i += 25) {
+                ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, h); ctx.stroke();
+            }
+            ctx.restore();
+        }
+
+        function drawFeatureImage(ctx, w, h) {
+            if (!uploadedImage) return;
+            ctx.save();
+            
+            const wrh = uploadedImage.width / uploadedImage.height;
+            const crh = w / h;
+            let drawW = w; let drawH = h;
+            let offsetX = 0; let offsetY = 0;
+
+            if (wrh > crh) { drawW = h * wrh; offsetX = -(drawW - w) / 2; } 
+            else { drawH = w / wrh; offsetY = -(drawH - h) / 2; }
+
+            ctx.drawImage(uploadedImage, offsetX, offsetY, drawW, drawH);
+            
+            // Render darkening gradient overlays to keep typography readable
+            const gradient = ctx.createLinearGradient(0, 0, w, 0);
+            if(activeTheme === 'dark') {
+                gradient.addColorStop(0, 'rgba(15,15,17,0.95)');
+                gradient.addColorStop(0.5, 'rgba(15,15,17,0.85)');
+                gradient.addColorStop(1, imageStyle === 'cover' ? 'rgba(15,15,17,0.4)' : 'rgba(15,15,17,0.95)');
+            } else {
+                gradient.addColorStop(0, 'rgba(245,245,247,0.98)');
+                gradient.addColorStop(0.6, 'rgba(245,245,247,0.88)');
+                gradient.addColorStop(1, imageStyle === 'cover' ? 'rgba(245,245,247,0.3)' : 'rgba(245,245,247,0.98)');
+            }
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, w, h);
+            ctx.restore();
+        }
+
+        function bakeCanvases() {
+            const isDark = activeTheme === 'dark';
+            const bgColor = isDark ? '#0F0F11' : '#F5F5F7';
+            const primaryText = isDark ? '#FFFFFF' : '#111115';
+            
+            const titleValue = titleInput.value.toUpperCase();
+            const tagValue = tagInput.value.toUpperCase();
+
+            // -------------------------------------------------------------
+            // 1. BAKE CLASSIC WIDE CANVAS (1200 x 400)
+            // -------------------------------------------------------------
+            const wideCanvas = document.getElementById('header-wide');
+            const wCtx = wideCanvas.getContext('2d');
+            wCtx.fillStyle = bgColor; wCtx.fillRect(0, 0, wideCanvas.width, wideCanvas.height);
+            
+            drawAbstractBackground(wCtx, wideCanvas.width, wideCanvas.height);
+            drawFeatureImage(wCtx, wideCanvas.width, wideCanvas.height);
+
+            // Left Side Core Identity Lockup Stack
+            drawQuantumPrism(wCtx, 80, 65, 0.8);
+            wCtx.fillStyle = primaryText;
+            wCtx.font = '900 22px "Plus Jakarta Sans"';
+            wCtx.fillText('UNLITIFY', 155, 95);
+
+            // Tag/Category Layer Accent
+            wCtx.fillStyle = '#ffaa00';
+            wCtx.font = '800 12px "Plus Jakarta Sans"';
+            wCtx.letterSpacing = "3px";
+            wCtx.fillText(tagValue, 82, 180);
+
+            // Main Header Title Text Wrapping Logic
+            wCtx.fillStyle = primaryText;
+            wCtx.font = '900 46px "Plus Jakarta Sans"';
+            wCtx.letterSpacing = "-1.5px";
+            
+            let words = titleValue.split(' ');
+            let line = '';
+            let currentY = 240;
+            const maxWidth = 750;
+            const lineHeight = 54;
+
+            for(let n = 0; n < words.length; n++) {
+                let testLine = line + words[n] + ' ';
+                if (wCtx.measureText(testLine).width > maxWidth && n > 0) {
+                    wCtx.fillText(line, 80, currentY);
+                    line = words[n] + ' ';
+                    currentY += lineHeight;
+                } else { line = testLine; }
+            }
+            wCtx.fillText(line, 80, currentY);
+
+            // -------------------------------------------------------------
+            // 2. BAKE COMPACT CARD CANVAS (380 x 200)
+            // -------------------------------------------------------------
+            const compCanvas = document.getElementById('header-compact');
+            const cCtx = compCanvas.getContext('2d');
+            cCtx.fillStyle = bgColor; cCtx.fillRect(0, 0, compCanvas.width, compCanvas.height);
+            
+            drawAbstractBackground(cCtx, compCanvas.width, compCanvas.height);
+            drawFeatureImage(cCtx, compCanvas.width, compCanvas.height);
+
+            // Mini Category Tag Layout Top Left
+            cCtx.fillStyle = '#ffaa00';
+            cCtx.font = '800 8px "Plus Jakarta Sans"';
+            cCtx.letterSpacing = "2px";
+            cCtx.fillText(tagValue, 24, 35);
+
+            // Compact Card Content Wrapping Logic
+            cCtx.fillStyle = primaryText;
+            cCtx.font = '900 18px "Plus Jakarta Sans"';
+            cCtx.letterSpacing = "-0.5px";
+
+            let cWords = titleValue.split(' ');
+            let cLine = '';
+            let cCurrentY = 75;
+            const cMaxWidth = 330;
+            const cLineHeight = 22;
+
+            for(let i = 0; i < cWords.length; i++) {
+                let testLine = cLine + cWords[i] + ' ';
+                if (cCtx.measureText(testLine).width > cMaxWidth && i > 0) {
+                    cCtx.fillText(cLine, 24, cCurrentY);
+                    cLine = cWords[i] + ' ';
+                    cCurrentY += cLineHeight;
+                } else { cLine = testLine; }
+            }
+            cCtx.fillText(cLine, 24, cCurrentY);
+
+            // Small footer stamp
+            cCtx.fillStyle = isDark ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)';
+            cCtx.font = '800 9px "Plus Jakarta Sans"';
+            cCtx.letterSpacing = "1px";
+            cCtx.fillText("UNLITIFY ENGINE", 24, 175);
+        }
+
+        // Action and Input File Attachment Handlers
+        fileInput.addEventListener('change', function(e) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                uploadedImage = new Image();
+                uploadedImage.onload = function() { bakeCanvases(); }
+                uploadedImage.src = event.target.result;
+            }
+            if(e.target.files[0]) reader.readAsDataURL(e.target.files[0]);
+        });
+
+        themeBtn.addEventListener('click', () => {
+            activeTheme = activeTheme === 'dark' ? 'light' : 'dark';
+            themeBtn.innerText = `BASE: ${activeTheme.toUpperCase()}`;
+            bakeCanvases();
+        });
+
+        overlayBtn.addEventListener('click', () => {
+            imageStyle = imageStyle === 'cover' ? 'subtle' : 'cover';
+            overlayBtn.innerText = `IMAGE: ${imageStyle.toUpperCase()}`;
+            bakeCanvases();
+        });
+
+        titleInput.addEventListener('input', bakeCanvases);
+        tagInput.addEventListener('input', bakeCanvases);
+
+        function downloadHeader(canvasId, name) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = `${name}.png`;
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(bakeCanvases, 300);
         });
     </script>
 </body>
+
 </html>
