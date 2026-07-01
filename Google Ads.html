@@ -1,165 +1,349 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlitify Strategy Audit</title>
+    <title>Unlitify Strategy Audit — Live Traffic Infrastructure</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-    <style>
-        ::selection { background: #00D1FF; color: #000; }
-        .funnel-input {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            orange: '#FF4000',
+                            dark: '#0A0A0A',
+                            accent: '#121212',
+                            owhite: {
+                                100: '#FAF8F5',
+                                200: '#F4EFEA',
+                                300: '#EAE2D5'
+                            }
+                        }
+                    }
+                }
+            }
         }
-        .funnel-input:focus {
-            background: rgba(0, 209, 255, 0.05);
-            border-color: #00D1FF;
-            box-shadow: 0 0 20px rgba(0, 209, 255, 0.1);
+    </script>
+
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+
+        ::selection {
+            background: #FF4000;
+            color: #ffffff;
+        }
+
+        /* AVIRAL2 Core Textures & Geometric Styling */
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.6);
+            border: 1px solid rgba(255, 64, 0, 0.08);
+            backdrop-filter: blur(16px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(255, 64, 0, 0.3);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 50px -10px rgba(255, 64, 0, 0.1);
             transform: translateY(-2px);
         }
-        .option-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
+
+        /* 3D Kinetic Card Engine */
+        .perspective-container {
+            perspective: 1200px;
         }
-        .option-card.active {
-            border-color: #00D1FF;
-            background: rgba(0, 209, 255, 0.1);
-            box-shadow: 0 0 25px rgba(0, 209, 255, 0.15);
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
         }
-        .step-content { animation: fadeInSlide 0.6s ease forwards; }
-        @keyframes fadeInSlide {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .perspective-container:hover .flip-card-inner {
+            transform: rotateY(180deg);
         }
-        .float-icon { animation: floating 3s ease-in-out infinite; }
-        @keyframes floating { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
     </style>
-<section class="min-h-screen bg-[#050505] text-white font-sans overflow-hidden">
-    
-    <div class="relative pt-32 pb-20 px-6 border-b border-white/5">
-        <div class="absolute top-0 right-0 w-full h-[600px] bg-blue-600/5 blur-[150px] rounded-full"></div>
-        
-        <div class="max-w-7xl mx-auto relative z-10">
-            <nav class="mb-12">
-                <a href="index.html" class="text-gray-500 hover:text-[#00D1FF] transition-all text-xs font-bold uppercase tracking-widest flex items-center gap-2">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Services
-                </a>
-            </nav>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="inline-block px-4 py-1 rounded-full border border-blue-500/30 text-blue-400 text-[10px] font-black uppercase tracking-[0.2em] mb-6 animate-pulse">Live Traffic Activation</span>
-                    <h1 class="text-5xl md:text-7xl font-black italic tracking-tighter mb-8 leading-[0.9]">
-                        BE SEEN WHEN <br><span class="text-[#00D1FF]">IT MATTERS.</span>
-                    </h1>
-                    <p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-lg mb-10">
-                        We place your brand at the exact moment of search. No scrolling, no waiting—just high-intent customers finding your solution first. 
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="audit.html" class="inline-block bg-[#00D1FF] text-black font-black px-10 py-5 rounded-2xl uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,209,255,0.3)] text-center">
-                            Launch My Campaign
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="relative">
-                    <div class="bg-zinc-900/80 border border-white/10 p-6 rounded-3xl backdrop-blur-xl shadow-2xl">
-                        <div class="flex items-center gap-2 mb-4">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="p-4 bg-white/5 rounded-xl border border-white/5">
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span class="text-[10px] font-bold text-gray-400 uppercase">Ad</span>
-                                    <span class="text-blue-400 text-sm font-bold">https://www.yourbrand.com</span>
-                                </div>
-                                <div class="text-[#00D1FF] text-lg font-bold mb-1">Elite Solutions for Scaling Your Business</div>
-                                <div class="text-gray-500 text-xs">Transform your ROI with Unlitify's data-driven Google Ad strategies. Scale today.</div>
-                            </div>
-                            <div class="flex justify-between items-center pt-4 border-t border-white/5">
-                                <span class="text-[10px] text-gray-500 uppercase tracking-widest">Live Performance</span>
-                                <span class="text-green-400 font-bold text-sm tracking-tighter">4.8x ROAS</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+</head>
+
+<body
+    class="bg-brand-dark text-neutral-200 antialiased font-sans selection:bg-brand-orange selection:text-white overflow-x-hidden">
+
+    <!-- Ambient Grid & Gradient Shadows -->
+    <div
+        class="absolute inset-0 bg-[linear-gradient(to_right,#1f1f1f12_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f12_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none">
+    </div>
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-gradient-to-b from-brand-orange/10 to-transparent blur-[140px] rounded-full pointer-events-none">
     </div>
 
-    <div class="py-24 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-zinc-900/20 p-8 rounded-3xl border border-white/5 hover:bg-[#00D1FF]/5 transition-all">
-                <div class="text-[#00D1FF] text-3xl mb-4"><i class="fa-solid fa-bolt"></i></div>
-                <h4 class="text-white font-bold mb-2 uppercase tracking-tighter">Instant Leads</h4>
-                <p class="text-gray-500 text-xs leading-relaxed">Skip the 6-month wait. Start appearing for your most profitable keywords within 24 hours.</p>
-            </div>
-            <div class="bg-zinc-900/20 p-8 rounded-3xl border border-white/5 hover:bg-[#00D1FF]/5 transition-all">
-                <div class="text-[#00D1FF] text-3xl mb-4"><i class="fa-solid fa-bullseye"></i></div>
-                <h4 class="text-white font-bold mb-2 uppercase tracking-tighter">Laser Targeting</h4>
-                <p class="text-gray-500 text-xs leading-relaxed">Target by location, device, time of day, and specific search behavior to minimize waste.</p>
-            </div>
-            <div class="bg-zinc-900/20 p-8 rounded-3xl border border-white/5 hover:bg-[#00D1FF]/5 transition-all">
-                <div class="text-[#00D1FF] text-3xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
-                <h4 class="text-white font-bold mb-2 uppercase tracking-tighter">Full Transparency</h4>
-                <p class="text-gray-500 text-xs leading-relaxed">Track every cent. We provide real-time dashboards showing exactly how your spend turns into revenue.</p>
-            </div>
-            <div class="bg-zinc-900/20 p-8 rounded-3xl border border-white/5 hover:bg-[#00D1FF]/5 transition-all">
-                <div class="text-[#00D1FF] text-3xl mb-4"><i class="fa-solid fa-microchip"></i></div>
-                <h4 class="text-white font-bold mb-2 uppercase tracking-tighter">AI Optimization</h4>
-                <p class="text-gray-500 text-xs leading-relaxed">We use advanced bidding scripts and AI to outmaneuver your competitors' manual bidding.</p>
-            </div>
-        </div>
-    </div>
+    <!-- Main Navigation Framework Row -->
+    <section class="relative min-h-screen pt-24 pb-32 px-4 sm:px-6 max-w-7xl mx-auto z-10" x-data="{ currentLogo: 1 }">
 
-    <div class="py-24 bg-[#080808] px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-black text-center mb-16 uppercase tracking-tighter italic">Our <span class="text-[#00D1FF]">Precision</span> Framework</h2>
-            
-            <div class="space-y-12">
-                <div class="flex gap-8">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-full border border-[#00D1FF] flex items-center justify-center text-[#00D1FF] font-black">1</div>
-                    <div>
-                        <h4 class="text-xl font-bold text-white mb-2 uppercase">Keyword Intelligence</h4>
-                        <p class="text-gray-500 text-sm">We find the "Money Keywords" your competitors missed, ensuring you don't pay for useless clicks.</p>
-                    </div>
-                </div>
-                <div class="flex gap-8">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-full border border-[#00D1FF] flex items-center justify-center text-[#00D1FF] font-black">2</div>
-                    <div>
-                        <h4 class="text-xl font-bold text-white mb-2 uppercase">High-Conversion Landing Pages</h4>
-                        <p class="text-gray-500 text-sm">Traffic is useless if it doesn't convert. we optimize your landing pages to ensure maximum capture of leads.</p>
-                    </div>
-                </div>
-                <div class="flex gap-8">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-full border border-[#00D1FF] flex items-center justify-center text-[#00D1FF] font-black">3</div>
-                    <div>
-                        <h4 class="text-xl font-bold text-white mb-2 uppercase">Aggressive Remarketing</h4>
-                        <p class="text-gray-500 text-sm">We follow potential customers across the web, staying top-of-mind until they are ready to close the deal.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="py-32 px-6 text-center">
-        <div class="max-w-3xl mx-auto p-12 bg-white/5 rounded-[40px] border border-white/10 relative overflow-hidden">
-            <div class="absolute -top-24 -right-24 w-64 h-64 bg-[#00D1FF]/10 rounded-full blur-[80px]"></div>
-            <h2 class="text-4xl font-black mb-6 uppercase italic">Start Scaling <span class="text-[#00D1FF]">Immediately</span></h2>
-            <p class="text-gray-500 mb-10 text-lg">Stop guessing with your marketing budget. Let Unlitify's Google Ads experts build your high-precision growth engine.</p>
-            <a href="audit.html" class="inline-block bg-[#00D1FF] text-black font-black px-12 py-6 rounded-2xl uppercase tracking-[0.2em] shadow-2xl hover:bg-white transition-all">
-                Claim My Strategy Audit
+        <nav class="mb-16 flex items-center justify-between border-b border-neutral-800/40 pb-6">
+            <a href="index.html"
+                class="group text-neutral-400 hover:text-white transition-colors text-[10px] uppercase tracking-widest font-bold flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left text-brand-orange transition-transform group-hover:-translate-x-1"></i>
+                Back to Services
             </a>
-        </div>
-    </div>
 
-</section>
+            <!-- Contextual Logo Rotator Engine -->
+            <div class="h-6 w-36 relative overflow-hidden hidden sm:block"
+                x-init="setInterval(() => currentLogo = currentLogo === 1 ? 2 : 1, 4500)">
+                <div class="absolute inset-0 flex items-center" x-show="currentLogo === 1"
+                    x-transition:enter="transition duration-500" x-transition:enter-start="opacity-0 translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition duration-400"
+                    x-transition:leave-end="opacity-0 -translate-y-2">
+                    <span class="font-black tracking-tighter text-xs uppercase text-white"><span class="text-brand-orange">■</span>
+                    UNLITIFY</span>
+                </div>
+                <div class="absolute inset-0 flex items-center" x-show="currentLogo === 2"
+                    x-transition:enter="transition duration-500" x-transition:enter-start="opacity-0 translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition duration-400"
+                    x-transition:leave-end="opacity-0 -translate-y-2">
+                    <span class="font-bold tracking-widest text-[9px] uppercase text-neutral-400">TRAFFIC ACQUISITION</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Block Component Column Matrix Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-32">
+
+            <!-- Hero Typography Column -->
+            <div class="lg:col-span-7 space-y-8">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-[10px] font-black uppercase tracking-[0.2em]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></span>
+                    Live Traffic Activation
+                </div>
+
+                <h1
+                    class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[0.85] text-white">
+                    BE SEEN WHEN <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-orange-500 to-orange-600 drop-shadow-[0_2px_30px_rgba(255,64,0,0.2)]">IT MATTERS.</span>
+                </h1>
+
+                <p class="text-neutral-400 text-lg md:text-xl leading-relaxed max-w-xl font-normal">
+                    We secure your layout footprint precisely at the point of intent. Zero friction, zero waiting
+                    cycles—capturing users exactly when they require your direct technical capability.
+                </p>
+
+                <div class="pt-4">
+                    <a href="audit.html"
+                        onclick="confetti({particleCount: 80, spread: 60, colors: ['#FF4000', '#0A0A0A']})"
+                        class="group inline-flex items-center gap-4 bg-brand-orange hover:bg-orange-600 text-white font-black text-xs uppercase tracking-widest px-8 py-5 rounded-full transition-all duration-300 shadow-[0_10px_30px_rgba(255,64,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,64,0,0.55)] transform hover:-translate-y-0.5">
+                        Launch My Campaign
+                        <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Visual Module Side Card -->
+            <div class="lg:col-span-5 perspective-container h-[340px]">
+                <div class="flip-card-inner">
+
+                    <!-- Card Facing Front Component -->
+                    <div
+                        class="flip-card-front glass-panel rounded-[32px] p-8 flex flex-col justify-between border border-neutral-800/80 bg-brand-accent/40">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                        </div>
+
+                        <div class="p-5 bg-neutral-900/80 rounded-2xl border border-neutral-800/60 space-y-3">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[9px] font-extrabold tracking-wider text-brand-orange bg-brand-orange/10 px-1.5 py-0.5 rounded border border-brand-orange/20 uppercase">Ad</span>
+                                <span class="text-neutral-500 text-xs font-medium">https://www.yourbrand.com</span>
+                            </div>
+                            <div class="text-white text-lg font-bold tracking-tight">Elite Solutions for Scaling Your
+                                Business</div>
+                            <div class="text-neutral-400 text-xs leading-relaxed">Transform your ROI with Unlitify's
+                                data-driven Google Ad strategies. Scale distribution networks today.</div>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center pt-4 border-t border-neutral-800/60 text-[11px] font-medium tracking-wide">
+                            <span class="text-neutral-500 uppercase">Live Metrics</span>
+                            <span class="text-emerald-400 font-bold flex items-center gap-1">4.8x ROAS <i class="fa-solid fa-arrow-trend-up"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Reverse Profile Framework Block -->
+                    <div
+                        class="flip-card-back glass-panel rounded-[32px] p-8 flex flex-col justify-between border border-brand-orange/30 bg-brand-dark/95">
+                        <div class="space-y-4">
+                            <div
+                                class="flex items-center gap-2 text-brand-orange text-xs font-bold uppercase tracking-wider">
+                                <i class="fa-solid fa-circle-nodes"></i> Real-time Algorithmic Bidding
+                            </div>
+                            <h3 class="text-xl font-black text-white tracking-tight">Dynamic Allocation Protocol</h3>
+                            <p class="text-xs text-neutral-400 leading-relaxed">
+                                System processes thousands of continuous auction bid variants via specialized scripts,
+                                isolating clean high-intent distributions while dropping target waste.
+                            </p>
+                        </div>
+                        <div
+                            class="p-4 rounded-2xl bg-brand-accent/80 border border-neutral-800/60 grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <div class="text-[9px] uppercase font-bold text-neutral-500">Impression Share</div>
+                                <div class="text-lg font-black text-white mt-0.5">> 89%</div>
+                            </div>
+                            <div>
+                                <div class="text-[9px] uppercase font-bold text-neutral-500">Conv. Liquidity</div>
+                                <div class="text-lg font-black text-emerald-500 mt-0.5">Optimal</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Metric Structural Separation Rows -->
+        <div
+            class="py-12 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 bg-brand-accent/30 rounded-[32px] border border-neutral-900/60 mb-32">
+            <div class="space-y-3 group">
+                <div class="text-brand-orange text-2xl"><i class="fa-solid fa-bolt"></i></div>
+                <h4 class="text-white font-bold text-base tracking-tight uppercase">Instant Leads</h4>
+                <p class="text-neutral-400 text-xs leading-relaxed font-light">Skip the long development cycles.
+                    Establish market visibility for ultra-high conversion queries inside 24 hours.</p>
+            </div>
+            <div class="space-y-3 group">
+                <div class="text-brand-orange text-2xl"><i class="fa-solid fa-bullseye"></i></div>
+                <h4 class="text-white font-bold text-base tracking-tight uppercase">Laser Targeting</h4>
+                <p class="text-neutral-400 text-xs leading-relaxed font-light">Segment audiences precisely across
+                    structural nodes, geolocation arrays, hardware setups, and real-time active behavior profiles.</p>
+            </div>
+            <div class="space-y-3 group">
+                <div class="text-brand-orange text-2xl"><i class="fa-solid fa-chart-line"></i></div>
+                <h4 class="text-white font-bold text-base tracking-tight uppercase">Full Transparency</h4>
+                <p class="text-neutral-400 text-xs leading-relaxed font-light">Track every transaction. We build
+                    real-time structural performance analytics showing capital-to-revenue ratios perfectly.</p>
+            </div>
+            <div class="space-y-3 group">
+                <div class="text-brand-orange text-2xl"><i class="fa-solid fa-microchip"></i></div>
+                <h4 class="text-white font-bold text-base tracking-tight uppercase">AI Optimization</h4>
+                <p class="text-neutral-400 text-xs leading-relaxed font-light">We program custom mathematical automation
+                    scripts to adjust auction pricing blocks dynamically, defeating manual strategies.</p>
+            </div>
+        </div>
+
+        <!-- The Mechanics / System Execution Grid Module -->
+        <div class="space-y-16 mb-32">
+            <div class="text-center space-y-2">
+                <p class="text-brand-orange uppercase tracking-widest text-[10px] font-black">Optimization Protocol</p>
+                <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">Our Precision Framework
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="group p-8 bg-brand-accent/40 border border-neutral-900 rounded-3xl space-y-6 hover:border-brand-orange/30 transition-all duration-300">
+                    <div class="flex items-center justify-between">
+                        <span class="text-4xl font-black text-neutral-800 group-hover:text-brand-orange/20 transition-colors">01</span>
+                        <div class="w-2 h-2 rounded-full bg-neutral-800 group-hover:bg-brand-orange transition-colors">
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">Keyword Intelligence</h4>
+                        <p class="text-neutral-400 text-xs leading-relaxed">
+                            We isolate hidden transactional value nodes inside intent matrix graphs, avoiding low-intent
+                            traffic structures to keep efficiency parameters absolute.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="group p-8 bg-brand-accent/40 border border-neutral-900 rounded-3xl space-y-6 hover:border-brand-orange/30 transition-all duration-300">
+                    <div class="flex items-center justify-between">
+                        <span class="text-4xl font-black text-neutral-800 group-hover:text-brand-orange/20 transition-colors">02</span>
+                        <div class="w-2 h-2 rounded-full bg-neutral-800 group-hover:bg-brand-orange transition-colors">
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">High-Conversion
+                            Components</h4>
+                        <p class="text-neutral-400 text-xs leading-relaxed">
+                            Traffic remains a vanity metric without proper ingestion pipelines. We refine your
+                            structural architecture layers to capture and extract lead vectors cleanly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="group p-8 bg-brand-accent/40 border border-neutral-900 rounded-3xl space-y-6 hover:border-brand-orange/30 transition-all duration-300">
+                    <div class="flex items-center justify-between">
+                        <span class="text-4xl font-black text-neutral-800 group-hover:text-brand-orange/20 transition-colors">03</span>
+                        <div class="w-2 h-2 rounded-full bg-neutral-800 group-hover:bg-brand-orange transition-colors">
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">Aggressive Remarketing
+                        </h4>
+                        <p class="text-neutral-400 text-xs leading-relaxed">
+                            We deploy sequential target scripts across programmatic tracking horizons, maintaining
+                            layout presence until purchase workflows successfully close.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conversion Structural CTA Matrix Row Box -->
+        <div
+            class="relative rounded-[40px] overflow-hidden bg-gradient-to-r from-brand-accent via-brand-dark to-brand-accent border border-neutral-900 p-12 md:p-16 text-center">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-orange/[0.03] to-transparent pointer-events-none">
+            </div>
+            <div class="max-w-2xl mx-auto space-y-6 relative z-10">
+                <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white uppercase">
+                    START SCALING <span class="text-brand-orange">IMMEDIATELY</span>
+                </h2>
+                <p class="text-neutral-400 text-sm max-w-md mx-auto leading-relaxed">
+                    Stop gambling with arbitrary marketing capital distributions. Let Unlitify build out your
+                    quantitative precision growth engines.
+                </p>
+                <div class="pt-4">
+                    <a href="audit.html"
+                        class="inline-block bg-white text-brand-dark font-black text-xs uppercase tracking-widest px-10 py-5 rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-xl">
+                        Claim My Strategy Audit
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
 </body>
+
 </html>
