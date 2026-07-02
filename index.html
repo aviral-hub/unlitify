@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
@@ -159,8 +163,8 @@
     :class="{ 'dark bg-brand-dark text-neutral-200': darkMode, 'bg-white text-brand-textCustom': !darkMode }"
     class="antialiased transition-colors duration-500">
 
-   
-            <!-- Floating Header -->
+
+    <!-- Floating Header -->
     <header
         class="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 rounded-full border border-neutral-200/40 dark:border-neutral-800/40 backdrop-blur-xl transition-all duration-300"
         :class="{ 'bg-brand-dark/60': darkMode, 'bg-white/60': !darkMode }"
@@ -171,19 +175,23 @@
                 <!-- Variant 1: Subtext Logo Layout -->
                 <div class="absolute inset-0 flex items-center transition-all duration-700 ease-in-out"
                     x-show="activeLogo === 1" x-transition:enter="transition ease-out duration-500 transform"
-                    x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:enter-start="opacity-0 translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0"
                     x-transition:leave="transition ease-in duration-400 transform"
-                    x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2">
-                    <svg id="variant-subtext-logo" class="h-9 w-auto text-brand-accent2" viewBox="0 0 460 120" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2">
+                    <svg id="variant-subtext-logo" class="h-9 w-auto text-brand-accent2" viewBox="0 0 460 120"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g class="prism-core" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                             <g transform="translate(10, 10)">
                                 <polygon class="prism-facet" points="25,50 50,20 75,35" fill="currentColor"
                                     fill-opacity="0.1" stroke="currentColor" />
-                                <polygon class="prism-facet" points="25,50 75,35 65,75" fill="none" stroke="currentColor" />
-                                <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none" stroke="currentColor"
-                                    stroke-opacity="0.5" />
-                                <polygon class="prism-facet" points="65,75 75,35 85,45" fill="none" stroke="currentColor" />
+                                <polygon class="prism-facet" points="25,50 75,35 65,75" fill="none"
+                                    stroke="currentColor" />
+                                <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none"
+                                    stroke="currentColor" stroke-opacity="0.5" />
+                                <polygon class="prism-facet" points="65,75 75,35 85,45" fill="none"
+                                    stroke="currentColor" />
                                 <line class="prism-ray" x1="25" y1="50" x2="85" y2="45" stroke="currentColor"
                                     stroke-opacity="0.4" />
                             </g>
@@ -191,21 +199,23 @@
                         <text x="125" y="66" :fill="darkMode ? '#FAF8F5' : 'var(--color-text)'"
                             font-family="'Inter', sans-serif" font-size="38" font-weight="900"
                             letter-spacing="0.01em">UNLITIFY</text>
-                        <text x="127" y="95" fill="var(--color-accent-4)" font-family="'Inter', sans-serif" font-size="13"
-                            font-weight="800" letter-spacing="0.32em">GROWTH PARTNER</text>
+                        <text x="127" y="95" fill="var(--color-accent-4)" font-family="'Inter', sans-serif"
+                            font-size="13" font-weight="800" letter-spacing="0.32em">GROWTH PARTNER</text>
                     </svg>
                 </div>
                 <!-- Variant 2: Inline Architecture Layout -->
                 <div class="absolute inset-0 flex items-center transition-all duration-700 ease-in-out"
                     x-show="activeLogo === 2" x-transition:enter="transition ease-out duration-500 transform"
-                    x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:enter-start="opacity-0 translate-y-2"
+                    x-transition:enter-end="opacity-100 translate-y-0"
                     x-transition:leave="transition ease-in duration-400 transform"
-                    x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2">
-                    <svg id="variant-inline-logo" class="h-7 w-auto text-brand-accent2" viewBox="0 0 520 100" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-2">
+                    <svg id="variant-inline-logo" class="h-7 w-auto text-brand-accent2" viewBox="0 0 520 100"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g class="prism-core" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon class="prism-facet" points="25,50 50,20 75,35" fill="currentColor" fill-opacity="0.1"
-                                stroke="currentColor" />
+                            <polygon class="prism-facet" points="25,50 50,20 75,35" fill="currentColor"
+                                fill-opacity="0.1" stroke="currentColor" />
                             <polygon class="prism-facet" points="25,50 75,35 65,75" fill="none" stroke="currentColor" />
                             <polygon class="prism-facet" points="75,35 50,20 85,45" fill="none" stroke="currentColor"
                                 stroke-opacity="0.5" />
@@ -226,7 +236,7 @@
             <nav class="hidden lg:flex items-center gap-5 text-[10px] uppercase tracking-widest font-bold opacity-80">
                 <a href="services.html" class="hover:text-brand-accent2 transition-colors">Services</a>
                 <a href="joinus.html" class="hover:text-brand-accent2 transition-colors">Join our Team</a>
-    
+
                 <!-- Industries Dropdown Module -->
                 <div class="relative group" @mouseenter="dropdownOpen = true" @mouseleave="dropdownOpen = false">
                     <button @click="dropdownOpen = !dropdownOpen" class="flex items-center gap-1.5 hover:text-brand-accent2 transition-colors focus:outline-none uppercase text-[10px] tracking-widest font-bold">
@@ -299,8 +309,9 @@
             <a href="services.html" @click="mobileMenuOpen = false"
                 class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Services</a>
             <a href="joinus.html" @click="mobileMenuOpen = false"
-                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Join Our Team</a>
-    
+                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Join
+                Our Team</a>
+
             <!-- Mobile Native Accordion for Industries -->
             <div x-data="{ localOpen: false }" class="flex flex-col gap-2">
                 <button @click="localOpen = !localOpen" class="text-xs uppercase tracking-wider font-bold py-1 flex items-center justify-between hover:text-brand-accent2 transition-colors">
@@ -313,13 +324,15 @@
                     class="pl-4 flex flex-col gap-2 border-l border-neutral-200/40 dark:border-neutral-800/40 text-[11px] font-semibold text-neutral-500">
                     <a href="education.html" @click="mobileMenuOpen = false"
                         class="hover:text-brand-accent2 py-1">Education</a>
-                    <a href="real-estate.html" @click="mobileMenuOpen = false" class="hover:text-brand-accent2 py-1">Real
+                    <a href="real-estate.html" @click="mobileMenuOpen = false"
+                        class="hover:text-brand-accent2 py-1">Real
                         Estate</a>
                     <a href="retail.html" @click="mobileMenuOpen = false" class="hover:text-brand-accent2 py-1">Clothes
                         & Retail</a>
                     <a href="healthcare.html" @click="mobileMenuOpen = false"
                         class="hover:text-brand-accent2 py-1">Healthcare</a>
-                    <a href="hospitality.html" @click="mobileMenuOpen = false" class="hover:text-brand-accent2 py-1">Cafe &
+                    <a href="hospitality.html" @click="mobileMenuOpen = false"
+                        class="hover:text-brand-accent2 py-1">Cafe &
                         Restaurant</a>
                 </div>
             </div>
@@ -329,7 +342,8 @@
                 class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">Case
                 study </a>
             <a href="about.html" @click="mobileMenuOpen = false"
-                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">About us
+                class="text-xs uppercase tracking-wider font-bold py-1 hover:text-brand-accent2 transition-colors">About
+                us
             </a>
             <a href="https://unlitify.vercel.app/audit.html" @click="mobileMenuOpen = false"
                 class="sm:hidden block text-center bg-brand-primary text-brand-neutralCustom text-xs font-bold uppercase tracking-widest py-2.5 rounded-full hover:bg-brand-accent1 transition-all mt-2">
@@ -732,58 +746,74 @@
                 </div>
             </section>
 
-<div id="popup-overlay" class="fixed inset-0 bg-[#111115]/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div id="popup-card" class="bg-white border border-zinc-200/80 w-full max-w-2xl rounded-[32px] shadow-2xl relative grid grid-cols-1 md:grid-cols-12 overflow-hidden transform scale-95 transition-all duration-300 max-h-[90vh] md:max-h-[620px]">
-            
-            <button onclick="closeGrowthPopup()" class="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900 bg-[#F5F5F7] p-2 rounded-full text-xs font-bold w-8 h-8 flex items-center justify-center z-50 transition">✕</button>
+            <div id="popup-overlay"
+                class="fixed inset-0 bg-[#111115]/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+                <div id="popup-card"
+                    class="bg-white border border-zinc-200/80 w-full max-w-2xl rounded-[32px] shadow-2xl relative grid grid-cols-1 md:grid-cols-12 overflow-hidden transform scale-95 transition-all duration-300 max-h-[90vh] md:max-h-[620px]">
 
-            <div class="md:col-span-6 bg-[#F5F5F7] border-r border-zinc-200 p-6 md:p-8 overflow-y-auto flex flex-col justify-between space-y-6">
-                <div class="space-y-4">
-                    <div class="flex items-center gap-2">
-                        <div class="w-4 h-4 relative flex items-center justify-center"><span class="absolute block w-full h-full border border-[#7a00ff] rotate-45 rounded-sm"></span></div>
-                        <span class="font-black text-[10px] tracking-widest uppercase text-[#111115]">UNLITIFY</span>
-                    </div>
-                    <h2 class="text-xl md:text-2xl font-black tracking-tight uppercase leading-tight text-[#111115]">
-                        🚀 Spend on Ads.<br><span class="text-[#7a00ff]">Not on Agency Fees.</span>
-                    </h2>
-                    <div class="space-y-2 text-xs md:text-sm font-medium text-zinc-600 leading-relaxed">
-                        <p class="font-bold text-zinc-900">Most businesses don't need another agency. They need a growth partner.</p>
-                        <p>That's why we're introducing our **30-Day Growth Partnership** blueprint.</p>
-                    </div>
-                    <div class="bg-white border border-zinc-200/60 rounded-xl p-4 space-y-2">
-                        <p class="text-[10px] font-mono font-bold text-[#ffaa00] tracking-wider uppercase">// INCLUSIONS (ZERO FEES):</p>
-                        <ul class="text-[11px] font-bold text-zinc-700 grid grid-cols-2 gap-x-2 gap-y-1">
-                            <li>📈 Strategy Plan</li>
-                            <li>🎯 Ad Setup</li>
-                            <li>🔍 Targeting Matrix</li>
-                            <li>📊 Pixel Tracking</li>
-                            <li>⚡ Weekly Optimization</li>
-                            <li>📑 Live Reports</li>
-                        </ul>
-                    </div>
-                </div>
-                <p class="text-[10px] font-mono text-zinc-400 leading-normal pt-4">No long-term contracts. No management fee for the first month. Just a direct chance to prove what a real growth system can do.</p>
-            </div>
+                    <button onclick="closeGrowthPopup()" class="absolute top-4 right-4 text-zinc-400 hover:text-zinc-900 bg-[#F5F5F7] p-2 rounded-full text-xs font-bold w-8 h-8 flex items-center justify-center z-50 transition">✕</button>
 
-            <div class="md:col-span-6 p-6 md:p-8 flex flex-col justify-center overflow-y-auto bg-white">
-                <div data-fs-success class="hidden flex-col items-center text-center space-y-3 py-12">
-                    <span class="text-4xl">⚡</span>
-                    <h3 class="text-lg font-black uppercase tracking-tight text-[#111115]">System Intake Complete</h3>
-                    <p class="text-xs text-zinc-500 font-medium max-w-xs">Your parameters are lodged. Our engine will review your qualification data and connect via email within 12 structural hours.</p>
-                </div>
-
-                <form id="growth-partnership-form" class="space-y-4">
-                    <div class="space-y-1">
-                        <h3 class="text-sm font-black uppercase text-[#111115] tracking-wide">Apply for Intake</h3>
-                        <p class="text-[11px] font-medium text-zinc-400">See if your business operations qualify.</p>
+                    <div
+                        class="md:col-span-6 bg-[#F5F5F7] border-r border-zinc-200 p-6 md:p-8 overflow-y-auto flex flex-col justify-between space-y-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-4 h-4 relative flex items-center justify-center">
+                                    <span class="absolute block w-full h-full border border-[#7a00ff] rotate-45 rounded-sm"></span>
+                                </div>
+                                <span class="font-black text-[10px] tracking-widest uppercase text-[#111115]">UNLITIFY</span>
+                            </div>
+                            <h2
+                                class="text-xl md:text-2xl font-black tracking-tight uppercase leading-tight text-[#111115]">
+                                🚀 Spend on Ads.<br><span class="text-[#7a00ff]">Not on Agency Fees.</span>
+                            </h2>
+                            <div class="space-y-2 text-xs md:text-sm font-medium text-zinc-600 leading-relaxed">
+                                <p class="font-bold text-zinc-900">Most businesses don't need another agency. They need
+                                    a growth partner.</p>
+                                <p>That's why we're introducing our **30-Day Growth Partnership** blueprint.</p>
+                            </div>
+                            <div class="bg-white border border-zinc-200/60 rounded-xl p-4 space-y-2">
+                                <p class="text-[10px] font-mono font-bold text-[#ffaa00] tracking-wider uppercase">//
+                                    INCLUSIONS (ZERO FEES):</p>
+                                <ul class="text-[11px] font-bold text-zinc-700 grid grid-cols-2 gap-x-2 gap-y-1">
+                                    <li>📈 Strategy Plan</li>
+                                    <li>🎯 Ad Setup</li>
+                                    <li>🔍 Targeting Matrix</li>
+                                    <li>📊 Pixel Tracking</li>
+                                    <li>⚡ Weekly Optimization</li>
+                                    <li>📑 Live Reports</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-mono text-zinc-400 leading-normal pt-4">No long-term contracts. No
+                            management fee for the first month. Just a direct chance to prove what a real growth system
+                            can do.</p>
                     </div>
-                    <div data-fs-error class="text-xs font-bold text-red-600 font-mono hidden">// ERROR SUBMITTING DATA LAYER</div>
-                    <div class="space-y-3">
-                        <input type="text" name="name" placeholder="Full Name" required data-fs-field class="w-full bg-[#F5F5F7] border border-zinc-200 focus:border-[#7a00ff] focus:bg-white text-xs font-semibold px-4 py-3 rounded-xl outline-none text-[#111115] transition-all" />
-                        <input type="email" name="email" placeholder="Business Email Address" required data-fs-field class="w-full bg-[#F5F5F7] border border-zinc-200 focus:border-[#7a00ff] focus:bg-white text-xs font-semibold px-4 py-3 rounded-xl outline-none text-[#111115] transition-all" />
-                        <span data-fs-error="email" class="text-[10px] font-mono text-red-500 block mt-1"></span>
-                        <input type="tel" name="phone" placeholder="Phone Number / WhatsApp" required data-fs-field class="w-full bg-[#F5F5F7] border border-zinc-200 focus:border-[#7a00ff] focus:bg-white text-xs font-semibold px-4 py-3 rounded-xl outline-none text-[#111115] transition-all" />
-                        <select name="industry" required data-fs-field class="w-full bg-[#F5F5F7] border border-zinc-200 focus:border-[#7a00ff] focus:bg-white text-xs font-semibold px-4 py-3 rounded-xl outline-none text-zinc-500 transition-all appearance-none cursor-pointer">
+
+                    <div class="md:col-span-6 p-6 md:p-8 flex flex-col justify-center overflow-y-auto bg-white">
+                        <div data-fs-success class="hidden flex-col items-center text-center space-y-3 py-12">
+                            <span class="text-4xl">⚡</span>
+                            <h3 class="text-lg font-black uppercase tracking-tight text-[#111115]">System Intake
+                                Complete</h3>
+                            <p class="text-xs text-zinc-500 font-medium max-w-xs">Your parameters are lodged. Our engine
+                                will review your qualification data and connect via email within 12 structural hours.
+                            </p>
+                        </div>
+
+                        <form id="growth-partnership-form" class="space-y-4">
+                            <div class="space-y-1">
+                                <h3 class="text-sm font-black uppercase text-[#111115] tracking-wide">Apply for Intake
+                                </h3>
+                                <p class="text-[11px] font-medium text-zinc-400">See if your business operations
+                                    qualify.</p>
+                            </div>
+                            <div data-fs-error class="text-xs font-bold text-red-600 font-mono hidden">// ERROR
+                                SUBMITTING DATA LAYER</div>
+                            <div class="space-y-3">
+                                <input type="text" name="name" placeholder="Full Name" required data-fs-field class="w-full bg-[#F5F5F7] border border-zinc-200 focus:border-[#7a00ff] focus:bg-white text-xs font-semibold px-4 py-3 rounded-xl outline-none text-[#111115] transition-all" />
+                                <input type="email" name="email" placeholder="Business Email Address" required data-fs-field class="w-full bg-[#F5F5F7] border border-zinc-200 focus:border-[#7a00ff] focus:bg-white text-xs font-semibold px-4 py-3 rounded-xl outline-none text-[#111115] transition-all" />
+                                <span data-fs-error="email" class="text-[10px] font-mono text-red-500 block mt-1"></span>
+                                <input type="tel" name="phone" placeholder="Phone Number / WhatsApp" required data-fs-field class="w-full bg-[#F5F5F7] border border-zinc-200 focus:border-[#7a00ff] focus:bg-white text-xs font-semibold px-4 py-3 rounded-xl outline-none text-[#111115] transition-all" />
+                                <select name="industry" required data-fs-field class="w-full bg-[#F5F5F7] border border-zinc-200 focus:border-[#7a00ff] focus:bg-white text-xs font-semibold px-4 py-3 rounded-xl outline-none text-zinc-500 transition-all appearance-none cursor-pointer">
                             <option value="" disabled selected>Select Industry Vertical</option>
                             <option value="education">🎓 Education</option>
                             <option value="healthcare">🏥 Healthcare</option>
@@ -792,15 +822,15 @@
                             <option value="retail">👕 Fashion & Retail</option>
                             <option value="other">⚙️ Other High-Growth Enterprise</option>
                         </select>
+                            </div>
+                            <button type="submit" data-fs-submit-btn class="w-full bg-[#7a00ff] hover:bg-[#6400d6] disabled:bg-zinc-300 text-white text-xs font-black uppercase tracking-widest py-3.5 rounded-xl transition shadow-md shadow-[#7a00ff]/10">Book Consultation →</button>
+                        </form>
                     </div>
-                    <button type="submit" data-fs-submit-btn class="w-full bg-[#7a00ff] hover:bg-[#6400d6] disabled:bg-zinc-300 text-white text-xs font-black uppercase tracking-widest py-3.5 rounded-xl transition shadow-md shadow-[#7a00ff]/10">Book Consultation →</button>
-                </form>
-            </div>
 
-        </div>
-    </div>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
+                </div>
+            </div>
+            <script>
+                window.addEventListener('DOMContentLoaded', () => {
             if (!localStorage.getItem('unlitify_banner_dismissed')) {
                 setTimeout(openGrowthPopup, 3000); // Triggers automatically 3 seconds after page load
             }
@@ -840,15 +870,94 @@
                 localStorage.setItem('unlitify_banner_dismissed', 'true');
             }
         });
-    </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+            </script>
+            <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 
+<!-- Psychologically Driven 5-Min Discovery Conversion Section -->
+<section class="py-24 px-6 relative overflow-hidden transition-colors duration-500 border-t"
+    :class="{ 'bg-gradient-to-b from-neutral-50 to-white border-neutral-100': !darkMode, 'bg-gradient-to-b from-[#0e0a16] via-brand-dark to-brand-dark border-neutral-900': darkMode }">
 
+    <!-- Ambient Radial Background Glows -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] rounded-full blur-[130px] -z-10 opacity-40 transition-colors duration-500"
+        :class="darkMode ? 'bg-brand-accent2/20' : 'bg-brand-primary/20'"></div>
 
-            <!-- NEW SECTION SLOP (Paste your future 3rd sections using this background layout configuration below) -->
-            <!-- <section class="py-32 px-6 border-t bg-white dark:bg-brand-dark text-brand-textCustom dark:text-white transition-colors duration-500"> ... </section> -->
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+        <!-- Micro Badge -->
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6 border animate-pulse"
+                :class="darkMode ? 'border-brand-primary/30 text-brand-primary bg-brand-primary/5' : 'border-neutral-200 text-brand-accent1 bg-amber-50'">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-primary"></span> Zero Cost • Limited Slots Available
+        </span>
 
+        <!-- High-Impact Problem Headline -->
+        <h2 class="text-4xl md:text-6xl font-black tracking-tight uppercase leading-[1.05] mb-6">
+            Stuck in a Growth Plateau?<br>
+            <span class="bg-gradient-to-r from-brand-primary via-brand-accent4 to-brand-accent2 bg-clip-text text-transparent">
+                    Let's Fix It In 5 Minutes.
+                </span>
+        </h2>
+
+        <!-- Direct Value Proposition -->
+        <p class="text-base md:text-lg max-w-2xl mx-auto mb-12 font-normal leading-relaxed"
+            :class="darkMode ? 'text-neutral-400' : 'text-neutral-600'">
+            No long-winded pitch. No sales fluff. Just a hyper-focused, 300-second strategic alignment check where we
+            uncover your exact conversion leakages and lay down the framework to solve them.
+        </p>
+
+        <!-- Psychological Step-by-Step Architecture -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-14 text-left">
+            <!-- Step 1 -->
+            <div class="p-5 rounded-2xl border backdrop-blur-sm transition-all duration-300"
+                :class="darkMode ? 'bg-black/40 border-neutral-800/60 hover:border-neutral-700' : 'bg-white/80 border-neutral-200/60 hover:border-neutral-300'">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-6 h-6 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center font-mono text-xs font-bold">01</span>
+                    <h3 class="text-xs font-black uppercase tracking-wider">Isolate the Leak</h3>
+                </div>
+                <p class="text-[11px] leading-relaxed opacity-75">We pinpoint exactly where you are losing high-intent
+                    customers right now.</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="p-5 rounded-2xl border backdrop-blur-sm transition-all duration-300"
+                :class="darkMode ? 'bg-black/40 border-neutral-800/60 hover:border-neutral-700' : 'bg-white/80 border-neutral-200/60 hover:border-neutral-300'">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-6 h-6 rounded-lg bg-brand-accent2/10 text-brand-accent2 flex items-center justify-center font-mono text-xs font-bold">02</span>
+                    <h3 class="text-xs font-black uppercase tracking-wider">Deploy Blueprint</h3>
+                </div>
+                <p class="text-[11px] leading-relaxed opacity-75">We map out our premium engineering strategy to scale
+                    your brand authority.</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="p-5 rounded-2xl border backdrop-blur-sm transition-all duration-300"
+                :class="darkMode ? 'bg-black/40 border-neutral-800/60 hover:border-neutral-700' : 'bg-white/80 border-neutral-200/60 hover:border-neutral-300'">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-6 h-6 rounded-lg bg-brand-accent4/10 text-brand-accent4 flex items-center justify-center font-mono text-xs font-bold">03</span>
+                    <h3 class="text-xs font-black uppercase tracking-wider">Unstoppable Growth</h3>
+                </div>
+                <p class="text-[11px] leading-relaxed opacity-75">You leave with concrete, execution-ready tactics
+                    whether you hire us or not.</p>
+            </div>
+        </div>
+<!-- Ultimate High-Intent Call To Action -->
+<div class="inline-flex flex-col items-center gap-3">
+    <!-- Core Calendly Script Drivers Embedded to Trigger Popup Natively -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+    <button
+                    onclick="Calendly.initPopupWidget({url: 'https://calendly.com/aviral-unlitify/new-meeting'}); return false;"
+                    class="group relative inline-flex bg-brand-primary text-brand-neutralCustom font-black text-xs uppercase tracking-widest px-12 py-5 rounded-full hover:bg-brand-accent1 hover:text-white transition-all shadow-xl shadow-brand-primary/20 scale-100 hover:scale-[1.02] active:scale-[0.98] cursor-pointer">
+                    <span class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone-volume animate-[bounce_1s_infinite]"></i> Claim Your Free 5-Min Audit
+                    </span>
+                </button>
+
+    <span class="text-[10px] font-mono tracking-wide opacity-50 flex items-center gap-1.5">
+                    <i class="fa-solid fa-calendar-days text-[9px]"></i> Instantly opens live available calendar windows
+                </span>
+</div>
+            
 </body>
 
 </html>
